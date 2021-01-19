@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://text_window.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/text_bg.jpg-294bb2ecc7a7d6b44aa91d4848471a0a.stex"
+
+[node name="text_window" type="Sprite"]
+position = Vector2( 180.5, 90.5 )
+scale = Vector2( 0.535556, 0.581481 )
+z_index = 10
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+z_index = -1
+texture = SubResource( 1 )
+
+[node name="close" type="Button" parent="."]
+margin_left = 163.72
+margin_top = -128.901
+margin_right = 209.72
+margin_bottom = -108.901
+text = "close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
