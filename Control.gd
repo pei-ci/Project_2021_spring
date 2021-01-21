@@ -1,5 +1,5 @@
 extends Control
-#這裡目前有3個物件，分別是login/world/puzzle請從左下角的欄位中先找到tscn檔並打開，新增新物件時請更新本行
+#這裡目前有3個物件，分別是login/world/puzzle/text_window/HUD/emergency請從左下角的欄位中先找到tscn檔並打開，新增新物件時請更新本行
 #2麻煩妳先跟1討論，並設定好3個帳號，以利接下來你要設置各種畫面時的有效性
 var player_account = []
 
