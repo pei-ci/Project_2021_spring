@@ -10,10 +10,10 @@ script = ExtResource( 2 )
 position = Vector2( 159.81, 99.8438 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 0.667419
-margin_top = 1.33484
-margin_right = 29.6674
-margin_bottom = 22.3348
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 21.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,4 +31,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Button" to="text_window" method="_on_Button_pressed"]
-[connection signal="pressed" from="Button2" to="text_window2" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

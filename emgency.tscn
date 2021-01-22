@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://emgency.gd" type="Script" id=1]
 [ext_resource path="res://text_window.tscn" type="PackedScene" id=2]
-[ext_resource path="res://text.gd" type="Script" id=3]
-[ext_resource path="res://text_embergency.gd" type="Script" id=4]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/驚嘆號.png-506cc96cba45363cbec10aa952dac4f1.stex"
 
 [node name="emergency" type="Sprite"]
+position = Vector2( 0, 3 )
 script = ExtResource( 1 )
 
 [node name="Button_emergency" type="Button" parent="."]
@@ -33,17 +32,39 @@ texture = SubResource( 1 )
 wait_time = 2.0
 autostart = true
 
-[node name="text_embergency" type="Sprite" parent="."]
-script = ExtResource( 4 )
+[node name="option" type="Sprite" parent="."]
+z_index = 10
 
-[node name="text" type="RichTextLabel" parent="text_embergency"]
-margin_left = 117.0
-margin_top = 33.0
-margin_right = 261.0
-margin_bottom = 122.0
-script = ExtResource( 3 )
+[node name="A" type="Button" parent="option"]
+margin_left = 103.242
+margin_top = 108.27
+margin_right = 126.242
+margin_bottom = 128.27
+text = "A"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button_emergency" to="text_window_emergency" method="_on_Button_emergency_pressed"]
+
+[node name="B" type="Button" parent="option"]
+margin_left = 174.973
+margin_top = 110.459
+margin_right = 195.973
+margin_bottom = 130.459
+text = "B"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="Button" parent="option"]
+margin_left = 234.218
+margin_top = 107.676
+margin_right = 255.218
+margin_bottom = 127.676
+text = "C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button_emergency" to="." method="_on_Button_emergency_pressed"]
+[connection signal="pressed" from="option/A" to="." method="_on_A_pressed"]
+[connection signal="pressed" from="option/B" to="." method="_on_B_pressed"]
+[connection signal="pressed" from="option/C" to="." method="_on_C_pressed"]
