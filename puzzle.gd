@@ -1,6 +1,6 @@
 extends Sprite
 
-#var 狀態的紀錄
+#2var 狀態的紀錄
 
 
 
@@ -28,13 +28,15 @@ func _ready():
 
 
 func _set_up():
-	#登入後狀態的設定
+	#2狀態的設定
 	pass
 
 
 #關於計分方式我沒有研究，就麻煩2幫我寫在visible true後面了
 #還有，圖片記得要換，不然會很鬧
 #接收條件，up_grade是什麼你們都懂吧
+
+#2puzzle規則設定和處理 內容還會再修改和增加
 func _on_item_pressed(id):
 	var item_name= $MenuButton.get_popup().get_item_text(id)
 	
@@ -133,4 +135,3 @@ func _on_item_pressed(id):
 
 func _on_Timer_timeout():
 	pass
-	#一，這段是給你設定隨機事件的，時間我設定半天，想要修改就到timer那邊的右上角調整秒數

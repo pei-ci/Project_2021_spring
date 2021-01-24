@@ -1,5 +1,5 @@
 extends Label
-
+#突發事件專用 文字label
 
 var FILE_NUM = 2 #突發事件的數量
 var file = 'res://default.txt'
@@ -12,19 +12,17 @@ var file2 = 'res://emergency_02.txt'
 func _ready():
 	text =_load_file(file)
 
-
-func _load_file(file): #隨機選擇隨機事件並讀取對應題目
+#讀取檔案
+func _load_file(file_output): 
 	var f = File.new()
-	f.open(file,File.READ)
+	f.open(file_output,File.READ)
 	var line=""
-	var index = 1
 	while not f.eof_reached():
 		line = line + "\n" + f.get_line()
-		index += 1
 	f.close()
 	return line
 	
-
+#隨機選擇突發事件並讀取對應題目
 func _set_file():
 	var num=_random(1,FILE_NUM)
 	if num==1:

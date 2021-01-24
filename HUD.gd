@@ -1,5 +1,6 @@
 extends Node2D
-
+#menu的介面
+#2底圖和text的內容都還需再設定
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

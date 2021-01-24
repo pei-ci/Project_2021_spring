@@ -141,10 +141,6 @@ position = Vector2( 1.7417, 0.254992 )
 scale = Vector2( 0.908065, 1.07618 )
 texture = SubResource( 12 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 43200.0
-autostart = true
-
 [node name="puddle3" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.67044, 0.501129 )
@@ -175,4 +171,8 @@ visible = false
 position = Vector2( 1.1693, 0.473289 )
 scale = Vector2( 1, 1.05767 )
 texture = SubResource( 17 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 43200.0
+autostart = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
