@@ -3,9 +3,7 @@ extends Sprite
 func _ready():
 	$background.visible = false
 	$close.visible = false
-	var language = ["en" , "cmn_TW"]
-	TranslationServer.set_locale("cmn_TW")
-	$text.text="你好"
+	$text.text="你好"  #此text為測試用
 	pass # Replace with function body.
 
 
@@ -14,5 +12,6 @@ func _on_close_pressed():
 	$background.visible = false
 	$close.visible = false
 	$text.visible = false
+	$text_emergency.visible = false
 	emit_signal("timer_continue")
 	

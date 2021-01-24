@@ -4,7 +4,7 @@
 [ext_resource path="res://text_window.tscn" type="PackedScene" id=2]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/驚嘆號.png-506cc96cba45363cbec10aa952dac4f1.stex"
+load_path = "res://.import/突發事件驚嘆號一版.png-5f531c714ea30830ec55798f532e3069.stex"
 
 [node name="emergency" type="Sprite"]
 position = Vector2( 0, 3 )
@@ -13,7 +13,7 @@ script = ExtResource( 1 )
 [node name="Button_emergency" type="Button" parent="."]
 margin_left = 100.0
 margin_top = 24.0
-margin_right = 116.0
+margin_right = 112.0
 margin_bottom = 44.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -22,11 +22,12 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="Button_emergency"]
-position = Vector2( 8.52288, 9.45933 )
-scale = Vector2( 0.989264, 0.938535 )
+position = Vector2( 3.6744, 10.8569 )
+scale = Vector2( 1.11152, 1.18321 )
 texture = SubResource( 1 )
 
 [node name="text_window_emergency" parent="." instance=ExtResource( 2 )]
+position = Vector2( 178.042, 82.8967 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -36,6 +37,7 @@ autostart = true
 z_index = 10
 
 [node name="A" type="Button" parent="option"]
+visible = false
 margin_left = 103.242
 margin_top = 108.27
 margin_right = 126.242
@@ -46,16 +48,18 @@ __meta__ = {
 }
 
 [node name="B" type="Button" parent="option"]
-margin_left = 174.973
-margin_top = 110.459
-margin_right = 195.973
-margin_bottom = 130.459
+visible = false
+margin_left = 169.782
+margin_top = 107.627
+margin_right = 190.782
+margin_bottom = 127.627
 text = "B"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="C" type="Button" parent="option"]
+visible = false
 margin_left = 234.218
 margin_top = 107.676
 margin_right = 255.218

@@ -7,9 +7,9 @@ var width=150
 
 var emergency_probability
 #var random_probability
-var puzzle_on_map #=total puzzle-未拼上的總片數 
-#這裡需要做資料的獲取
+var puzzle_on_map #=total puzzle-未拼上的總片數 #這裡需要做資料的獲取
 
+var file_emergency_num #隨機事件的題號
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -24,7 +24,7 @@ func _ready():
 	$option/B.visible = false
 	$option/C.visible = false
 
-func _on_Timer_timeout():
+func _on_Timer_timeout():#決定是否出現隨機事件
 	#目前設定規則:每隔固定的時間會取亂數決定是否出現隨機事件 若沒有按掉隨機事件會在下一次timeout消失(除非又出現隨機事件)
 	#當視窗開啟計時停止，當視窗關閉才會再開始
 	#根據emergency_probability的數量作為亂數total 取到1隨機事件發生
@@ -40,13 +40,14 @@ func _on_Timer_timeout():
 	 
 	
 
-func _on_Button_emergency_pressed(): #點開隨機事件的icon
+func _on_Button_emergency_pressed(): #點開隨機事件
 	#計時暫停
 	$Timer.paused=true
 	#跳出訊息畫面
 	$text_window_emergency/background.visible = true
 	$text_window_emergency/close.visible = true
-	$text_window_emergency/text.visible = true
+	file_emergency_num = $text_window_emergency/text_emergency._set_file() #隨機選擇文檔 #獲取題號
+	$text_window_emergency/text_emergency.visible = true
 	#option 出現
 	$option/A.visible = true
 	$option/B.visible = true
@@ -56,8 +57,6 @@ func _on_Button_emergency_pressed(): #點開隨機事件的icon
 	
 	
 	
-func _timer_continue(): #當txtex_window_emergency的close被執行 傳出"timer_continue"訊號時 Timer繼續開始數
-	$Timer.paused=false
 
 
 #取亂數
@@ -77,6 +76,10 @@ func _get_emergency_probability(num):
 	else:
 		probability=5
 	return probability
+
+
+func _timer_continue(): #當txtex_window_emergency的close被執行 傳出"timer_continue"訊號時 Timer繼續開始數
+	$Timer.paused=false
 
 func _close_window():
 	$option/A.visible = false

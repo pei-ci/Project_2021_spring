@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://text_window.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://text_emergency.gd" type="Script" id=3]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/text_bg.jpg-294bb2ecc7a7d6b44aa91d4848471a0a.stex"
 
 [sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
 [node name="text_window" type="Sprite"]
@@ -33,12 +37,24 @@ __meta__ = {
 
 [node name="text" type="Label" parent="."]
 visible = false
+margin_left = -150.0
+margin_top = -76.0
+margin_right = 145.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_emergency" type="Label" parent="."]
+visible = false
 margin_left = -175.0
 margin_top = -102.0
 margin_right = 182.0
 margin_bottom = 107.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

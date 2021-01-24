@@ -1,0 +1,44 @@
+extends Label
+
+
+var FILE_NUM = 2 #突發事件的數量
+var file = 'res://default.txt'
+#隨機事件的檔案
+var file_default = file
+var file1 = 'res://emergency_01.txt'
+var file2 = 'res://emergency_02.txt'
+# Called when the node enters the scene tree for the first time.
+
+func _ready():
+	text =_load_file(file)
+
+
+func _load_file(file): #隨機選擇隨機事件並讀取對應題目
+	var f = File.new()
+	f.open(file,File.READ)
+	var line=""
+	var index = 1
+	while not f.eof_reached():
+		line = line + "\n" + f.get_line()
+		index += 1
+	f.close()
+	return line
+	
+
+func _set_file():
+	var num=_random(1,FILE_NUM)
+	if num==1:
+		file=file1
+	elif num==2:
+		file=file2
+	else:
+		file=file_default
+	text = _load_file(file)
+	return num     #告知此題是哪題 用在選項選擇的判斷上
+
+#取亂數
+var rand=RandomNumberGenerator.new()
+func _random(begin,end):
+	rand.randomize()
+	var random_num=rand.randi_range(begin,end)
+	return random_num

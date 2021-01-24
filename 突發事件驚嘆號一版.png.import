@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/驚嘆號.png-506cc96cba45363cbec10aa952dac4f1.stex"
+path="res://.import/突發事件驚嘆號一版.png-5f531c714ea30830ec55798f532e3069.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://驚嘆號.png"
-dest_files=[ "res://.import/驚嘆號.png-506cc96cba45363cbec10aa952dac4f1.stex" ]
+source_file="res://突發事件驚嘆號一版.png"
+dest_files=[ "res://.import/突發事件驚嘆號一版.png-5f531c714ea30830ec55798f532e3069.stex" ]
 
 [params]
 
