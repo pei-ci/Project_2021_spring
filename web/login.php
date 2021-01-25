@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$email = $_POST['email'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 
 //Open a new connection to the MySQL server
@@ -13,8 +13,8 @@ if ($mysqli->connect_error) {
     die('Error : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 
-$query = "SELECT * FROM members WHERE email='$email'";
-$result = mysqli_query($mysqli, $query) or die(mysqli_error());
+$query = "SELECT * FROM members WHERE username='$username'";
+$result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
 $num_row = mysqli_num_rows($result);
 $row = mysqli_fetch_array($result);
 
