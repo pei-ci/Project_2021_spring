@@ -32,27 +32,26 @@ margin_right = 275.0
 margin_bottom = 132.0
 
 [node name="Sprite" type="Sprite" parent="CenterContainer/VBoxContainer"]
-position = Vector2( 86.3608, 27.077 )
-scale = Vector2( 0.78452, 0.660138 )
+position = Vector2( 91.4639, 42.8797 )
+scale = Vector2( 0.762802, 0.496741 )
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = -20.0
 margin_right = 190.0
-margin_bottom = -1.0
+margin_bottom = 19.0
 text = "login"
 align = 1
 uppercase = true
 
 [node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer"]
-margin_top = 13.0
+margin_top = 23.0
 margin_right = 190.0
-margin_bottom = 42.0
+margin_bottom = 52.0
 
 [node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer"]
-margin_top = 51.0
+margin_top = 56.0
 margin_right = 190.0
-margin_bottom = 80.0
+margin_bottom = 85.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_user_changed"]

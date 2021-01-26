@@ -1,9 +1,9 @@
 extends Control
 #這裡目前有3個物件，分別是login/world/puzzle請從左下角的欄位中先找到tscn檔並打開，新增新物件時請更新本行
 #2麻煩妳先跟1討論，並設定好3個帳號，以利接下來你要設置各種畫面時的有效性
-var player_account = []
 var username = ""
 var password = ""
+var login_certification = ""
 #signal request_completed
 
 func _ready():
@@ -35,11 +35,17 @@ func connect_to_sever():
 
 func post_to_server():
 	#var query= "email="+ username + "&password="+ password
-	var body := { "email": username, "password": password}
-	#print(query)
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",PoolStringArray(),false,HTTPClient.METHOD_POST,to_json(body))
+	var body := {"type" : 'login',"email": username, "password": password}
+	print(body)
+	var headers = ["Content-Type: application/json"]
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 	pass
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	print(body.get_string_from_utf8())
-	get_tree().change_scene("res://world.tscn")
+	print(body.get_string_from_utf8());
+	if(body.get_string_from_utf8() == 'true'):
+		get_tree().change_scene("res://world.tscn")
+	else:
+		print("Login Error!");
+	
+	
