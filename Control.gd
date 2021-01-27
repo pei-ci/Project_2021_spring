@@ -3,7 +3,7 @@ extends Control
 #2麻煩妳先跟1討論，並設定好3個帳號，以利接下來你要設置各種畫面時的有效性
 var username = ""
 var password = ""
-var login_certification = ""
+var login_certification = "19900101"
 #signal request_completed
 
 func _ready():
@@ -35,15 +35,17 @@ func connect_to_sever():
 
 func post_to_server():
 	#var query= "email="+ username + "&password="+ password
-	var body := {"type" : 'login',"email": username, "password": password}
+	var body := {"type" : 'login',"number": username, "password": password}
 	print(body)
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 	pass
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	print(body.get_string_from_utf8());
-	if(body.get_string_from_utf8() == 'true'):
+	#print(body.get_string_from_utf8());
+	var respond = body.get_string_from_utf8()
+	if(respond.substr(0,4) == 'true'):
+		print("Login Success!")
 		get_tree().change_scene("res://world.tscn")
 	else:
 		print("Login Error!");
