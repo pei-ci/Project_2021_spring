@@ -3,7 +3,7 @@ extends Control
 #2麻煩妳先跟1討論，並設定好3個帳號，以利接下來你要設置各種畫面時的有效性
 var username = ""
 var password = ""
-var login_certification = "19900101"
+var login_certification = "0000000000000000000"
 #signal request_completed
 
 func _ready():
@@ -42,9 +42,11 @@ func post_to_server():
 	pass
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	#print(body.get_string_from_utf8());
+	print(body.get_string_from_utf8());
 	var respond = body.get_string_from_utf8()
 	if(respond.substr(0,4) == 'true'):
+		login_certification = respond.substr(4,19)
+		#print(login_certification)
 		print("Login Success!")
 		get_tree().change_scene("res://world.tscn")
 	else:
