@@ -31,9 +31,9 @@ func connect_to_sever():
 	#var err = $HTTPRequest.request(url)
 	#if(err!=OK):
 	#	print("Error Happened!")
-	post_to_server()
+	login_to_server()
 
-func post_to_server():
+func login_to_server():
 	#var query= "email="+ username + "&password="+ password
 	var body := {"type" : 'login',"number": username, "password": password}
 	print(body)
