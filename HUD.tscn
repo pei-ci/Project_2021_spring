@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="text_window" parent="." instance=ExtResource( 1 )]
-position = Vector2( 159.81, 99.8438 )
+position = Vector2( 154.471, 98.509 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 1.0

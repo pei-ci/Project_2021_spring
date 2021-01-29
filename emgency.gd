@@ -2,20 +2,19 @@ extends Sprite
 
 #突發事件的處理、流程(BTW emgency是emergency 我寫錯了)
 
-var test_num=30 #測試用的數字
 var border_begin=30  #設定icon的border
 var length=300 
 var width=150
 
 var emergency_probability
-var puzzle_on_map #=total puzzle-未拼上的總片數 #這裡需要做資料的獲取
+var finished_puzzle=0 #這裡需要做資料的獲取
 
 var file_emergency_num #隨機事件的題號
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	emergency_probability=0
-	puzzle_on_map=test_num;
+	finished_puzzle=0;
 	$Button_emergency.visible=false
 	
 	#text_window 已在內部預設初始隱藏
@@ -27,13 +26,12 @@ func _ready():
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
 	$text_window_emergency.connect("timer_continue",self,"_close_window")#當window做了close的動作 會發出訊號 這裡會執行關閉這個視窗的動作
 	
-	
 
 func _on_Timer_timeout():#決定是否出現隨機事件
 	#目前設定規則:每隔固定的時間會取亂數決定是否出現隨機事件 若沒有按掉隨機事件會在下一次timeout消失(除非又出現突發事件)
 	#當視窗開啟計時停止，當視窗關閉才會再開始
 	#根據emergency_probability的數量作為亂數total 取到1突發事件發生
-	emergency_probability=_get_emergency_probability(puzzle_on_map)
+	_set_emergency_probability(finished_puzzle)
 	if _random(1,emergency_probability)==1:
 		var x=_random(border_begin,length)  #icon出現位置隨機
 		var y=_random(border_begin,width)
@@ -70,15 +68,13 @@ func _random(begin,end):
 	return random_num
 
 #機率的設定 (目前為假設 還會再變更)
-func _get_emergency_probability(num):
-	var probability
-	if num>=0 and num<10:
-		probability=15
+func _set_emergency_probability(num):
+	if num >= 0 and num<10:
+		emergency_probability=15
 	elif num>=10 and num<20:
-		probability=10
+		emergency_probability=10
 	else:
-		probability=5
-	return probability
+		emergency_probability=5
 
 
 func _timer_continue(): #Timer繼續開始數
