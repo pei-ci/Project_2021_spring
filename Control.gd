@@ -42,14 +42,17 @@ func post_to_server():
 	pass
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	print(body.get_string_from_utf8());
+	#print(body.get_string_from_utf8());
 	var respond = body.get_string_from_utf8()
-	if(respond.substr(0,4) == 'true'):
-		login_certification = respond.substr(4,19)
+	
+	var data_parse = JSON.parse(respond)
+	if data_parse.error != OK:
+		return
+	var data = data_parse.result
+	if(data['sucess'] == 'true'):
+		login_certification = data["validation"]
 		#print(login_certification)
 		print("Login Success!")
 		get_tree().change_scene("res://world.tscn")
 	else:
 		print("Login Error!");
-	
-	
