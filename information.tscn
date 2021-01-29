@@ -54,7 +54,6 @@ margin_right = 180.0
 margin_bottom = 48.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "學系:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,7 +65,6 @@ margin_right = 197.0
 margin_bottom = 59.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "學號:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,7 +76,6 @@ margin_right = 186.0
 margin_bottom = 70.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "姓名:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,7 +87,6 @@ margin_right = 223.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "暱稱:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,7 +97,6 @@ margin_top = 83.0
 margin_right = 173.0
 margin_bottom = 94.0
 custom_fonts/font = SubResource( 6 )
-text = "拼圖:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,9 +105,8 @@ __meta__ = {
 margin_left = 180.0
 margin_top = 83.0
 margin_right = 230.0
-margin_bottom = 94.0
+margin_bottom = 92.0
 custom_fonts/font = SubResource( 7 )
-text = "稱號:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,7 +118,6 @@ margin_right = 234.953
 margin_bottom = 47.8016
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "隊伍:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

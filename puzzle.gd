@@ -1,20 +1,12 @@
 extends Sprite
 
-#load狀態(預設str)
-var position_load="AA00"
-var status_load="00"
+onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
 #puzzle拼圖
 #未拼上的拼圖(預設int)
 #遊戲中的狀態紀錄
 var position_user
 var status_user
-#未拼上的拼圖
-var puddle_user
-var wilderness_user
-var desert_user
-var sea_user
-var town_user
-var volcano_user
+
 
 #狀態對應選單名稱 在_set_up()內使用到
 var button_status={ "11":"puddle_up_grade_1","12":"puddle_up_grade_2","13":"finish",
@@ -40,12 +32,12 @@ func _ready():
 	
 	
 
-func _status_set_up():
-	position_user=position_load
-	status_user=status_load
+func _status_set_up(): #狀態初始設定
+	position_user=get_name() #位置和物件名稱相同
+	status_user=Data.status_user[position_user]
 	
 	#選項設定
-	if status_load=="00":
+	if status_user=="00":
 		$MenuButton.get_popup().clear()
 		$MenuButton.get_popup().add_item("puddle")
 		$MenuButton.get_popup().add_item("wilderness")
@@ -55,189 +47,199 @@ func _status_set_up():
 		$MenuButton.get_popup().add_item("volcano")
 	else:
 		$MenuButton.get_popup().clear()
-		$MenuButton.get_popup().add_item(button_status[status_load])
+		$MenuButton.get_popup().add_item(button_status[status_user])
 	#拼圖圖樣初始化
-	if status_load=="11":
+	if status_user=="11":
 		$puddle.visible=true
-	if status_load=="12":
+	if status_user=="12":
 		$puddle2.visible=true
-	if status_load=="13":
+	if status_user=="13":
 		$puddle3.visible=true
-	if status_load=="21":
+	if status_user=="21":
 		$wilderness.visible=true
-	if status_load=="22":
+	if status_user=="22":
 		$wilderness2.visible=true
-	if status_load=="23":
+	if status_user=="23":
 		$wilderness3.visible=true
-	if status_load=="31":
+	if status_user=="31":
 		$desert.visible=true
-	if status_load=="32":
+	if status_user=="32":
 		$desert2.visible=true
-	if status_load=="33":
+	if status_user=="33":
 		$desert3.visible=true
-	if status_load=="41":
+	if status_user=="41":
 		$sea.visible=true
-	if status_load=="42":
+	if status_user=="42":
 		$sea2.visible=true
-	if status_load=="43":
+	if status_user=="43":
 		$sea3.visible=true
-	if status_load=="51":
+	if status_user=="51":
 		$town.visible=true
-	if status_load=="52":
+	if status_user=="52":
 		$town2.visible=true
-	if status_load=="53":
+	if status_user=="53":
 		$town3.visible=true
-	if status_load=="61":
+	if status_user=="61":
 		$volcano.visible=true
-	if status_load=="62":
+	if status_user=="62":
 		$volcano2.visible=true
-	if status_load=="63":
+	if status_user=="63":
 		$volcano3.visible=true
 	
-func get_unfinished_puzzle_current():
-	puddle_user=1#get_tree().get_root().get_node("world").get_unfinished_puzzle("puddle")
-	wilderness_user=1
-	desert_user=1
-	sea_user=1
-	town_user=1
-	volcano_user=1
-
 
 #關於計分方式我沒有研究，就麻煩2幫我寫在visible true後面了
 #還有，圖片記得要換，不然會很鬧
 #接收條件，up_grade是什麼你們都懂吧
-signal reflash(position_user)
 func _on_item_pressed(id):
 	var item_name= $MenuButton.get_popup().get_item_text(id)
-	get_unfinished_puzzle_current()
-	if puddle_user>0:
+	if Data.puddle_user>0:
 		if item_name=="puddle":
 			status_user="11"
-			#get_parent().decrease_unfinished_puzzle("puddle")
+			Data.puddle_user -= 1
+			Data.finished_puzzle_user +=1
 			$puddle.visible = true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("puddle_up_grade_1")
 		if item_name == "puddle_up_grade_1":
 			status_user="12"
-			#get_parent().decrease_unfinished_puzzle("puddle")
+			Data.puddle_user -= 1
+			Data.finished_puzzle_user +=1
 			$puddle.visible =false
 			$puddle2.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("puddle_up_grade_2")
 		if item_name=="puddle_up_grade_2":
 			status_user="13"
-			#get_parent().decrease_unfinished_puzzle("puddle")
+			Data.puddle_user -= 1
+			Data.finished_puzzle_user +=1
 			$puddle2.visible =false
 			$puddle3.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("finish")
-	if wilderness_user>0:
+	if Data.wilderness_user>0:
 		if item_name=="wilderness":
 			status_user="21"
-			#get_parent().decrease_unfinished_puzzle("wilderness")
+			Data.wilderness_user -= 1
+			Data.finished_puzzle_user +=1
 			$wilderness.visible = true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("wilderness_up_grade_1")
 		if item_name == "wilderness_up_grade_1":
 			status_user="22"
-			#get_parent().decrease_unfinished_puzzle("wilderness")
+			Data.wilderness_user -= 1
+			Data.finished_puzzle_user +=1
 			$wilderness.visible =false
 			$wilderness2.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("wilderness_up_grade_2")
 		if item_name== "wilderness_up_grade_2":
 			status_user="23"
-			#get_parent().decrease_unfinished_puzzle("wilderness")
+			Data.wilderness_user -= 1
+			Data.finished_puzzle_user +=1
 			$wilderness2.visible =false
 			$wilderness3.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("finish")
-	if desert_user>0:
+	if Data.desert_user>0:
 		if item_name=="desert":
 			status_user="31"
-			#get_parent().decrease_unfinished_puzzle("desert")
+			Data.desert_user -= 1
+			Data.finished_puzzle_user +=1
 			$desert.visible = true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("desert_up_grade_1")
 		if item_name == "desert_up_grade_1":
 			status_user="32"
-			#get_parent().decrease_unfinished_puzzle("desert")
+			Data.dessert_user -= 1
+			Data.finished_puzzle_user +=1
 			$desert.visible =false
 			$desert2.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("desert_up_grade_2")
 		if item_name == "desert_up_grade_2":
 			status_user="33"
-			#get_parent().decrease_unfinished_puzzle("desert")
+			Data.dessert_user -= 1
+			Data.finished_puzzle_user +=1
 			$desert2.visible =false
 			$desert3.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("finish")
 		
-	if sea_user >0:
+	if Data.sea_user >0:
 		if item_name=="sea":
 			status_user="41"
-			#get_parent().decrease_unfinished_puzzle("sea")
-			$sea.visible = true
+			Data.sea_user -= 1
+			Data.finished_puzzle_user +=1
+			$sea.visible =true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("sea_up_grade_1")
 		if item_name == "sea_up_grade_1":
 			status_user="42"
-			#get_parent().decrease_unfinished_puzzle("sea")
+			Data.sea_user -= 1
+			Data.finished_puzzle_user +=1
 			$sea.visible =false
 			$sea2.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("sea_up_grade_2")
 		if item_name == "sea_up_grade_2":
 			status_user="43"
-			#get_parent().decrease_unfinished_puzzle("sea")
+			Data.sea_user -= 1
+			Data.finished_puzzle_user +=1
 			$sea2.visible =false
 			$sea3.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("finish")
-	if town_user>0:		
+	if Data.town_user>0:		
 		if item_name=="town":
 			status_user="51"
-			#get_parent().decrease_unfinished_puzzle("town")
+			Data.town_user -= 1
+			Data.finished_puzzle_user +=1
 			$town.visible = true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("town_up_grade_1")
 		if item_name == "town_up_grade_1":
 			status_user="52"
-			#get_parent().decrease_unfinished_puzzle("town")
+			Data.town_user -= 1
+			Data.finished_puzzle_user +=1
 			$town.visible =false
 			$town2.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("town_up_grade_2")
 		if item_name == "town_up_grade_2":
 			status_user="53"
-			#get_parent().decrease_unfinished_puzzle("town")
+			Data.town_user -= 1
+			Data.finished_puzzle_user +=1
+			Data.finished_puzzle_user +=1
 			$town2.visible =false
 			$town3.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("finish")
-	if volcano_user>0:
+	if Data.volcano_user>0:
 		if item_name=="volcano":
 			status_user="61"
-			#get_parent().decrease_unfinished_puzzle("volcano")
+			Data.volcano_user -= 1
+			Data.finished_puzzle_user +=1
 			$volcano.visible = true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("volcano_up_grade_1")
 		if item_name == "volcano_up_grade_1":
 			status_user="62"
-			#get_parent().decrease_unfinished_puzzle("volcano")
+			Data.volcano_user -= 1
+			Data.finished_puzzle_user +=1
 			$volcano.visible =false
 			$volcano2.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("volcano_up_grade_2")
 		if item_name == "volcano_up_grade_2":
 			status_user="63"
-			#get_parent().decrease_unfinished_puzzle("volcano")
+			Data.volcano_user -= 1
+			Data.finished_puzzle_user +=1
 			$volcano2.visible =false
 			$volcano3.visible=true
 			$MenuButton.get_popup().clear()
 			$MenuButton.get_popup().add_item("finish")
-	emit_signal("reflash")
+	Data.status_user[position_user]=status_user
+	Data.emit_refresh()
 			
 func get_status():
 	return status_user
