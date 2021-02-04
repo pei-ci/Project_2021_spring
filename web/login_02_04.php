@@ -38,6 +38,13 @@ switch($type){
         $login_certification = $data['validation'];
         dealing_map_request($mysqli,$login_certification);
         break;
+    case 'map_oper':
+        $login_certification = $data['validation'];
+        $oper = $data['oper'];
+        $block_type = $data['block_type'];
+        $pos = $data['pos'];
+        dealing_map_oper_request($mysqli,$login_certification,$oper,$block_type,$pos);
+        break;
     case 'team':
         $login_certification = $data['validation'];
         dealing_team_request($mysqli,$login_certification);
@@ -152,6 +159,21 @@ function dealing_map_request($mysqli,$login_certification){
     $respond['used'] = $row['used'];
     $respond['pos'] = $row['pos'];
     $respond['val'] = $row['val'];
+
+    echo json_encode($respond);
+}
+
+function dealing_map_oper_request($mysqli,$login_certification,$oper,$block_type,$pos){
+    $respond = array();
+    $respond['type'] = 'map_oper';
+    $respond['sucess'] = 'false';
+    if($oper == 'upgrade1'){
+        
+    }else if($oper == 'upgrade2'){
+
+    }else if($oper == 'put'){
+
+    }
 
     echo json_encode($respond);
 }
