@@ -1,19 +1,58 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://puzzle.gd" type="Script" id=1]
 [ext_resource path="res://六邊形修正版.png" type="Texture" id=2]
-[ext_resource path="res://avatars-qgCqB1ryryQ5LUBz-2jFd8g-t500x500.jpg" type="Texture" id=3]
-[ext_resource path="res://ff8c6e31e2a14c8991b96c0925f76abd.jpeg" type="Texture" id=4]
-[ext_resource path="res://下載 (1).jpg" type="Texture" id=5]
-[ext_resource path="res://images.jpg" type="Texture" id=6]
-[ext_resource path="res://下載.jpg" type="Texture" id=7]
-[ext_resource path="res://21852333649141_434.jpg" type="Texture" id=8]
-[ext_resource path="res://artworks-TpF0mKmERh5H3mpF-mMCEbg-t500x500.jpg" type="Texture" id=9]
-[ext_resource path="res://下載 (3).jpg" type="Texture" id=10]
-[ext_resource path="res://maxresdefault.jpg" type="Texture" id=11]
-[ext_resource path="res://hqdefault.jpg" type="Texture" id=12]
-[ext_resource path="res://a1e92fd9f9bce8e07f623462257cd88ef13a2152v2_00.jpg" type="Texture" id=13]
-[ext_resource path="res://下載 (2).jpg" type="Texture" id=14]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/水坑三版.png-34045f0303dc84083f08b6ae4ef6391e.stex"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/窪地一版.png-e1d99772941146ea79c2b5c90fe84055.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/荒原二版.png-6c83134a086e67fbd59986146525442a.stex"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/礦原二版.png-64a9ce67df6d77360d5fbff910f4edc4.stex"
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/沙漠二版.png-6b69f7166fe4e94f3493e7372ef60258.stex"
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/綠洲一版.png-33459cf55d92b49a6be47f05df9cf8e7.stex"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/淺海二版.png-de7f8073fd750f4b1d5afd9d66c404a7.stex"
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/深海二版.png-c461cfe69548b721fa0961aa3047d0f8.stex"
+
+[sub_resource type="StreamTexture" id=9]
+load_path = "res://.import/郊區一版.png-70f6b4d0ef13fdba61bd991463bddf36.stex"
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/鄉村一版.png-4db03a2e8133bd6ff7682081045fa1fe.stex"
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/地熱口一版.png-7fd790ef1b7bcac3c586ef9a37c8681a.stex"
+
+[sub_resource type="StreamTexture" id=12]
+load_path = "res://.import/火山錐一版.png-75c0029d384d3ec1ea71f20b35f4f334.stex"
+
+[sub_resource type="StreamTexture" id=13]
+load_path = "res://.import/沼澤地一版.png-d157adf38d254149dd694dec58c8eaee.stex"
+
+[sub_resource type="StreamTexture" id=14]
+load_path = "res://.import/草原二版.png-a399fc6e5d130172765321e27617f882.stex"
+
+[sub_resource type="StreamTexture" id=15]
+load_path = "res://.import/海底世界二版.png-7469d0bfc17452526aee42174db27dbc.stex"
+
+[sub_resource type="StreamTexture" id=16]
+load_path = "res://.import/都市一版.png-9db962143338d360927caac8cd684252.stex"
+
+[sub_resource type="StreamTexture" id=17]
+load_path = "res://.import/火山一版.png-37481c19024cf5d7ea6b4bace5269dc4.stex"
 
 [node name="puzzle" type="Sprite"]
 texture = ExtResource( 2 )
@@ -30,77 +69,108 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="dio" type="Sprite" parent="."]
+[node name="puddle" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.09787, -0.0163893 )
-scale = Vector2( 0.0461303, 0.0414216 )
-texture = ExtResource( 3 )
+position = Vector2( 1.46805, 0.509763 )
+scale = Vector2( 1.01166, 0.960938 )
+texture = SubResource( 1 )
 
-[node name="jojo" type="Sprite" parent="."]
+[node name="puddle2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.4717, -0.418118 )
-scale = Vector2( 0.02591, 0.0241133 )
-texture = ExtResource( 8 )
+position = Vector2( 1.62036, 0.292857 )
+scale = Vector2( 0.957757, 0.98152 )
+texture = SubResource( 2 )
 
-[node name="haachama" type="Sprite" parent="."]
+[node name="wilderness" type="Sprite" parent="."]
 visible = false
-position = Vector2( 1.88776, -0.117989 )
-scale = Vector2( 0.0980756, 0.0949293 )
-texture = ExtResource( 7 )
+position = Vector2( 1.09064, 0.0120417 )
+scale = Vector2( 0.836448, 0.933268 )
+texture = SubResource( 3 )
 
-[node name="kakyoin" type="Sprite" parent="."]
+[node name="wilderness2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.1237, 0.23597 )
-scale = Vector2( 0.0844418, 0.112986 )
-texture = ExtResource( 5 )
+position = Vector2( 4.85077, 1.34942 )
+scale = Vector2( 0.832796, 1.04275 )
+texture = SubResource( 4 )
 
-[node name="red" type="Sprite" parent="."]
+[node name="desert" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.48527, 0.256528 )
-scale = Vector2( 0.098392, 0.0812845 )
-texture = ExtResource( 6 )
+position = Vector2( 2.79878, -0.00662459 )
+scale = Vector2( 1.02705, 1.04549 )
+texture = SubResource( 5 )
 
-[node name="turtle" type="Sprite" parent="."]
+[node name="desert2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 1.53855, 0.137443 )
-scale = Vector2( 0.0282525, 0.0413464 )
-texture = ExtResource( 4 )
+position = Vector2( 3.81889, -0.169491 )
+scale = Vector2( 0.896558, 0.937082 )
+texture = SubResource( 6 )
 
-[node name="zawarudo" type="Sprite" parent="."]
+[node name="sea" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.364, 1.78134 )
-scale = Vector2( 0.115527, 0.101488 )
-texture = ExtResource( 12 )
+position = Vector2( 1.33064, 0.26381 )
+scale = Vector2( 0.987954, 0.98201 )
+texture = SubResource( 7 )
 
-[node name="starpla" type="Sprite" parent="."]
+[node name="sea2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2, 0.375 )
-scale = Vector2( 0.0527344, 0.0424805 )
-texture = ExtResource( 13 )
+position = Vector2( 2.15792, 0.268744 )
+scale = Vector2( 0.976052, 1.10978 )
+texture = SubResource( 8 )
 
-[node name="haachamachamaa" type="Sprite" parent="."]
+[node name="town" type="Sprite" parent="."]
 visible = false
-position = Vector2( 4.00919, -0.22517 )
-scale = Vector2( 0.0518419, 0.0501601 )
-texture = ExtResource( 9 )
+position = Vector2( 5.03711, 0.312208 )
+scale = Vector2( 0.84831, 0.988092 )
+texture = SubResource( 9 )
 
-[node name="green" type="Sprite" parent="."]
+[node name="town2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.10223, 0.630669 )
-scale = Vector2( 0.111668, 0.105533 )
-texture = ExtResource( 10 )
+position = Vector2( 2.93778, -0.102929 )
+scale = Vector2( 0.882429, 0.988046 )
+texture = SubResource( 10 )
 
-[node name="red1" type="Sprite" parent="."]
+[node name="volcano" type="Sprite" parent="."]
 visible = false
-position = Vector2( 1.82687, 0.203318 )
-scale = Vector2( 0.0155225, 0.0235678 )
-texture = ExtResource( 11 )
+position = Vector2( 2.24873, 0.944821 )
+scale = Vector2( 0.878728, 1.00582 )
+texture = SubResource( 11 )
 
-[node name="silver" type="Sprite" parent="."]
+[node name="volcano2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 2.38521, 0.561241 )
-scale = Vector2( 0.0769756, 0.0957945 )
-texture = ExtResource( 14 )
+position = Vector2( 1.7417, 0.254992 )
+scale = Vector2( 0.908065, 1.07618 )
+texture = SubResource( 12 )
+
+[node name="puddle3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.67044, 0.501129 )
+texture = SubResource( 13 )
+
+[node name="wilderness3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.47781, 1.0301 )
+scale = Vector2( 0.879357, 1.03381 )
+texture = SubResource( 14 )
+
+[node name="desert3" type="Sprite" parent="."]
+visible = false
+
+[node name="sea3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.39203, 0.44545 )
+texture = SubResource( 15 )
+
+[node name="town3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3.50791, 0.222724 )
+scale = Vector2( 0.957576, 0.984091 )
+texture = SubResource( 16 )
+
+[node name="volcano3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.1693, 0.473289 )
+scale = Vector2( 1, 1.05767 )
+texture = SubResource( 17 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 43200.0

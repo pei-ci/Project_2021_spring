@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://text_window.tscn" type="PackedScene" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="Sprite"]
+script = ExtResource( 2 )
+
+[node name="text_window" parent="." instance=ExtResource( 1 )]
+position = Vector2( 154.471, 98.509 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_window2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 191.846, 87.1629 )
+z_index = 8
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 34.9842
+margin_top = 3.8147e-05
+margin_right = 62.9842
+margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="text_window" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
