@@ -25,15 +25,8 @@ func _on_password_changed(text):
 	password = text
 	
 func _on_LineEdit2_text_entered(text):	
-	connect_to_sever()
-
-func connect_to_sever():
-	#var headers = ["Content-Type: application/json"]
-	#var url = "http://www.mocky.io/v2/5185415ba171ea3a00704eed"
-	#var err = $HTTPRequest.request(url)
-	#if(err!=OK):
-	#	print("Error Happened!")
 	login_to_server()
+
 
 func login_to_server():
 	#var query= "email="+ username + "&password="+ password
@@ -41,28 +34,38 @@ func login_to_server():
 	#print(body)
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
-	pass
 
-func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	#print(body.get_string_from_utf8());
+func register_to_server():
+	#var query= "email="+ username + "&password="+ password
+	var body := {"type" : 'register',"number": username, "password": password
+	,"department" : '1',"name": 'test'}
+	#print(body)
+	var headers = ["Content-Type: application/json"]
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):	
 	var respond = body.get_string_from_utf8()
-	
+	print(respond);
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
 	var data = data_parse.result
-	if(data['sucess'] == 'true'):
-		Data.login_certification = data["validation"]
-		#print(Data.login_certification)
-		print("Login Success!")
-		get_tree().change_scene("res://world.tscn")	
-	else:
-		print("Login Error!");
-
+	if(data['type']=='login'):
+		if(data['sucess'] == 'true'):
+			Data.login_certification = data["validation"]
+			#print(Data.login_certification)
+			print("Login Success!")
+			get_tree().change_scene("res://world.tscn")	
+		else:
+			print("Login Error!");
+	elif(data['type'] == 'register'):
+		if(data['sucess']=='true'):
+			login_to_server()
+		
 
 func _on_Login_pressed():
-	connect_to_sever()
+	login_to_server()
 
 
 func _on_Register_pressed():
-	pass # Replace with function body.
+	register_to_server()

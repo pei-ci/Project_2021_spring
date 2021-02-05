@@ -2,6 +2,7 @@ extends Node2D
 #遊戲的main
 onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
 var headers = ["Content-Type: application/json"]
+var have_team = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_up()
@@ -93,10 +94,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			if(Data.nickname_user == ''):
 				Data.nickname_user = '未設定'
 			Data.subject_user = data['department']
+			send_map_request() #send team request
 			if(data['teamid'] == '-1'):
 				Data.team_user = '未設定'
 			else:
-				send_team_request() #after info,send team request
+				have_team = true 
 		else:
 			print("Error fetch info data!!!")		
 	elif(data['type'] == 'team'):
@@ -104,7 +106,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.team_user = data['name']
 		else:
 			print("Error fetch team data!!!")
-		send_map_request() #after info,send team request
 	elif(data['type'] == 'map'):
 		if(data['sucess'] == 'true'):
 			Data.puddle_user = int(data['unused1'])
@@ -119,6 +120,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 		else:
 			print("Error fetch map data!!!")
+		if(have_team):
+			send_team_request()
 	elif(data['type'] == 'map_oper'):
 		pass
 	Data.emit_refresh()
