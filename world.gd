@@ -56,7 +56,6 @@ func map_put(block_type,pos):
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(put_body))
 
 func map_upgrade1(block_type,pos):
-	print("send")
 	var upgrade1_body := {"type" : 'map_oper',"validation": Data.login_certification
 	,"oper" : 'upgrade1', "block_type" : block_type, "pos" : pos}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(upgrade1_body))
@@ -120,6 +119,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 		else:
 			print("Error fetch map data!!!")
+	elif(data['type'] == 'map'):
+		pass
 	Data.emit_refresh()
 	#_refresh_information()
 
