@@ -119,7 +119,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 		else:
 			print("Error fetch map data!!!")
-	elif(data['type'] == 'map'):
+	elif(data['type'] == 'map_oper'):
 		pass
 	Data.emit_refresh()
 	#_refresh_information()
