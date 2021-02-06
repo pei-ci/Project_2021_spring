@@ -74,6 +74,10 @@ func send_team_request():
 	#sending team request
 	var team_body := {"type" : 'team',"validation": Data.login_certification}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(team_body))
+func send_create_team_request():
+	#sending team request
+	var create_team_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":"test"}
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(create_team_body))
 func send_map_request():
 	#sending map request
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
@@ -122,8 +126,19 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			print("Error fetch map data!!!")
 		if(have_team):
 			send_team_request()
+		else:
+			#send_create_team_request()
+			pass
 	elif(data['type'] == 'map_oper'):
-		pass
+		if(data['sucess']=='true'):
+			pass
+		else:
+			print("Unaccept map operation request!!!")
+	elif(data['type'] == 'create_team'):
+		if(data['sucess']=='true'):
+			send_team_request()
+		else:
+			print("Unaccept create team request!!!")
 	Data.emit_refresh()
 	#_refresh_information()
 
