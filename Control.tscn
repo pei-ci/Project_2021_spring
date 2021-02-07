@@ -21,16 +21,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.890869
 margin_bottom = -0.890869
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 85.0
-margin_top = 64.0
+margin_top = 47.0
 margin_right = 275.0
-margin_bottom = 116.0
+margin_bottom = 132.0
 
 [node name="Sprite" type="Sprite" parent="CenterContainer/VBoxContainer"]
-position = Vector2( 86.3608, 27.077 )
-scale = Vector2( 0.78452, 0.660138 )
+position = Vector2( 91.4639, 42.8797 )
+scale = Vector2( 0.762802, 0.496741 )
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -44,4 +47,37 @@ uppercase = true
 margin_top = 23.0
 margin_right = 190.0
 margin_bottom = 52.0
+
+[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 190.0
+margin_bottom = 85.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Login" type="Button" parent="."]
+margin_left = 185.385
+margin_top = 132.841
+margin_right = 275.385
+margin_bottom = 157.841
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Register" type="Button" parent="."]
+margin_left = 85.0
+margin_top = 133.0
+margin_right = 178.0
+margin_bottom = 158.0
+text = "Register"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_user_changed"]
 [connection signal="text_entered" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_password_changed"]
+[connection signal="text_entered" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_LineEdit2_text_entered"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="Register" to="." method="_on_Register_pressed"]

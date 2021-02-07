@@ -1,12 +1,19 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://桐生一馬-900x506.jpg" type="Texture" id=1]
 [ext_resource path="res://puzzle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://PixelFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://leader_board_group.gd" type="Script" id=3]
 [ext_resource path="res://world.gd" type="Script" id=4]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://leader_board.tscn" type="PackedScene" id=5]
 [ext_resource path="res://emgency.tscn" type="PackedScene" id=6]
 [ext_resource path="res://information.tscn" type="PackedScene" id=7]
+[ext_resource path="res://unfinished_puzzle.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/進入排行榜的按鈕二版.png-63f8d54be90f58ebffb755d372b28e19.stex"
 
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
@@ -46,24 +53,58 @@ position = Vector2( 43.6286, 107.347 )
 [node name="AB05" parent="." instance=ExtResource( 2 )]
 position = Vector2( 82.3498, 107.18 )
 
-[node name="quit" type="Button" parent="."]
-margin_left = 301.606
-margin_top = 5.15905
-margin_right = 355.606
-margin_bottom = 30.159
-custom_fonts/font = ExtResource( 3 )
-text = "quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD" parent="." instance=ExtResource( 5 )]
-z_index = 100
-
 [node name="emergency" parent="." instance=ExtResource( 6 )]
 position = Vector2( 5.65688, 10.7782 )
 z_index = 200
 
 [node name="information" parent="." instance=ExtResource( 7 )]
-position = Vector2( 62.9326, -32.527 )
+position = Vector2( -8.78487, 0.881763 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
+position = Vector2( 263.707, 98.4445 )
+
+[node name="quit" type="TextureButton" parent="."]
+margin_left = 340.0
+margin_top = 4.0
+margin_right = 354.0
+margin_bottom = 17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_picture" type="Sprite" parent="."]
+position = Vector2( 349.01, 10.0226 )
+scale = Vector2( 0.747578, 0.747578 )
+texture = SubResource( 1 )
+
+[node name="leader_board_group" type="Sprite" parent="."]
+position = Vector2( 349.01, 10.0226 )
+scale = Vector2( 0.747578, 0.747578 )
+z_index = 40
+script = ExtResource( 3 )
+
+[node name="leader_board" parent="leader_board_group" instance=ExtResource( 5 )]
+position = Vector2( -490.753, -10.7633 )
+scale = Vector2( 1.33765, 1.33765 )
+
+[node name="leader_button_picture" type="Sprite" parent="leader_board_group"]
+position = Vector2( -41.266, -2.94255 )
+scale = Vector2( 1.15363, 1.0262 )
+texture = SubResource( 2 )
+
+[node name="leader_button" type="TextureButton" parent="leader_board_group"]
+anchor_left = -467.677
+anchor_top = -9.0
+anchor_right = -467.677
+anchor_bottom = -9.0
+margin_left = 412.677
+margin_right = 442.677
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="leader_board_group/leader_button" to="leader_board_group" method="_on_leader_button_pressed"]
