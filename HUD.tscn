@@ -30,6 +30,11 @@ margin_bottom = 21.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+<<<<<<< HEAD
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button" to="text_window" method="_on_Button_pressed"]
+=======
+[connection signal="pressed" from="Button" to="text_window" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=2]
+=======
+[gd_scene load_steps=7 format=2]
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 
 [ext_resource path="res://text_window.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://text_emergency.gd" type="Script" id=3]
 
 [sub_resource type="StreamTexture" id=1]
+<<<<<<< HEAD
 load_path = "res://.import/突發事件背景圖二版-s.png-ecc16583eba1d3781d4f30aae74a1fbd.stex"
 
 [sub_resource type="StreamTexture" id=2]
@@ -16,6 +21,15 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 10
+=======
+flags = 4
+load_path = "res://.import/text_bg.jpg-294bb2ecc7a7d6b44aa91d4848471a0a.stex"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 font_data = ExtResource( 2 )
 
 [node name="text_window" type="Sprite"]
@@ -24,6 +38,7 @@ scale = Vector2( 0.535556, 0.581481 )
 z_index = 10
 script = ExtResource( 1 )
 
+<<<<<<< HEAD
 [node name="emergency_background" type="Sprite" parent="."]
 position = Vector2( 9.9116, -22.4352 )
 scale = Vector2( 0.769349, 0.769349 )
@@ -35,10 +50,24 @@ margin_left = 121.398
 margin_top = -137.28
 margin_right = 142.398
 margin_bottom = -117.28
+=======
+[node name="background" type="Sprite" parent="."]
+z_index = -1
+texture = SubResource( 1 )
+
+[node name="close" type="Button" parent="."]
+visible = false
+margin_left = 163.72
+margin_top = -128.901
+margin_right = 209.72
+margin_bottom = -108.901
+text = "close"
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="close_picture" type="Sprite" parent="."]
 position = Vector2( 132.19, -122.394 )
 texture = SubResource( 2 )
@@ -54,10 +83,20 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 1
 script = ExtResource( 3 )
+=======
+[node name="text" type="Label" parent="."]
+visible = false
+margin_left = -150.0
+margin_top = -76.0
+margin_right = 145.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 2 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="text_after_answer" type="Label" parent="."]
 margin_left = -127.0
 margin_top = -50.0
@@ -66,6 +105,17 @@ margin_bottom = -5.0
 custom_fonts/font = SubResource( 4 )
 align = 1
 valign = 1
+=======
+[node name="text_emergency" type="Label" parent="."]
+visible = false
+margin_left = -175.0
+margin_top = -102.0
+margin_right = 182.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 __meta__ = {
 "_edit_use_anchors_": false
 }

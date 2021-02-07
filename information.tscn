@@ -1,13 +1,26 @@
+<<<<<<< HEAD
 [gd_scene load_steps=22 format=2]
+=======
+[gd_scene load_steps=12 format=2]
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://information.gd" type="Script" id=2]
 
 [sub_resource type="StreamTexture" id=1]
+<<<<<<< HEAD
 load_path = "res://.import/資訊欄(展開)一版.png-d84b391d8829fcbb7efdc478fa69c229.stex"
 
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/資訊欄(未展開)一版.png-fbdb7f02f518e384c36dc76849e3593d.stex"
+=======
+flags = 4
+load_path = "res://.import/text_bg.jpg-294bb2ecc7a7d6b44aa91d4848471a0a.stex"
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+font_data = ExtResource( 1 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 
 [sub_resource type="DynamicFont" id=3]
 size = 6
@@ -37,6 +50,7 @@ font_data = ExtResource( 1 )
 size = 6
 font_data = ExtResource( 1 )
 
+<<<<<<< HEAD
 [sub_resource type="DynamicFont" id=10]
 size = 6
 font_data = ExtResource( 1 )
@@ -75,10 +89,13 @@ load_path = "res://.import/資訊欄按鈕二一版.png-ec3429e32f43ae95147894c9
 [sub_resource type="StreamTexture" id=19]
 load_path = "res://.import/資訊欄按鈕一一版.png-d83b397ef0a35b22d36657e194053cea.stex"
 
+=======
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 [node name="information" type="Sprite"]
 script = ExtResource( 2 )
 
 [node name="background" type="Sprite" parent="."]
+<<<<<<< HEAD
 visible = false
 position = Vector2( 270.491, 40.4696 )
 scale = Vector2( 0.904461, 0.964154 )
@@ -96,48 +113,85 @@ margin_top = 27.0
 margin_right = 271.0
 margin_bottom = 39.0
 custom_fonts/font = SubResource( 3 )
+=======
+position = Vector2( 182.529, 68.0403 )
+scale = Vector2( 0.24146, 0.257396 )
+texture = SubResource( 1 )
+
+[node name="subject" type="Label" parent="."]
+margin_left = 135.0
+margin_top = 39.0
+margin_right = 180.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 2 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="number" type="Label" parent="."]
+<<<<<<< HEAD
 visible = false
 margin_left = 249.0
 margin_top = 10.0
 margin_right = 308.0
 margin_bottom = 22.0
 custom_fonts/font = SubResource( 4 )
+=======
+margin_left = 134.0
+margin_top = 49.0
+margin_right = 197.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 3 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="name" type="Label" parent="."]
+<<<<<<< HEAD
 visible = false
 margin_left = 286.0
 margin_top = 27.0
 margin_right = 308.0
 margin_bottom = 37.0
 custom_fonts/font = SubResource( 5 )
+=======
+margin_left = 135.0
+margin_top = 60.0
+margin_right = 186.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 4 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nickname" type="Label" parent="."]
+<<<<<<< HEAD
 visible = false
 margin_left = 249.0
 margin_top = 48.0
 margin_right = 270.0
 margin_bottom = 58.0
 custom_fonts/font = SubResource( 6 )
+=======
+margin_left = 135.0
+margin_top = 71.0
+margin_right = 223.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 5 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="total_puzzle" type="Label" parent="."]
+<<<<<<< HEAD
 visible = false
 margin_left = 249.0
 margin_top = 70.0
@@ -145,11 +199,19 @@ margin_right = 270.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+=======
+margin_left = 134.0
+margin_top = 83.0
+margin_right = 173.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 6 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title" type="Label" parent="."]
+<<<<<<< HEAD
 visible = false
 margin_left = 286.0
 margin_top = 70.0
@@ -157,22 +219,38 @@ margin_right = 309.0
 margin_bottom = 79.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+=======
+margin_left = 180.0
+margin_top = 83.0
+margin_right = 230.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 7 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="team" type="Label" parent="."]
+<<<<<<< HEAD
 visible = false
 margin_left = 287.0
 margin_top = 48.0
 margin_right = 309.0
 margin_bottom = 57.0
 custom_fonts/font = SubResource( 9 )
+=======
+margin_left = 180.953
+margin_top = 38.8016
+margin_right = 234.953
+margin_bottom = 47.8016
+custom_fonts/font = SubResource( 8 )
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="heading" type="Label" parent="."]
 margin_left = 232.0
 margin_right = 272.0
@@ -289,3 +367,14 @@ position = Vector2( 304.327, 4.57968 )
 scale = Vector2( 0.448122, 0.42605 )
 texture = SubResource( 19 )
 [connection signal="pressed" from="button" to="." method="_on_button_pressed"]
+=======
+[node name="unfinished_puzzle" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 33.0
+margin_right = 128.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+>>>>>>> 574e264f1187e781006541a6eef8a36eb0cf9022
