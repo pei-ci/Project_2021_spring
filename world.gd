@@ -18,24 +18,22 @@ func _set_up():
 	$information.total_puzzle_user =  Data.total_puzzle_user
 	$information.title_user =  Data.title_user
 	$information.team_user =  Data.team_user
-	#未拼的拼圖
-	$unfinished_puzzle.puddle=Data.puddle_user
-	$unfinished_puzzle.wilderness=Data.wilderness_user
-	$unfinished_puzzle.desert=Data.desert_user
-	$unfinished_puzzle.sea=Data.sea_user
-	$unfinished_puzzle.town=Data.town_user
-	$unfinished_puzzle.volcano=Data.volcano_user
-	
+	#資訊_未拼的拼圖
+	$information.puddle=Data.puddle_user
+	$information.wilderness=Data.wilderness_user
+	$information.desert=Data.desert_user
+	$information.sea=Data.sea_user
+	$information.town=Data.town_user
+	$information.volcano=Data.volcano_user
 	
 	$information._set_up() #套入格式設定
-	$unfinished_puzzle._set_up()
 	#設定突發事件
 	$emergency.finished_puzzle=Data.finished_puzzle_user
 	
 func _refresh_information():
-	Data._refresh_data() #更新global內需要設定的資料
 	_set_up()
 	_refresh_map()
+	pass	
 
 func _refresh_map():
 	$AA01._status_set_up()
@@ -83,6 +81,11 @@ func send_create_team_request():
 func send_map_request():
 	#sending map request
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+
+func send_emergency_request(map_type,amount,correct):
+	#sending emergency request
+	var map_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):

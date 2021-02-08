@@ -13,6 +13,9 @@ var event_data #隨機事件的資料
 
 var reward=3 #選項獎勵拼圖數
 var special_reward=3
+
+var world
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -47,6 +50,7 @@ func _on_Timer_timeout():#決定是否出現隨機事件
 	
 
 func _on_Button_emergency_pressed(): #點開隨機事件
+	world = get_node("/root/world")
 	#計時暫停
 	$Timer.paused=true
 	#跳出訊息畫面
@@ -150,23 +154,8 @@ func _give_reward(option):
 	var puzzle_type
 	for index in range(reward):
 		puzzle_type=_random(1,6)
-		_give_puzzle(puzzle_type)
 	#答對問題的特殊獎勵
 	if event_data["answer"]==option:
-		for index in range(special_reward):
-			puzzle_type=_random(1,6)
-			_give_puzzle(puzzle_type)
-
-func _give_puzzle(num):
-	if num==1:
-		Data.puddle_add(1)
-	if num==2:
-		Data.wilderness_add(1)
-	if num==3:
-		Data.desert_add(1)
-	if num==4:
-		Data.sea_add(1)
-	if num==5:
-		Data.town_add(1)
-	if num==6:
-		Data.volcano_add(1)
+		world.send_emergency_request(puzzle_type,1,0)
+	else:
+		world.send_emergency_request(puzzle_type,2,1)

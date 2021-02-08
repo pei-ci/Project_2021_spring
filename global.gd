@@ -10,7 +10,7 @@ var block_type={"puddle":"1","wilderness":"2","desert":"3","sea":"4"
 
 var login_certification = "0000000000000000000"
 #puzzle拼圖(預設int)
-var finished_puzzle_user=0  #已使用拼圖
+var finished_puzzle_user=2  #已使用拼圖
 func finished_puzzle_add(val):
 	finished_puzzle_user += val
 #未拼上的拼圖(預設int) 6type
@@ -26,22 +26,9 @@ var number_user="loading"
 var name_user="loading"
 var nickname_user="loading"
 var total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
-var title_user="loading"
+var title_user="loading" #稱號依照拼圖總數決定
 var team_user="loading"
 
-
-func puddle_add(val):
-	puddle_user += val
-func wilderness_add(val):
-	wilderness_user += val
-func desert_add(val):
-	desert_user += val
-func sea_add(val):
-	sea_user += val
-func town_add(val):
-	town_user += val
-func volcano_add(val):
-	volcano_user += val
 
 func puddle_minus(val):
 	puddle_user -= val
@@ -56,21 +43,23 @@ func town_minus(val):
 func volcano_minus(val):
 	volcano_user -= val
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_up()
 	
 func _set_up():
+	#load資料進來 
+	#subject_user=...
+	#number_user=...
+	#...
 	#取得拼圖總數
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	#這邊是稱號的設定 目前為假設 #稱號依照拼圖總數決定
-	if int(total_puzzle_user)<10:
+	if int(total_puzzle_user)/10<1: 
 		title_user="S"
 	else:
 		title_user="L"
-		
-func _refresh_data():
-	_set_up()
+	pass
 	
 func _get_unfinished_puzzle():
 	return (puddle_user+wilderness_user+desert_user+sea_user+town_user+volcano_user)
@@ -79,4 +68,3 @@ func _get_unfinished_puzzle():
 signal refresh
 func emit_refresh(): #當數值改變時會使用此函式 來刷新頁面上的資料
 	emit_signal("refresh")
-
