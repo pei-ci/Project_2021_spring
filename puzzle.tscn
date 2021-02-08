@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://puzzle.gd" type="Script" id=1]
 [ext_resource path="res://六邊形修正版.png" type="Texture" id=2]
@@ -44,6 +44,9 @@ load_path = "res://.import/沼澤地一版.png-d157adf38d254149dd694dec58c8eaee.
 
 [sub_resource type="StreamTexture" id=14]
 load_path = "res://.import/草原二版.png-a399fc6e5d130172765321e27617f882.stex"
+
+[sub_resource type="StreamTexture" id=18]
+load_path = "res://.import/海市蜃樓一版.png-9a9498416a0cebbad9ab46026224d57c.stex"
 
 [sub_resource type="StreamTexture" id=15]
 load_path = "res://.import/海底世界二版.png-7469d0bfc17452526aee42174db27dbc.stex"
@@ -154,6 +157,8 @@ texture = SubResource( 14 )
 
 [node name="desert3" type="Sprite" parent="."]
 visible = false
+position = Vector2( 2.47767, -0.471939 )
+texture = SubResource( 18 )
 
 [node name="sea3" type="Sprite" parent="."]
 visible = false

@@ -107,68 +107,57 @@ func _close_button():
 #ABC選項
 #2選項規則設定
 func _on_A_pressed():
-	if event_data["A"]!="":
-		$text_window_emergency/text_emergency.visible=false
-		$text_window_emergency/text_after_answer.text=event_data["A"]
-		$text_window_emergency/text_after_answer.visible=true
+	var is_reply = _answer_reply("A")#某些題目選到特定選項會出現
+	if is_reply:                     #暫停畫面
 		yield(get_tree().create_timer(2.5), "timeout")
-	
 	_close_window()
 	#拼圖片數設定
-	var puzzle_type
-	for index in range(reward):
-		puzzle_type=_random(1,6)
-		_give_reward(puzzle_type)
-	#答對問題的特殊獎勵
-	if event_data["answer"]=="A":
-		for index in range(special_reward):
-			puzzle_type=_random(1,6)
-			_give_reward(puzzle_type)
+	_give_reward("A")
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 	
 
 func _on_B_pressed():
-	if event_data["B"]!="":
-		$text_window_emergency/text_emergency.visible=false
-		$text_window_emergency/text_after_answer.text=event_data["B"]
-		$text_window_emergency/text_after_answer.visible=true
+	var is_reply = _answer_reply("B")#某些題目選到特定選項會出現
+	if is_reply:
 		yield(get_tree().create_timer(2.5), "timeout")
 	
 	_close_window()
 	#拼圖片數設定
-	var puzzle_type
-	for index in range(reward):
-		puzzle_type=_random(1,6)
-		_give_reward(puzzle_type)
-	#答對問題的特殊獎勵
-	if event_data["answer"]=="B":
-		for index in range(special_reward):
-			puzzle_type=_random(1,6)
-			_give_reward(puzzle_type)
+	_give_reward("B")
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
 
 func _on_C_pressed():
-	if event_data["C"]!="":
-		$text_window_emergency/text_emergency.visible=false
-		$text_window_emergency/text_after_answer.text=event_data["C"]
-		$text_window_emergency/text_after_answer.visible=true
+	var is_reply = _answer_reply("C")#某些題目選到特定選項會出現
+	if is_reply:
 		yield(get_tree().create_timer(2.5), "timeout")
 	
 	_close_window()
 	#拼圖片數設定
+	_give_reward("C")
+	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
+
+func _answer_reply(option):
+	if event_data[option]!="":
+		$text_window_emergency/text_emergency.visible=false
+		$text_window_emergency/text_after_answer.text=event_data[option]
+		$text_window_emergency/text_after_answer.visible=true
+		return true
+	else:
+		return false
+
+func _give_reward(option):
 	var puzzle_type
 	for index in range(reward):
 		puzzle_type=_random(1,6)
-		_give_reward(puzzle_type)
+		_give_puzzle(puzzle_type)
 	#答對問題的特殊獎勵
-	if event_data["answer"]=="C":
+	if event_data["answer"]==option:
 		for index in range(special_reward):
 			puzzle_type=_random(1,6)
-			_give_reward(puzzle_type)
-	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
-	
-func _give_reward(num):
+			_give_puzzle(puzzle_type)
+
+func _give_puzzle(num):
 	if num==1:
 		Data.puddle_add(1)
 	if num==2:
@@ -181,4 +170,3 @@ func _give_reward(num):
 		Data.town_add(1)
 	if num==6:
 		Data.volcano_add(1)
-

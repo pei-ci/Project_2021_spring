@@ -63,5 +63,4 @@ func _on_button_pressed():
 		$name_heading.visible=false
 		$title.visible=false
 		$title_heading.visible=false
-		
-	pass # Replace with function body.
+
