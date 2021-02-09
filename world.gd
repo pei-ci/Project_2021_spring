@@ -102,6 +102,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.nickname_user = data['nickname']
 			if(Data.nickname_user == ''):
 				Data.nickname_user = '未設定'
+			Data.all_title = data['title']
+			if(data['title_use']!="-1"):
+				Data.title_user = Data.title_list[data['title_use']]
+			else:
+				Data.title_user = '未設定'
 			Data.subject_user = data['department']
 			send_map_request() #send team request
 			if(data['teamid'] == '-1'):
@@ -144,8 +149,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			send_team_request()
 		else:
 			print("Unaccept create team request!!!")
+	elif(data['type'] == 'emergency'):
+		if(data['sucess']=='true'):
+			send_map_request()
+		else:
+			print("Unaccept emergency request!!!")
 	Data.emit_refresh()
 	#_refresh_information()
-
+	
 func test():
 	print("test")

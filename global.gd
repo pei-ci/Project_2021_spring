@@ -8,6 +8,9 @@ var status_user={"AA01":"00","AB01":"00","AA02":"00","AB02":"00",
 var block_type={"puddle":"1","wilderness":"2","desert":"3","sea":"4"
 				,"town":"5","volcano":"6"}
 
+var title_list={"0":"個人賽總冠軍","1":"個人賽總亞軍","2":"個人賽總季軍","3":"個人賽總排名前三十",
+				"4":"團體賽總冠軍","5":"團體賽總亞軍","6":"團體賽總季軍","7":"團體賽總排名前三十"}
+
 var login_certification = "0000000000000000000"
 #puzzle拼圖(預設int)
 var finished_puzzle_user=2  #已使用拼圖
@@ -27,6 +30,7 @@ var name_user="loading"
 var nickname_user="loading"
 var total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 var title_user="loading" #稱號依照拼圖總數決定
+var all_title
 var team_user="loading"
 
 
