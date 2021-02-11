@@ -4,10 +4,10 @@
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/排行榜測適用.png-da8ee8638f4f71c4d5b4f4b69b3213c8.stex"
+load_path = "res://.import/排行榜測適用.png-e668f3c43631c1788e77da1a985f2584.stex"
 
 [sub_resource type="DynamicFont" id=2]
-size = 5
+size = 4
 font_data = ExtResource( 2 )
 
 [node name="top_ten_information" type="Sprite"]
@@ -23,16 +23,17 @@ __meta__ = {
 }
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 204.727, 92.4929 )
-scale = Vector2( 1.44905, 1.03885 )
+position = Vector2( 192.915, 89.1856 )
+scale = Vector2( 1.17436, 0.885022 )
 texture = SubResource( 1 )
 
 [node name="information_text" type="Label" parent="."]
-margin_left = 155.0
-margin_top = 77.0
-margin_right = 255.0
-margin_bottom = 106.0
+margin_left = 154.0
+margin_top = 75.0
+margin_right = 235.0
+margin_bottom = 101.0
 custom_fonts/font = SubResource( 2 )
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

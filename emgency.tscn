@@ -47,44 +47,44 @@ z_index = 10
 
 [node name="A" type="TextureButton" parent="option"]
 visible = false
-margin_left = 127.096
-margin_top = 93.2693
-margin_right = 149.096
-margin_bottom = 113.269
+margin_left = 144.735
+margin_top = 87.5997
+margin_right = 166.735
+margin_bottom = 107.599
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="B" type="TextureButton" parent="option"]
 visible = false
-margin_left = 172.432
-margin_top = 92.674
-margin_right = 193.432
-margin_bottom = 112.674
+margin_left = 181.251
+margin_top = 88.8942
+margin_right = 202.251
+margin_bottom = 108.894
 
 [node name="C" type="TextureButton" parent="option"]
 visible = false
-margin_left = 217.772
-margin_top = 92.533
-margin_right = 238.772
-margin_bottom = 112.533
+margin_left = 221.292
+margin_top = 88.6431
+margin_right = 242.292
+margin_bottom = 108.643
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="A_picture" type="Sprite" parent="option"]
 visible = false
-position = Vector2( 139.834, 104.409 )
+position = Vector2( 156.843, 98.7393 )
 texture = SubResource( 2 )
 
 [node name="B_picture" type="Sprite" parent="option"]
 visible = false
-position = Vector2( 184.418, 102.779 )
+position = Vector2( 193.867, 98.3693 )
 texture = SubResource( 3 )
 
 [node name="C_picture" type="Sprite" parent="option"]
 visible = false
-position = Vector2( 230.61, 105.382 )
+position = Vector2( 233.76, 100.972 )
 texture = SubResource( 4 )
 [connection signal="pressed" from="Button_emergency" to="." method="_on_Button_emergency_pressed"]
 [connection signal="pressed" from="option/A" to="." method="_on_A_pressed"]

@@ -12,7 +12,7 @@ var finished_puzzle #這裡需要做資料的獲取
 var event_data #隨機事件的資料
 
 var reward=3 #選項獎勵拼圖數
-var special_reward=3
+var special_reward=1 #答對會額外給的拼圖數
 
 var world
 
@@ -81,7 +81,7 @@ func _random(begin,end):
 #機率的設定 (目前為假設 還會再變更)
 func _set_emergency_probability(num):
 	if num >= 0 and num<10:
-		emergency_probability=15
+		emergency_probability=1
 	elif num>=10 and num<20:
 		emergency_probability=10
 	else:
@@ -151,11 +151,20 @@ func _answer_reply(option):
 		return false
 
 func _give_reward(option):
+	Data._emergency_solve_time(1) #突發事件完成數+1
 	var puzzle_type
-	for index in range(reward):
+	#選擇任何選項都匯給的基本獎勵
+	for piece in range(reward):  #reward是基本的拼圖獎勵片數 每次loop會random一次決定這一片是哪一種拼圖 並給予拼圖
 		puzzle_type=_random(1,6)
-	#答對問題的特殊獎勵
-	if event_data["answer"]==option:
 		world.send_emergency_request(puzzle_type,1,0)
+	
+	#以下是答對問題的特殊獎勵
+	#這邊是如果選項又選到對的答案 又會再額外給予拼圖
+	if event_data["answer"]==option: #選的答案和答案相符
+		Data._emergency_correct_time(1) #突發事件答對數+1
+		
+		for piece in range(special_reward):  #special_reward是答對的拼圖獎勵片數 每次loop會random決定這一片是哪一種拼圖 並給予拼圖
+			puzzle_type=_random(1,6)
+			world.send_emergency_request(puzzle_type,1,0)
 	else:
 		world.send_emergency_request(puzzle_type,2,1)

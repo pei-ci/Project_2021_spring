@@ -9,7 +9,9 @@ func _ready():
 	Data.connect("refresh",self,"_refresh_information")
 	send_info_request()
 	
-func _set_up():
+func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
+	Data._check_title_status()#檢查和設定稱號
+	
 	#資訊欄
 	$information.subject_user = Data.subject_user
 	$information.number_user = Data.number_user
@@ -18,22 +20,49 @@ func _set_up():
 	$information.total_puzzle_user =  Data.total_puzzle_user
 	$information.title_user =  Data.title_user
 	$information.team_user =  Data.team_user
-	#資訊_未拼的拼圖
-	$information.puddle=Data.puddle_user
-	$information.wilderness=Data.wilderness_user
-	$information.desert=Data.desert_user
-	$information.sea=Data.sea_user
-	$information.town=Data.town_user
-	$information.volcano=Data.volcano_user
+	#未拼的拼圖
+	$unfinished_puzzle.puddle=Data.puddle_user
+	$unfinished_puzzle.wilderness=Data.wilderness_user
+	$unfinished_puzzle.desert=Data.desert_user
+	$unfinished_puzzle.sea=Data.sea_user
+	$unfinished_puzzle.town=Data.town_user
+	$unfinished_puzzle.volcano=Data.volcano_user
+	
 	
 	$information._set_up() #套入格式設定
+	$unfinished_puzzle._set_up()
 	#設定突發事件
 	$emergency.finished_puzzle=Data.finished_puzzle_user
 	
-func _refresh_information():
+	#設定排行榜
+	$leader_board_group/leader_board/person_text/first.text+=Data.top_ten_person[0]["nickname"]
+	$leader_board_group/leader_board/person_text/second.text+=Data.top_ten_person[1]["nickname"]
+	$leader_board_group/leader_board/person_text/third.text+=Data.top_ten_person[2]["nickname"]
+	$leader_board_group/leader_board/person_text/four.text+=Data.top_ten_person[3]["nickname"]
+	$leader_board_group/leader_board/person_text/five.text+=Data.top_ten_person[4]["nickname"]
+	$leader_board_group/leader_board/person_text/six.text+=Data.top_ten_person[5]["nickname"]
+	$leader_board_group/leader_board/person_text/seven.text+=Data.top_ten_person[6]["nickname"]
+	$leader_board_group/leader_board/person_text/eight.text+=Data.top_ten_person[7]["nickname"]
+	$leader_board_group/leader_board/person_text/night.text+=Data.top_ten_person[8]["nickname"]
+	$leader_board_group/leader_board/person_text/ten.text+=Data.top_ten_person[9]["nickname"]
+	
+	$leader_board_group/leader_board/team_text/first.text+=Data.top_ten_team[0]["teamname"]
+	$leader_board_group/leader_board/team_text/second.text+=Data.top_ten_team[1]["teamname"]
+	$leader_board_group/leader_board/team_text/third.text+=Data.top_ten_team[2]["teamname"]
+	$leader_board_group/leader_board/team_text/four.text+=Data.top_ten_team[3]["teamname"]
+	$leader_board_group/leader_board/team_text/five.text+=Data.top_ten_team[4]["teamname"]
+	$leader_board_group/leader_board/team_text/six.text+=Data.top_ten_team[5]["teamname"]
+	$leader_board_group/leader_board/team_text/seven.text+=Data.top_ten_team[6]["teamname"]
+	$leader_board_group/leader_board/team_text/eight.text+=Data.top_ten_team[7]["teamname"]
+	$leader_board_group/leader_board/team_text/night.text+=Data.top_ten_team[8]["teamname"]
+	$leader_board_group/leader_board/team_text/ten.text+=Data.top_ten_team[9]["teamname"]
+	
+
+func _refresh_information(): #使用此函式可以設定好所有狀態 可用Data.emit_refresh()發出訊號來呼叫
+	Data._refresh_data() #更新global內需要設定的資料
 	_set_up()
 	_refresh_map()
-	pass	
+
 
 func _refresh_map():
 	$AA01._status_set_up()
