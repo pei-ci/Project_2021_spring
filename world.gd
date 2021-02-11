@@ -18,24 +18,22 @@ func _set_up():
 	$information.total_puzzle_user =  Data.total_puzzle_user
 	$information.title_user =  Data.title_user
 	$information.team_user =  Data.team_user
-	#未拼的拼圖
-	$unfinished_puzzle.puddle=Data.puddle_user
-	$unfinished_puzzle.wilderness=Data.wilderness_user
-	$unfinished_puzzle.desert=Data.desert_user
-	$unfinished_puzzle.sea=Data.sea_user
-	$unfinished_puzzle.town=Data.town_user
-	$unfinished_puzzle.volcano=Data.volcano_user
-	
+	#資訊_未拼的拼圖
+	$information.puddle=Data.puddle_user
+	$information.wilderness=Data.wilderness_user
+	$information.desert=Data.desert_user
+	$information.sea=Data.sea_user
+	$information.town=Data.town_user
+	$information.volcano=Data.volcano_user
 	
 	$information._set_up() #套入格式設定
-	$unfinished_puzzle._set_up()
 	#設定突發事件
 	$emergency.finished_puzzle=Data.finished_puzzle_user
 	
 func _refresh_information():
-	Data._refresh_data() #更新global內需要設定的資料
 	_set_up()
 	_refresh_map()
+	pass	
 
 func _refresh_map():
 	$AA01._status_set_up()
@@ -85,6 +83,11 @@ func send_map_request():
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 
+func send_emergency_request(map_type,amount,correct):
+	#sending emergency request
+	var map_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
 	print(respond)
@@ -99,6 +102,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.nickname_user = data['nickname']
 			if(Data.nickname_user == ''):
 				Data.nickname_user = '未設定'
+			Data.all_title = data['title']
+			if(data['title_use']!="-1"):
+				Data.title_user = Data.title_list[data['title_use']]
+			else:
+				Data.title_user = '未設定'
 			Data.subject_user = data['department']
 			send_map_request() #send team request
 			if(data['teamid'] == '-1'):
@@ -141,8 +149,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			send_team_request()
 		else:
 			print("Unaccept create team request!!!")
+	elif(data['type'] == 'emergency'):
+		if(data['sucess']=='true'):
+			send_map_request()
+		else:
+			print("Unaccept emergency request!!!")
 	Data.emit_refresh()
 	#_refresh_information()
-
+	
 func test():
 	print("test")
