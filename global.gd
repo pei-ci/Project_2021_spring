@@ -80,14 +80,14 @@ var emergency_solve_time=0 #突發事件完成次數
 var emergency_correct_time=0 #突發事件答對次數 
 var have_type={"puddle":0,"wilderness":0,"desert":0,"sea":0,"town":0,"volcano":0} #紀錄是否已獲得各類型拼圖 對應_get_num_of_type()
 
-var title_status={"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,
-					"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0}
+var title_status={"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,
+					"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0}
 					
-var title_list={"1":"個人賽總冠軍","2":"個人賽總亞軍","3":"個人賽總季軍","4":"個人賽總排名前三十","5":"團體賽總冠軍","6":"團體賽總亞軍",
-				"7":"團體賽總季軍","8":"團體賽總排名前三十","9":"收藏界菜鳥","10":"收藏界老鳥",
-				"11":"收藏界專家","12":"初級地形已經不能滿足我了，我要升級","13":"只升級一次怎麼夠，我當然還要更多",
-				"14":"瘋狂升級中","15":"初級地主","16":"高級地主","17":"究級地主","18":"事件處理者…的學徒",
-				"19":"事件處理者","20":"事件收割者","21":"神奇腦迴路"}
+var title_list={"0":"個人賽總冠軍","1":"個人賽總亞軍","2":"個人賽總季軍","3":"個人賽總排名前三十","4":"團體賽總冠軍","5":"團體賽總亞軍",
+				"6":"團體賽總季軍","7":"團體賽總排名前三十","8":"收藏界菜鳥","9":"收藏界老鳥",
+				"10":"收藏界專家","11":"初級地形已經不能滿足我了，我要升級","12":"只升級一次怎麼夠，我當然還要更多",
+				"13":"瘋狂升級中","14":"初級地主","15":"高級地主","16":"究級地主","17":"事件處理者…的學徒",
+				"18":"事件處理者","19":"事件收割者","20":"神奇腦迴路"}
 
 func _set_title_status(title_num):
 	if title_status[title_num]==0:
@@ -97,53 +97,53 @@ func _set_title_status(title_num):
 func _check_title_status():
 	"""
 	if is_first_person() == true:
-		_set_title_status("1")
+		_set_title_status("0")
 	if is_second_person() == true:
-		_set_title_status("2")
+		_set_title_status("1")
 	if is_third_person() == true:
-		_set_title_status("3")
+		_set_title_status("2")
 	if is_top_thirty_person() == true:
-		_set_title_status("4")
+		_set_title_status("3")
 	if is_first_team() == true:
-		_set_title_status("5")
+		_set_title_status("4")
 	if is_second_team() == true:
-		_set_title_status("6")
+		_set_title_status("5")
 	if is_third_team == true:
-		_set_title_status("7")
+		_set_title_status("6")
 	if is_top_thirty == true:
-		_set_title_status("8")
+		_set_title_status("7")
 	"""
 	if _get_num_of_type()>=1:
-		_set_title_status("9")
+		_set_title_status("8")
 	if _get_num_of_type()>=3:
-		_set_title_status("10")
+		_set_title_status("9")
 	if _get_num_of_type()==6:
-		_set_title_status("11")
+		_set_title_status("10")
 	
 	if up_grade_time==1:
-		_set_title_status("12")
+		_set_title_status("11")
 	if up_grade_time==5:
-		_set_title_status("13")
+		_set_title_status("12")
 	if up_grade_time==10:
-		_set_title_status("14")
+		_set_title_status("13")
 	
 	if full_level_puzzle_num==1:
-		_set_title_status("15")
+		_set_title_status("14")
 	if full_level_puzzle_num==3:
-		_set_title_status("16")
+		_set_title_status("15")
 	if full_level_puzzle_num==10:
-		_set_title_status("17")
+		_set_title_status("16")
 	
 	if emergency_solve_time==1:
-		_set_title_status("18")
+		_set_title_status("17")
 		print("1")
 	if emergency_solve_time==5:
-		_set_title_status("19")
+		_set_title_status("18")
 	if emergency_solve_time==10:
-		_set_title_status("20")	
+		_set_title_status("19")	
 	
 	if emergency_correct_time==5:
-		_set_title_status("21")
+		_set_title_status("20")
 		
 
 func _get_num_of_type():
