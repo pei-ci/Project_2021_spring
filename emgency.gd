@@ -39,10 +39,6 @@ func _on_Timer_timeout():#決定是否出現隨機事件
 	#根據emergency_probability的數量作為亂數total 取到1突發事件發生
 	_set_emergency_probability(finished_puzzle)
 	if _random(1,emergency_probability)==1:
-		var x=_random(border_begin,length)  #icon出現位置隨機
-		var y=_random(border_begin,width)
-		var new_position=Vector2(x,y)
-		$Button_emergency.set_position(new_position)
 		$Button_emergency.visible=true
 	else:
 		$Button_emergency.visible=false

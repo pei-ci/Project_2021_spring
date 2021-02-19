@@ -56,20 +56,20 @@ margin_bottom = 85.0
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Login" type="Button" parent="."]
-margin_left = 185.385
-margin_top = 132.841
-margin_right = 275.385
-margin_bottom = 157.841
+margin_left = 165.362
+margin_top = 162.207
+margin_right = 255.362
+margin_bottom = 187.207
 text = "Login"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Register" type="Button" parent="."]
-margin_left = 85.0
-margin_top = 133.0
-margin_right = 178.0
-margin_bottom = 158.0
+margin_left = 65.1959
+margin_top = 163.034
+margin_right = 158.196
+margin_bottom = 188.034
 text = "Register"
 __meta__ = {
 "_edit_use_anchors_": false

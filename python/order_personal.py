@@ -101,7 +101,7 @@ if __name__ == "__main__": #main function
 	print('connect to sql!')
 	conn = connect_to_sql()
 	data = fetch_data(conn)
-	print('ordering!')
+	print('ordering personal data!')
 	order_list = get_order(conn,data)
 	print(order_list)
 	print('sending to sql!')

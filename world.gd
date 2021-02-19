@@ -7,6 +7,7 @@ var have_team = false
 func _ready():
 	_set_up()
 	Data.connect("refresh",self,"_refresh_information")
+	Data.connect("slect_window_open",self,"_open_slect_window")
 	send_info_request()
 	
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
@@ -35,27 +36,33 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$emergency.finished_puzzle=Data.finished_puzzle_user
 	
 	#設定排行榜
-	$leader_board_group/leader_board/person_text/first.text+=Data.top_ten_person[0]["nickname"]
-	$leader_board_group/leader_board/person_text/second.text+=Data.top_ten_person[1]["nickname"]
-	$leader_board_group/leader_board/person_text/third.text+=Data.top_ten_person[2]["nickname"]
-	$leader_board_group/leader_board/person_text/four.text+=Data.top_ten_person[3]["nickname"]
-	$leader_board_group/leader_board/person_text/five.text+=Data.top_ten_person[4]["nickname"]
-	$leader_board_group/leader_board/person_text/six.text+=Data.top_ten_person[5]["nickname"]
-	$leader_board_group/leader_board/person_text/seven.text+=Data.top_ten_person[6]["nickname"]
-	$leader_board_group/leader_board/person_text/eight.text+=Data.top_ten_person[7]["nickname"]
-	$leader_board_group/leader_board/person_text/night.text+=Data.top_ten_person[8]["nickname"]
-	$leader_board_group/leader_board/person_text/ten.text+=Data.top_ten_person[9]["nickname"]
+	$leader_board_group/leader_board/person_text/first.text=Data.top_ten_person[0]["nickname"]
+	$leader_board_group/leader_board/person_text/second.text=Data.top_ten_person[1]["nickname"]
+	$leader_board_group/leader_board/person_text/third.text=Data.top_ten_person[2]["nickname"]
+	$leader_board_group/leader_board/person_text/four.text=Data.top_ten_person[3]["nickname"]
+	$leader_board_group/leader_board/person_text/five.text=Data.top_ten_person[4]["nickname"]
+	$leader_board_group/leader_board/person_text/six.text=Data.top_ten_person[5]["nickname"]
+	$leader_board_group/leader_board/person_text/seven.text=Data.top_ten_person[6]["nickname"]
+	$leader_board_group/leader_board/person_text/eight.text=Data.top_ten_person[7]["nickname"]
+	$leader_board_group/leader_board/person_text/night.text=Data.top_ten_person[8]["nickname"]
+	$leader_board_group/leader_board/person_text/ten.text=Data.top_ten_person[9]["nickname"]
 	
-	$leader_board_group/leader_board/team_text/first.text+=Data.top_ten_team[0]["teamname"]
-	$leader_board_group/leader_board/team_text/second.text+=Data.top_ten_team[1]["teamname"]
-	$leader_board_group/leader_board/team_text/third.text+=Data.top_ten_team[2]["teamname"]
-	$leader_board_group/leader_board/team_text/four.text+=Data.top_ten_team[3]["teamname"]
-	$leader_board_group/leader_board/team_text/five.text+=Data.top_ten_team[4]["teamname"]
-	$leader_board_group/leader_board/team_text/six.text+=Data.top_ten_team[5]["teamname"]
-	$leader_board_group/leader_board/team_text/seven.text+=Data.top_ten_team[6]["teamname"]
-	$leader_board_group/leader_board/team_text/eight.text+=Data.top_ten_team[7]["teamname"]
-	$leader_board_group/leader_board/team_text/night.text+=Data.top_ten_team[8]["teamname"]
-	$leader_board_group/leader_board/team_text/ten.text+=Data.top_ten_team[9]["teamname"]
+	$leader_board_group/leader_board/team_text/first.text=Data.top_ten_team[0]["teamname"]
+	$leader_board_group/leader_board/team_text/second.text=Data.top_ten_team[1]["teamname"]
+	$leader_board_group/leader_board/team_text/third.text=Data.top_ten_team[2]["teamname"]
+	$leader_board_group/leader_board/team_text/four.text=Data.top_ten_team[3]["teamname"]
+	$leader_board_group/leader_board/team_text/five.text=Data.top_ten_team[4]["teamname"]
+	$leader_board_group/leader_board/team_text/six.text=Data.top_ten_team[5]["teamname"]
+	$leader_board_group/leader_board/team_text/seven.text=Data.top_ten_team[6]["teamname"]
+	$leader_board_group/leader_board/team_text/eight.text=Data.top_ten_team[7]["teamname"]
+	$leader_board_group/leader_board/team_text/night.text=Data.top_ten_team[8]["teamname"]
+	$leader_board_group/leader_board/team_text/ten.text=Data.top_ten_team[9]["teamname"]
+	
+	#活動頁面
+	$activity._set_up(Data.activity_list)
+	
+	#組隊頁面(組隊+團隊資訊)
+	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
 	
 
 func _refresh_information(): #使用此函式可以設定好所有狀態 可用Data.emit_refresh()發出訊號來呼叫
@@ -75,7 +82,31 @@ func _refresh_map():
 	$AB03._status_set_up()
 	$AB04._status_set_up()
 	$AB05._status_set_up()
-	
+
+func _open_slect_window():
+	$activity.visible=true
+	$activity._set_up(Data.activity_list)#獲取目前global內的資料
+	$activity/page_01.visible=true
+	$activity/page_02.visible=false
+	$activity/page_03.visible=false
+	$activity/page_04.visible=false
+
+func have_team():
+	if true:#這邊要放入可判斷是否組隊的參數
+		return true
+	else:
+		return false
+
+func _on_team_button_pressed():
+	$team.visible=true
+	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
+	if have_team(): #已組隊
+		$team/information.visible=true
+		$team/team_up.visible=false
+	else:
+		$team/information.visible=false
+		$team/team_up.visible=true
+
 #quit
 func _on_Button_pressed():
 	get_tree().quit()
@@ -188,3 +219,5 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	
 func test():
 	print("test")
+
+

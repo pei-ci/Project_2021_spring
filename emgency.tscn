@@ -19,11 +19,11 @@ load_path = "res://.import/突發事件按鈕C一版.png-1bb9df9dbe1507d0717cb9e
 position = Vector2( 0, 3 )
 script = ExtResource( 1 )
 
-[node name="Button_emergency" type="Button" parent="."]
-margin_left = 100.0
-margin_top = 24.0
-margin_right = 112.0
-margin_bottom = 44.0
+[node name="Button_emergency" type="TextureButton" parent="."]
+margin_left = 287.728
+margin_top = 78.8066
+margin_right = 299.728
+margin_bottom = 98.8066
 size_flags_horizontal = 8
 size_flags_vertical = 8
 __meta__ = {
@@ -31,7 +31,7 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="Button_emergency"]
-position = Vector2( 3.6744, 10.8569 )
+position = Vector2( 3.04439, 10.8569 )
 scale = Vector2( 1.11152, 1.18321 )
 texture = SubResource( 1 )
 
