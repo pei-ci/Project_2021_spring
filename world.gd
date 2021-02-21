@@ -178,6 +178,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	elif(data['type'] == 'team'):
 		if(data['sucess'] == 'true'):
 			Data.team_user = data['name']
+			Data.team_id = data['teamid']
 		else:
 			print("Error fetch team data!!!")
 	elif(data['type'] == 'map'):
