@@ -113,6 +113,8 @@ z_index = 60
 [node name="team" parent="." instance=ExtResource( 5 )]
 z_index = 60
 
+[node name="HTTPRequest2" type="HTTPRequest" parent="team"]
+
 [node name="team_button_picture" type="Sprite" parent="."]
 position = Vector2( 35.3732, 221.893 )
 texture = SubResource( 4 )
@@ -128,4 +130,5 @@ __meta__ = {
 [connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="title_storehouse/title_storehouse" to="title_storehouse" method="_on_title_storehouse_pressed"]
+[connection signal="request_completed" from="team/HTTPRequest2" to="team" method="_on_HTTPRequest2_request_completed"]
 [connection signal="pressed" from="team_button" to="." method="_on_team_button_pressed"]

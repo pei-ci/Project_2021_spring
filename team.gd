@@ -1,5 +1,8 @@
 extends Sprite
 
+onready var Data = get_node("/root/Global")
+var headers = ["Content-Type: application/json"]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.visible=false
@@ -30,9 +33,40 @@ func _on_close_pressed():
 
 
 func _on_generate_Button_pressed():
-	$team_up/generate.text="00000000"
+	send_generate_team_request('test')
+	$team_up/generate.text = "waiting..."
 
+func send_generate_team_request(team_name):	
+	var map_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":team_name}
+	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+	
+func _on_generate_team_finished(team_id):
+	$team_up/generate.text = str(team_id)
 
 func _on_input_Button_pressed():
-	#print($team_up/input.text)
-	pass 
+	var team_id = $team_up/input.text
+	var map_body := {"type" : 'join_team',"validation": Data.login_certification,"teamid":team_id}
+	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+
+
+func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
+	var respond = body.get_string_from_utf8()
+	print(respond)
+	var data_parse = JSON.parse(respond)
+	if data_parse.error != OK:
+		return
+	var data = data_parse.result
+	
+	if(data['type'] == 'create_team'):
+		var team = get_node("/root/team")
+		if(data['sucess']=='true'):			
+			_on_generate_team_finished(data['teamid'])
+		else:
+			_on_generate_team_finished('Unable to generate team-id!')
+			print("Unaccept emergency request!!!")
+	if(data['type'] == 'join_team'):
+		if(data['sucess']=='true'):			
+			$team_up/input.text = "Join sucessed!"
+		else:
+			$team_up/input.text = "Join failed!"
+			print("Unable join team!!!")

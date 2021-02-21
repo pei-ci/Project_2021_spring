@@ -92,7 +92,7 @@ func _open_slect_window():
 	$activity/page_04.visible=false
 
 func have_team():
-	if true:#這邊要放入可判斷是否組隊的參數
+	if have_team:#這邊要放入可判斷是否組隊的參數
 		return true
 	else:
 		return false
