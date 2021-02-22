@@ -179,8 +179,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		if(data['sucess'] == 'true'):
 			Data.team_user = data['name']
 			Data.team_id = data['teamid']
+			for i in range(10):
+				Data.team_member_list[i]['學號'] = data['mem'+str(i+1)]
 		else:
 			print("Error fetch team data!!!")
+		$team.send_team_member_request()
 	elif(data['type'] == 'map'):
 		if(data['sucess'] == 'true'):
 			Data.puddle_user = int(data['unused1'])
@@ -217,8 +220,4 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			print("Unaccept emergency request!!!")
 	Data.emit_refresh()
 	#_refresh_information()
-	
-func test():
-	print("test")
-
 

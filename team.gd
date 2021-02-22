@@ -25,12 +25,14 @@ func _set_team_up():
 	$team_up/generate.text=""
 	$team_up/input.text=""
 
-
+func send_team_member_request():	
+	var member_body := {"type" : 'team_member',"teamid":Data.team_id}
+	print(member_body)
+	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(member_body))
+	
 
 func _on_close_pressed():
 	self.visible=false
-	
-
 
 func _on_generate_Button_pressed():
 	send_generate_team_request('test')
@@ -64,9 +66,14 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 		else:
 			_on_generate_team_finished('Unable to generate team-id!')
 			print("Unaccept emergency request!!!")
-	if(data['type'] == 'join_team'):
+	elif(data['type'] == 'join_team'):
 		if(data['sucess']=='true'):			
 			$team_up/input.text = "Join sucessed!"
 		else:
 			$team_up/input.text = "Join failed!"
 			print("Unable join team!!!")
+	elif(data['type'] == 'team_member'):
+		if(data['sucess']=='true'):			
+			pass #insert team info to global
+		else:
+			pass
