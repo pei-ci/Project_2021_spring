@@ -179,7 +179,7 @@ func emit_slect_window_open():
 	emit_signal("slect_window_open")
  
 var team_id="0000" #組隊序號
-var team_member_list=[{"姓名":"000","學號":"B0123456","拼圖數量":3},{"姓名":"001","學號":"B0123457","拼圖數量":3},{"姓名":"001","學號":"B0123457","拼圖數量":3},{"姓名":"001","學號":"B0123457","拼圖數量":3},{"姓名":"000","學號":"B0123456","拼圖數量":3},{"姓名":"001","學號":"B0123457","拼圖數量":3},{"姓名":"001","學號":"B0123457","拼圖數量":3},{"姓名":"001","學號":"B0123457","拼圖數量":3},{"姓名":"","學號":"","拼圖數量":0},{"姓名":"","學號":"","拼圖數量":0}]
+var team_member_list=[{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."}]
 var team_tatal_puzzle=0
 func _set_team_total_puzzle():#使用在global的set_up裡面  在global的ready內、world的_refresh_information()會呼叫到
 	team_tatal_puzzle=0

@@ -15,7 +15,7 @@ func _set_up(team_name,team_id,team_total_puzzle,member_data_list):
 	_set_team_up()
 
 func _set_information(team_name,team_id,team_total_puzzle,member_data_list):
-	$information/team_information.text="隊名:"+team_name+"(組對代碼:"+str(team_id)+")\n拼圖總數:"+str(team_total_puzzle)+"\n成員名單:"
+	$information/team_information.text="隊名 : "+team_name+"   (組對代碼:"+str(team_id)+")\n拼圖總數:"+str(team_total_puzzle)+"\n成員名單:"
 	for member in member_data_list:
 		if member["姓名"]=="":
 			continue
@@ -74,6 +74,15 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 			print("Unable join team!!!")
 	elif(data['type'] == 'team_member'):
 		if(data['sucess']=='true'):			
-			pass #insert team info to global
+			for i in range(10):	
+				if data['mem'+str(i+1)+'name'] != '-1':				
+					Data.team_member_list[i]['姓名'] = data['mem'+str(i+1)+'name']
+					Data.team_member_list[i]['學號'] = data['mem'+str(i+1)+'number']
+					Data.team_member_list[i]['拼圖數量'] = int(data['mem'+str(i+1)+'used'])
+				else:				
+					Data.team_member_list[i]['姓名'] = '尚未組隊'
+					Data.team_member_list[i]['學號'] = '尚未組隊'
+					Data.team_member_list[i]['拼圖數量'] = 0
+			Data._set_team_total_puzzle()
 		else:
-			pass
+			print("Unable fetch team element!!!")
