@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://title_name_storehouse.gd" type="Script" id=1]
 [ext_resource path="res://title_storehouse.gd" type="Script" id=2]
@@ -21,7 +21,10 @@ load_path = "res://.import/稱號倉庫_白-測試.png-7d0f1e6c30433ddab4e27e5ca
 load_path = "res://.import/稱號倉庫_灰-測試.png-45878adc131a766ba0d8c83ff346abd9.stex"
 
 [sub_resource type="StreamTexture" id=6]
-load_path = "res://.import/資訊欄按鈕二一版.png-ec3429e32f43ae95147894c99a561960.stex"
+load_path = "res://.import/稱號倉庫下一頁按鈕一版.png-f424a2d5d3bdaa84cb9b0c3567822042.stex"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/稱號倉庫上一頁按鈕一版.png-add9c3aafda58f70c2aa865e91b691a4.stex"
 
 [node name="title_storehouse" type="Sprite"]
 script = ExtResource( 2 )
@@ -618,15 +621,15 @@ texture = SubResource( 5 )
 [node name="next_page" type="Sprite" parent="."]
 
 [node name="next_page_picture" type="Sprite" parent="next_page"]
-position = Vector2( 283.936, 178.52 )
-scale = Vector2( 0.717476, 0.717476 )
+position = Vector2( 279.441, 175.774 )
+scale = Vector2( 0.5177, 0.5177 )
 texture = SubResource( 6 )
 
 [node name="next_page" type="TextureButton" parent="next_page"]
-margin_left = 274.0
-margin_top = 173.0
-margin_right = 288.0
-margin_bottom = 185.0
+margin_left = 273.625
+margin_top = 169.254
+margin_right = 287.625
+margin_bottom = 181.254
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -634,16 +637,16 @@ __meta__ = {
 [node name="last_page" type="Sprite" parent="."]
 
 [node name="last_pagepicture" type="Sprite" parent="last_page"]
-position = Vector2( 283.936, 164.52 )
-scale = Vector2( 0.717476, 0.717476 )
-texture = SubResource( 6 )
+position = Vector2( 260.532, 174.199 )
+scale = Vector2( 0.505217, 0.505217 )
+texture = SubResource( 7 )
 flip_v = true
 
 [node name="last_page" type="TextureButton" parent="last_page"]
-margin_left = 274.53
-margin_top = 159.227
-margin_right = 288.53
-margin_bottom = 171.227
+margin_left = 253.31
+margin_top = 170.09
+margin_right = 267.31
+margin_bottom = 182.09
 __meta__ = {
 "_edit_use_anchors_": false
 }

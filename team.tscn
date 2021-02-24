@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://team.gd" type="Script" id=2]
@@ -11,10 +11,14 @@ font_data = ExtResource( 1 )
 load_path = "res://.import/稱號倉庫_背景-測試.png-729b33252bc6148e9bb304f985ef54a6.stex"
 
 [sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=5]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [node name="team" type="Sprite"]
@@ -64,28 +68,28 @@ __meta__ = {
 }
 
 [node name="generate" type="LineEdit" parent="team_up"]
-margin_left = 114.0
-margin_top = 96.0
-margin_right = 258.0
-margin_bottom = 120.0
+margin_left = 112.74
+margin_top = 120.569
+margin_right = 256.74
+margin_bottom = 144.569
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="generate_Button" type="Button" parent="team_up"]
-margin_left = 261.74
-margin_top = 98.2599
-margin_right = 284.74
-margin_bottom = 118.26
+margin_left = 260.48
+margin_top = 122.828
+margin_right = 283.48
+margin_bottom = 142.829
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="generate_heading" type="Label" parent="team_up"]
-margin_left = 35.0
-margin_top = 98.0
-margin_right = 107.0
-margin_bottom = 122.0
+margin_left = 33.7401
+margin_top = 122.569
+margin_right = 105.74
+margin_bottom = 146.569
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "產生組隊代碼"
@@ -94,28 +98,28 @@ __meta__ = {
 }
 
 [node name="input" type="LineEdit" parent="team_up"]
-margin_left = 114.0
-margin_top = 147.0
-margin_right = 259.0
-margin_bottom = 171.0
+margin_left = 113.37
+margin_top = 152.04
+margin_right = 258.37
+margin_bottom = 176.04
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="input_Button" type="Button" parent="team_up"]
-margin_left = 262.0
-margin_top = 149.177
-margin_right = 285.0
-margin_bottom = 169.177
+margin_left = 261.37
+margin_top = 154.217
+margin_right = 284.37
+margin_bottom = 174.217
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="input_heading" type="Label" parent="team_up"]
-margin_left = 35.4481
-margin_top = 149.554
-margin_right = 107.448
-margin_bottom = 173.554
+margin_left = 34.8182
+margin_top = 154.594
+margin_right = 106.818
+margin_bottom = 178.594
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "輸入組隊代碼"
@@ -123,8 +127,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="input_team_name" type="LineEdit" parent="team_up"]
+margin_left = 112.0
+margin_top = 90.0
+margin_right = 256.0
+margin_bottom = 115.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_team_name_heading" type="Label" parent="team_up"]
+margin_left = 34.8182
+margin_top = 92.8575
+margin_right = 106.818
+margin_bottom = 116.858
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "輸入隊名"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="information" type="Sprite" parent="."]
-visible = false
 
 [node name="background" type="Sprite" parent="information"]
 position = Vector2( 156.176, 113.461 )
@@ -135,7 +160,7 @@ margin_left = 49.0023
 margin_top = 43.3371
 margin_right = 267.002
 margin_bottom = 179.337
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -143,7 +168,7 @@ __meta__ = {
 [node name="close_picture" type="Sprite" parent="."]
 position = Vector2( 279.648, 42.3811 )
 scale = Vector2( 0.733032, 0.75528 )
-texture = SubResource( 4 )
+texture = SubResource( 5 )
 
 [node name="close" type="TextureButton" parent="."]
 margin_left = 270.0

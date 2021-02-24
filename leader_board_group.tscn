@@ -17,7 +17,7 @@ position = Vector2( -490.753, -10.7633 )
 scale = Vector2( 1.33765, 1.33765 )
 
 [node name="leader_button_picture" type="Sprite" parent="."]
-position = Vector2( -404.043, 208.07 )
+position = Vector2( -92.5956, 166.452 )
 scale = Vector2( 2.1661, 1.89325 )
 texture = SubResource( 1 )
 
@@ -26,10 +26,10 @@ anchor_left = -467.677
 anchor_top = -9.0
 anchor_right = -467.677
 anchor_bottom = -9.0
-margin_left = 36.677
-margin_top = 208.0
-margin_right = 92.677
-margin_bottom = 232.0
+margin_left = 348.124
+margin_top = 166.382
+margin_right = 404.124
+margin_bottom = 190.382
 __meta__ = {
 "_edit_use_anchors_": false
 }

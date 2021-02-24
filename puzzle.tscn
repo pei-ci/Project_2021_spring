@@ -65,6 +65,7 @@ texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="slect_window" type="Sprite" parent="."]
+z_index = 5
 
 [node name="background" type="Sprite" parent="slect_window"]
 position = Vector2( 41.2505, -3.43753 )
@@ -216,7 +217,7 @@ texture = SubResource( 19 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 43200.0
 autostart = true
-[connection signal="pressed" from="slect_window/activity_button" to="." method="_on_activity_button_pressed"]
 [connection signal="pressed" from="slect_window/activity_button" to="slect_window" method="_on_activity_button_pressed"]
+[connection signal="pressed" from="slect_window/activity_button" to="." method="_on_activity_button_pressed"]
 [connection signal="pressed" from="slect_window_button" to="." method="_on_slect_window_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

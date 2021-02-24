@@ -7,7 +7,7 @@ var headers = ["Content-Type: application/json"]
 func _ready():
 	self.visible=false
 	$team_up.visible=false
-	$information.visible=false
+	$information.visible=true
 
 
 func _set_up(team_name,team_id,team_total_puzzle,member_data_list):
@@ -15,11 +15,11 @@ func _set_up(team_name,team_id,team_total_puzzle,member_data_list):
 	_set_team_up()
 
 func _set_information(team_name,team_id,team_total_puzzle,member_data_list):
-	$information/team_information.text="隊名 : "+team_name+"   (組對代碼:"+str(team_id)+")\n拼圖總數:"+str(team_total_puzzle)+"\n成員名單:"
+	$information/team_information.text="隊名 : "+team_name+"   (組隊代碼:"+str(team_id)+")\n拼圖總數:"+str(team_total_puzzle)+"\n成員名單:"
 	for member in member_data_list:
 		if member["姓名"]=="":
 			continue
-		$information/team_information.text+= "\n學號: "+member["學號"]+"    姓名: "+member["姓名"]
+		$information/team_information.text+= "\n學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+member["拼圖數量"]
 
 func _set_team_up():
 	$team_up/generate.text=""
@@ -35,8 +35,9 @@ func _on_close_pressed():
 	self.visible=false
 
 func _on_generate_Button_pressed():
-	send_generate_team_request('test')
-	$team_up/generate.text = "waiting..."
+	if _is_input_team_name() and $team_up/generate.text=="":#當以輸入名稱 且未產生組隊代碼
+		send_generate_team_request('test')
+		$team_up/generate.text = "waiting..."
 
 func send_generate_team_request(team_name):	
 	var map_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":team_name}
@@ -49,6 +50,7 @@ func _on_input_Button_pressed():
 	var team_id = $team_up/input.text
 	var map_body := {"type" : 'join_team',"validation": Data.login_certification,"teamid":team_id}
 	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+	
 
 
 func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
@@ -86,3 +88,10 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 			Data._set_team_total_puzzle()
 		else:
 			print("Unable fetch team element!!!")
+
+func _is_input_team_name():
+	if $team_up/input_team_name.text != "":
+		return true
+	else:
+		return false
+	

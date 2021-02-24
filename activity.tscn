@@ -14,10 +14,10 @@ font_data = ExtResource( 2 )
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [sub_resource type="StreamTexture" id=4]
-load_path = "res://.import/資訊欄按鈕一一版.png-d83b397ef0a35b22d36657e194053cea.stex"
+load_path = "res://.import/稱號倉庫上一頁按鈕一版.png-add9c3aafda58f70c2aa865e91b691a4.stex"
 
 [sub_resource type="StreamTexture" id=5]
-load_path = "res://.import/資訊欄按鈕一一版.png-d83b397ef0a35b22d36657e194053cea.stex"
+load_path = "res://.import/稱號倉庫下一頁按鈕一版.png-f424a2d5d3bdaa84cb9b0c3567822042.stex"
 
 [node name="activity" type="Sprite"]
 script = ExtResource( 1 )
@@ -88,14 +88,15 @@ __meta__ = {
 [node name="last_page" type="Sprite" parent="."]
 
 [node name="last_page_picture" type="Sprite" parent="last_page"]
-position = Vector2( 295.666, 169.524 )
+position = Vector2( 263.301, 194.903 )
+scale = Vector2( 0.711134, 0.689667 )
 texture = SubResource( 4 )
 
 [node name="last_page_button" type="TextureButton" parent="last_page"]
-margin_left = 286.0
-margin_top = 162.0
-margin_right = 302.0
-margin_bottom = 175.0
+margin_left = 255.627
+margin_top = 186.695
+margin_right = 271.627
+margin_bottom = 199.695
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -103,15 +104,16 @@ __meta__ = {
 [node name="next_page" type="Sprite" parent="."]
 
 [node name="next_page_picture" type="Sprite" parent="next_page"]
-position = Vector2( 295.666, 190.214 )
+position = Vector2( 293.33, 191.215 )
+scale = Vector2( 0.799773, 0.799773 )
 texture = SubResource( 5 )
 flip_v = true
 
 [node name="next_page_button" type="TextureButton" parent="next_page"]
-margin_left = 285.0
-margin_top = 183.0
-margin_right = 302.0
-margin_bottom = 199.0
+margin_left = 284.333
+margin_top = 186.337
+margin_right = 301.333
+margin_bottom = 202.337
 __meta__ = {
 "_edit_use_anchors_": false
 }

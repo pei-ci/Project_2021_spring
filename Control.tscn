@@ -2,10 +2,12 @@
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
-[ext_resource path="res://hqdefault.jpg" type="Texture" id=3]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/登入背景二版.png-d2ef5037ced6f7e561293bda8d20d22e.stex"
 
 [node name="login" type="Control"]
 anchor_right = 1.0
@@ -32,9 +34,9 @@ margin_right = 255.0
 margin_bottom = 162.0
 
 [node name="Sprite" type="Sprite" parent="CenterContainer/VBoxContainer"]
-position = Vector2( 91.4639, 42.8797 )
-scale = Vector2( 0.762802, 0.496741 )
-texture = ExtResource( 3 )
+position = Vector2( 95.7218, 44.6503 )
+scale = Vector2( 0.312409, 0.310733 )
+texture = SubResource( 2 )
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 190.0

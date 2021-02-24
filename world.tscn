@@ -17,7 +17,7 @@ load_path = "res://.import/拼圖介面大底圖一版.png-57c4c4af1f3def6dfd9cf
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/進入排行榜的按鈕二版.png-63f8d54be90f58ebffb755d372b28e19.stex"
+load_path = "res://.import/進入稱號倉庫的按鈕一版.png-a8a8dfcac80f416e807308306a2fa49b.stex"
 
 [sub_resource type="StreamTexture" id=4]
 load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a32cc918971d0f9327af00c4.stex"
@@ -76,15 +76,15 @@ texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
 position = Vector2( -20.5353, 44.9073 )
-z_index = 50
+z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
-position = Vector2( -43.0264, 3.5864 )
+position = Vector2( -217.933, 147.38 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 228.586, 162.708 )
+position = Vector2( 230.268, 172.799 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
 position = Vector2( 349.804, 40.9769 )
@@ -93,16 +93,14 @@ position = Vector2( 349.804, 40.9769 )
 z_index = 50
 
 [node name="title_storehouse_button_picture" type="Sprite" parent="title_storehouse"]
-position = Vector2( 46.7194, 172.862 )
-scale = Vector2( 1.71192, 1.26697 )
-z_index = -1
+position = Vector2( 19.3406, 17.6589 )
 texture = SubResource( 3 )
 
 [node name="title_storehouse" type="TextureButton" parent="title_storehouse"]
-margin_left = 23.0
-margin_top = 165.0
-margin_right = 63.0
-margin_bottom = 182.0
+margin_left = 11.6801
+margin_top = 7.9137
+margin_right = 28.6801
+margin_bottom = 27.9137
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -116,14 +114,14 @@ z_index = 60
 [node name="HTTPRequest2" type="HTTPRequest" parent="team"]
 
 [node name="team_button_picture" type="Sprite" parent="."]
-position = Vector2( 35.3732, 221.893 )
+position = Vector2( 53.032, 18.3961 )
 texture = SubResource( 4 )
 
 [node name="team_button" type="TextureButton" parent="."]
-margin_left = 23.0
-margin_top = 214.0
-margin_right = 48.0
-margin_bottom = 231.0
+margin_left = 40.6588
+margin_top = 10.5031
+margin_right = 65.6588
+margin_bottom = 27.5031
 __meta__ = {
 "_edit_use_anchors_": false
 }
