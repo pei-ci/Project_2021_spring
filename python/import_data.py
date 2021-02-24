@@ -19,7 +19,7 @@ def connect_to_sql():
 		exit()
 
 def read_csv():
-	with open('import.csv', newline='') as csvfile:
+	with open('import_data.csv', newline='') as csvfile:
 		rows = csv.reader(csvfile)
 		data = list(rows)
 	return data

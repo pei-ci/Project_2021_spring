@@ -6,7 +6,7 @@ valid=false
 
 [deps]
 
-source_file="res://python/import.csv"
+source_file="res://python/import_data.csv"
 [params]
 
 compress=true

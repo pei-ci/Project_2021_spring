@@ -143,6 +143,11 @@ func send_map_request():
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 
+func send_activity_request():
+	#sending map request
+	var map_body := {"type" : 'activity',"validation": Data.login_certification}
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+
 func send_emergency_request(map_type,amount,correct):
 	#sending emergency request
 	var map_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
@@ -174,7 +179,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				have_team = true 
 		else:
-			print("Error fetch info data!!!")		
+			print("Error fetch info data!!!")
+					
 	elif(data['type'] == 'team'):
 		if(data['sucess'] == 'true'):
 			Data.team_user = data['name']
@@ -184,6 +190,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			print("Error fetch team data!!!")
 		$team.send_team_member_request()
+		
 	elif(data['type'] == 'map'):
 		if(data['sucess'] == 'true'):
 			Data.puddle_user = int(data['unused1'])
@@ -198,21 +205,33 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 		else:
 			print("Error fetch map data!!!")
+		send_activity_request()
+			
+	elif(data['type'] == 'activity'):
+		if(data['sucess']=='true'):
+			for i in range(int(data['count'])):
+				Data.activity_list[i]['活動名稱'] = data['title'+str(i)]
+				Data.activity_list[i]['時間'] = data['time'+str(i)]
+				Data.activity_list[i]['代號'] = data['number'+str(i)]
+				Data.activity_list[i]['獎勵'] = data['point'+str(i)]
+		else:
+			print("Error fetch activity data!!!")
+		#print(Data.activity_list)
 		if(have_team):
 			send_team_request()
-		else:
-			#send_create_team_request()
-			pass
-	elif(data['type'] == 'map_oper'):
-		if(data['sucess']=='true'):
-			pass
-		else:
-			print("Unaccept map operation request!!!")
+			
 	elif(data['type'] == 'create_team'):
 		if(data['sucess']=='true'):
 			send_team_request()
 		else:
 			print("Unaccept create team request!!!")
+						
+	elif(data['type'] == 'map_oper'):
+		if(data['sucess']=='true'):
+			pass
+		else:
+			print("Unaccept map operation request!!!")
+			
 	elif(data['type'] == 'emergency'):
 		if(data['sucess']=='true'):
 			send_map_request()

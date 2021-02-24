@@ -19,7 +19,7 @@ func _set_information(team_name,team_id,team_total_puzzle,member_data_list):
 	for member in member_data_list:
 		if member["姓名"]=="":
 			continue
-		$information/team_information.text+= "\n學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+member["拼圖數量"]
+		$information/team_information.text+= "\n學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+str(member["拼圖數量"])
 
 func _set_team_up():
 	$team_up/generate.text=""
@@ -27,7 +27,7 @@ func _set_team_up():
 
 func send_team_member_request():	
 	var member_body := {"type" : 'team_member',"teamid":Data.team_id}
-	print(member_body)
+	#print(member_body)
 	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(member_body))
 	
 
