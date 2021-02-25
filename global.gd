@@ -91,6 +91,9 @@ var title_list={"0":"個人賽總冠軍","1":"個人賽總亞軍","2":"個人賽
 
 func _set_title_status(title_num):
 	if title_status[title_num]==0:
+		var world = get_node("/root/world")		
+		world.send_add_title_request(title_num)
+		print("add title"+str(title_num))
 		title_user=title_list[title_num]
 		title_status[title_num]=1
 
@@ -187,8 +190,6 @@ func _set_team_total_puzzle():#使用在global的set_up裡面  在global的ready
 		if member["姓名"]=="":
 			continue
 		team_tatal_puzzle+=member["拼圖數量"]
-		
-
 
 
 func _ready():
@@ -198,7 +199,7 @@ func _set_up():
 	#取得拼圖總數
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	#這邊是稱號的設定
-	_check_title_status()
+	#_check_title_status()
 		
 func _refresh_data():
 	_set_up()

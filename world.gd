@@ -8,10 +8,11 @@ func _ready():
 	_set_up()
 	Data.connect("refresh",self,"_refresh_information")
 	Data.connect("slect_window_open",self,"_open_slect_window")
+	#製作初始化對列系統
 	send_info_request()
 	
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
-	Data._check_title_status()#檢查和設定稱號
+	#Data._check_title_status()#檢查和設定稱號
 	
 	#資訊欄
 	$information.subject_user = Data.subject_user
@@ -143,6 +144,11 @@ func send_map_request():
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 
+func send_add_title_request(number):
+	#sending map request
+	var map_body := {"type":'title_oper',"oper":"add","number":number,"validation":Data.login_certification}
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+
 func send_activity_request():
 	#sending map request
 	var map_body := {"type" : 'activity',"validation": Data.login_certification}
@@ -189,6 +195,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.team_member_list[i]['學號'] = data['mem'+str(i+1)]
 		else:
 			print("Error fetch team data!!!")
+		Data._check_title_status()
 		$team.send_team_member_request()
 		
 	elif(data['type'] == 'map'):
@@ -237,6 +244,12 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			send_map_request()
 		else:
 			print("Unaccept emergency request!!!")
+			
+	elif(data['type'] == 'title_oper'):
+		if(data['sucess']=='true'):
+			pass
+		else:
+			print("Unaccept title request!!!")
 	Data.emit_refresh()
 	#_refresh_information()
 
