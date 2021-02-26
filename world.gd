@@ -1,8 +1,12 @@
 extends Node2D
 #遊戲的main
 onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
+
 var headers = ["Content-Type: application/json"]
+var request_queue = []
+
 var have_team = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_up()
@@ -130,7 +134,9 @@ func map_upgrade2(block_type,pos):
 func send_info_request():	
 	#sending info request
 	var info_body := {"type" : 'info',"validation": Data.login_certification}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(info_body))
+	#$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(info_body))
+	send_server_request(info_body)
+
 func send_team_request():
 	#sending team request
 	var team_body := {"type" : 'team',"validation": Data.login_certification}
@@ -158,6 +164,25 @@ func send_emergency_request(map_type,amount,correct):
 	#sending emergency request
 	var map_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+
+func send_server_request(body):
+	request_queue.append([body,0])
+	#requesst queue status 0:queue 1:waiting result
+	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
+		#send requesst
+		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		request_queue[0][1] = 1
+
+func check_request_queue():
+	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
+		#send requesst
+		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		request_queue[0][1] = 1
+
+func finish_request_queue(type):
+	if(len(request_queue)>0 && (request_queue[0][0]['type'] == type && request_queue[0][1] == 1)):
+		request_queue.remove(0)
+		check_request_queue()
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
@@ -250,6 +275,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			pass
 		else:
 			print("Unaccept title request!!!")
+	finish_request_queue(data['type'])
 	Data.emit_refresh()
 	#_refresh_information()
 
