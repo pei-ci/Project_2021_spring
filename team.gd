@@ -55,11 +55,11 @@ func _on_input_Button_pressed():
 
 func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
-	print(respond)
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
 	var data = data_parse.result
+	print("{"+data['type']+" "+data['sucess']+"}")
 	
 	if(data['type'] == 'create_team'):
 		var team = get_node("/root/team")

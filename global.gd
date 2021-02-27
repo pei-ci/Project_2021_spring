@@ -94,8 +94,10 @@ func _set_title_status(title_num):
 		var world = get_node("/root/world")		
 		world.send_add_title_request(title_num)
 		print("add title"+str(title_num))
-		title_user=title_list[title_num]
+		#title_user=title_list[title_num]
 		title_status[title_num]=1
+	else:
+		print("have"+str(title_num))
 
 func _check_title_status():
 	"""
@@ -138,8 +140,7 @@ func _check_title_status():
 		_set_title_status("16")
 	
 	if emergency_solve_time==1:
-		_set_title_status("17")
-		print("1")
+		_set_title_status("17")		
 	if emergency_solve_time==5:
 		_set_title_status("18")
 	if emergency_solve_time==10:
@@ -199,7 +200,7 @@ func _set_up():
 	#取得拼圖總數
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	#這邊是稱號的設定
-	#_check_title_status()
+	_check_title_status()
 		
 func _refresh_data():
 	_set_up()

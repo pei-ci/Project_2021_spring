@@ -14,7 +14,9 @@ func _ready():
 	Data.connect("slect_window_open",self,"_open_slect_window")
 	#製作初始化對列系統
 	send_info_request()
-	
+	send_map_request()
+	send_activity_request()
+		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	#Data._check_title_status()#檢查和設定稱號
 	
@@ -119,52 +121,51 @@ func _on_Button_pressed():
 func map_put(block_type,pos):
 	var put_body := {"type" : 'map_oper',"validation": Data.login_certification
 	,"oper" : 'put', "block_type" : block_type, "pos" : pos}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(put_body))
-
+	send_server_request(put_body)
 func map_upgrade1(block_type,pos):
 	var upgrade1_body := {"type" : 'map_oper',"validation": Data.login_certification
 	,"oper" : 'upgrade1', "block_type" : block_type, "pos" : pos}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(upgrade1_body))
-	
+	send_server_request(upgrade1_body)
 func map_upgrade2(block_type,pos):
 	var upgrade2_body := {"type" : 'map_oper',"validation": Data.login_certification
 	,"oper" : 'upgrade2', "block_type" : block_type, "pos" : pos}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(upgrade2_body))
-
+	send_server_request(upgrade2_body)
 func send_info_request():	
 	#sending info request
 	var info_body := {"type" : 'info',"validation": Data.login_certification}
-	#$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(info_body))
 	send_server_request(info_body)
 
 func send_team_request():
 	#sending team request
 	var team_body := {"type" : 'team',"validation": Data.login_certification}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(team_body))
+	send_server_request(team_body)
+
 func send_create_team_request():
 	#sending team request
 	var create_team_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":"test"}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(create_team_body))
+	send_server_request(create_team_body)
+	
 func send_map_request():
 	#sending map request
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
-
+	send_server_request(map_body)
+	
 func send_add_title_request(number):
 	#sending map request
-	var map_body := {"type":'title_oper',"oper":"add","number":number,"validation":Data.login_certification}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
-
+	var add_title_body := {"type":'title_oper',"oper":"add","number":number,"validation":Data.login_certification}
+	send_server_request(add_title_body)
+	
 func send_activity_request():
 	#sending map request
-	var map_body := {"type" : 'activity',"validation": Data.login_certification}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
-
+	var activity_body := {"type" : 'activity',"validation": Data.login_certification}
+	send_server_request(activity_body)
+	
 func send_emergency_request(map_type,amount,correct):
 	#sending emergency request
-	var map_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
+	send_server_request(emergency_body)
 
+#the following function maintain request queue system
 func send_server_request(body):
 	request_queue.append([body,0])
 	#requesst queue status 0:queue 1:waiting result
@@ -180,17 +181,18 @@ func check_request_queue():
 		request_queue[0][1] = 1
 
 func finish_request_queue(type):
+	#print(request_queue)
 	if(len(request_queue)>0 && (request_queue[0][0]['type'] == type && request_queue[0][1] == 1)):
 		request_queue.remove(0)
 		check_request_queue()
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
-	print(respond)
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
-	var data = data_parse.result
+	var data = data_parse.result	
+	print("{"+data['type']+" "+data['sucess']+"}")
 	if(data['type'] == 'info'):
 		if(data['sucess'] == 'true'):
 			Data.number_user = data['number']
@@ -204,11 +206,12 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				Data.title_user = '未設定'
 			Data.subject_user = data['department']
-			send_map_request() #send team request
+			#send_map_request() #send team request
 			if(data['teamid'] == '-1'):
 				Data.team_user = '未設定'
 			else:
 				have_team = true 
+				send_team_request()
 		else:
 			print("Error fetch info data!!!")
 					
@@ -237,7 +240,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 		else:
 			print("Error fetch map data!!!")
-		send_activity_request()
+		#send_activity_request()
 			
 	elif(data['type'] == 'activity'):
 		if(data['sucess']=='true'):
@@ -249,8 +252,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			print("Error fetch activity data!!!")
 		#print(Data.activity_list)
-		if(have_team):
-			send_team_request()
+		#if(have_team):
+		#	send_team_request()
 			
 	elif(data['type'] == 'create_team'):
 		if(data['sucess']=='true'):
@@ -272,7 +275,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			
 	elif(data['type'] == 'title_oper'):
 		if(data['sucess']=='true'):
-			pass
+			send_info_request()
 		else:
 			print("Unaccept title request!!!")
 	finish_request_queue(data['type'])
