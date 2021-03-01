@@ -27,7 +27,6 @@ var name_user="loading"
 var nickname_user="loading"
 var total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 var title_user="loading" #稱號依照拼圖總數決定
-var all_title
 var team_user="loading"
 
 
@@ -93,11 +92,8 @@ func _set_title_status(title_num):
 	if title_status[title_num]==0:
 		var world = get_node("/root/world")		
 		world.send_add_title_request(title_num)
-		print("add title"+str(title_num))
 		#title_user=title_list[title_num]
 		title_status[title_num]=1
-	else:
-		print("have"+str(title_num))
 
 func _check_title_status():
 	"""
@@ -177,7 +173,7 @@ func _emergency_correct_time(val):
 
 
 #活動資訊
-var activity_list=[{"活動名稱":"突發事件","時間":"3/12","代號":"AC01","獎勵":"11"},{"活動名稱":"社團活動","時間":"5/10","代號":"AB01","獎勵":"31"}]
+var activity_list=[]
 signal slect_window_open
 func emit_slect_window_open():
 	emit_signal("slect_window_open")

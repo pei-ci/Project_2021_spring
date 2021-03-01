@@ -70,7 +70,7 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	
 	#組隊頁面(組隊+團隊資訊)
 	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
-	
+			
 
 func _refresh_information(): #使用此函式可以設定好所有狀態 可用Data.emit_refresh()發出訊號來呼叫
 	Data._refresh_data() #更新global內需要設定的資料
@@ -106,6 +106,9 @@ func have_team():
 
 func _on_team_button_pressed():
 	$team.visible=true
+	refresh_team_scene_status()
+
+func refresh_team_scene_status():
 	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
 	if have_team(): #已組隊
 		$team/information.visible=true
@@ -113,7 +116,6 @@ func _on_team_button_pressed():
 	else:
 		$team/information.visible=false
 		$team/team_up.visible=true
-
 #quit
 func _on_Button_pressed():
 	get_tree().quit()
@@ -153,6 +155,7 @@ func send_map_request():
 func send_add_title_request(number):
 	#sending map request
 	var add_title_body := {"type":'title_oper',"oper":"add","number":number,"validation":Data.login_certification}
+	print("add title"+str(number))
 	send_server_request(add_title_body)
 	
 func send_activity_request():
@@ -188,6 +191,7 @@ func finish_request_queue(type):
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
+	#print(respond)
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
@@ -200,7 +204,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.nickname_user = data['nickname']
 			if(Data.nickname_user == ''):
 				Data.nickname_user = '未設定'
-			Data.all_title = data['title']
+			for i in range(len(data['title'])):
+				Data.title_status[str(i)] = int(data['title'][i]);
 			if(data['title_use']!="-1"):
 				Data.title_user = Data.title_list[data['title_use']]
 			else:
@@ -224,7 +229,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			print("Error fetch team data!!!")
 		Data._check_title_status()
-		$team.send_team_member_request()
+		$team.send_team_member_request()		
 		
 	elif(data['type'] == 'map'):
 		if(data['sucess'] == 'true'):
@@ -245,10 +250,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	elif(data['type'] == 'activity'):
 		if(data['sucess']=='true'):
 			for i in range(int(data['count'])):
-				Data.activity_list[i]['活動名稱'] = data['title'+str(i)]
-				Data.activity_list[i]['時間'] = data['time'+str(i)]
-				Data.activity_list[i]['代號'] = data['number'+str(i)]
-				Data.activity_list[i]['獎勵'] = data['point'+str(i)]
+				var insert_act = {'活動名稱':data['title'+str(i)],'時間':data['time'+str(i)]
+				,'代號':data['number'+str(i)],'獎勵':data['point'+str(i)]}
+				Data.activity_list.append(insert_act)
 		else:
 			print("Error fetch activity data!!!")
 		#print(Data.activity_list)
@@ -277,8 +281,12 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		if(data['sucess']=='true'):
 			send_info_request()
 		else:
-			print("Unaccept title request!!!")
+			if(data['error']=='already_have'):
+				pass
+			else:
+				print("Unaccept title request!!!")
 	finish_request_queue(data['type'])
+	Data._check_title_status()
 	Data.emit_refresh()
 	#_refresh_information()
 

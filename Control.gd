@@ -57,11 +57,15 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			print("Login Success!")
 			get_tree().change_scene("res://world.tscn")	
 		else:
-			print("Login Error!");
+			print("Login Error : Unknown!");
 	elif(data['type'] == 'register'):
 		if(data['sucess']=='true'):
 			login_to_server()
-		
+		else:
+			if(data['error'] == 'user_exist'):
+				print("Register Error : User Exist!")
+			else:
+				print("Register Error : Unknown!")	
 
 func _on_Login_pressed():
 	login_to_server()

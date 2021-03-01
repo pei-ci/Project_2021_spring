@@ -1,6 +1,8 @@
 extends Sprite
 
 onready var Data = get_node("/root/Global")
+onready var world = get_node("/root/world")
+
 var headers = ["Content-Type: application/json"]
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +38,8 @@ func _on_close_pressed():
 
 func _on_generate_Button_pressed():
 	if _is_input_team_name() and $team_up/generate.text=="":#當以輸入名稱 且未產生組隊代碼
-		send_generate_team_request('test')
+		var team_name = $team_up/input_team_name.text
+		send_generate_team_request(team_name)
 		$team_up/generate.text = "waiting..."
 
 func send_generate_team_request(team_name):	
@@ -65,12 +68,16 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 		var team = get_node("/root/team")
 		if(data['sucess']=='true'):			
 			_on_generate_team_finished(data['teamid'])
+			world.have_team = true
+			world.send_team_request()
 		else:
 			_on_generate_team_finished('Unable to generate team-id!')
 			print("Unaccept emergency request!!!")
 	elif(data['type'] == 'join_team'):
 		if(data['sucess']=='true'):			
 			$team_up/input.text = "Join sucessed!"
+			world.have_team = true
+			world.send_info_request()
 		else:
 			$team_up/input.text = "Join failed!"
 			print("Unable join team!!!")
@@ -86,6 +93,7 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 					Data.team_member_list[i]['學號'] = '尚未組隊'
 					Data.team_member_list[i]['拼圖數量'] = 0
 			Data._set_team_total_puzzle()
+			world.refresh_team_scene_status()
 		else:
 			print("Unable fetch team element!!!")
 

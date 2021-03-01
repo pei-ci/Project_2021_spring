@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
+[ext_resource path="res://Register.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -17,6 +18,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RegisterPage" parent="." instance=ExtResource( 3 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -57,7 +60,7 @@ margin_bottom = 85.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="Login" type="Button" parent="."]
+[node name="LoginButton" type="Button" parent="."]
 margin_left = 165.362
 margin_top = 162.207
 margin_right = 255.362
@@ -67,7 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Register" type="Button" parent="."]
+[node name="RegisterButton" type="Button" parent="."]
 margin_left = 65.1959
 margin_top = 163.034
 margin_right = 158.196
@@ -81,5 +84,5 @@ __meta__ = {
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_password_changed"]
 [connection signal="text_entered" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_LineEdit2_text_entered"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="Login" to="." method="_on_Login_pressed"]
-[connection signal="pressed" from="Register" to="." method="_on_Register_pressed"]
+[connection signal="pressed" from="LoginButton" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="RegisterButton" to="." method="_on_Register_pressed"]
