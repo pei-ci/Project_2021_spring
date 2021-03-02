@@ -134,12 +134,11 @@ function dealing_register_request($mysqli,$email,$password,$name,$department){
     $respond['sucess'] = 'false';
 
     //check if user exist
-    $query_check_username = "SELECT userid FROM user WHERE number='$email'";
+    $query_check_username = "SELECT userid FROM user WHERE name='$name'";
     $result_check_username = mysqli_query($mysqli, $query_check_username) or die(mysqli_error($mysqli));
     $num_row_check_username = mysqli_num_rows($result_check_username);
     if ($num_row_check_username>0){
         $respond['error'] = 'user_exist';
-        $respond['count'] = $num_row_check_username;
         echo json_encode($respond);
         return;
     }

@@ -158,6 +158,11 @@ func send_add_title_request(number):
 	print("add title"+str(number))
 	send_server_request(add_title_body)
 	
+func send_set_title_request(number):
+	#sending title select request
+	var title_oper_body := {"type" : 'title_oper',"validation": Data.login_certification,"number":number}
+	send_server_request(title_oper_body)
+	
 func send_activity_request():
 	#sending map request
 	var activity_body := {"type" : 'activity',"validation": Data.login_certification}
@@ -167,8 +172,9 @@ func send_emergency_request(map_type,amount,correct):
 	#sending emergency request
 	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
 	send_server_request(emergency_body)
-
-#the following function maintain request queue system
+	
+#the following function 
+#              maintain request queue system
 func send_server_request(body):
 	request_queue.append([body,0])
 	#requesst queue status 0:queue 1:waiting result

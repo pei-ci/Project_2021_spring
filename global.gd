@@ -92,7 +92,8 @@ func _set_title_status(title_num):
 	if title_status[title_num]==0:
 		var world = get_node("/root/world")		
 		world.send_add_title_request(title_num)
-		#title_user=title_list[title_num]
+		world.send_set_title_request(title_num)
+		title_user=title_list[title_num]
 		title_status[title_num]=1
 
 func _check_title_status():
