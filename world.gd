@@ -291,6 +291,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				pass
 			else:
 				print("Unaccept title request!!!")
+	
+	elif(data['type'] == 'logout'):
+		print("Authentication Error : Timeout!")
+		get_tree().change_scene("res://Control.tscn")
+
 	finish_request_queue(data['type'])
 	Data._check_title_status()
 	Data.emit_refresh()

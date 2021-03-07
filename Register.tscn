@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://底圖/稱號倉庫_背景-測試.png" type="Texture" id=1]
+[ext_resource path="res://Register.gd" type="Script" id=2]
 
 [node name="Register" type="Sprite"]
+script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 156, 113 )
@@ -10,50 +12,46 @@ texture = ExtResource( 1 )
 
 [node name="name" type="LineEdit" parent="."]
 margin_left = 117.0
-margin_top = 69.4142
-margin_right = 262.0
-margin_bottom = 93.4142
+margin_top = 69.0
+margin_right = 264.0
+margin_bottom = 93.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nickname" type="LineEdit" parent="."]
-margin_left = 116.646
-margin_top = 100.243
-margin_right = 261.646
-margin_bottom = 124.243
+margin_left = 117.0
+margin_top = 100.0
+margin_right = 264.0
+margin_bottom = 124.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionButton" type="OptionButton" parent="."]
-margin_left = 118.354
-margin_top = 130.182
-margin_right = 262.354
-margin_bottom = 150.182
+[node name="department" type="OptionButton" parent="."]
+margin_left = 118.0
+margin_top = 130.0
+margin_right = 264.0
+margin_bottom = 150.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-anchor_top = -0.353577
-anchor_bottom = -0.353577
+[node name="OK_Button" type="Button" parent="."]
 margin_left = 135.768
-margin_top = 159.707
-margin_right = 177.768
-margin_bottom = 179.707
+margin_top = 159.353
+margin_right = 166.768
+margin_bottom = 179.353
 text = "OK"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Register" type="Label" parent="."]
-anchor_top = -0.353554
-anchor_bottom = -0.353554
-margin_left = 108.662
-margin_top = 36.7401
-margin_right = 160.662
-margin_bottom = 50.7401
+margin_left = 105.0
+margin_top = 35.0
+margin_right = 157.0
+margin_bottom = 49.0
 rect_scale = Vector2( 2, 2 )
 text = "Register"
 __meta__ = {
@@ -61,22 +59,20 @@ __meta__ = {
 }
 
 [node name="Name" type="Label" parent="."]
-anchor_left = -0.353561
-anchor_right = -0.353561
-margin_left = 57.6292
-margin_top = 74.832
-margin_right = 97.6292
-margin_bottom = 88.832
+margin_left = 57.2756
+margin_top = 73.832
+margin_right = 95.2756
+margin_bottom = 87.832
 text = "Name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 44.5477
-margin_top = 103.823
-margin_right = 108.548
-margin_bottom = 117.823
+margin_left = 42.5477
+margin_top = 104.823
+margin_right = 106.548
+margin_bottom = 118.823
 text = "Nickname"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,3 +87,6 @@ text = "Department"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="OK_Button" to="." method="_on_OK_Button_pressed"]
