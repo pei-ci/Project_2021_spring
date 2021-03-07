@@ -1,6 +1,5 @@
 extends Sprite
 
-
 func _ready():
 	$background.visible=false
 	$close.visible=false
@@ -10,8 +9,6 @@ func _ready():
 	$person_text.visible=false
 	$team_text.visible=false
 	$block.visible=false
-
-
 
 #關閉
 func _on_close_pressed():
@@ -24,7 +21,6 @@ func _on_close_pressed():
 	$block.visible=false
 	_set_block_status("person")#頁面預設狀態是個人 因此要設定回個人true
 	
-
 #切換個人或團體
 func _on_switch_pressed():
 	if $person_text.visible==true:
