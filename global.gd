@@ -8,6 +8,8 @@ var status_user={"AA01":"00","AB01":"00","AA02":"00","AB02":"00",
 var block_type={"puddle":"1","wilderness":"2","desert":"3","sea":"4"
 				,"town":"5","volcano":"6"}
 
+var slect_button_opened=false #遊戲內紀錄此拼圖的選單是否已開啟 用來讓拼圖升級時不會和其他片的按鈕衝突
+
 var login_certification = "0000000000000000000"
 #puzzle拼圖(預設int)
 var finished_puzzle_user=0  #已使用拼圖

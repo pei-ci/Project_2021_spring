@@ -287,13 +287,25 @@ func _on_Timer_timeout():
 	pass
 
 
+
 func _on_slect_window_button_pressed():
+	Data.slect_button_opened=true
 	if $slect_window.visible==false:
 		$slect_window.visible=true
 		yield(get_tree().create_timer(5), "timeout")#選單視窗開啟5秒後關閉
+		Data.slect_button_opened=false
 		$slect_window.visible=false
 	else:
 		$slect_window.visible=false
+
+
+func _on_slect_window_button_mouse_entered():
+	
+	if Data.slect_button_opened==true and $slect_window.visible==false:
+		$slect_window_button.visible=false
+		yield(get_tree().create_timer(5), "timeout")#選單視窗開啟5秒後關閉
+		$slect_window_button.visible=true
+	pass # Replace with function body.
 
 
 func _on_activity_button_pressed():

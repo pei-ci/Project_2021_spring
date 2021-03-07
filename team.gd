@@ -24,7 +24,7 @@ func _set_information(team_name,team_id,team_total_puzzle,member_data_list):
 		$information/team_information.text+= "\n學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+str(member["拼圖數量"])
 
 func _set_team_up():
-	$team_up/generate.text=""
+	$team_up/background/generate_label.text=""
 	$team_up/input.text=""
 
 func send_team_member_request():	
@@ -37,17 +37,17 @@ func _on_close_pressed():
 	self.visible=false
 
 func _on_generate_Button_pressed():
-	if _is_input_team_name() and $team_up/generate.text=="":#當以輸入名稱 且未產生組隊代碼
+	if _is_input_team_name() and $team_up/background/generate_label.text=="":#當已輸入名稱 且未產生組隊代碼
 		var team_name = $team_up/input_team_name.text
 		send_generate_team_request(team_name)
-		$team_up/generate.text = "waiting..."
+		$team_up/background/generate_label.text = "waiting..."
 
 func send_generate_team_request(team_name):	
 	var map_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":team_name}
 	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 	
 func _on_generate_team_finished(team_id):
-	$team_up/generate.text = str(team_id)
+	$team_up/background/generate_label.text = str(team_id)
 
 func _on_input_Button_pressed():
 	var team_id = $team_up/input.text
@@ -103,3 +103,11 @@ func _is_input_team_name():
 	else:
 		return false
 	
+
+
+func _on_input_text_changed(new_text):
+	$team_up/background/input_label.text=$team_up/input.text
+
+
+func _on_input_team_name_text_changed(new_text):
+	$team_up/background/input_team_name_label.text=$team_up/input_team_name.text

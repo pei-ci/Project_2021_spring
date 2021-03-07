@@ -70,6 +70,7 @@ z_index = 5
 [node name="background" type="Sprite" parent="slect_window"]
 position = Vector2( 41.2505, -3.43753 )
 scale = Vector2( 0.510554, 1.09136 )
+z_index = -1
 texture = SubResource( 1 )
 
 [node name="activity_button" type="TextureButton" parent="slect_window"]
@@ -87,17 +88,19 @@ scale = Vector2( 0.944381, 0.771776 )
 texture = SubResource( 2 )
 
 [node name="MenuButton_picture" type="Sprite" parent="slect_window"]
-position = Vector2( 41.1106, 5.09221 )
+position = Vector2( 40.3435, 7.48521 )
 scale = Vector2( 0.944381, 0.771776 )
+z_index = 10
 texture = SubResource( 2 )
 
 [node name="MenuButton" type="MenuButton" parent="slect_window"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 25.0
-margin_top = -7.0
-margin_right = 51.0
-margin_bottom = 12.0
+margin_top = -5.0
+margin_right = 52.0
+margin_bottom = 14.0
+grow_horizontal = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -217,7 +220,8 @@ texture = SubResource( 19 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 43200.0
 autostart = true
-[connection signal="pressed" from="slect_window/activity_button" to="slect_window" method="_on_activity_button_pressed"]
 [connection signal="pressed" from="slect_window/activity_button" to="." method="_on_activity_button_pressed"]
+[connection signal="pressed" from="slect_window/activity_button" to="slect_window" method="_on_activity_button_pressed"]
+[connection signal="mouse_entered" from="slect_window_button" to="." method="_on_slect_window_button_mouse_entered"]
 [connection signal="pressed" from="slect_window_button" to="." method="_on_slect_window_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -3,8 +3,8 @@
 [ext_resource path="res://activity.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
 
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/稱號倉庫_背景-測試.png-729b33252bc6148e9bb304f985ef54a6.stex"
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/活動紀錄.png-34a604f6855bc719fd2fc6b0ff582f14.stex"
 
 [sub_resource type="DynamicFont" id=2]
 size = 8
@@ -23,16 +23,16 @@ load_path = "res://.import/稱號倉庫下一頁按鈕一版.png-f424a2d5d3bdaa8
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 157.429, 118.801 )
-scale = Vector2( 1.16393, 1.16393 )
-texture = SubResource( 1 )
+position = Vector2( 158.968, 116.677 )
+scale = Vector2( 0.3289, 0.3289 )
+texture = SubResource( 6 )
 
 [node name="page_01" type="Label" parent="."]
 visible = false
-margin_left = 25.0045
-margin_top = 52.6742
-margin_right = 158.005
-margin_bottom = 193.674
+margin_left = 80.0
+margin_top = 74.0
+margin_right = 238.0
+margin_bottom = 184.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,10 +40,10 @@ __meta__ = {
 
 [node name="page_02" type="Label" parent="."]
 visible = false
-margin_left = 25.0045
-margin_top = 52.6742
-margin_right = 158.005
-margin_bottom = 193.674
+margin_left = 76.0313
+margin_top = 73.4629
+margin_right = 209.032
+margin_bottom = 214.463
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,10 +51,10 @@ __meta__ = {
 
 [node name="page_03" type="Label" parent="."]
 visible = false
-margin_left = 25.0045
-margin_top = 52.6742
-margin_right = 158.005
-margin_bottom = 193.674
+margin_left = 80.441
+margin_top = 74.0928
+margin_right = 213.442
+margin_bottom = 215.093
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -62,25 +62,25 @@ __meta__ = {
 
 [node name="page_04" type="Label" parent="."]
 visible = false
-margin_left = 25.0045
-margin_top = 52.6742
-margin_right = 158.005
-margin_bottom = 193.674
+margin_left = 79.8111
+margin_top = 70.9431
+margin_right = 212.812
+margin_bottom = 211.943
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 302.007, 35.7069 )
+position = Vector2( 226.412, 54.6057 )
 scale = Vector2( 0.710785, 0.75528 )
 texture = SubResource( 3 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 291.0
-margin_top = 29.0
-margin_right = 310.0
-margin_bottom = 46.0
+margin_left = 215.405
+margin_top = 47.8988
+margin_right = 234.405
+margin_bottom = 64.8988
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,15 +88,15 @@ __meta__ = {
 [node name="last_page" type="Sprite" parent="."]
 
 [node name="last_page_picture" type="Sprite" parent="last_page"]
-position = Vector2( 263.301, 194.903 )
+position = Vector2( 167.547, 57.5716 )
 scale = Vector2( 0.711134, 0.689667 )
 texture = SubResource( 4 )
 
 [node name="last_page_button" type="TextureButton" parent="last_page"]
-margin_left = 255.627
-margin_top = 186.695
-margin_right = 271.627
-margin_bottom = 199.695
+margin_left = 159.873
+margin_top = 49.3636
+margin_right = 175.873
+margin_bottom = 62.3636
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,16 +104,16 @@ __meta__ = {
 [node name="next_page" type="Sprite" parent="."]
 
 [node name="next_page_picture" type="Sprite" parent="next_page"]
-position = Vector2( 293.33, 191.215 )
+position = Vector2( 197.576, 53.8836 )
 scale = Vector2( 0.799773, 0.799773 )
 texture = SubResource( 5 )
 flip_v = true
 
 [node name="next_page_button" type="TextureButton" parent="next_page"]
-margin_left = 284.333
-margin_top = 186.337
-margin_right = 301.333
-margin_bottom = 202.337
+margin_left = 188.579
+margin_top = 49.0056
+margin_right = 205.579
+margin_bottom = 65.0056
 __meta__ = {
 "_edit_use_anchors_": false
 }
