@@ -48,29 +48,29 @@ func volcano_minus(val):
 
 
 #個人排行
-var first_person={"nickname":"小明","total_puzzle":"11","title":"初級地形已經不能滿足我了，我要升級"}#暱稱，拼圖總數，目前稱號
-var second_person={"nickname":"","total_puzzle":"","title":""}
-var third_person={"nickname":"","total_puzzle":"","title":""}
-var four_person={"nickname":"","total_puzzle":"","title":""}
-var five_person={"nickname":"","total_puzzle":"","title":""}
-var six_person={"nickname":"","total_puzzle":"","title":""}
-var seven_person={"nickname":"","total_puzzle":"","title":""}
-var eight_person={"nickname":"","total_puzzle":"","title":""}
-var night_person={"nickname":"","total_puzzle":"","title":""}
-var ten_person={"nickname":"","total_puzzle":"","title":""}
+var first_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}#暱稱，拼圖總數，目前稱號
+var second_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var third_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var four_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var five_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var six_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var seven_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var eight_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var night_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
+var ten_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}
 var top_ten_person=[first_person,second_person,third_person,four_person,five_person,six_person,seven_person,eight_person,night_person,ten_person]
 
 #團隊
-var first_team={"teamname":"小花","total_puzzle":"100"}#隊名，拼圖總數
-var second_team={"teamname":"","total_puzzle":""}
-var third_team={"teamname":"","total_puzzle":""}
-var four_team={"teamname":"","total_puzzle":""}
-var five_team={"teamname":"","total_puzzle":""}
-var six_team={"teamname":"","total_puzzle":""}
-var seven_team={"teamname":"","total_puzzle":""}
-var eight_team={"teamname":"","total_puzzle":""}
-var night_team={"teamname":"","total_puzzle":""}
-var ten_team={"teamname":"","total_puzzle":""}
+var first_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}#隊名，拼圖總數
+var second_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var third_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var four_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var five_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var six_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var seven_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var eight_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var night_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
+var ten_team={"teamname":"尚無排名","total_puzzle":"尚無排名"}
 var top_ten_team=[first_team,second_team,third_team,four_team,five_team,six_team,seven_team,eight_team,night_team,ten_team]
 
 

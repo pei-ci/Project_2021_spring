@@ -56,3 +56,15 @@ func _set_block_status(status):
 		$block/eight_block.leader_board_status=false
 		$block/night_block.leader_board_status=false
 		$block/ten_block.leader_board_status=false
+
+func refresh_rank_data():
+	$block/first_block._set_information()
+	$block/second_block._set_information()
+	$block/third_block._set_information()
+	$block/four_block._set_information()
+	$block/five_block._set_information()
+	$block/six_block._set_information()
+	$block/seven_block._set_information()
+	$block/eight_block._set_information()
+	$block/night_block._set_information()
+	$block/ten_block._set_information()

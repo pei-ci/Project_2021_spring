@@ -97,9 +97,9 @@ position = Vector2( 19.3406, 17.6589 )
 texture = SubResource( 3 )
 
 [node name="title_storehouse" type="TextureButton" parent="title_storehouse"]
-margin_left = 11.6801
+margin_left = 11.2832
 margin_top = 7.9137
-margin_right = 28.6801
+margin_right = 28.2832
 margin_bottom = 27.9137
 __meta__ = {
 "_edit_use_anchors_": false

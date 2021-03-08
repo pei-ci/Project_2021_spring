@@ -173,6 +173,11 @@ func send_emergency_request(map_type,amount,correct):
 	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
 	send_server_request(emergency_body)
 	
+func send_rank_request(rank_type):
+	#sending rank request
+	var rank_body := {"type" : 'rank',"rank_type":rank_type}
+	send_server_request(rank_body)
+	
 #the following function 
 #              maintain request queue system
 func send_server_request(body):
@@ -292,9 +297,32 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				print("Unaccept title request!!!")
 	
+	elif(data['type'] == 'rank'):
+		if(data['sucess']=='true'):
+			for i in range(10):
+				if(data['rank_type']=='person'):
+					if(data['rank'+str(i+1)+'name'] != '-1'):
+						Data.top_ten_person[i]['nickname'] = data['rank'+str(i+1)+'nickname']
+						Data.top_ten_person[i]['name'] = data['rank'+str(i+1)+'name']
+						Data.top_ten_person[i]['number'] = data['rank'+str(i+1)+'number']
+						Data.top_ten_person[i]['department'] = data['rank'+str(i+1)+'department']
+						Data.top_ten_person[i]['title'] = data['rank'+str(i+1)+'title_use']
+						Data.top_ten_person[i]['total_puzzle'] = data['rank'+str(i+1)+'used']
+					else: # no data for this rank
+						pass # default text is '尚無排名'
+				else: #team
+					if(data['rank'+str(i+1)+'name'] != '-1'):
+						Data.top_ten_team[i]['teamname'] = data['rank'+str(i+1)+'name']
+						Data.top_ten_team[i]['total_puzzle'] = data['rank'+str(i+1)+'point']
+					else: # no data for this rank
+						pass
+			$leader_board_group/leader_board.refresh_rank_data()
+		else:
+			print("Fetch Rank Error!")
+			
 	elif(data['type'] == 'logout'):
 		print("Authentication Error : Timeout!")
-		get_tree().change_scene("res://Control.tscn")
+		get_tree().change_scene("res://Control.tscn")	
 
 	finish_request_queue(data['type'])
 	Data._check_title_status()
