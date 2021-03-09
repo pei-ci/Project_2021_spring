@@ -19,7 +19,7 @@ def connect_to_sql():
 
 def fetch_data(conn):
 	with conn.cursor() as cursor:
-		command = "SELECT team.teamid,team.point FROM team ORDER BY point DESC"
+		command = "SELECT map.userid,map.used FROM map ORDER BY used DESC"
 		cursor.execute(command)
 		result = cursor.fetchall()
 		return result
@@ -59,7 +59,7 @@ def get_order(conn,data):
 def send_order_to_server(conn,order_list):
     with conn.cursor() as cursor:
     	for key in order_list.keys():
-        	command = "UPDATE team SET rank = "+ str(order_list[key]) +" WHERE teamid = "+ str(key)
+        	command = "UPDATE user SET rank = "+ str(order_list[key]) +" WHERE userid = "+ str(key)
         	cursor.execute(command)   
         	conn.commit()
 
@@ -67,7 +67,7 @@ if __name__ == "__main__": #main function
 	print('connect to sql!')
 	conn = connect_to_sql()
 	data = fetch_data(conn)
-	print('ordering team data!')
+	print('ordering personal data!')
 	order_list = get_order(conn,data)
 	print(order_list)
 	print('sending to sql!')

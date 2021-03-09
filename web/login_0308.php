@@ -101,11 +101,8 @@ switch($type){
         $map_amount = $data['amount'];
         $correct = $data['correct'];
         dealing_emergency_request($mysqli,$login_certification,$map_type,$map_amount,$correct);
-        break;    
-    case 'emergency_info':
-        dealing_emergency_info_request($mysqli,$login_certification);
-        break;    
-    case 'rank': //work
+        break;
+    case 'rank':
         $rank_type = $data['rank_type'];
         dealing_rank_request($mysqli,$rank_type);
 }
@@ -544,24 +541,6 @@ function dealing_emergency_request($mysqli,$login_certification,$map_type,$map_a
         }
     }else{
         $respond['sucess'] = 'false';
-    }
-    echo json_encode($respond);
-}
-
-function dealing_emergency_info_request($mysqli,$login_certification){
-    $query_emergency_info = "SELECT map.emergency_time map.emergency_list
-     FROM map,user WHERE user.validation='$login_certification' AND user.userid = map.userid";
-    $result_emergency_info = mysqli_query($mysqli, $query_emergency_info) or die(mysqli_error($mysqli));
-    $num_row_emergency_info = mysqli_num_rows($result_emergency_info);
-
-    $respond = array();
-    $respond['type'] = 'emergency_info';
-    $respond['sucess'] = 'false';
-    if($num_row_emergency_info>0){
-        $row_emergency_info = mysqli_fetch_array($result_emergency_info);
-        $respond['emergency_time'] = $row_emergency_info['emergency_time'];
-        $respond['emergency_list'] = $row_emergency_info['emergency_list'];
-        $respond['sucess'] = 'true';
     }
     echo json_encode($respond);
 }
