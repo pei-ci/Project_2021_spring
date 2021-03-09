@@ -11,7 +11,7 @@ var password = ""
 func _ready():
 	#$HTTPRequest.connect("request_completed", self,"_on_HTTPRequest_request_completed")
 	#connect_to_sever()
-	pass
+	$Register.visible = false
 
 func _on_LineEdit_text_entered(text):
 	#player_account.append(new_text)
@@ -35,11 +35,11 @@ func login_to_server():
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 
-func register_to_server():
+func register_to_server(name,nickname,department):
 	#var query= "email="+ username + "&password="+ password
 	var body := {"type" : 'register',"number": username, "password": password
-	,"department" : '1',"name": 'test'}
-	#print(body)
+	,"department" : department ,"name": name,"nickname":nickname}
+	print(body)
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 
@@ -72,4 +72,5 @@ func _on_Login_pressed():
 
 
 func _on_Register_pressed():
-	register_to_server()
+	$Register.visible = true
+	#register_to_server()

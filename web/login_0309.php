@@ -59,7 +59,8 @@ switch($type){
         $password = $data['password'];
         $department = $data['department'];
         $name = $data['name'];
-        dealing_register_request($mysqli,$email,$password,$name,$department);
+        $nickname = $data['nickname'];
+        dealing_register_request($mysqli,$email,$password,$name,$department,$nickname);
         break;
     case 'info':    //work
         dealing_info_request($mysqli,$login_certification);
@@ -149,7 +150,7 @@ function dealing_login_request($mysqli,$email,$password){
     echo json_encode($respond);
 }
 
-function dealing_register_request($mysqli,$email,$password,$name,$department){
+function dealing_register_request($mysqli,$email,$password,$name,$department,$nickname){
     $respond = array();
     $respond['type'] = 'register';
     $respond['sucess'] = 'false';
@@ -166,8 +167,8 @@ function dealing_register_request($mysqli,$email,$password,$name,$department){
     }
     //register to user table
     $password = password_hash($password,PASSWORD_DEFAULT);
-    $query_register_user = "INSERT INTO user (name, department, number, password) 
-            VALUE ('$name','$department','$email','$password')";
+    $query_register_user = "INSERT INTO user (name, department, number, password ,nickname) 
+            VALUE ('$name','$department','$email','$password','$nickname')";
     $result_register_user = mysqli_query($mysqli, $query_register_user) or die(mysqli_error($mysqli));
     //get userid from user table
     $query_id = "SELECT userid FROM user WHERE number='$email' AND password='$password'";

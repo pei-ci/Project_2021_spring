@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
+[ext_resource path="res://Register.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -76,6 +77,8 @@ text = "Register"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Register" parent="." instance=ExtResource( 3 )]
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_user_changed"]
 [connection signal="text_entered" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_password_changed"]
