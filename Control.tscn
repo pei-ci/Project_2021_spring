@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
 [ext_resource path="res://Register.tscn" type="PackedScene" id=3]
+[ext_resource path="res://按鈕/組隊按鈕(兩個一樣).png" type="Texture" id=4]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -19,70 +20,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -0.890869
-margin_bottom = -0.890869
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 65.0
-margin_top = 77.0
-margin_right = 255.0
-margin_bottom = 162.0
-
-[node name="Sprite" type="Sprite" parent="CenterContainer/VBoxContainer"]
-position = Vector2( 95.7218, 44.6503 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 161.666, 119.816 )
 scale = Vector2( 0.312409, 0.310733 )
 texture = SubResource( 2 )
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 190.0
-margin_bottom = 19.0
+[node name="Label" type="Label" parent="."]
+margin_left = 14.2188
+margin_top = 51.1543
+margin_right = 204.219
+margin_bottom = 70.1543
+rect_scale = Vector2( 1.5, 1.5 )
 text = "login"
 align = 1
 uppercase = true
-
-[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer"]
-margin_top = 23.0
-margin_right = 190.0
-margin_bottom = 52.0
-
-[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 190.0
-margin_bottom = 85.0
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[node name="LoginButton" type="Button" parent="."]
-margin_left = 165.362
-margin_top = 162.207
-margin_right = 255.362
-margin_bottom = 187.207
-text = "Login"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RegisterButton" type="Button" parent="."]
-margin_left = 65.1959
-margin_top = 163.034
-margin_right = 158.196
-margin_bottom = 188.034
-text = "Register"
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 65.472
+margin_top = 89.1984
+margin_right = 255.472
+margin_bottom = 118.198
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 65.4719
+margin_top = 130.334
+margin_right = 255.472
+margin_bottom = 159.334
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="LoginButtonBackground" type="Sprite" parent="."]
+position = Vector2( 207.35, 188.151 )
+scale = Vector2( 2.36605, 1 )
+texture = ExtResource( 4 )
+
+[node name="NewLoginButton" type="TextureButton" parent="."]
+margin_left = 179.0
+margin_top = 176.0
+margin_right = 238.0
+margin_bottom = 202.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RegisterButtonBackground" type="Sprite" parent="."]
+position = Vector2( 111.133, 187.824 )
+scale = Vector2( 2.36605, 1 )
+texture = ExtResource( 4 )
+
+[node name="NewRegisterButton" type="TextureButton" parent="."]
+margin_left = 82.0
+margin_top = 175.0
+margin_right = 142.0
+margin_bottom = 201.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Register" parent="." instance=ExtResource( 3 )]
-[connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_user_changed"]
-[connection signal="text_entered" from="CenterContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
-[connection signal="text_changed" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_password_changed"]
-[connection signal="text_entered" from="CenterContainer/VBoxContainer/LineEdit2" to="." method="_on_LineEdit2_text_entered"]
+position = Vector2( 0, -0.44545 )
+[connection signal="text_changed" from="LineEdit" to="." method="_on_user_changed"]
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_changed" from="LineEdit2" to="." method="_on_password_changed"]
+[connection signal="text_entered" from="LineEdit2" to="." method="_on_LineEdit2_text_entered"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="LoginButton" to="." method="_on_Login_pressed"]
-[connection signal="pressed" from="RegisterButton" to="." method="_on_Register_pressed"]
+[connection signal="pressed" from="NewLoginButton" to="." method="_on_NewLoginButton_pressed"]
+[connection signal="pressed" from="NewRegisterButton" to="." method="_on_NewRegisterButton_pressed"]

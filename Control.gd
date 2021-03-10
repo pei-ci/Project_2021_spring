@@ -67,10 +67,17 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				print("Register Error : Unknown!")	
 
-func _on_Login_pressed():
-	login_to_server()
+func check_input():
+	if (username!="" && password!=""):
+		return true
+	return false
 
 
-func _on_Register_pressed():
-	$Register.visible = true
-	#register_to_server()
+func _on_NewLoginButton_pressed():
+	if (check_input()):
+		login_to_server()	
+
+func _on_NewRegisterButton_pressed():
+	if (check_input()):
+		$Register.visible = true
+		#register_to_server()

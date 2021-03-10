@@ -6,29 +6,29 @@
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/組隊介面.png-3ae28d446900ad3bafec6cb5de8c408f.stex"
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=4]
 load_path = "res://.import/組隊按鈕(兩個一樣).png-3adc44871eced423128f5ee26c124699.stex"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 10
 font_data = ExtResource( 1 )
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/稱號倉庫_背景-測試.png-729b33252bc6148e9bb304f985ef54a6.stex"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 size = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=8]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [node name="team" type="Sprite"]
@@ -37,16 +37,16 @@ script = ExtResource( 2 )
 [node name="team_up" type="Sprite" parent="."]
 
 [node name="background" type="Sprite" parent="team_up"]
-position = Vector2( 159.23, 110.812 )
+position = Vector2( 158.481, 111.187 )
 scale = Vector2( 0.375838, 0.375838 )
 z_index = 1
 texture = SubResource( 1 )
 
 [node name="generate_label" type="Label" parent="team_up/background"]
 margin_left = -27.0
-margin_top = 71.3572
+margin_top = 48.0
 margin_right = 187.0
-margin_bottom = 95.3572
+margin_bottom = 95.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,7 +65,7 @@ margin_left = -87.0
 margin_top = -28.2858
 margin_right = 128.0
 margin_bottom = 15.7142
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,7 +75,7 @@ margin_left = -105.458
 margin_top = -115.781
 margin_right = 22.5421
 margin_bottom = -83.7813
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "..."
 __meta__ = {
@@ -85,12 +85,12 @@ __meta__ = {
 [node name="generate_button_picture" type="Sprite" parent="team_up/background"]
 position = Vector2( 224.722, 78.8169 )
 scale = Vector2( 1.35557, 1.35557 )
-texture = SubResource( 8 )
+texture = SubResource( 4 )
 
 [node name="input_button_picture2" type="Sprite" parent="team_up/background"]
 position = Vector2( 225.907, 148.454 )
 scale = Vector2( 1.35557, 1.35557 )
-texture = SubResource( 8 )
+texture = SubResource( 4 )
 
 [node name="generate_Button" type="TextureButton" parent="team_up"]
 margin_left = 238.0
@@ -124,7 +124,7 @@ margin_left = 126.0
 margin_top = 93.0
 margin_right = 232.0
 margin_bottom = 118.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -134,14 +134,14 @@ visible = false
 
 [node name="background" type="Sprite" parent="information"]
 position = Vector2( 156.176, 113.461 )
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 
 [node name="team_information" type="Label" parent="information"]
 margin_left = 49.0023
 margin_top = 43.3371
 margin_right = 267.002
 margin_bottom = 179.337
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,7 +150,7 @@ __meta__ = {
 position = Vector2( 250.694, 42.8265 )
 scale = Vector2( 0.733032, 0.75528 )
 z_index = 1
-texture = SubResource( 6 )
+texture = SubResource( 8 )
 
 [node name="close" type="TextureButton" parent="."]
 margin_left = 241.046
