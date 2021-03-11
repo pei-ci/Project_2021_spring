@@ -63,7 +63,7 @@ def send_order_to_server(conn,order_list):
         	cursor.execute(command)   
         	conn.commit()
 
-if __name__ == "__main__": #main function
+def order_person():
 	print('connect to sql!')
 	conn = connect_to_sql()
 	data = fetch_data(conn)
@@ -73,3 +73,7 @@ if __name__ == "__main__": #main function
 	print('sending to sql!')
 	send_order_to_server(conn,order_list)
 	print('order finish!')
+
+
+if __name__ == "__main__": #main function
+	order_person()

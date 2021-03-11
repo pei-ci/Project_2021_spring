@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://介面/登入介面2.0.png" type="Texture" id=1]
 [ext_resource path="res://Register.gd" type="Script" id=2]
 [ext_resource path="res://按鈕/進入排行榜的按鈕二版.png" type="Texture" id=3]
 [ext_resource path="res://按鈕/關閉按鈕一版.png" type="Texture" id=4]
+[ext_resource path="res://Normal.tres" type="DynamicFont" id=5]
 
 [node name="Register" type="Sprite"]
 script = ExtResource( 2 )
 
 [node name="name" type="LineEdit" parent="."]
-margin_left = 97.4008
-margin_top = 66.6964
-margin_right = 210.401
-margin_bottom = 90.6964
+anchor_top = -0.471939
+anchor_bottom = -0.471939
+margin_left = 125.0
+margin_top = 68.4719
+margin_right = 274.0
+margin_bottom = 97.4719
+custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -20,10 +24,11 @@ __meta__ = {
 [node name="nickname" type="LineEdit" parent="."]
 anchor_left = 0.943878
 anchor_right = 0.943878
-margin_left = 96.8189
-margin_top = 103.472
-margin_right = 209.819
-margin_bottom = 127.472
+margin_left = 124.056
+margin_top = 104.0
+margin_right = 274.056
+margin_bottom = 133.0
+custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,5 +77,40 @@ margin_bottom = 57.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NameLabel" type="Label" parent="."]
+margin_left = 131.0
+margin_top = 74.0
+margin_right = 274.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NicknameLabel" type="Label" parent="."]
+margin_left = 131.0
+margin_top = 108.0
+margin_right = 279.0
+margin_bottom = 127.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DepartmentLabel" type="Label" parent="."]
+margin_left = 130.383
+margin_top = 141.0
+margin_right = 319.383
+margin_bottom = 162.0
+rect_scale = Vector2( 0.8, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Press to choose department"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="nickname" to="." method="_on_nickname_text_changed"]
+[connection signal="item_selected" from="department" to="." method="_on_department_item_selected"]
 [connection signal="pressed" from="OK" to="." method="_on_OK_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
