@@ -113,6 +113,7 @@ func _on_A_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("A")
+	Data._set_event_status_list(event_data["number"],0)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 	
 
@@ -124,6 +125,7 @@ func _on_B_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("B")
+	Data._set_event_status_list(event_data["number"],0)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
 
@@ -135,6 +137,7 @@ func _on_C_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("C")
+	Data._set_event_status_list(event_data["number"],0)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
 func _answer_reply(option):

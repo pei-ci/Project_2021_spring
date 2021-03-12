@@ -211,6 +211,19 @@ signal refresh
 func emit_refresh(): #當數值改變時會使用此函式 來刷新頁面上的資料
 	emit_signal("refresh")
 
+#隨機事件解題紀錄
+var event_status_list=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
+func _set_event_status_list(num,value):
+	event_status_list[num-1]=value
+
+func _get_event_list():#要獲得狀態非零的題目用
+	var event_list=[]
+	for index in range (len(event_status_list)):
+		if event_status_list[index]!=0:
+			event_list.append(index+1)
+	return event_list
+
 """
 稱號內容
 1.個人賽總冠軍(總排行榜上結果月更)
