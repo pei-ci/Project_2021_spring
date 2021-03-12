@@ -61,8 +61,13 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
-	var data = data_parse.result
-	print("{"+data['type']+" "+data['sucess']+"}")
+	var data = data_parse.result	
+	
+	if(Data.DEBUG_MODE == 1):
+		print("{"+data['type']+" "+data['sucess']+"}")		
+	elif(Data.DEBUG_MODE == 2):
+		print(respond)
+	
 	
 	if(data['type'] == 'create_team'):
 		var team = get_node("/root/team")

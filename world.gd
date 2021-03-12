@@ -16,6 +16,7 @@ func _ready():
 	send_info_request()
 	send_map_request()
 	send_activity_request()
+	#send_emergency_info_request()
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	#Data._check_title_status()#檢查和設定稱號
@@ -172,15 +173,24 @@ func send_emergency_request(map_type,amount,correct):
 	#sending emergency request
 	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
 	send_server_request(emergency_body)
+
+func send_emergency_info_request():
+	#sending emergency_info request
+	var emergency_info_body := {"type" : 'emergency_info',"validation": Data.login_certification}
+	send_server_request(emergency_info_body)
 	
 func send_rank_request(rank_type):
 	#sending rank request
 	var rank_body := {"type" : 'rank',"rank_type":rank_type}
 	send_server_request(rank_body)
 	
+
 #the following function 
 #              maintain request queue system
 func send_server_request(body):
+	if(Data.DEBUG_MODE >= 1):
+		print('sending : '+body['type'])
+	
 	request_queue.append([body,0])
 	#requesst queue status 0:queue 1:waiting result
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
@@ -202,12 +212,17 @@ func finish_request_queue(type):
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
-	#print(respond)
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
-	var data = data_parse.result	
-	print("{"+data['type']+" "+data['sucess']+"}")
+	var data = data_parse.result
+	
+	if(Data.DEBUG_MODE == 1):
+		print("{"+data['type']+" "+data['sucess']+"}")		
+	elif(Data.DEBUG_MODE == 2):
+		print(respond)
+
+	
 	if(data['type'] == 'info'):
 		if(data['sucess'] == 'true'):
 			Data.number_user = data['number']
@@ -287,6 +302,15 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			send_map_request()
 		else:
 			print("Unaccept emergency request!!!")
+	
+	elif(data['type'] == 'emergency_info'):
+		if(data['sucess']=='true'):
+			var emergency_history = data['emergency_list']
+			for i in range(len(emergency_history)):
+				Data.event_status_list[i] = int(emergency_history[i])
+			print(Data.event_status_list)
+		else:
+			print("Unable fatch emergency info data!!!")
 			
 	elif(data['type'] == 'title_oper'):
 		if(data['sucess']=='true'):
@@ -321,8 +345,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			print("Fetch Rank Error!")
 			
 	elif(data['type'] == 'logout'):
-		print("Authentication Error : Timeout!")
-		get_tree().change_scene("res://Control.tscn")	
+		if(data['sucess'] == 'false'):
+			print("Authentication Error : Timeout!")
+			get_tree().change_scene("res://Control.tscn")	
 
 	finish_request_queue(data['type'])
 	Data._check_title_status()

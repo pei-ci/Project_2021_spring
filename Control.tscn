@@ -45,12 +45,17 @@ margin_left = 65.472
 margin_top = 89.1984
 margin_right = 255.472
 margin_bottom = 118.198
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LineEdit2" type="LineEdit" parent="."]
 margin_left = 65.4719
 margin_top = 130.334
 margin_right = 255.472
 margin_bottom = 159.334
+custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

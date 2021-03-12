@@ -45,11 +45,17 @@ func register_to_server(name,nickname,department):
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):	
 	var respond = body.get_string_from_utf8()
-	print(respond);
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
 	var data = data_parse.result
+	
+	if(Data.DEBUG_MODE == 1):
+		print("{"+data['type']+" "+data['sucess']+"}")		
+	elif(Data.DEBUG_MODE == 2):
+		print(respond)
+
+
 	if(data['type']=='login'):
 		if(data['sucess'] == 'true'):
 			Data.login_certification = data["validation"]
