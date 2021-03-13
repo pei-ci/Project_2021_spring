@@ -3,7 +3,7 @@ extends Node
 
 # by editing the debug choice, system will print network or other debug data.
 # 0=No debug data,1=important debug data ,2=all receive debug data
-var DEBUG_MODE = 2
+var DEBUG_MODE = 1
 
 var status_user={"AA01":"00","AB01":"00","AA02":"00","AB02":"00",
 				"AA03":"00","AB03":"00","AA04":"00","AB04":"00",

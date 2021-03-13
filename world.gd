@@ -16,7 +16,7 @@ func _ready():
 	send_info_request()
 	send_map_request()
 	send_activity_request()
-	#send_emergency_info_request()
+	send_emergency_info_request()
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	#Data._check_title_status()#檢查和設定稱號
@@ -187,28 +187,32 @@ func send_rank_request(rank_type):
 
 #the following function 
 #              maintain request queue system
-func send_server_request(body):
-	if(Data.DEBUG_MODE >= 1):
-		print('sending : '+body['type'])
-	
+func send_server_request(body):	
 	request_queue.append([body,0])
 	#requesst queue status 0:queue 1:waiting result
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
 		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		if(Data.DEBUG_MODE >= 1):
+			print('sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func check_request_queue():
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
 		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		if(Data.DEBUG_MODE >= 1):
+			print('sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func finish_request_queue(type):
 	#print(request_queue)
-	if(len(request_queue)>0 && (request_queue[0][0]['type'] == type && request_queue[0][1] == 1)):
-		request_queue.remove(0)
-		check_request_queue()
+	if(len(request_queue)>0):
+		for i in range(len(request_queue)):
+			if(request_queue[i][0]['type'] == type && request_queue[i][1] == 1):
+				request_queue.remove(i)
+				check_request_queue()
+				break;
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
@@ -221,7 +225,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		print("{"+data['type']+" "+data['sucess']+"}")		
 	elif(Data.DEBUG_MODE == 2):
 		print(respond)
-
 	
 	if(data['type'] == 'info'):
 		if(data['sucess'] == 'true'):
@@ -308,7 +311,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			var emergency_history = data['emergency_list']
 			for i in range(len(emergency_history)):
 				Data.event_status_list[i] = int(emergency_history[i])
-			print(Data.event_status_list)
 		else:
 			print("Unable fatch emergency info data!!!")
 			
