@@ -36,7 +36,7 @@ scale = Vector2( 1.11152, 1.18321 )
 texture = SubResource( 1 )
 
 [node name="text_window_emergency" parent="." instance=ExtResource( 2 )]
-position = Vector2( 178.042, 82.8967 )
+position = Vector2( 174.892, 84.7866 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -46,45 +46,42 @@ autostart = true
 z_index = 10
 
 [node name="A" type="TextureButton" parent="option"]
-visible = false
-margin_left = 144.735
-margin_top = 87.5997
-margin_right = 166.735
-margin_bottom = 107.599
+margin_left = 100.008
+margin_top = 105.869
+margin_right = 122.008
+margin_bottom = 125.868
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="B" type="TextureButton" parent="option"]
-visible = false
-margin_left = 181.251
-margin_top = 88.8942
-margin_right = 202.251
-margin_bottom = 108.894
+margin_left = 153.533
+margin_top = 106.273
+margin_right = 174.533
+margin_bottom = 126.273
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="C" type="TextureButton" parent="option"]
-visible = false
-margin_left = 221.292
-margin_top = 88.6431
-margin_right = 242.292
-margin_bottom = 108.643
+margin_left = 218.142
+margin_top = 90.533
+margin_right = 239.142
+margin_bottom = 110.533
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="A_picture" type="Sprite" parent="option"]
-visible = false
-position = Vector2( 156.843, 98.7393 )
+position = Vector2( 112.116, 118.268 )
 texture = SubResource( 2 )
 
 [node name="B_picture" type="Sprite" parent="option"]
-visible = false
-position = Vector2( 193.867, 98.3693 )
+position = Vector2( 163.629, 117.008 )
 texture = SubResource( 3 )
 
 [node name="C_picture" type="Sprite" parent="option"]
-visible = false
-position = Vector2( 233.76, 100.972 )
+position = Vector2( 219.271, 119.241 )
 texture = SubResource( 4 )
 [connection signal="pressed" from="Button_emergency" to="." method="_on_Button_emergency_pressed"]
 [connection signal="pressed" from="option/A" to="." method="_on_A_pressed"]

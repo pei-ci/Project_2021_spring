@@ -13,7 +13,7 @@ z_index = 40
 script = ExtResource( 2 )
 
 [node name="leader_board" parent="." instance=ExtResource( 1 )]
-position = Vector2( -490.753, -10.7633 )
+position = Vector2( -469.714, -51.1019 )
 scale = Vector2( 1.33765, 1.33765 )
 
 [node name="leader_button_picture" type="Sprite" parent="."]

@@ -61,145 +61,146 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 186.246, 81.9011 )
-scale = Vector2( 0.361523, 0.361523 )
+position = Vector2( 150.926, 110.924 )
+scale = Vector2( 0.530846, 0.530846 )
 texture = SubResource( 1 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 226.0
-margin_top = 15.0
-margin_right = 237.0
-margin_bottom = 25.0
+margin_left = 213.698
+margin_top = 15.3969
+margin_right = 224.698
+margin_bottom = 25.3969
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 232.97, 19.5998 )
+position = Vector2( 220.668, 19.9967 )
 scale = Vector2( 0.584248, 0.584248 )
 texture = SubResource( 2 )
 
 [node name="switch" type="TextureButton" parent="."]
-margin_left = 222.0
-margin_top = 123.0
-margin_right = 235.0
-margin_bottom = 134.0
+margin_left = 208.904
+margin_top = 161.098
+margin_right = 221.904
+margin_bottom = 172.098
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="switch_picture" type="Sprite" parent="."]
-position = Vector2( 227.93, 127.169 )
+position = Vector2( 214.437, 165.267 )
 scale = Vector2( 0.687852, 0.687852 )
 texture = SubResource( 3 )
 
 [node name="person_text" type="Sprite" parent="."]
+visible = false
 
 [node name="first" type="Label" parent="person_text"]
-margin_left = 170.862
-margin_top = 39.0115
-margin_right = 232.862
-margin_bottom = 47.0115
+margin_left = 133.558
+margin_top = 49.7265
+margin_right = 195.558
+margin_bottom = 57.7265
 custom_fonts/font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="second" type="Label" parent="person_text"]
-margin_left = 172.057
-margin_top = 51.5395
-margin_right = 212.057
-margin_bottom = 59.5395
+margin_left = 132.769
+margin_top = 69.7946
+margin_right = 172.769
+margin_bottom = 77.7946
 custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="third" type="Label" parent="person_text"]
-margin_left = 172.585
-margin_top = 63.3036
-margin_right = 212.585
-margin_bottom = 71.3036
+margin_left = 131.709
+margin_top = 84.3367
+margin_right = 171.709
+margin_bottom = 92.3367
 custom_fonts/font = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="four" type="Label" parent="person_text"]
-margin_left = 172.233
-margin_top = 74.2635
-margin_right = 212.233
-margin_bottom = 82.2635
+margin_left = 131.357
+margin_top = 100.852
+margin_right = 171.357
+margin_bottom = 108.852
 custom_fonts/font = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="five" type="Label" parent="person_text"]
-margin_left = 172.176
-margin_top = 84.1675
-margin_right = 212.176
-margin_bottom = 92.1675
+margin_left = 130.904
+margin_top = 116.312
+margin_right = 170.904
+margin_bottom = 124.312
 custom_fonts/font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="six" type="Label" parent="person_text"]
-margin_left = 172.079
-margin_top = 95.154
-margin_right = 212.079
-margin_bottom = 103.154
+margin_left = 129.616
+margin_top = 132.855
+margin_right = 169.616
+margin_bottom = 140.855
 custom_fonts/font = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="seven" type="Label" parent="person_text"]
-margin_left = 172.135
-margin_top = 104.934
-margin_right = 212.135
-margin_bottom = 112.934
+margin_left = 130.069
+margin_top = 147.794
+margin_right = 170.069
+margin_bottom = 155.794
 custom_fonts/font = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="eight" type="Label" parent="person_text"]
-margin_left = 171.899
-margin_top = 115.31
-margin_right = 211.899
-margin_bottom = 123.31
+margin_left = 130.627
+margin_top = 162.535
+margin_right = 170.627
+margin_bottom = 170.535
 custom_fonts/font = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="night" type="Label" parent="person_text"]
-margin_left = 171.678
-margin_top = 124.784
-margin_right = 211.678
-margin_bottom = 132.784
+margin_left = 129.215
+margin_top = 175.978
+margin_right = 169.215
+margin_bottom = 183.978
 custom_fonts/font = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ten" type="Label" parent="person_text"]
-margin_left = 171.09
-margin_top = 133.899
-margin_right = 211.09
-margin_bottom = 141.899
+margin_left = 128.23
+margin_top = 189.458
+margin_right = 168.23
+margin_bottom = 197.458
 custom_fonts/font = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="person_mark" type="Label" parent="person_text"]
-margin_left = 223.248
-margin_top = 124.236
-margin_right = 233.248
-margin_bottom = 132.236
+margin_left = 210.152
+margin_top = 162.334
+margin_right = 220.152
+margin_bottom = 170.334
 custom_fonts/font = SubResource( 14 )
 text = "個人"
 __meta__ = {
@@ -207,12 +208,13 @@ __meta__ = {
 }
 
 [node name="team_text" type="Sprite" parent="."]
+visible = false
 
 [node name="team_mark" type="Label" parent="team_text"]
-margin_left = 223.248
-margin_top = 124.236
-margin_right = 233.248
-margin_bottom = 132.236
+margin_left = 210.152
+margin_top = 162.334
+margin_right = 220.152
+margin_bottom = 170.334
 custom_fonts/font = SubResource( 14 )
 text = "團體"
 __meta__ = {
@@ -220,100 +222,100 @@ __meta__ = {
 }
 
 [node name="first" type="Label" parent="team_text"]
-margin_left = 170.862
-margin_top = 39.0115
-margin_right = 232.862
-margin_bottom = 47.0115
+margin_left = 133.558
+margin_top = 49.7265
+margin_right = 195.558
+margin_bottom = 57.7265
 custom_fonts/font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="second" type="Label" parent="team_text"]
-margin_left = 172.057
-margin_top = 51.5395
-margin_right = 212.057
-margin_bottom = 59.5395
+margin_left = 132.769
+margin_top = 69.7946
+margin_right = 172.769
+margin_bottom = 77.7946
 custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="third" type="Label" parent="team_text"]
-margin_left = 172.585
-margin_top = 63.3036
-margin_right = 212.585
-margin_bottom = 71.3036
+margin_left = 131.709
+margin_top = 84.3367
+margin_right = 171.709
+margin_bottom = 92.3367
 custom_fonts/font = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="four" type="Label" parent="team_text"]
-margin_left = 172.233
-margin_top = 74.2635
-margin_right = 212.233
-margin_bottom = 82.2635
+margin_left = 131.357
+margin_top = 100.852
+margin_right = 171.357
+margin_bottom = 108.852
 custom_fonts/font = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="five" type="Label" parent="team_text"]
-margin_left = 172.176
-margin_top = 84.1675
-margin_right = 212.176
-margin_bottom = 92.1675
+margin_left = 130.904
+margin_top = 116.312
+margin_right = 170.904
+margin_bottom = 124.312
 custom_fonts/font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="six" type="Label" parent="team_text"]
-margin_left = 172.079
-margin_top = 95.154
-margin_right = 212.079
-margin_bottom = 103.154
+margin_left = 129.616
+margin_top = 132.855
+margin_right = 169.616
+margin_bottom = 140.855
 custom_fonts/font = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="seven" type="Label" parent="team_text"]
-margin_left = 172.135
-margin_top = 104.934
-margin_right = 212.135
-margin_bottom = 112.934
+margin_left = 130.069
+margin_top = 147.794
+margin_right = 170.069
+margin_bottom = 155.794
 custom_fonts/font = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="eight" type="Label" parent="team_text"]
-margin_left = 171.899
-margin_top = 115.31
-margin_right = 211.899
-margin_bottom = 123.31
+margin_left = 130.627
+margin_top = 162.535
+margin_right = 170.627
+margin_bottom = 170.535
 custom_fonts/font = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="night" type="Label" parent="team_text"]
-margin_left = 171.678
-margin_top = 124.784
-margin_right = 211.678
-margin_bottom = 132.784
+margin_left = 129.215
+margin_top = 175.978
+margin_right = 169.215
+margin_bottom = 183.978
 custom_fonts/font = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ten" type="Label" parent="team_text"]
-margin_left = 171.09
-margin_top = 133.899
-margin_right = 211.09
-margin_bottom = 141.899
+margin_left = 128.23
+margin_top = 189.458
+margin_right = 168.23
+margin_bottom = 197.458
 custom_fonts/font = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -323,43 +325,43 @@ __meta__ = {
 z_index = 5
 
 [node name="first_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -2.67029e-05, -22.7042 )
+position = Vector2( 0.396824, -21.9105 )
 z_index = 5
 
 [node name="second_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -2.81334e-05, -9.24986 )
+position = Vector2( 0.396822, -3.2971 )
 z_index = 5
 
 [node name="third_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -0.420528, 0.159102 )
+position = Vector2( 0.770024, 11.6678 )
 z_index = 5
 
 [node name="four_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -0.420498, 11.3521 )
+position = Vector2( 1.1669, 26.8293 )
 z_index = 5
 
 [node name="five_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( 0.420412, 21.4429 )
+position = Vector2( 1.21411, 42.0791 )
 z_index = 5
 
 [node name="six_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -5.65052e-05, 33.6359 )
+position = Vector2( 1.58735, 56.6532 )
 z_index = 5
 
 [node name="seven_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -0.84094, 43.7266 )
+position = Vector2( -2.03149, 73.0935 )
 z_index = 5
 
 [node name="eight_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -1.70975, 53.6652 )
+position = Vector2( -2.9003, 87.7943 )
 z_index = 5
 
 [node name="night_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -2.19235, 62.0934 )
+position = Vector2( -2.5892, 101.778 )
 z_index = 5
 
 [node name="ten_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -1.65823, 70.8583 )
+position = Vector2( -1.65823, 116.099 )
 z_index = 5
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="switch" to="." method="_on_switch_pressed"]

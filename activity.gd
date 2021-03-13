@@ -17,14 +17,14 @@ func _ready():
 	
 var page_map={"1":"page_01","2":"page_02","3":"page_03","4":"page_04"}
 func _set_up(activity_data):
-	$page_01.text="參與活動1\n"
-	$page_02.text="參與活動2\n"
-	$page_03.text="參與活動3\n"
-	$page_04.text="參與活動4\n"
+	$page_01.text="1"
+	$page_02.text="2"
+	$page_03.text="3"
+	$page_04.text="4"
 	var current_page=1
 	activity_list=activity_data
 	for activity in activity_list:
-		if get_node(page_map[str(current_page)]).get_visible_line_count()>=10:
+		if get_node(page_map[str(current_page)]).get_visible_line_count()>=7:
 			current_page= current_page +1
 			if current_page>4:
 				print("we need page 5")

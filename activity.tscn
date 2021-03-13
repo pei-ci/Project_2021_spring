@@ -3,8 +3,8 @@
 [ext_resource path="res://activity.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
 
-[sub_resource type="StreamTexture" id=6]
-load_path = "res://.import/活動紀錄.png-34a604f6855bc719fd2fc6b0ff582f14.stex"
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/活動資訊2.0.png-df88f3c7f5f223040704eaed757917d0.stex"
 
 [sub_resource type="DynamicFont" id=2]
 size = 8
@@ -25,14 +25,13 @@ script = ExtResource( 1 )
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 158.968, 116.677 )
 scale = Vector2( 0.3289, 0.3289 )
-texture = SubResource( 6 )
+texture = SubResource( 1 )
 
 [node name="page_01" type="Label" parent="."]
-visible = false
-margin_left = 80.0
-margin_top = 74.0
-margin_right = 238.0
-margin_bottom = 184.0
+margin_left = 88.0
+margin_top = 73.0
+margin_right = 246.0
+margin_bottom = 180.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,10 +39,10 @@ __meta__ = {
 
 [node name="page_02" type="Label" parent="."]
 visible = false
-margin_left = 76.0313
-margin_top = 73.4629
-margin_right = 209.032
-margin_bottom = 214.463
+margin_left = 86.0
+margin_top = 73.0
+margin_right = 249.0
+margin_bottom = 194.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,10 +50,10 @@ __meta__ = {
 
 [node name="page_03" type="Label" parent="."]
 visible = false
-margin_left = 80.441
-margin_top = 74.0928
-margin_right = 213.442
-margin_bottom = 215.093
+margin_left = 84.0
+margin_top = 72.0
+margin_right = 246.0
+margin_bottom = 192.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -62,25 +61,25 @@ __meta__ = {
 
 [node name="page_04" type="Label" parent="."]
 visible = false
-margin_left = 79.8111
-margin_top = 70.9431
-margin_right = 212.812
-margin_bottom = 211.943
+margin_left = 83.7798
+margin_top = 71.0
+margin_right = 216.78
+margin_bottom = 195.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 226.412, 54.6057 )
+position = Vector2( 245.311, 40.1166 )
 scale = Vector2( 0.710785, 0.75528 )
 texture = SubResource( 3 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 215.405
-margin_top = 47.8988
-margin_right = 234.405
-margin_bottom = 64.8988
+margin_left = 234.304
+margin_top = 33.4097
+margin_right = 253.304
+margin_bottom = 50.4097
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,15 +87,15 @@ __meta__ = {
 [node name="last_page" type="Sprite" parent="."]
 
 [node name="last_page_picture" type="Sprite" parent="last_page"]
-position = Vector2( 167.547, 57.5716 )
-scale = Vector2( 0.711134, 0.689667 )
+position = Vector2( 212.889, 186.799 )
+scale = Vector2( 0.480149, 0.465654 )
 texture = SubResource( 4 )
 
 [node name="last_page_button" type="TextureButton" parent="last_page"]
-margin_left = 159.873
-margin_top = 49.3636
-margin_right = 175.873
-margin_bottom = 62.3636
+margin_left = 208.124
+margin_top = 181.077
+margin_right = 219.124
+margin_bottom = 190.077
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,16 +103,16 @@ __meta__ = {
 [node name="next_page" type="Sprite" parent="."]
 
 [node name="next_page_picture" type="Sprite" parent="next_page"]
-position = Vector2( 197.576, 53.8836 )
-scale = Vector2( 0.799773, 0.799773 )
+position = Vector2( 232.353, 184.415 )
+scale = Vector2( 0.556417, 0.556417 )
 texture = SubResource( 5 )
 flip_v = true
 
 [node name="next_page_button" type="TextureButton" parent="next_page"]
-margin_left = 188.579
-margin_top = 49.0056
-margin_right = 205.579
-margin_bottom = 65.0056
+margin_left = 226.418
+margin_top = 180.948
+margin_right = 236.418
+margin_bottom = 190.948
 __meta__ = {
 "_edit_use_anchors_": false
 }

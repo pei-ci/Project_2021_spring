@@ -17,11 +17,13 @@ func _set_up(team_name,team_id,team_total_puzzle,member_data_list):
 	_set_team_up()
 
 func _set_information(team_name,team_id,team_total_puzzle,member_data_list):
-	$information/team_information.text="隊名 : "+team_name+"   (組隊代碼:"+str(team_id)+")\n拼圖總數:"+str(team_total_puzzle)+"\n成員名單:"
+	$information/team_name.text=team_name+"(拼圖總數:"+str(team_total_puzzle)+")"
+	$information/team_id.text=str(team_id)
+	$information/team_information.text=""
 	for member in member_data_list:
 		if member["姓名"]=="":
 			continue
-		$information/team_information.text+= "\n學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+str(member["拼圖數量"])
+		$information/team_information.text+= "學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+str(member["拼圖數量"])+"\n"
 
 func _set_team_up():
 	$team_up/background/generate_label.text=""

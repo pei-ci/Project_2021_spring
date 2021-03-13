@@ -3,6 +3,7 @@ extends Sprite
 #底下的lebel物件 目前使用字體 NotoSerifCJKtc-Black 可再更改
 func _ready():
 	$emergency_background.visible = false
+	$text_emergency.visible=false
 	$close.visible = false
 	$close_picture.visible = false
 	pass # Replace with function body.

@@ -44,21 +44,21 @@ var event_19 = {"text":"長庚大學校內最高的建築物為何？\nA.一醫\
 				"A":"","B":"","C":"","answer":"C","number":19}	
 var event_20 = {"text":"如果一位同學有特殊的走路方式，每一秒會爬三階，\n但下一秒就會退後一階，請問他總共會花多少時間在爬好漢坡？\nA.251秒\nB.126秒\nC.125秒",
 				"A":"","B":"","C":"","answer":"A","number":20}
-var event_21 = {"text":"長庚大學「全人教育基本素養」總共有幾項指標？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.4種\nB.6種\nC.8種",
+var event_21 = {"text":"長庚大學「全人教育基本素養」總共有幾項指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.4種\nB.6種\nC.8種",
 				"A":"","B":"","C":"","answer":"B","number":21}
-var event_22 = {"text":"全人素養APP各項指標都有一個代表的人物圖案，請問『人文藝術』指標的代表人物是誰呢？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.小說家\nB.陰陽家\nC.名家",
+var event_22 = {"text":"全人素養APP各項指標都有一個代表的人物圖案，請問\n『人文藝術』指標的代表人物是誰呢？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.小說家\nB.陰陽家\nC.名家",
 				"A":"","B":"","C":"","answer":"A","number":22}
-var event_23 = {"text":"請問全人素養六個指標人物，神秘的圖案設計者vixiQ的真實身分是？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.生醫系學姊 (答案正確~會有部分拼圖)\nB.漫研社學姊 (答案正確~會有部分拼圖)\nC.以上皆是(1_最佳解答)",
+var event_23 = {"text":"請問全人素養六個指標人物，神秘的圖案設計者vixiQ\n的真實身分是？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.生醫系學姊 (答案正確~會有部分拼圖)\nB.漫研社學姊 (答案正確~會有部分拼圖)\nC.以上皆是(1_最佳解答)",
 				"A":"","B":"","C":"","answer":"C","number":23}
-var event_24 = {"text":"4.參與各院『院月會』活動，可以納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.創新進取(1)",
+var event_24 = {"text":"4.參與各院『院月會』活動，可以納入全人素養軟實力的\n哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.創新進取",
 				"A":"","B":"","C":"","answer":"C","number":24}
-var event_25 = {"text":"參與『宿舍整潔比賽』活動成績及格者，可以納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.團隊合作\nB.自我省思\nC.守分自律",
+var event_25 = {"text":"參與『宿舍整潔比賽』活動成績及格者，可以納入全人素\n養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.自我省思\nC.守分自律",
 				"A":"","B":"","C":"","answer":"C","number":25}
-var event_26 = {"text":"參與深耕學園藝文活動，可以納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.關懷付出\nB.人文藝術\nC.創新進取",
+var event_26 = {"text":"參與深耕學園藝文活動，可以納入全人素養軟實力的哪一\n項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.關懷付出\nB.人文藝術\nC.創新進取",
 				"A":"","B":"","C":"","answer":"B","number":26}
-var event_27 = {"text":"參與長庚大學的傳統活動『好漢坡競賽』，可以納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.自我省思",
+var event_27 = {"text":"參與長庚大學的傳統活動『好漢坡競賽』，可以納入全人\n素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.自我省思",
 				"A":"","B":"","C":"","answer":"A","number":27}
-var event_28 = {"text":"你知道學校手機APP裡面的全人素養軟實力圖像，等級Lv.49~60每升級一級需要獲得多少分數嗎？\n(答案就在網頁上，一起來尋找答案吧!!   https://reurl.cc/5oDjrz )\nA.4分\nB.5分\nC.6分",
+var event_28 = {"text":"你知道學校手機APP裡面的全人素養軟實力圖像，等級\nLv.49~60每升級一級需要獲得多少分數嗎？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.4分\nB.5分\nC.6分",
 				"A":"","B":"","C":"","answer":"C","number":28}
 				
 var events = [event_01,event_02,event_03,event_04,event_05,event_06,event_07,event_08,event_09,event_10,

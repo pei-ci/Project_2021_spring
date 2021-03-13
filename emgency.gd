@@ -23,32 +23,34 @@ func _ready():
 	finished_puzzle=30
 	$Button_emergency.visible=false
 	
-	#text_window 已在內部預設初始隱藏
 	#按鈕隱藏
-	$option/A.visible = false
-	$option/B.visible = false
-	$option/C.visible = false
+	$option.visible = false
 	
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
 	$text_window_emergency.connect("timer_continue",self,"_close_window")#當window做了close的動作 會發出訊號 這裡會執行關閉這個視窗的動作
 	
 
-func _on_Timer_timeout():#決定是否出現隨機事件
-	#目前設定規則:每隔固定的時間會取亂數決定是否出現隨機事件 若沒有按掉隨機事件會在下一次timeout消失(除非又出現突發事件)
-	#當視窗開啟計時停止，當視窗關閉才會再開始
-	#根據emergency_probability的數量作為亂數total 取到1突發事件發生
-	_set_emergency_probability(finished_puzzle)
-	if _random(1,emergency_probability)==1:
+func _on_Timer_timeout():#決定是否出現突發事件
+	#目前設定規則:每秒檢查是否在突發事件會觸發的時間內
+	if $text_window_emergency/emergency_background.visible==true:
+		return
+	if _check_time() and Data.emergency_status==false:
 		$Button_emergency.visible=true
 	else:
 		$Button_emergency.visible=false
 	 
+func _check_time():
+	return true#此行測試用 可以刪除
+	#if in time
+		#return true
+	#return false (if out of time)
+	pass
 	
 
 func _on_Button_emergency_pressed(): #點開隨機事件
 	world = get_node("/root/world")
 	#計時暫停
-	$Timer.paused=true
+	#$Timer.paused=true
 	#跳出訊息畫面
 	$text_window_emergency/emergency_background.visible = true
 	$text_window_emergency/close.visible = true
@@ -56,12 +58,8 @@ func _on_Button_emergency_pressed(): #點開隨機事件
 	event_data = $text_window_emergency/text_emergency._set_event() #隨機選擇文檔 
 	$text_window_emergency/text_emergency.visible = true
 	#option 出現
-	$option/A.visible = true
-	$option/B.visible = true
-	$option/C.visible = true
-	$option/A_picture.visible=true
-	$option/B_picture.visible=true
-	$option/C_picture.visible=true
+	$option.visible = true
+	
 	#icon消失
 	$Button_emergency.visible=false
 	
@@ -74,6 +72,8 @@ func _random(begin,end):
 	var random_num=rand.randi_range(begin,end)
 	return random_num
 
+
+"""
 #機率的設定 (目前為假設 還會再變更)
 func _set_emergency_probability(num):
 	if num >= 0 and num<10:
@@ -86,6 +86,7 @@ func _set_emergency_probability(num):
 
 func _timer_continue(): #Timer繼續開始數
 	$Timer.paused=false
+"""
 
 func _close_window(): #關閉視窗
 	_close_button()
@@ -94,15 +95,10 @@ func _close_window(): #關閉視窗
 	$text_window_emergency/close_picture.visible = false
 	$text_window_emergency/text_emergency.visible = false
 	$text_window_emergency/text_after_answer.visible = false
-	_timer_continue()
+	#_timer_continue()
 
 func _close_button():
-	$option/A.visible = false
-	$option/B.visible = false
-	$option/C.visible = false
-	$option/A_picture.visible=false
-	$option/B_picture.visible=false
-	$option/C_picture.visible=false
+	$option.visible = false
 
 #ABC選項
 #2選項規則設定
@@ -113,6 +109,7 @@ func _on_A_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("A")
+	Data._set_emergency_status(true)
 	Data._set_event_status_list(event_data["number"],0)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 	
@@ -125,6 +122,7 @@ func _on_B_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("B")
+	Data._set_emergency_status(true)
 	Data._set_event_status_list(event_data["number"],0)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
@@ -137,6 +135,7 @@ func _on_C_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("C")
+	Data._set_emergency_status(true)
 	Data._set_event_status_list(event_data["number"],0)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
