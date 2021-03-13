@@ -66,9 +66,9 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	var data = data_parse.result	
 	
 	if(Data.DEBUG_MODE == 1):
-		print("{"+data['type']+" "+data['sucess']+"}")		
+		Data.debug_msg(1,"{"+data['type']+" "+data['sucess']+"}")	
 	elif(Data.DEBUG_MODE == 2):
-		print(respond)
+		Data.debug_msg(2,respond)
 	
 	
 	if(data['type'] == 'create_team'):

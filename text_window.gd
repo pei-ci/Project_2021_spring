@@ -17,4 +17,5 @@ func _on_close_pressed():
 	$text_emergency.visible = false
 	emit_signal("timer_continue")
 	
-
+func get_event_id():
+	return $text_emergency.event_id

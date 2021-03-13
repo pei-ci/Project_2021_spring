@@ -169,9 +169,13 @@ func send_activity_request():
 	var activity_body := {"type" : 'activity',"validation": Data.login_certification}
 	send_server_request(activity_body)
 	
-func send_emergency_request(map_type,amount,correct):
+func send_emergency_request(map_type,amount,correct,event_id):
 	#sending emergency request
-	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct}
+	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct,"event_id":event_id,"command_type":"add_map"}
+	send_server_request(emergency_body)
+
+func send_emergency_record_request(event_id): #use for sending record to server
+	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":-1,"amount":-1,"correct":0,"event_id":event_id,"command_type":"record"}
 	send_server_request(emergency_body)
 
 func send_emergency_info_request():
@@ -193,16 +197,14 @@ func send_server_request(body):
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
 		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
-		if(Data.DEBUG_MODE >= 1):
-			print('sending : '+str(request_queue[0]))
+		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func check_request_queue():
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
 		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
-		if(Data.DEBUG_MODE >= 1):
-			print('sending : '+str(request_queue[0]))
+		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func finish_request_queue(type):
@@ -222,9 +224,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var data = data_parse.result
 	
 	if(Data.DEBUG_MODE == 1):
-		print("{"+data['type']+" "+data['sucess']+"}")		
+		Data.debug_msg(1,"{"+data['type']+" "+data['sucess']+"}")
 	elif(Data.DEBUG_MODE == 2):
-		print(respond)
+		Data.debug_msg(2,respond)
 	
 	if(data['type'] == 'info'):
 		if(data['sucess'] == 'true'):
@@ -302,7 +304,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			
 	elif(data['type'] == 'emergency'):
 		if(data['sucess']=='true'):
-			send_map_request()
+			if(data['command_type']=='record'):
+				send_map_request()
 		else:
 			print("Unaccept emergency request!!!")
 	
@@ -311,6 +314,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			var emergency_history = data['emergency_list']
 			for i in range(len(emergency_history)):
 				Data.event_status_list[i] = int(emergency_history[i])
+			print(Data.event_status_list)
 		else:
 			print("Unable fatch emergency info data!!!")
 			

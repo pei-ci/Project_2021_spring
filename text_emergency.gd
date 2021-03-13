@@ -2,6 +2,8 @@ extends Label
 #突發事件專用 文字label
 onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
 
+var event_id #題號
+
 var FILE_NUM = 28 #突發事件的數量
 
 var event_01 = {"text":"如果今天約好要聚餐，卻剛好錯過到院區的接駁車，\n你會怎麼做?\nA.沒辦法，只好等下一班公車囉\nB.UBIKE騎起來!\nC.找乾爹乾媽蹭一下車~",
@@ -73,14 +75,14 @@ func _ready():
 #隨機選擇突發事件並讀取對應題目
 func _set_event():
 	var event_list=Data._get_event_list()
-	var num #題號
 	if len(event_list)==0:#如果沒題目了 就全部隨機
-		num=_random(1,FILE_NUM)
+		Data.debug_msg(2,"All event solved!")
+		event_id=_random(1,FILE_NUM)
 	else:
 		var index=_random(0,len(event_list)-1)
-		num=event_list[index]
-	text=events[num-1]["text"]
-	return events[num-1]#回傳題號對應的資料
+		event_id=event_list[index]
+	text=events[event_id-1]["text"]
+	return events[event_id-1]#回傳題號對應的資料
 
 #取亂數
 var rand=RandomNumberGenerator.new()

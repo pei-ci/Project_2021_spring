@@ -110,7 +110,7 @@ func _on_A_pressed():
 	#拼圖片數設定
 	_give_reward("A")
 	Data._set_emergency_status(true)
-	Data._set_event_status_list(event_data["number"],0)
+	Data._set_event_status_list(event_data["number"],1)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 	
 
@@ -123,7 +123,7 @@ func _on_B_pressed():
 	#拼圖片數設定
 	_give_reward("B")
 	Data._set_emergency_status(true)
-	Data._set_event_status_list(event_data["number"],0)
+	Data._set_event_status_list(event_data["number"],1)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
 
@@ -136,7 +136,7 @@ func _on_C_pressed():
 	#拼圖片數設定
 	_give_reward("C")
 	Data._set_emergency_status(true)
-	Data._set_event_status_list(event_data["number"],0)
+	Data._set_event_status_list(event_data["number"],1)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
 func _answer_reply(option):
@@ -154,7 +154,7 @@ func _give_reward(option):
 	#選擇任何選項都匯給的基本獎勵
 	for piece in range(reward):  #reward是基本的拼圖獎勵片數 每次loop會random一次決定這一片是哪一種拼圖 並給予拼圖
 		puzzle_type=_random(1,6)
-		world.send_emergency_request(puzzle_type,1,0)
+		world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
 	
 	#以下是答對問題的特殊獎勵
 	#這邊是如果選項又選到對的答案 又會再額外給予拼圖
@@ -163,6 +163,8 @@ func _give_reward(option):
 		
 		for piece in range(special_reward):  #special_reward是答對的拼圖獎勵片數 每次loop會random決定這一片是哪一種拼圖 並給予拼圖
 			puzzle_type=_random(1,6)
-			world.send_emergency_request(puzzle_type,1,0)
+			world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
 	else:
-		world.send_emergency_request(puzzle_type,2,1)
+		world.send_emergency_request(puzzle_type,2,1,$text_window_emergency.get_event_id())
+	
+	world.send_emergency_record_request(option)

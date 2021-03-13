@@ -99,10 +99,10 @@ __meta__ = {
 }
 
 [node name="DepartmentLabel" type="Label" parent="."]
-margin_left = 130.383
-margin_top = 141.0
-margin_right = 319.383
-margin_bottom = 162.0
+margin_left = 129.383
+margin_top = 142.0
+margin_right = 318.383
+margin_bottom = 163.0
 rect_scale = Vector2( 0.8, 1 )
 custom_fonts/font = ExtResource( 5 )
 text = "Press to choose department"

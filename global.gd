@@ -3,8 +3,15 @@ extends Node
 
 # by editing the debug choice, system will print network or other debug data.
 # 0=No debug data,1=important debug data ,2=all receive debug data
-var DEBUG_MODE = 1
+var DEBUG_MODE = 2
 
+func debug_msg(level,msg):
+	if DEBUG_MODE-level >= 0:
+		if level==1:
+			print("NORMAL : "+msg)
+		elif level==2:
+			print("DEBUG : "+msg)
+		
 var status_user={"AA01":"00","AB01":"00","AA02":"00","AB02":"00",
 				"AA03":"00","AB03":"00","AA04":"00","AB04":"00",
 				"AA05":"00","AB05":"00"}
@@ -217,7 +224,7 @@ func emit_refresh(): #當數值改變時會使用此函式 來刷新頁面上的
 
 #以下為3/12-3/13新增內容 此行註解可以刪 以下程式碼可以移到適合的位置
 #隨機事件解題紀錄
-var event_status_list=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+var event_status_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 func _set_event_status_list(num,value):
 	event_status_list[num-1]=value
@@ -225,7 +232,7 @@ func _set_event_status_list(num,value):
 func _get_event_list():#要獲得狀態非零的題目用
 	var event_list=[]
 	for index in range (len(event_status_list)):
-		if event_status_list[index]!=0:
+		if event_status_list[index]!=1:
 			event_list.append(index+1)
 	return event_list
 
