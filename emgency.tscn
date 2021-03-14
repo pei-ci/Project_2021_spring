@@ -64,10 +64,10 @@ __meta__ = {
 }
 
 [node name="C" type="TextureButton" parent="option"]
-margin_left = 218.142
-margin_top = 90.533
-margin_right = 239.142
-margin_bottom = 110.533
+margin_left = 208.063
+margin_top = 105.652
+margin_right = 229.063
+margin_bottom = 125.652
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -34,17 +34,11 @@ func _on_Timer_timeout():#決定是否出現突發事件
 	#目前設定規則:每秒檢查是否在突發事件會觸發的時間內
 	if $text_window_emergency/emergency_background.visible==true:
 		return
-	if _check_time() and Data.emergency_status==false:
+	if Data._is_emergency_time():#到了突發事件會觸發的時間
 		$Button_emergency.visible=true
 	else:
 		$Button_emergency.visible=false
-	 
-func _check_time():
-	return true#此行測試用 可以刪除
-	#if in time
-		#return true
-	#return false (if out of time)
-	pass
+		
 	
 
 func _on_Button_emergency_pressed(): #點開隨機事件
@@ -109,7 +103,6 @@ func _on_A_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("A")
-	Data._set_emergency_status(true)
 	Data._set_event_status_list(event_data["number"],1)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 	
@@ -122,7 +115,6 @@ func _on_B_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("B")
-	Data._set_emergency_status(true)
 	Data._set_event_status_list(event_data["number"],1)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 
@@ -135,7 +127,6 @@ func _on_C_pressed():
 	_close_window()
 	#拼圖片數設定
 	_give_reward("C")
-	Data._set_emergency_status(true)
 	Data._set_event_status_list(event_data["number"],1)
 	Data.emit_refresh()#發出訊號 world那邊會接收並更新內容
 

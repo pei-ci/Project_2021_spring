@@ -4,7 +4,7 @@
 [ext_resource path="res://六邊形修正版.png" type="Texture" id=2]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/排行榜測適用.png-e668f3c43631c1788e77da1a985f2584.stex"
+load_path = "res://.import/活動資訊和升級選單.png-d1d7dc0e4f9655041601181c4895e3d6.stex"
 
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a32cc918971d0f9327af00c4.stex"
@@ -68,38 +68,38 @@ script = ExtResource( 1 )
 z_index = 5
 
 [node name="background" type="Sprite" parent="slect_window"]
-position = Vector2( 41.2505, -3.43753 )
-scale = Vector2( 0.510554, 1.09136 )
+position = Vector2( 34.1022, -0.629044 )
+scale = Vector2( 0.0684314, 0.0791007 )
 z_index = -1
 texture = SubResource( 1 )
 
 [node name="activity_button" type="TextureButton" parent="slect_window"]
-margin_left = 30.4864
-margin_top = -20.7756
-margin_right = 53.4864
-margin_bottom = -3.77562
+margin_left = 40.0
+margin_top = -9.0
+margin_right = 49.0
+margin_bottom = -3.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="activity_button_picture" type="Sprite" parent="slect_window"]
-position = Vector2( 40.8746, -16.145 )
-scale = Vector2( 0.944381, 0.771776 )
+position = Vector2( 44.3785, -6.83792 )
+scale = Vector2( 0.352715, 0.288249 )
 texture = SubResource( 2 )
 
 [node name="MenuButton_picture" type="Sprite" parent="slect_window"]
-position = Vector2( 40.3435, 7.48521 )
-scale = Vector2( 0.944381, 0.771776 )
+position = Vector2( 44.8022, 5.47842 )
+scale = Vector2( 0.369381, 0.301869 )
 z_index = 10
 texture = SubResource( 2 )
 
 [node name="MenuButton" type="MenuButton" parent="slect_window"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = -5.0
-margin_right = 52.0
-margin_bottom = 14.0
+margin_left = 38.8763
+margin_top = -1.8695
+margin_right = 49.8763
+margin_bottom = 17.1305
 grow_horizontal = 0
 __meta__ = {
 "_edit_use_anchors_": false

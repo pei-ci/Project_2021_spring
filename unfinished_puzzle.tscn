@@ -63,12 +63,13 @@ scale = Vector2( 0.659943, 0.659943 )
 texture = SubResource( 1 )
 
 [node name="puddle_heading" type="Label" parent="."]
-margin_left = 59.2242
-margin_top = 39.6012
-margin_right = 75.2242
-margin_bottom = 46.6012
+margin_left = 60.2242
+margin_top = 38.6012
+margin_right = 76.2242
+margin_bottom = 47.6012
 custom_fonts/font = SubResource( 2 )
-text = "關懷付出"
+text = "水坑"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,53 +78,58 @@ __meta__ = {
 margin_left = 43.1677
 margin_top = 48.7523
 margin_right = 60.1677
-margin_bottom = 55.7523
+margin_bottom = 56.7523
 custom_fonts/font = SubResource( 3 )
-text = "團隊合作"
+text = "荒原"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="desert_heading" type="Label" parent="."]
-margin_left = 26.0296
+margin_left = 27.0296
 margin_top = 21.1272
-margin_right = 42.0296
-margin_bottom = 28.1272
+margin_right = 43.0296
+margin_bottom = 29.1272
 custom_fonts/font = SubResource( 4 )
-text = "人文藝術"
+text = "沙漠"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="sea_heading" type="Label" parent="."]
-margin_left = 59.4423
-margin_top = 21.0224
-margin_right = 76.4423
+margin_left = 58.7959
+margin_top = 20.0224
+margin_right = 75.7959
 margin_bottom = 28.0224
 custom_fonts/font = SubResource( 5 )
-text = "自我省思"
+text = "淺海"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="town_heading" type="Label" parent="."]
-margin_left = 41.8346
+margin_left = 42.8346
 margin_top = 10.7725
-margin_right = 58.8346
-margin_bottom = 17.7725
+margin_right = 59.8346
+margin_bottom = 18.7725
 custom_fonts/font = SubResource( 6 )
-text = "守分自律"
+text = "鄉村"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="volcano_heading" type="Label" parent="."]
 margin_left = 26.3802
-margin_top = 38.7324
+margin_top = 39.7324
 margin_right = 42.3802
-margin_bottom = 45.7324
+margin_bottom = 47.7324
 custom_fonts/font = SubResource( 7 )
-text = "創新進取"
+text = "地熱口"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -159,9 +165,9 @@ __meta__ = {
 }
 
 [node name="sea" type="Label" parent="."]
-margin_left = 54.2378
+margin_left = 55.2378
 margin_top = 25.8576
-margin_right = 60.2378
+margin_right = 61.2378
 margin_bottom = 32.8576
 custom_fonts/font = SubResource( 11 )
 __meta__ = {

@@ -236,8 +236,14 @@ func _get_event_list():#要獲得狀態非零的題目用
 			event_list.append(index+1)
 	return event_list
 
-#紀錄突發本日事件是否已完成 false:未完成
-var emergency_status=false
+#紀錄時間
+var current_time=60
+var last_emergency_time=40
 
-func _set_emergency_status(status):
-	emergency_status=status
+var period_time=10 #(以最小單位記)
+
+func _is_emergency_time():
+	if (current_time-last_emergency_time) > period_time:#此行邏輯還會依規則做修正
+		return true
+	else:
+		return false
