@@ -164,7 +164,7 @@ func _give_reward(option):
 		for piece in range(special_reward):  #special_reward是答對的拼圖獎勵片數 每次loop會random決定這一片是哪一種拼圖 並給予拼圖
 			puzzle_type=_random(1,6)
 			world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
+			world.send_emergency_record_request(1,$text_window_emergency.get_event_id())
 	else:
 		world.send_emergency_request(puzzle_type,2,1,$text_window_emergency.get_event_id())
-	
-	world.send_emergency_record_request(option)
+		world.send_emergency_record_request(0,$text_window_emergency.get_event_id())

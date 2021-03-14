@@ -161,7 +161,7 @@ func send_add_title_request(number):
 	
 func send_set_title_request(number):
 	#sending title select request
-	var title_oper_body := {"type" : 'title_oper',"validation": Data.login_certification,"number":number}
+	var title_oper_body := {"type" : 'title_oper',"oper":"use","validation": Data.login_certification,"number":number}
 	send_server_request(title_oper_body)
 	
 func send_activity_request():
@@ -174,8 +174,8 @@ func send_emergency_request(map_type,amount,correct,event_id):
 	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct,"event_id":event_id,"command_type":"add_map"}
 	send_server_request(emergency_body)
 
-func send_emergency_record_request(event_id): #use for sending record to server
-	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":-1,"amount":-1,"correct":0,"event_id":event_id,"command_type":"record"}
+func send_emergency_record_request(correct,event_id): #use for sending record to server
+	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":-1,"amount":-1,"correct":correct,"event_id":event_id,"command_type":"record"}
 	send_server_request(emergency_body)
 
 func send_emergency_info_request():
@@ -218,6 +218,8 @@ func finish_request_queue(type):
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
+	if(Data.DEBUG_MODE == 2):
+		Data.debug_msg(2,respond)
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:
 		return
@@ -225,8 +227,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	
 	if(Data.DEBUG_MODE == 1):
 		Data.debug_msg(1,"{"+data['type']+" "+data['sucess']+"}")
-	elif(Data.DEBUG_MODE == 2):
-		Data.debug_msg(2,respond)
 	
 	if(data['type'] == 'info'):
 		if(data['sucess'] == 'true'):
