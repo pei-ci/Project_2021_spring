@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=5 format=2]
+
+[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=24]
+size = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.517647, 0.654902, 0.584314, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=23]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.305882, 0.431373, 0.368627, 1 )
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 3.0
+expand_margin_bottom = 5.0
+shadow_color = Color( 0, 0, 0, 0.976471 )
+anti_aliasing = false
+
+[resource]
+PopupMenu/colors/font_color = Color( 0.2, 0.32549, 0.243137, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.2, 0.32549, 0.243137, 1 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = SubResource( 24 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = SubResource( 22 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 23 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+PopupPanel/styles/panel = null
