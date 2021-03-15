@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://puzzle.gd" type="Script" id=1]
 [ext_resource path="res://六邊形修正版.png" type="Texture" id=2]
+[ext_resource path="res://menu.tres" type="Theme" id=3]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/活動資訊和升級選單.png-d1d7dc0e4f9655041601181c4895e3d6.stex"
@@ -9,55 +10,55 @@ load_path = "res://.import/活動資訊和升級選單.png-d1d7dc0e4f96550416011
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a32cc918971d0f9327af00c4.stex"
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=5]
 load_path = "res://.import/水坑三版.png-34045f0303dc84083f08b6ae4ef6391e.stex"
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/窪地一版.png-e1d99772941146ea79c2b5c90fe84055.stex"
 
-[sub_resource type="StreamTexture" id=5]
+[sub_resource type="StreamTexture" id=7]
 load_path = "res://.import/荒原二版.png-6c83134a086e67fbd59986146525442a.stex"
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=8]
 load_path = "res://.import/礦原二版.png-64a9ce67df6d77360d5fbff910f4edc4.stex"
 
-[sub_resource type="StreamTexture" id=7]
+[sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/沙漠二版.png-6b69f7166fe4e94f3493e7372ef60258.stex"
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=10]
 load_path = "res://.import/綠洲一版.png-33459cf55d92b49a6be47f05df9cf8e7.stex"
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=11]
 load_path = "res://.import/淺海二版.png-de7f8073fd750f4b1d5afd9d66c404a7.stex"
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=12]
 load_path = "res://.import/深海二版.png-c461cfe69548b721fa0961aa3047d0f8.stex"
 
-[sub_resource type="StreamTexture" id=11]
+[sub_resource type="StreamTexture" id=13]
 load_path = "res://.import/郊區一版.png-70f6b4d0ef13fdba61bd991463bddf36.stex"
 
-[sub_resource type="StreamTexture" id=12]
+[sub_resource type="StreamTexture" id=14]
 load_path = "res://.import/鄉村一版.png-4db03a2e8133bd6ff7682081045fa1fe.stex"
 
-[sub_resource type="StreamTexture" id=13]
+[sub_resource type="StreamTexture" id=15]
 load_path = "res://.import/地熱口一版.png-7fd790ef1b7bcac3c586ef9a37c8681a.stex"
 
-[sub_resource type="StreamTexture" id=14]
+[sub_resource type="StreamTexture" id=16]
 load_path = "res://.import/火山錐一版.png-75c0029d384d3ec1ea71f20b35f4f334.stex"
 
-[sub_resource type="StreamTexture" id=15]
+[sub_resource type="StreamTexture" id=17]
 load_path = "res://.import/沼澤地一版.png-d157adf38d254149dd694dec58c8eaee.stex"
 
-[sub_resource type="StreamTexture" id=16]
+[sub_resource type="StreamTexture" id=18]
 load_path = "res://.import/草原二版.png-a399fc6e5d130172765321e27617f882.stex"
 
-[sub_resource type="StreamTexture" id=17]
+[sub_resource type="StreamTexture" id=19]
 load_path = "res://.import/海底世界二版.png-7469d0bfc17452526aee42174db27dbc.stex"
 
-[sub_resource type="StreamTexture" id=18]
+[sub_resource type="StreamTexture" id=20]
 load_path = "res://.import/都市一版.png-9db962143338d360927caac8cd684252.stex"
 
-[sub_resource type="StreamTexture" id=19]
+[sub_resource type="StreamTexture" id=21]
 load_path = "res://.import/火山一版.png-37481c19024cf5d7ea6b4bace5269dc4.stex"
 
 [node name="puzzle" type="Sprite"]
@@ -93,17 +94,22 @@ scale = Vector2( 0.369381, 0.301869 )
 z_index = 10
 texture = SubResource( 2 )
 
-[node name="MenuButton" type="MenuButton" parent="slect_window"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 38.8763
-margin_top = -1.8695
-margin_right = 49.8763
-margin_bottom = 17.1305
-grow_horizontal = 0
+[node name="MenuButton" type="TextureButton" parent="slect_window"]
+margin_left = 18.0
+margin_top = 1.0
+margin_right = 51.0
+margin_bottom = 21.0
+rect_pivot_offset = Vector2( 100, 100 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupMenu" type="PopupMenu" parent="slect_window/MenuButton"]
+margin_left = 40.733
+margin_top = -12.3461
+margin_right = 60.733
+margin_bottom = 7.65387
+theme = ExtResource( 3 )
 
 [node name="slect_window_button" type="TextureButton" parent="."]
 margin_left = -5.0
@@ -118,84 +124,84 @@ __meta__ = {
 visible = false
 position = Vector2( 1.46805, 0.509763 )
 scale = Vector2( 1.01166, 0.960938 )
-texture = SubResource( 3 )
+texture = SubResource( 5 )
 
 [node name="puddle2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.62036, 0.292857 )
 scale = Vector2( 0.957757, 0.98152 )
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 
 [node name="wilderness" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.09064, 0.0120417 )
 scale = Vector2( 0.836448, 0.933268 )
-texture = SubResource( 5 )
+texture = SubResource( 7 )
 
 [node name="wilderness2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 4.85077, 1.34942 )
 scale = Vector2( 0.832796, 1.04275 )
-texture = SubResource( 6 )
+texture = SubResource( 8 )
 
 [node name="desert" type="Sprite" parent="."]
 visible = false
 position = Vector2( 2.79878, -0.00662459 )
 scale = Vector2( 1.02705, 1.04549 )
-texture = SubResource( 7 )
+texture = SubResource( 9 )
 
 [node name="desert2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 3.81889, -0.169491 )
 scale = Vector2( 0.896558, 0.937082 )
-texture = SubResource( 8 )
+texture = SubResource( 10 )
 
 [node name="sea" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.33064, 0.26381 )
 scale = Vector2( 0.987954, 0.98201 )
-texture = SubResource( 9 )
+texture = SubResource( 11 )
 
 [node name="sea2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 2.15792, 0.268744 )
 scale = Vector2( 0.976052, 1.10978 )
-texture = SubResource( 10 )
+texture = SubResource( 12 )
 
 [node name="town" type="Sprite" parent="."]
 visible = false
 position = Vector2( 5.03711, 0.312208 )
 scale = Vector2( 0.84831, 0.988092 )
-texture = SubResource( 11 )
+texture = SubResource( 13 )
 
 [node name="town2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 2.93778, -0.102929 )
 scale = Vector2( 0.882429, 0.988046 )
-texture = SubResource( 12 )
+texture = SubResource( 14 )
 
 [node name="volcano" type="Sprite" parent="."]
 visible = false
 position = Vector2( 2.24873, 0.944821 )
 scale = Vector2( 0.878728, 1.00582 )
-texture = SubResource( 13 )
+texture = SubResource( 15 )
 
 [node name="volcano2" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.7417, 0.254992 )
 scale = Vector2( 0.908065, 1.07618 )
-texture = SubResource( 14 )
+texture = SubResource( 16 )
 
 [node name="puddle3" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.67044, 0.501129 )
-texture = SubResource( 15 )
+texture = SubResource( 17 )
 
 [node name="wilderness3" type="Sprite" parent="."]
 visible = false
 position = Vector2( 2.47781, 1.0301 )
 scale = Vector2( 0.879357, 1.03381 )
-texture = SubResource( 16 )
+texture = SubResource( 18 )
 
 [node name="desert3" type="Sprite" parent="."]
 visible = false
@@ -203,25 +209,26 @@ visible = false
 [node name="sea3" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.39203, 0.44545 )
-texture = SubResource( 17 )
+texture = SubResource( 19 )
 
 [node name="town3" type="Sprite" parent="."]
 visible = false
 position = Vector2( 3.50791, 0.222724 )
 scale = Vector2( 0.957576, 0.984091 )
-texture = SubResource( 18 )
+texture = SubResource( 20 )
 
 [node name="volcano3" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1.1693, 0.473289 )
 scale = Vector2( 1, 1.05767 )
-texture = SubResource( 19 )
+texture = SubResource( 21 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 43200.0
 autostart = true
 [connection signal="pressed" from="slect_window/activity_button" to="." method="_on_activity_button_pressed"]
 [connection signal="pressed" from="slect_window/activity_button" to="slect_window" method="_on_activity_button_pressed"]
+[connection signal="pressed" from="slect_window/MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="mouse_entered" from="slect_window_button" to="." method="_on_slect_window_button_mouse_entered"]
 [connection signal="pressed" from="slect_window_button" to="." method="_on_slect_window_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
