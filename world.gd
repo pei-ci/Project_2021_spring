@@ -242,6 +242,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				Data.title_user = '未設定'
 			Data.subject_user = data['department']
+			
 			#send_map_request() #send team request
 			if(data['teamid'] == '-1'):
 				Data.team_user = '未設定'
@@ -274,6 +275,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			for i in range(count):
 				#print(data['pos'].substr(i*4,4)+" "+data['val'].substr(i*2,2))
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
+						
+			Data.emergency_status = int(data['emergency_time'][0])
+			Data.emergency_time = int(data['emergency_time'].substr(1))
 		else:
 			print("Error fetch map data!!!")
 		#send_activity_request()

@@ -237,13 +237,36 @@ func _get_event_list():#要獲得狀態非零的題目用
 	return event_list
 
 #紀錄時間
-var current_time=60
-var last_emergency_time=40
+var emergency_status = 0 #1=up(waiting to answer) 0=down(during CD)
+var emergency_time = 0 #unix time
+var last_emergency = 1
 
-var period_time=10 #(以最小單位記)
+#var current_time=60
+#var last_emergency_time=40
+
+#var period_time=10 #(以最小單位記)
 
 func _is_emergency_time():
-	if (current_time-last_emergency_time) > period_time:#此行邏輯還會依規則做修正
-		return true
-	else:
-		return false
+	if(emergency_status==1): 
+		#consider emergency=0 but over limit time
+		
+		if((emergency_time-OS.get_unix_time())>0): #time not excess limit
+			_check_emergency_change(1)
+			return true
+	_check_emergency_change(0)
+	return false
+	#if (current_time-last_emergency_time) > period_time:#此行邏輯還會依規則做修正
+	#	return true
+	#else:
+	#	return false
+	
+func _check_emergency_change(status): 
+	#because  Emergency check every tick,
+	#	this function used to prvent debug message overflow 
+	if (status!=last_emergency):
+		last_emergency = status
+		if(status):
+			debug_msg(2,"EmergencyEnable!")
+		else:
+			debug_msg(2,"EmergencyDisable!")
+			
