@@ -42,9 +42,9 @@ __meta__ = {
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 65.472
-margin_top = 89.1984
+margin_top = 88.7265
 margin_right = 255.472
-margin_bottom = 118.198
+margin_bottom = 117.726
 custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false

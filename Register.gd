@@ -12,8 +12,8 @@ func reset_text():
 	$NicknameLabel.text = ''	
 
 func _on_OK_pressed():
-	var control = get_node("/root/login")
-	if ($name.text!='' && ($nickname.text!='' && $department.selected!=-1)):
+	var control = get_node("/root/login")	
+	if((len($name)>=2 && len($name)<20)&& ($nickname.text!='' && $department.selected!=-1)):
 		control.register_to_server($name.text,$nickname.text,$department.text)
 		visible = false
 
