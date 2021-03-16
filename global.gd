@@ -7,7 +7,9 @@ var DEBUG_MODE = 2
 
 func debug_msg(level,msg):
 	if DEBUG_MODE-level >= 0:
-		if level==1:
+		if level==0:
+			print("ERROR : "+msg)
+		elif level==1:
 			print("NORMAL : "+msg)
 		elif level==2:
 			print("DEBUG : "+msg)
@@ -237,7 +239,11 @@ func _get_event_list():#要獲得狀態非零的題目用
 	return event_list
 
 #紀錄時間
-var emergency_status = 0 #1=up(waiting to answer) 0=down(during CD)
+var EMERGENCY_UP_TIME = 43200 # 12hr * 3600
+var EMERGENCY_CD_TIME = 43200 # 12hr * 3600
+
+var emergency_status = 0
+#1=up(waiting to answer) 2=solve(waiting to go to CD) 0=down(during CD)
 var emergency_time = 0 #unix time
 var last_emergency = 1
 
@@ -248,8 +254,7 @@ var last_emergency = 1
 
 func _is_emergency_time():
 	if(emergency_status==1): 
-		#consider emergency=0 but over limit time
-		
+		#consider emergency=0 but over limit time		
 		if((emergency_time-OS.get_unix_time())>0): #time not excess limit
 			_check_emergency_change(1)
 			return true
@@ -270,3 +275,6 @@ func _check_emergency_change(status):
 		else:
 			debug_msg(2,"EmergencyDisable!")
 			
+func _set_emergency_cd_time():
+	#add code to set up emergency CD
+	pass

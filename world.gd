@@ -177,11 +177,20 @@ func send_emergency_request(map_type,amount,correct,event_id):
 func send_emergency_record_request(correct,event_id): #use for sending record to server
 	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":-1,"amount":-1,"correct":correct,"event_id":event_id,"command_type":"record"}
 	send_server_request(emergency_body)
-
+	var solve_event_time = str(2)+str(Data.emergency_time)
+	var emergency_time_body := {"type" : 'emergency_time','command_type':'set','time':solve_event_time,"validation": Data.login_certification}
+	send_server_request(emergency_time_body)
+	Data.emergency_status = 2 #set immediately to prevent another task show up at the same time
+	
 func send_emergency_info_request():
 	#sending emergency_info request
 	var emergency_info_body := {"type" : 'emergency_info',"validation": Data.login_certification}
 	send_server_request(emergency_info_body)
+	
+func send_emergency_time_request(time):
+	#sending emergency_info request
+	var emergency_time_body := {"type" : 'emergency_time','command_type':'set','time':time,"validation": Data.login_certification}
+	send_server_request(emergency_time_body)
 	
 func send_rank_request(rank_type):
 	#sending rank request
@@ -278,10 +287,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 						
 			Data.emergency_status = int(data['emergency_time'][0])
 			Data.emergency_time = int(data['emergency_time'].substr(1))
+			Data._set_emergency_cd_time()
+			check_emergency_time_valid()
 		else:
 			print("Error fetch map data!!!")
-		#send_activity_request()
-			
+					
 	elif(data['type'] == 'activity'):
 		if(data['sucess']=='true'):
 			for i in range(int(data['count'])):
@@ -290,10 +300,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				Data.activity_list.append(insert_act)
 		else:
 			print("Error fetch activity data!!!")
-		#print(Data.activity_list)
-		#if(have_team):
-		#	send_team_request()
-			
+					
 	elif(data['type'] == 'create_team'):
 		if(data['sucess']=='true'):
 			send_team_request()
@@ -321,6 +328,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			print(Data.event_status_list)
 		else:
 			print("Unable fatch emergency info data!!!")
+			
+	elif(data['type'] == 'emergency_time'):
+		if(data['sucess']=='true'):
+			Data.emergency_status = int(data['time'][0])
+			Data.emergency_time = int(data['time'].substr(1))
+		else:
+			Data.debug_msg(0,"Error Setting Emergency Time!")
 			
 	elif(data['type'] == 'title_oper'):
 		if(data['sucess']=='true'):
@@ -353,7 +367,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			$leader_board_group/leader_board.refresh_rank_data()
 		else:
 			print("Fetch Rank Error!")
-			
+		
 	elif(data['type'] == 'logout'):
 		if(data['sucess'] == 'false'):
 			print("Authentication Error : Timeout!")
@@ -364,3 +378,18 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	Data.emit_refresh()
 	#_refresh_information()
 
+func check_emergency_time_valid():
+	var time_excess = OS.get_unix_time()-Data.emergency_time
+	var next_emergency_status = Data.emergency_status
+	if(time_excess<0):
+		return
+	while(time_excess>0):
+		if(next_emergency_status==1 || next_emergency_status==2):
+			time_excess -= Data.EMERGENCY_CD_TIME
+			next_emergency_status = 0
+		elif(next_emergency_status==0):
+			time_excess -= Data.EMERGENCY_UP_TIME
+			next_emergency_status = 1
+	var next_emergency_time = OS.get_unix_time()-time_excess
+	send_emergency_time_request(str(next_emergency_status)+str(next_emergency_time))
+		
