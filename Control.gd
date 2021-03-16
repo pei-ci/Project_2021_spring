@@ -25,7 +25,8 @@ func _on_password_changed(text):
 	password = text
 	
 func _on_LineEdit2_text_entered(text):	
-	login_to_server()
+	if (check_input()):
+		login_to_server()
 
 
 func login_to_server():
@@ -74,7 +75,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				print("Register Error : Unknown!")	
 
 func check_input():
-	if (username!="" && password!=""):
+	if ((len(username)>=8 && len(username)<=9) && password!=""):
 		return true
 	return false
 
