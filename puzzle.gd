@@ -19,7 +19,7 @@ var button_status={ "11":"puddle_up_grade_1","12":"puddle_up_grade_2","13":"fini
 					"00":"default"}
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$slect_window/MenuButton/PopupMenu.rect_global_position = self.position+Vector2(60,-20)
+	$slect_window/MenuButton/PopupMenu.rect_global_position = self.position+Vector2(60,-15)
 	#先把所有圖片都隱藏
 	$puddle.visible = false
 	$wilderness.visible = false
@@ -42,12 +42,12 @@ func _status_set_up(): #狀態初始設定
 	#選項設定
 	if status_user=="00":
 		MenuButton.clear()
-		MenuButton.add_item("水坑")
-		MenuButton.add_item("荒原")
-		MenuButton.add_item("沙漠")
-		MenuButton.add_item("淺海")
-		MenuButton.add_item("鄉村")
-		MenuButton.add_item("地熱口")
+		MenuButton.add_item("   水坑   ")
+		MenuButton.add_item("   荒原   ")
+		MenuButton.add_item("   沙漠   ")
+		MenuButton.add_item("   淺海   ")
+		MenuButton.add_item("   鄉村   ")
+		MenuButton.add_item("  地熱口  ")
 	else:
 		MenuButton.clear()
 		MenuButton.add_item(button_status[status_user])
@@ -98,15 +98,15 @@ func _on_item_pressed(id):
 	var world = get_node("/root/world")
 	var item_name= MenuButton.get_item_text(id)
 	if Data.puddle_user>0:
-		if item_name=="puddle":	
+		if item_name=="   水坑   ":	
 			world.map_put(Data.block_type["puddle"],get_name())	
 			status_user="11"
 			Data.puddle_minus(1)
 			Data.finished_puzzle_add(1)
 			$puddle.visible = true
 			MenuButton.clear()
-			MenuButton.add_item("puddle_up_grade_1")
-		if item_name == "puddle_up_grade_1":
+			MenuButton.add_item("   窪地   ")
+		if item_name == "   窪地   ":
 			world.map_upgrade1(Data.block_type["puddle"],get_name())
 			status_user="12"
 			Data.puddle_minus(1)
@@ -114,9 +114,9 @@ func _on_item_pressed(id):
 			$puddle.visible =false
 			$puddle2.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("puddle_up_grade_2")
+			MenuButton.add_item("   沼澤地   ")
 			Data._up_grade_time_add(1) #升級次數+1
-		if item_name=="puddle_up_grade_2":
+		if item_name=="   沼澤地   ":
 			world.map_upgrade2(Data.block_type["puddle"],get_name())
 			status_user="13"
 			Data.puddle_minus(1)
@@ -124,19 +124,19 @@ func _on_item_pressed(id):
 			$puddle2.visible =false
 			$puddle3.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("finish")
+			MenuButton.add_item("   已完成   ")
 			Data._up_grade_time_add(1) #升級次數+1
 			Data._full_level_puzzle_num_add(1)
 	if Data.wilderness_user>0:
-		if item_name=="wilderness":
+		if item_name=="   荒原   ":
 			world.map_put(Data.block_type["wilderness"],get_name())
 			status_user="21"
 			Data.wilderness_minus(1)
 			Data.finished_puzzle_add(1)
 			$wilderness.visible = true
 			MenuButton.clear()
-			MenuButton.add_item("wilderness_up_grade_1")
-		if item_name == "wilderness_up_grade_1":
+			MenuButton.add_item("   曠原   ")
+		if item_name == "   曠原   ":
 			world.map_upgrade1(Data.block_type["wilderness"],get_name())
 			status_user="22"
 			Data.wilderness_minus(1)
@@ -144,9 +144,9 @@ func _on_item_pressed(id):
 			$wilderness.visible =false
 			$wilderness2.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("wilderness_up_grade_2")
+			MenuButton.add_item("   草原   ")
 			Data._up_grade_time_add(1) #升級次數+1
-		if item_name== "wilderness_up_grade_2":
+		if item_name== "   草原   ":
 			world.map_upgrade2(Data.block_type["wilderness"],get_name())
 			status_user="23"
 			Data.wilderness_minus(1)
@@ -154,19 +154,19 @@ func _on_item_pressed(id):
 			$wilderness2.visible =false
 			$wilderness3.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("finish")
+			MenuButton.add_item("   已完成   ")
 			Data._up_grade_time_add(1) #升級次數+1
 			Data._full_level_puzzle_num_add(1)
 	if Data.desert_user>0:
-		if item_name=="desert":
+		if item_name=="   沙漠   ":
 			world.map_put(Data.block_type["desert"],get_name())
 			status_user="31"
 			Data.desert_minus(1)
 			Data.finished_puzzle_add(1)
 			$desert.visible = true
 			MenuButton.clear()
-			MenuButton.add_item("desert_up_grade_1")
-		if item_name == "desert_up_grade_1":
+			MenuButton.add_item("   綠洲   ")
+		if item_name == "   綠洲   ":
 			world.map_upgrade1(Data.block_type["desert"],get_name())
 			status_user="32"
 			Data.desert_minus(1)
@@ -174,9 +174,9 @@ func _on_item_pressed(id):
 			$desert.visible =false
 			$desert2.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("desert_up_grade_2")
+			MenuButton.add_item("  海市蜃樓  ")
 			Data._up_grade_time_add(1) #升級次數+1
-		if item_name == "desert_up_grade_2":
+		if item_name == "  海市蜃樓  ":
 			world.map_upgrade2(Data.block_type["desert"],get_name())
 			status_user="33"
 			Data.desert_minus(1)
@@ -184,20 +184,20 @@ func _on_item_pressed(id):
 			$desert2.visible =false
 			$desert3.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("finish")
+			MenuButton.add_item("   已完成   ")
 			Data._up_grade_time_add(1) #升級次數+1
 			Data._full_level_puzzle_num_add(1)
 		
 	if Data.sea_user >0:
-		if item_name=="sea":
+		if item_name=="   淺海   ":
 			world.map_put(Data.block_type["sea"],get_name())
 			status_user="41"
 			Data.sea_minus(1)
 			Data.finished_puzzle_add(1)
 			$sea.visible =true
 			MenuButton.clear()
-			MenuButton.add_item("sea_up_grade_1")
-		if item_name == "sea_up_grade_1":
+			MenuButton.add_item("   深海   ")
+		if item_name == "   深海   ":
 			world.map_upgrade1(Data.block_type["sea"],get_name())
 			status_user="42"
 			Data.sea_minus(1)
@@ -205,9 +205,9 @@ func _on_item_pressed(id):
 			$sea.visible =false
 			$sea2.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("sea_up_grade_2")
+			MenuButton.add_item("  海底世界  ")
 			Data._up_grade_time_add(1) #升級次數+1
-		if item_name == "sea_up_grade_2":
+		if item_name == "  海底世界  ":
 			world.map_upgrade2(Data.block_type["sea"],get_name())
 			status_user="43"
 			Data.sea_minus(1)
@@ -215,19 +215,19 @@ func _on_item_pressed(id):
 			$sea2.visible =false
 			$sea3.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("finish")
+			MenuButton.add_item("   已完成  ")
 			Data._up_grade_time_add(1) #升級次數+1
 			Data._full_level_puzzle_num_add(1)
 	if Data.town_user>0:		
-		if item_name=="town":
+		if item_name=="   鄉村   ":
 			world.map_put(Data.block_type["town"],get_name())
 			status_user="51"
 			Data.town_minus(1)
 			Data.finished_puzzle_add(1)
 			$town.visible = true
 			MenuButton.clear()
-			MenuButton.add_item("town_up_grade_1")
-		if item_name == "town_up_grade_1":
+			MenuButton.add_item("   郊區   ")
+		if item_name == "   郊區   ":
 			world.map_upgrade1(Data.block_type["town"],get_name())
 			status_user="52"
 			Data.town_minus(1)
@@ -235,9 +235,9 @@ func _on_item_pressed(id):
 			$town.visible =false
 			$town2.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("town_up_grade_2")
+			MenuButton.add_item("   都市   ")
 			Data._up_grade_time_add(1) #升級次數+1
-		if item_name == "town_up_grade_2":
+		if item_name == "   都市   ":
 			world.map_upgrade2(Data.block_type["town"],get_name())
 			status_user="53"
 			Data.town_minus(1)
@@ -245,19 +245,19 @@ func _on_item_pressed(id):
 			$town2.visible =false
 			$town3.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("finish")
+			MenuButton.add_item("   已完成   ")
 			Data._up_grade_time_add(1) #升級次數+1
 			Data._full_level_puzzle_num_add(1)
 	if Data.volcano_user>0:
-		if item_name=="volcano":
+		if item_name=="  地熱口  ":
 			world.map_put(Data.block_type["volcano"],get_name())
 			status_user="61"
 			Data.volcano_minus(1)
 			Data.finished_puzzle_add(1)
 			$volcano.visible = true
 			MenuButton.clear()
-			MenuButton.add_item("volcano_up_grade_1")
-		if item_name == "volcano_up_grade_1":
+			MenuButton.add_item("   火山錐   ")
+		if item_name == "   火山錐   ":
 			world.map_upgrade1(Data.block_type["volcano"],get_name())
 			status_user="62"
 			Data.volcano_minus(1)
@@ -265,9 +265,9 @@ func _on_item_pressed(id):
 			$volcano.visible =false
 			$volcano2.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("volcano_up_grade_2")
+			MenuButton.add_item("   火山   ")
 			Data._up_grade_time_add(1) #升級次數+1
-		if item_name == "volcano_up_grade_2":
+		if item_name == "   火山   ":
 			world.map_upgrade2(Data.block_type["volcano"],get_name())
 			status_user="63"
 			Data.volcano_minus(1)
@@ -275,7 +275,7 @@ func _on_item_pressed(id):
 			$volcano2.visible =false
 			$volcano3.visible=true
 			MenuButton.clear()
-			MenuButton.add_item("finish")
+			MenuButton.add_item("   已完成   ")
 			Data._up_grade_time_add(1) #升級次數+1
 			Data._full_level_puzzle_num_add(1)
 	Data.status_user[position_user]=status_user
