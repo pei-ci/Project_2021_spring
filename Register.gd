@@ -1,10 +1,10 @@
 extends Sprite
 
+onready var Data = get_node("/root/Global")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$department.add_item("csie")
-	$department.add_item("im")
 	reset_text()
+	_setup_department()
 
 func reset_text():
 	$DepartmentLabel.text = 'Press to choose department'
@@ -29,4 +29,9 @@ func _on_nickname_text_changed(new_text):
 	$NicknameLabel.text = new_text
 
 func _on_department_item_selected(index):
-	$DepartmentLabel.text = str(index)
+	$DepartmentLabel.text = Data.department_list[index]
+	
+func _setup_department():
+	for item in Data.department_list_en:
+		$department.add_item(item)	
+	

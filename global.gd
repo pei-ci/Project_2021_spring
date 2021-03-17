@@ -278,3 +278,10 @@ func _check_emergency_change(status):
 func _set_emergency_cd_time():
 	#add code to set up emergency CD
 	pass
+
+var department_list = ['醫學系','中醫系','護理系','生醫系','呼治系','物治系',
+'職治系','醫放系','醫技系','電機系','電子系','機械系','資工系','化材系',
+'人工智慧學士學位學程','工商系','工設系','資管系','醫管系','國際健康管理學士學位學程']
+
+var department_list_en = ['md','cm','nurse','is','rc','pt','dot','mirs','mip',
+'ee','elec','me','csie','ce','ai','ibm','id','im','hcm','him']
