@@ -21,8 +21,20 @@ func _set_up():
 	$total_puzzle.text = total_puzzle_user
 	$title.text = title_user
 	$team.text = team_user
-	
+	_set_title_line()#如果資訊欄稱號超過八個字要換行
 
+	
+	
+func _set_title_line(): #如果資訊欄稱號超過八個字要換行
+	if len($title.text)>8:
+		var titleStr=""
+		for index in range(len($title.text)):
+			titleStr+=$title.text[index]
+			if index==8:
+				titleStr+="\n"
+		$title.text=titleStr
+		print($title.text)
+	
 
 func _on_button_pressed():
 	if $unfold_picture.visible==true:
