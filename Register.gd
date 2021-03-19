@@ -32,6 +32,6 @@ func _on_department_item_selected(index):
 	$DepartmentLabel.text = Data.department_list[index]
 	
 func _setup_department():
-	for item in Data.department_list_en:
+	for item in Data.department_list:
 		$department.add_item(item)	
 	
