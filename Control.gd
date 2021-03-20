@@ -12,6 +12,10 @@ func _ready():
 	#$HTTPRequest.connect("request_completed", self,"_on_HTTPRequest_request_completed")
 	#connect_to_sever()
 	$Register.visible = false
+	$LineEdit.text = 'B0829024'
+	username = 'B0829024'
+	$LineEdit2.text = 'B0829024'
+	password = 'B0829024'
 
 func _on_LineEdit_text_entered(text):
 	#player_account.append(new_text)

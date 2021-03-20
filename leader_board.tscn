@@ -210,17 +210,6 @@ __meta__ = {
 [node name="team_text" type="Sprite" parent="."]
 visible = false
 
-[node name="team_mark" type="Label" parent="team_text"]
-margin_left = 210.152
-margin_top = 162.334
-margin_right = 220.152
-margin_bottom = 170.334
-custom_fonts/font = SubResource( 14 )
-text = "團體"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="first" type="Label" parent="team_text"]
 margin_left = 133.558
 margin_top = 49.7265
@@ -317,6 +306,17 @@ margin_top = 189.458
 margin_right = 168.23
 margin_bottom = 197.458
 custom_fonts/font = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="team_mark" type="Label" parent="team_text"]
+margin_left = 210.152
+margin_top = 162.334
+margin_right = 220.152
+margin_bottom = 170.334
+custom_fonts/font = SubResource( 14 )
+text = "團體"
 __meta__ = {
 "_edit_use_anchors_": false
 }

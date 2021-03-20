@@ -1,5 +1,8 @@
 extends Sprite
 
+onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
+var leader_board_status = true
+
 func _ready():
 	$background.visible=false
 	$close.visible=false
@@ -23,7 +26,7 @@ func _on_close_pressed():
 	
 #切換個人或團體
 func _on_switch_pressed():
-	if $person_text.visible==true:
+	if leader_board_status:
 		$person_text.visible=false
 		$team_text.visible=true
 		_set_block_status("team")
@@ -35,36 +38,29 @@ func _on_switch_pressed():
 #leader_board_status紀錄目前是個人true還是團體頁面false
 func _set_block_status(status):
 	if status=="person":
-		$block/first_block.leader_board_status=true
-		$block/second_block.leader_board_status=true
-		$block/third_block.leader_board_status=true
-		$block/four_block.leader_board_status=true
-		$block/five_block.leader_board_status=true
-		$block/six_block.leader_board_status=true
-		$block/seven_block.leader_board_status=true
-		$block/eight_block.leader_board_status=true
-		$block/night_block.leader_board_status=true
-		$block/ten_block.leader_board_status=true
+		leader_board_status = true
+		for i in range($block.get_child_count()):
+			var child_obj = $block.get_child(i)
+			child_obj.leader_board_status = true
+			
 	if status=="team":
-		$block/first_block.leader_board_status=false
-		$block/second_block.leader_board_status=false
-		$block/third_block.leader_board_status=false
-		$block/four_block.leader_board_status=false
-		$block/five_block.leader_board_status=false
-		$block/six_block.leader_board_status=false
-		$block/seven_block.leader_board_status=false
-		$block/eight_block.leader_board_status=false
-		$block/night_block.leader_board_status=false
-		$block/ten_block.leader_board_status=false
+		leader_board_status = false
+		for i in range($block.get_child_count()):
+			var child_obj = $block.get_child(i)
+			child_obj.leader_board_status = false
+
 
 func refresh_rank_data():
-	$block/first_block._set_information()
-	$block/second_block._set_information()
-	$block/third_block._set_information()
-	$block/four_block._set_information()
-	$block/five_block._set_information()
-	$block/six_block._set_information()
-	$block/seven_block._set_information()
-	$block/eight_block._set_information()
-	$block/night_block._set_information()
-	$block/ten_block._set_information()
+	for i in range($person_text.get_child_count()-1):
+		var child_obj = $person_text.get_child(i)
+		child_obj.text = Data.top_ten_person[i]["name"]
+		child_obj.text = '666666666' #wtf is this no respond?
+			
+	for i in range($team_text.get_child_count()-1):
+		var child_obj = $team_text.get_child(i)
+		child_obj.text = Data.top_ten_team[i]["teamname"]
+						
+	for i in range($block.get_child_count()):
+		var child_obj = $block.get_child(i)
+		child_obj._set_information()
+		

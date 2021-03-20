@@ -29,19 +29,23 @@ var block_name_to_num={"first_block":1,"second_block":2,"third_block":3,"four_bl
 
 func _set_information():
 	var num=block_name_to_num[get_name()]
-	var text=_get_information_text(num)
-	$nickname.text=text["暱稱"]
-	$total_puzzle.text=text["拼圖總數"]
-	$title.text=text["稱號"]
+	var info=_get_information_text(num)
+	if leader_board_status:
+		$nickname.text=info["nickname"]
+		$total_puzzle.text=info["total_puzzle"]
+		$title.text=info["title"]
+	else:
+		$nickname.text=info["teamname"]
+		$total_puzzle.text=info["total_puzzle"]
 
 #獲取即時資料
 func _get_information_text(num):
-	var text={"暱稱":"","拼圖總數":"","稱號":"","隊名":""}
-	if leader_board_status:
-		text["暱稱:"]=Data.top_ten_person[num-1]["nickname"]
-		text["拼圖總數:"]=Data.top_ten_person[num-1]["total_puzzle"]
-		text["稱號"]=Data.top_ten_person[num-1]["title"]
-	else:
-		text["隊名:"]=Data.top_ten_team[num-1]["teamname"]
-		text["拼圖總數:"]=Data.top_ten_team[num-1]["total_puzzle"]
-	return text
+	var info={"nickname":"","total_puzzle":"","title":"","teamname":""}
+	if leader_board_status: #personal
+		info["nickname"]=Data.top_ten_person[num-1]["nickname"]
+		info["total_puzzle:"]=Data.top_ten_person[num-1]["total_puzzle"]
+		info["title"]=Data.top_ten_person[num-1]["title"]
+	else: #team
+		info["teamname"]=Data.top_ten_team[num-1]["teamname"]
+		info["total_puzzle"]=Data.top_ten_team[num-1]["total_puzzle"]
+	return info

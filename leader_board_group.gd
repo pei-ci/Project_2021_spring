@@ -16,5 +16,5 @@ func _on_leader_button_pressed():
 	$leader_board/switch.visible=true
 	$leader_board/switch_picture.visible=true
 	$leader_board/person_text.visible=true #預設開啟個人排行
-	$leader_board/
+	#$leader_board/
 	$leader_board/block.visible=true

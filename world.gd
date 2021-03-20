@@ -356,6 +356,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 						Data.top_ten_person[i]['department'] = data['rank'+str(i+1)+'department']
 						Data.top_ten_person[i]['title'] = data['rank'+str(i+1)+'title_use']
 						Data.top_ten_person[i]['total_puzzle'] = data['rank'+str(i+1)+'used']
+						#print('used'+Data.top_ten_person[i]['total_puzzle'] )
 					else: # no data for this rank
 						pass # default text is '尚無排名'
 				else: #team
