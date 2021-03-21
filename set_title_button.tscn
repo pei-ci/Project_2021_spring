@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/稱號倉庫_灰-測試.png-45878adc131a766ba0d8c83ff346abd9.stex"
+
+[node name="set_title_button" type="Sprite"]
+position = Vector2( 104.65, 49.3522 )
+texture = SubResource( 1 )

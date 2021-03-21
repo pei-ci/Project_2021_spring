@@ -18,3 +18,4 @@ func _set_up():
 		$gray_picture.visible=true
 #func _process(delta):
 #	pass
+
