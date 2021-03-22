@@ -160,7 +160,13 @@ func _check_title_status():
 	
 	if emergency_correct_time==5:
 		_set_title_status("20")
-		
+
+func _set_title_information(title_num):#設定顯示在資訊欄上的稱號
+	var world = get_node("/root/world")		
+	#world.send_add_title_request(title_num)
+	if title_status[title_num]>0:#已獲得此稱號 才可以設定顯示在資訊欄上的稱號
+		world.send_set_title_request(title_num)
+		title_user=title_list[title_num]
 
 func _get_num_of_type():
 	if puddle_user>0:

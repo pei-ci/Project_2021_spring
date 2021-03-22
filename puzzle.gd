@@ -19,7 +19,6 @@ var button_status={ "11":"puddle_up_grade_1","12":"puddle_up_grade_2","13":"fini
 					"00":"default"}
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$slect_window/MenuButton/PopupMenu.rect_global_position = self.position+Vector2(60,-15)
 	#先把所有圖片都隱藏
 	$puddle.visible = false
 	$wilderness.visible = false
@@ -33,6 +32,8 @@ func _ready():
 	#MenuButton.get_popup().connect("id_pressed",self,"_on_item_pressed")
 	#選單視窗
 	$slect_window.visible=false
+	#設定拼圖選單位置
+	$slect_window/MenuButton/PopupMenu.rect_global_position = self.position+Vector2(60,-15)
 	
 
 func _status_set_up(): #狀態初始設定

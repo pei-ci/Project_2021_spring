@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://title_name_storehouse.gd" type="Script" id=1]
 [ext_resource path="res://title_storehouse.gd" type="Script" id=2]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://set_title_button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -83,6 +84,10 @@ position = Vector2( 228.644, 67.176 )
 scale = Vector2( 0.0666336, 0.0356096 )
 z_index = -2
 texture = SubResource( 5 )
+
+[node name="8" parent="page_01/8" instance=ExtResource( 4 )]
+position = Vector2( 17.9458, 39.9987 )
+scale = Vector2( 0.926244, 0.806408 )
 
 [node name="9" type="Sprite" parent="page_01"]
 z_index = 10
