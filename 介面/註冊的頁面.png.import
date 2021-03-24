@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/下載 (3).jpg-e3c017ede970af449829de5d03774148.stex"
+path="res://.import/註冊的頁面.png-6658b2400ceb9845e4d9cdaecc412e9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://下載 (3).jpg"
-dest_files=[ "res://.import/下載 (3).jpg-e3c017ede970af449829de5d03774148.stex" ]
+source_file="res://介面/註冊的頁面.png"
+dest_files=[ "res://.import/註冊的頁面.png-6658b2400ceb9845e4d9cdaecc412e9c.stex" ]
 
 [params]
 

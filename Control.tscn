@@ -1,16 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
 [ext_resource path="res://Register.tscn" type="PackedScene" id=3]
 [ext_resource path="res://按鈕/組隊按鈕(兩個一樣).png" type="Texture" id=4]
 [ext_resource path="res://Normal.tres" type="DynamicFont" id=5]
+[ext_resource path="res://介面/登入頁面.png" type="Texture" id=6]
+[ext_resource path="res://底圖/登入背景二版.png" type="Texture" id=7]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
-
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/登入背景二版.png-d2ef5037ced6f7e561293bda8d20d22e.stex"
 
 [node name="login" type="Control"]
 anchor_right = 1.0
@@ -22,39 +21,50 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 161.666, 119.816 )
-scale = Vector2( 0.312409, 0.310733 )
-texture = SubResource( 2 )
+position = Vector2( 160.924, 119.776 )
+scale = Vector2( 0.312843, 0.312135 )
+texture = ExtResource( 7 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 16.2188
-margin_top = 45.1543
-margin_right = 206.219
-margin_bottom = 70.1543
-rect_scale = Vector2( 1.5, 1.5 )
-custom_fonts/font = ExtResource( 5 )
-text = "login"
-align = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 65.472
-margin_top = 88.7265
-margin_right = 255.472
-margin_bottom = 117.726
+[node name="Username" type="LineEdit" parent="."]
+margin_left = 121.0
+margin_top = 92.0
+margin_right = 280.0
+margin_bottom = 121.0
 custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit2" type="LineEdit" parent="."]
-margin_left = 65.4719
-margin_top = 130.334
-margin_right = 255.472
-margin_bottom = 159.334
+[node name="Password" type="LineEdit" parent="."]
+margin_left = 120.0
+margin_top = 128.0
+margin_right = 280.0
+margin_bottom = 157.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoginBackground" type="Sprite" parent="."]
+position = Vector2( 163.428, 119.589 )
+scale = Vector2( 0.513325, 0.523898 )
+texture = ExtResource( 6 )
+
+[node name="UsernameLabel" type="Label" parent="."]
+margin_left = 126.0
+margin_top = 96.0
+margin_right = 280.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordLabel" type="Label" parent="."]
+margin_left = 126.0
+margin_top = 131.0
+margin_right = 280.0
+margin_bottom = 150.0
 custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,40 +73,40 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="LoginButtonBackground" type="Sprite" parent="."]
-position = Vector2( 207.35, 188.151 )
+position = Vector2( 214.549, 187.499 )
 scale = Vector2( 2.36605, 1 )
 texture = ExtResource( 4 )
 
 [node name="NewLoginButton" type="TextureButton" parent="."]
-margin_left = 179.0
-margin_top = 176.0
-margin_right = 238.0
-margin_bottom = 202.0
+margin_left = 187.727
+margin_top = 174.909
+margin_right = 243.727
+margin_bottom = 198.909
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RegisterButtonBackground" type="Sprite" parent="."]
-position = Vector2( 111.133, 187.824 )
+position = Vector2( 106.731, 186.588 )
 scale = Vector2( 2.36605, 1 )
 texture = ExtResource( 4 )
 
 [node name="NewRegisterButton" type="TextureButton" parent="."]
-margin_left = 82.0
-margin_top = 175.0
-margin_right = 142.0
-margin_bottom = 201.0
+margin_left = 79.2614
+margin_top = 174.909
+margin_right = 134.261
+margin_bottom = 197.909
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Register" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, -0.44545 )
-[connection signal="text_changed" from="LineEdit" to="." method="_on_user_changed"]
-[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
-[connection signal="text_changed" from="LineEdit2" to="." method="_on_password_changed"]
-[connection signal="text_entered" from="LineEdit2" to="." method="_on_LineEdit2_text_entered"]
+position = Vector2( -13.6998, 9.35444 )
+[connection signal="text_changed" from="Username" to="." method="_on_user_changed"]
+[connection signal="text_entered" from="Username" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_changed" from="Password" to="." method="_on_password_changed"]
+[connection signal="text_entered" from="Password" to="." method="_on_LineEdit2_text_entered"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="NewLoginButton" to="." method="_on_NewLoginButton_pressed"]
 [connection signal="pressed" from="NewRegisterButton" to="." method="_on_NewRegisterButton_pressed"]

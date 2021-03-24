@@ -12,10 +12,14 @@ func _ready():
 	#$HTTPRequest.connect("request_completed", self,"_on_HTTPRequest_request_completed")
 	#connect_to_sever()
 	$Register.visible = false
-	$LineEdit.text = 'B0829024'
+	
+	#following info for testing purpose only
+	$Username.text = 'B0829024'
 	username = 'B0829024'
-	$LineEdit2.text = 'B0829024'
+	$UsernameLabel.text = 'B0829024'
+	$Password.text = 'B0829024'
 	password = 'B0829024'
+	$PasswordLabel.text = 'B0829024'
 
 func _on_LineEdit_text_entered(text):
 	#player_account.append(new_text)
@@ -23,9 +27,11 @@ func _on_LineEdit_text_entered(text):
 	pass
 	
 func _on_user_changed(text):
+	$UsernameLabel.text = text
 	username = text
 
 func _on_password_changed(text):
+	$PasswordLabel.text = text
 	password = text
 	
 func _on_LineEdit2_text_entered(text):	
