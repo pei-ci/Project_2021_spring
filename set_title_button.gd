@@ -20,20 +20,20 @@ func _ready():
 
 func _on_TextureButton_pressed():
 	var title_num=self.get_name()
-	#if Data.title_status[title_num]>0:#已獲得稱號的情況下才可點開
-	#Data.set_title_button_opened=true
-	if $PopupMenu.visible==false and Data.set_title_button_opened==false:
-		Data.set_title_button_opened=true
-		$PopupMenu.visible=true
-		yield(get_tree().create_timer(5), "timeout")#選單視窗開啟5秒後關閉
-		Data.set_title_button_opened=false
-		$PopupMenu.visible=false
-	else:
-		$PopupMenu.visible=false
+	if Data.title_status[title_num]>0:#已獲得稱號的情況下才可點開
+		if $PopupMenu.visible==false and Data.set_title_button_opened==false:
+			Data.set_title_button_opened=true
+			$PopupMenu.visible=true
+			yield(get_tree().create_timer(5), "timeout")#選單視窗開啟5秒後關閉
+			Data.set_title_button_opened=false
+			$PopupMenu.visible=false
+		else:
+			$PopupMenu.visible=false
 
 func _on_set_title_button_pressed():
 	var title_num=self.get_name()
 	Data._set_title_information(title_num)
+	Data.emit_refresh()
 
 
 func _on_set_title_button_button_down():
