@@ -50,7 +50,9 @@ func _status_set_up(): #狀態初始設定
 		MenuButton.add_item("   鄉村   ")
 		MenuButton.add_item("  地熱口  ")
 	else:
-		MenuButton.clear()
+		#MenuButton.clear()
+		
+		#button_status must edit to match the _on_item_pressed choie
 		MenuButton.add_item(button_status[status_user])
 	#拼圖圖樣初始化
 	if status_user=="11":
@@ -92,7 +94,6 @@ func _status_set_up(): #狀態初始設定
 	
 
 #關於計分方式我沒有研究，就麻煩2幫我寫在visible true後面了
-#還有，圖片記得要換，不然會很鬧
 #接收條件，up_grade是什麼你們都懂吧
 
 func _on_item_pressed(id):

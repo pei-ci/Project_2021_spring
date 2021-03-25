@@ -126,6 +126,7 @@ func map_put(block_type,pos):
 	,"oper" : 'put', "block_type" : block_type, "pos" : pos}
 	send_server_request(put_body)
 func map_upgrade1(block_type,pos):
+	print('send upgrade request')
 	var upgrade1_body := {"type" : 'map_oper',"validation": Data.login_certification
 	,"oper" : 'upgrade1', "block_type" : block_type, "pos" : pos}
 	send_server_request(upgrade1_body)
