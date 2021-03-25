@@ -232,8 +232,8 @@ texture = SubResource( 20 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 43200.0
 autostart = true
-[connection signal="pressed" from="slect_window/activity_button" to="." method="_on_activity_button_pressed"]
 [connection signal="pressed" from="slect_window/activity_button" to="slect_window" method="_on_activity_button_pressed"]
+[connection signal="pressed" from="slect_window/activity_button" to="." method="_on_activity_button_pressed"]
 [connection signal="pressed" from="slect_window/MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="id_pressed" from="slect_window/MenuButton/PopupMenu" to="." method="_on_PopupMenu_id_pressed"]
 [connection signal="mouse_entered" from="slect_window_button" to="." method="_on_slect_window_button_mouse_entered"]

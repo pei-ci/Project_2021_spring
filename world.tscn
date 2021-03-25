@@ -26,8 +26,8 @@ load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a
 script = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 159.303, 120.827 )
-scale = Vector2( 0.311632, 0.311632 )
+position = Vector2( 251.708, 50.7391 )
+scale = Vector2( 0.630183, 0.567596 )
 texture = SubResource( 1 )
 
 [node name="AA01" parent="." instance=ExtResource( 2 )]

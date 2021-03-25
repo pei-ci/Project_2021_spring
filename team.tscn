@@ -28,11 +28,11 @@ load_path = "res://.import/組隊資訊.png-e165173c5e0003c170c4dc023ef961a5.ste
 size = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 10
 font_data = ExtResource( 1 )
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [node name="team" type="Sprite"]
@@ -156,7 +156,7 @@ margin_left = 95.244
 margin_top = 55.559
 margin_right = 135.244
 margin_bottom = 70.559
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,7 +174,7 @@ __meta__ = {
 position = Vector2( 250.694, 42.8265 )
 scale = Vector2( 0.733032, 0.75528 )
 z_index = 1
-texture = SubResource( 8 )
+texture = SubResource( 9 )
 
 [node name="close" type="TextureButton" parent="."]
 margin_left = 241.046
