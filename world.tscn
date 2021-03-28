@@ -26,8 +26,8 @@ load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a
 script = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 251.708, 50.7391 )
-scale = Vector2( 0.630183, 0.567596 )
+position = Vector2( 241.113, 136.026 )
+scale = Vector2( 0.466711, 0.348254 )
 texture = SubResource( 1 )
 
 [node name="AA01" parent="." instance=ExtResource( 2 )]
@@ -61,30 +61,31 @@ position = Vector2( 43.6286, 107.347 )
 position = Vector2( 82.3498, 107.18 )
 
 [node name="quit" type="TextureButton" parent="."]
-margin_left = 301.0
-margin_top = 5.0
-margin_right = 313.0
-margin_bottom = 16.0
+margin_left = 453.172
+margin_top = 12.3416
+margin_right = 465.172
+margin_bottom = 23.3416
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="quit_picture" type="Sprite" parent="."]
-position = Vector2( 309.345, 10.5165 )
+position = Vector2( 461.517, 17.8581 )
 scale = Vector2( 0.642834, 0.642834 )
 texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( -20.5353, 44.9073 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
-position = Vector2( -217.933, 147.38 )
+position = Vector2( -205.219, 146.321 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 230.268, 172.799 )
+position = Vector2( 383.89, 196.107 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
 position = Vector2( 349.804, 40.9769 )

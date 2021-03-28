@@ -17,6 +17,13 @@ var button_status={ "11":"puddle_up_grade_1","12":"puddle_up_grade_2","13":"fini
 					"51":"town_up_grade_1","52":"town_up_grade_2","53":"finish",
 					"61":"volcano_up_grade_1","62":"volcano_up_grade_2","63":"finish",
 					"00":"default"}
+var button_status_cn={"11":"   窪地   ","12":"   沼澤地   ","13":"   已完成   ",
+					"21":"   曠原   ","22":"   草原   ","23":"   已完成   ",
+					"31":"   綠洲   ","32":"  海市蜃樓  ","33":"   已完成   ",
+					"41":"   深海   ","42":"  海底世界  ","43":"   已完成   ",
+					"51":"   郊區   ","52":"   都市   ","53":"   已完成   ",
+					"61":"   火山錐   ","62":"   火山   ","63":"   已完成   ",
+					"00":"  預設  "}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#先把所有圖片都隱藏
@@ -50,10 +57,9 @@ func _status_set_up(): #狀態初始設定
 		MenuButton.add_item("   鄉村   ")
 		MenuButton.add_item("  地熱口  ")
 	else:
-		#MenuButton.clear()
-		
+		MenuButton.clear()		
 		#button_status must edit to match the _on_item_pressed choie
-		MenuButton.add_item(button_status[status_user])
+		MenuButton.add_item(button_status_cn[status_user])
 	#拼圖圖樣初始化
 	if status_user=="11":
 		$puddle.visible=true
