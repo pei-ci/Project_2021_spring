@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Normal.tres" type="DynamicFont" id=5]
 [ext_resource path="res://介面/登入頁面.png" type="Texture" id=6]
 [ext_resource path="res://底圖/登入背景二版.png" type="Texture" id=7]
+[ext_resource path="res://底圖/登入背景一版.png" type="Texture" id=8]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -20,10 +21,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 position = Vector2( 241.014, 139.799 )
 scale = Vector2( 0.46927, 0.362539 )
 texture = ExtResource( 7 )
+
+[node name="Background2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 240.054, 138.887 )
+scale = Vector2( 0.468685, 0.361291 )
+texture = ExtResource( 8 )
 
 [node name="Username" type="LineEdit" parent="."]
 margin_left = 203.093

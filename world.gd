@@ -275,6 +275,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		
 	elif(data['type'] == 'map'):
 		if(data['sucess'] == 'true'):
+			# folloing update puzzle info
 			Data.puddle_user = int(data['unused1'])
 			Data.wilderness_user = int(data['unused2'])
 			Data.desert_user = int(data['unused3'])
@@ -285,11 +286,10 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			for i in range(count):
 				#print(data['pos'].substr(i*4,4)+" "+data['val'].substr(i*2,2))
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
-						
-			Data.emergency_status = int(data['emergency_time'][0])
-			Data.emergency_time = int(data['emergency_time'].substr(1))
-			Data._set_emergency_cd_time()
-			check_emergency_time_valid()
+			Data.finished_puzzle_user = int(data['used'])
+			Data._set_up_puzzle_amount_info()			
+			Data._set_up_puzzle_upgrade_info()
+			
 		else:
 			print("Error fetch map data!!!")
 					
@@ -326,7 +326,15 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			var emergency_history = data['emergency_list']
 			for i in range(len(emergency_history)):
 				Data.event_status_list[i] = int(emergency_history[i])
-			print(Data.event_status_list)
+			
+			Data.emergency_status = int(data['emergency_time'][0])
+			Data.emergency_time = int(data['emergency_time'].substr(1))
+			Data._set_emergency_cd_time()
+			check_emergency_time_valid()
+			
+			Data.emergency_correct_time = int(data['emergency_best'])
+			Data.emergency_solve_time = int(data['emergency_finish'])
+			Data.debug_msg(2,"Emergency Finish : "+str(Data.emergency_solve_time))
 		else:
 			print("Unable fatch emergency info data!!!")
 			

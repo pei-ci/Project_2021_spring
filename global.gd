@@ -5,6 +5,9 @@ extends Node
 # 0=No debug data,1=important debug data ,2=all receive debug data
 var DEBUG_MODE = 2
 
+var UNUSED_PUZZLE_POINT = 1
+var USED_PUZZLE_POINT = 2
+
 func debug_msg(level,msg):
 	if DEBUG_MODE-level >= 0:
 		if level==0:
@@ -28,7 +31,12 @@ var login_certification = "0000000000000000000"
 #puzzle拼圖(預設int)
 var finished_puzzle_user=0  #已使用拼圖
 func finished_puzzle_add(val):
-	finished_puzzle_user += val
+	#	puzzle will automatic update during next map request
+	#	,so it's no need to change here
+	#finished_puzzle_user += val
+	pass
+	
+
 #未拼上的拼圖(預設int) 6type
 var puddle_user=0
 var wilderness_user=0
@@ -41,7 +49,8 @@ var subject_user ="loading"
 var number_user="loading"
 var name_user="loading"
 var nickname_user="loading"
-var total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
+var total_puzzle_user="0"
+var total_point=0
 var title_user="loading" #稱號依照拼圖總數決定
 var team_user="loading"
 
@@ -59,7 +68,10 @@ func town_minus(val):
 func volcano_minus(val):
 	volcano_user -= val
 	
-
+func _set_up_puzzle_amount_info():
+	total_point = USED_PUZZLE_POINT*finished_puzzle_user + UNUSED_PUZZLE_POINT*_get_unfinished_puzzle()
+	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
+	# here need to check if any show board need to update
 
 #個人排行
 var first_person={"nickname":"尚無排名","total_puzzle":"尚無排名","title":"尚無排名","name":"尚無排名","number":"尚無排名","department":"尚無排名"}#暱稱，拼圖總數，目前稱號
@@ -93,6 +105,26 @@ var up_grade_time=0 #升級次數
 var full_level_puzzle_num=0 #升至滿等拼圖數
 var emergency_solve_time=0 #突發事件完成次數
 var emergency_correct_time=0 #突發事件答對次數 
+
+func _set_up_puzzle_upgrade_info():
+	# add code to setup puzzle info by puzzle_list
+	pass
+
+func _up_grade_time_add(val):
+	up_grade_time+=val
+func _full_level_puzzle_num_add(val):
+	full_level_puzzle_num+=val
+func _emergency_solve_time(val):
+	#	emergency will automatic update during next emergency_info request
+	#	,so it's no need to change here
+	#emergency_solve_time+=val
+	pass
+func _emergency_correct_time(val):
+	#	emergency will automatic update during next emergency_info request
+	#	,so it's no need to change here
+	#emergency_correct_time+=val
+	pass
+
 var have_type={"puddle":0,"wilderness":0,"desert":0,"sea":0,"town":0,"volcano":0} #紀錄是否已獲得各類型拼圖 對應_get_num_of_type()
 
 var title_status={"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,
@@ -135,31 +167,31 @@ func _check_title_status():
 		_set_title_status("8")
 	if _get_num_of_type()>=3:
 		_set_title_status("9")
-	if _get_num_of_type()==6:
+	if _get_num_of_type()>=6:
 		_set_title_status("10")
 	
-	if up_grade_time==1:
+	if up_grade_time>=1:
 		_set_title_status("11")
-	if up_grade_time==5:
+	if up_grade_time>=5:
 		_set_title_status("12")
-	if up_grade_time==10:
+	if up_grade_time>=10:
 		_set_title_status("13")
 	
-	if full_level_puzzle_num==1:
+	if full_level_puzzle_num>=1:
 		_set_title_status("14")
-	if full_level_puzzle_num==3:
+	if full_level_puzzle_num>=3:
 		_set_title_status("15")
-	if full_level_puzzle_num==10:
+	if full_level_puzzle_num>=10:
 		_set_title_status("16")
 	
-	if emergency_solve_time==1:
+	if emergency_solve_time>=1:
 		_set_title_status("17")		
-	if emergency_solve_time==5:
+	if emergency_solve_time>=5:
 		_set_title_status("18")
-	if emergency_solve_time==10:
+	if emergency_solve_time>=10:
 		_set_title_status("19")	
 	
-	if emergency_correct_time==5:
+	if emergency_correct_time>=5:
 		_set_title_status("20")
 
 func _set_title_information(title_num):#設定顯示在資訊欄上的稱號
@@ -183,17 +215,6 @@ func _get_num_of_type():
 	if volcano_user>0:
 		have_type["volcano"]=1
 	return have_type["puddle"]+have_type["wilderness"]+have_type["desert"]+have_type["sea"]+have_type["town"]+have_type["volcano"]
-
-func _up_grade_time_add(val):
-	up_grade_time+=val
-func _full_level_puzzle_num_add(val):
-	full_level_puzzle_num+=val
-func _emergency_solve_time(val):
-	emergency_solve_time+=val
-func _emergency_correct_time(val):
-	emergency_correct_time+=val
-
-
 
 #活動資訊
 var activity_list=[]
