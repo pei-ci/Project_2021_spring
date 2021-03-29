@@ -3,8 +3,8 @@ onready var Data = get_node("/root/Global") #global.gd用來存放共用的變�
 #突發事件的處理、流程(BTW emgency是emergency 我寫錯了)
 
 var border_begin=30  #設定icon的border
-var length=300 
-var width=150
+var length=480
+var width=270
 
 var emergency_probability
 var finished_puzzle #這裡需要做資料的獲取
@@ -20,7 +20,7 @@ var world
 func _ready():
 	
 	emergency_probability=0
-	finished_puzzle=30
+	finished_puzzle=0
 	$Button_emergency.visible=false
 	
 	#按鈕隱藏
@@ -67,20 +67,6 @@ func _random(begin,end):
 	return random_num
 
 
-"""
-#機率的設定 (目前為假設 還會再變更)
-func _set_emergency_probability(num):
-	if num >= 0 and num<10:
-		emergency_probability=1
-	elif num>=10 and num<20:
-		emergency_probability=10
-	else:
-		emergency_probability=1
-
-
-func _timer_continue(): #Timer繼續開始數
-	$Timer.paused=false
-"""
 
 func _close_window(): #關閉視窗
 	_close_button()
@@ -97,6 +83,7 @@ func _close_button():
 #ABC選項
 #2選項規則設定
 func _on_A_pressed():
+	#Data._get_event_status(event_data["number"]) 回答次數判斷
 	var is_reply = _answer_reply("A")#某些題目選到特定選項會出現
 	if is_reply:                     #暫停畫面
 		yield(get_tree().create_timer(2.5), "timeout")

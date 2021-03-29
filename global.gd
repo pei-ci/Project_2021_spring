@@ -257,13 +257,20 @@ func emit_refresh(): #當數值改變時會使用此函式 來刷新頁面上的
 var event_status_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 func _set_event_status_list(num,value):
-	event_status_list[num-1]=value
+	event_status_list[num-1]+=value
+	
+func _get_event_status(num):
+	return event_status_list[num-1]
 
 func _get_event_list():#要獲得狀態非零的題目用
 	var event_list=[]
 	for index in range (len(event_status_list)):
-		if event_status_list[index]!=1:
+		if event_status_list[index]==0:
 			event_list.append(index+1)
+	if len(event_list)==0:#第二遍的情況
+		for index in range (len(event_status_list)):
+			if event_status_list[index]==1:
+				event_list.append(index+1)
 	return event_list
 
 #紀錄時間

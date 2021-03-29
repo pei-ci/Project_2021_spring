@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://top_ten_information.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
@@ -9,6 +9,9 @@ load_path = "res://.import/排行榜註解.png-f4eee36491e5d88592e178c8eb73bda9.
 [sub_resource type="DynamicFont" id=2]
 size = 4
 font_data = ExtResource( 2 )
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/排行榜註解團體版.png-b816541f246668b38d4a7bf8d8673d7f.stex"
 
 [node name="top_ten_information" type="Sprite"]
 script = ExtResource( 1 )
@@ -22,38 +25,65 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="background" type="Sprite" parent="."]
+[node name="person" type="Sprite" parent="."]
 position = Vector2( 168.525, 96.4855 )
 scale = Vector2( 0.123554, 0.0931127 )
 texture = SubResource( 1 )
 
-[node name="total_puzzle" type="Label" parent="."]
-margin_left = 163.645
-margin_top = 94.3912
-margin_right = 205.645
-margin_bottom = 101.391
+[node name="total_puzzle" type="Label" parent="person"]
+margin_left = -39.4968
+margin_top = -22.4921
+margin_right = 2.50317
+margin_bottom = -15.4921
 custom_fonts/font = SubResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="nickname" type="Label" parent="."]
-margin_left = 148.445
-margin_top = 85.1091
-margin_right = 206.445
-margin_bottom = 92.1091
+[node name="nickname" type="Label" parent="person"]
+margin_left = -162.52
+margin_top = -122.179
+margin_right = -104.52
+margin_bottom = -115.179
 custom_fonts/font = SubResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title" type="Label" parent="."]
-margin_left = 148.733
-margin_top = 100.544
-margin_right = 207.733
-margin_bottom = 107.544
+[node name="title" type="Label" parent="person"]
+margin_left = -160.189
+margin_top = 43.5869
+margin_right = -101.189
+margin_bottom = 50.5869
+custom_fonts/font = SubResource( 2 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="team" type="Sprite" parent="."]
+position = Vector2( 158.227, 97.1099 )
+scale = Vector2( 0.0954769, 0.0954769 )
+texture = SubResource( 3 )
+
+[node name="total_puzzle" type="Label" parent="team"]
+margin_left = -27.0
+margin_top = 28.0
+margin_right = 272.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 2 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nickname" type="Label" parent="team"]
+margin_left = -173.618
+margin_top = -103.474
+margin_right = 203.382
+margin_bottom = -20.4738
 custom_fonts/font = SubResource( 2 )
 valign = 1
 __meta__ = {

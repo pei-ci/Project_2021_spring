@@ -79,29 +79,64 @@ position = Vector2( 220.668, 19.9967 )
 scale = Vector2( 0.584248, 0.584248 )
 texture = SubResource( 2 )
 
-[node name="switch" type="TextureButton" parent="."]
-margin_left = 208.904
-margin_top = 161.098
-margin_right = 221.904
-margin_bottom = 172.098
+[node name="switch_to_team" type="TextureButton" parent="."]
+margin_left = 211.907
+margin_top = 176.449
+margin_right = 224.907
+margin_bottom = 187.449
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="switch_picture" type="Sprite" parent="."]
-position = Vector2( 214.437, 165.267 )
+position = Vector2( 217.44, 180.618 )
 scale = Vector2( 0.687852, 0.687852 )
 texture = SubResource( 3 )
 
+[node name="team_mark" type="Label" parent="."]
+margin_left = 212.96
+margin_top = 177.052
+margin_right = 222.96
+margin_bottom = 185.052
+custom_fonts/font = SubResource( 4 )
+text = "團隊"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="switch_picture2" type="Sprite" parent="."]
+position = Vector2( 217.107, 164.583 )
+scale = Vector2( 0.687852, 0.687852 )
+texture = SubResource( 3 )
+
+[node name="switch_to_person" type="TextureButton" parent="."]
+margin_left = 210.67
+margin_top = 161.316
+margin_right = 225.67
+margin_bottom = 173.316
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="person_mark" type="Label" parent="."]
+margin_left = 212.418
+margin_top = 160.541
+margin_right = 222.418
+margin_bottom = 168.541
+custom_fonts/font = SubResource( 4 )
+text = "個人"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="person_text" type="Sprite" parent="."]
-visible = false
 
 [node name="first" type="Label" parent="person_text"]
 margin_left = 133.558
 margin_top = 49.7265
 margin_right = 195.558
 margin_bottom = 57.7265
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,7 +146,7 @@ margin_left = 132.769
 margin_top = 69.7946
 margin_right = 172.769
 margin_bottom = 77.7946
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,7 +156,7 @@ margin_left = 131.709
 margin_top = 84.3367
 margin_right = 171.709
 margin_bottom = 92.3367
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -131,7 +166,7 @@ margin_left = 131.357
 margin_top = 100.852
 margin_right = 171.357
 margin_bottom = 108.852
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,7 +176,7 @@ margin_left = 130.904
 margin_top = 116.312
 margin_right = 170.904
 margin_bottom = 124.312
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -151,7 +186,7 @@ margin_left = 129.616
 margin_top = 132.855
 margin_right = 169.616
 margin_bottom = 140.855
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,7 +196,7 @@ margin_left = 130.069
 margin_top = 147.794
 margin_right = 170.069
 margin_bottom = 155.794
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -171,7 +206,7 @@ margin_left = 130.627
 margin_top = 162.535
 margin_right = 170.627
 margin_bottom = 170.535
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -181,7 +216,7 @@ margin_left = 129.215
 margin_top = 175.978
 margin_right = 169.215
 margin_bottom = 183.978
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,31 +226,19 @@ margin_left = 128.23
 margin_top = 189.458
 margin_right = 168.23
 margin_bottom = 197.458
-custom_fonts/font = SubResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="person_mark" type="Label" parent="person_text"]
-margin_left = 210.152
-margin_top = 162.334
-margin_right = 220.152
-margin_bottom = 170.334
 custom_fonts/font = SubResource( 14 )
-text = "個人"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="team_text" type="Sprite" parent="."]
-visible = false
 
 [node name="first" type="Label" parent="team_text"]
 margin_left = 133.558
 margin_top = 49.7265
 margin_right = 195.558
 margin_bottom = 57.7265
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -225,7 +248,7 @@ margin_left = 132.769
 margin_top = 69.7946
 margin_right = 172.769
 margin_bottom = 77.7946
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -235,7 +258,7 @@ margin_left = 131.709
 margin_top = 84.3367
 margin_right = 171.709
 margin_bottom = 92.3367
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -245,7 +268,7 @@ margin_left = 131.357
 margin_top = 100.852
 margin_right = 171.357
 margin_bottom = 108.852
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -255,7 +278,7 @@ margin_left = 130.904
 margin_top = 116.312
 margin_right = 170.904
 margin_bottom = 124.312
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -265,7 +288,7 @@ margin_left = 129.616
 margin_top = 132.855
 margin_right = 169.616
 margin_bottom = 140.855
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -275,7 +298,7 @@ margin_left = 130.069
 margin_top = 147.794
 margin_right = 170.069
 margin_bottom = 155.794
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -285,7 +308,7 @@ margin_left = 130.627
 margin_top = 162.535
 margin_right = 170.627
 margin_bottom = 170.535
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -295,7 +318,7 @@ margin_left = 129.215
 margin_top = 175.978
 margin_right = 169.215
 margin_bottom = 183.978
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -305,18 +328,7 @@ margin_left = 128.23
 margin_top = 189.458
 margin_right = 168.23
 margin_bottom = 197.458
-custom_fonts/font = SubResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="team_mark" type="Label" parent="team_text"]
-margin_left = 210.152
-margin_top = 162.334
-margin_right = 220.152
-margin_bottom = 170.334
 custom_fonts/font = SubResource( 14 )
-text = "團體"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -337,31 +349,32 @@ position = Vector2( 0.770024, 11.6678 )
 z_index = 5
 
 [node name="four_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( 1.1669, 26.8293 )
+position = Vector2( 1.1669, 28.4978 )
 z_index = 5
 
 [node name="five_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( 1.21411, 42.0791 )
+position = Vector2( 1.21411, 43.0802 )
 z_index = 5
 
 [node name="six_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( 1.58735, 56.6532 )
+position = Vector2( 0.919931, 59.9903 )
 z_index = 5
 
 [node name="seven_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -2.03149, 73.0935 )
+position = Vector2( -2.03149, 74.762 )
 z_index = 5
 
 [node name="eight_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -2.9003, 87.7943 )
+position = Vector2( -2.9003, 89.4629 )
 z_index = 5
 
 [node name="night_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -2.5892, 101.778 )
+position = Vector2( -2.5892, 103.447 )
 z_index = 5
 
 [node name="ten_block" parent="block" instance=ExtResource( 3 )]
-position = Vector2( -1.65823, 116.099 )
+position = Vector2( -1.65823, 116.433 )
 z_index = 5
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="switch" to="." method="_on_switch_pressed"]
+[connection signal="pressed" from="switch_to_team" to="." method="_on_switch_to_team_pressed"]
+[connection signal="pressed" from="switch_to_person" to="." method="_on_switch_to_person_pressed"]

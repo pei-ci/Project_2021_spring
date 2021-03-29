@@ -76,7 +76,7 @@ texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( -20.5353, 44.9073 )
+position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
@@ -88,29 +88,31 @@ position = Vector2( -205.219, 146.321 )
 position = Vector2( 383.89, 196.107 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
-position = Vector2( 349.804, 40.9769 )
+position = Vector2( 442.667, 60.8194 )
 
 [node name="title_storehouse" parent="." instance=ExtResource( 1 )]
+position = Vector2( 75.4016, 18.2551 )
 z_index = 50
 
 [node name="title_storehouse_button_picture" type="Sprite" parent="title_storehouse"]
-position = Vector2( 19.3406, 17.6589 )
+position = Vector2( 12.991, 1.78488 )
 texture = SubResource( 3 )
 
 [node name="title_storehouse" type="TextureButton" parent="title_storehouse"]
-margin_left = 11.2832
-margin_top = 7.9137
-margin_right = 28.2832
-margin_bottom = 27.9137
+margin_left = 4.93359
+margin_top = -7.96032
+margin_right = 21.9336
+margin_bottom = 12.0397
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="activity" parent="." instance=ExtResource( 3 )]
+position = Vector2( 69.8457, 19.0488 )
 z_index = 60
 
 [node name="team" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1.49835, 2.99661 )
+position = Vector2( 81.8403, 28.3951 )
 z_index = 60
 
 [node name="HTTPRequest2" type="HTTPRequest" parent="team"]
