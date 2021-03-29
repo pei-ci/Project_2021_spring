@@ -254,7 +254,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.subject_user = data['department']
 			
 			#send_map_request() #send team request
-			if(data['teamid'] == '-1'):
+			if(data['teamid'] == null):
 				Data.team_user = '未設定'
 			else:
 				have_team = true 

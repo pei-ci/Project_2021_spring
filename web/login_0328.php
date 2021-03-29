@@ -451,14 +451,14 @@ function dealing_create_team_request($mysqli,$login_certification,$team_name){
             $row_map = mysqli_fetch_array($result_map);
             $map_count = $row_map[0];
             $respond['map_count'] = $map_count;
+            //set team id to user table
+            $query_1 = "UPDATE user SET teamid='$team_num' WHERE validation='$login_certification'";
+            $result_1 = mysqli_query($mysqli, $query_1) or die(mysqli_error($mysqli));
             //set team id to team table
             $query_2 = "INSERT INTO team (teamid, name, mem1, point, rank) 
             VALUE ('$team_num','$team_name','$id','$map_count','$count')";
             $result_2 = mysqli_query($mysqli, $query_2) or die(mysqli_error($mysqli));
-            //set team id to user table
-            $query_1 = "UPDATE user SET teamid='$team_num' WHERE validation='$login_certification'";
-            $result_1 = mysqli_query($mysqli, $query_1) or die(mysqli_error($mysqli));
-                        
+            
             if($result_1 && $result_2){
                 $respond["sucess"] = 'true';
                 $respond["teamid"] = $team_num;

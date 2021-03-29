@@ -13,8 +13,9 @@ func reset_text():
 
 func _on_OK_pressed():
 	var control = get_node("/root/login")	
-	if((len($name)>=2 && len($name)<20)&& ($nickname.text!='' && $department.selected!=-1)):
+	if((len($name.text)>=2 && len($name.text)<20)&& ($nickname.text!='' && $department.selected!=-1)):
 		control.register_to_server($name.text,$nickname.text,$department.text)
+		# there is an error which return only 0, need to fix
 		visible = false
 
 

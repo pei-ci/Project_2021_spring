@@ -1,4 +1,6 @@
 extends Sprite
+
+onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
 #資訊欄
 var subject_user ="1"
 var number_user ="1"
@@ -14,7 +16,7 @@ func _ready():
 	_set_up()
 
 func _set_up():
-	$subject.text =subject_user
+	$subject.text = Data.department_list[subject_user]
 	$number.text = number_user
 	$name.text = name_user
 	$nickname.text = nickname_user

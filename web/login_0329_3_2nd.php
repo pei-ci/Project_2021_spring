@@ -2,6 +2,8 @@
 $GLOBALS['LOGIN_TIME_LIMIT'] = 10800; //3600*3 = 3hr
 $GLOBALS['EMERGENCY_EXIST_TIME'] = 43200; //3600*12 = 12hr
 $GLOBALS['BASIC_EMERGENCY_DOWN_TIME'] = 43200; //3600*12 = 12hr
+$GLOBALS['UNUSED_PUZZLE_POINT'] = 1;
+$GLOBALS['USED_PUZZLE_POINT'] = 2;
 
 session_start();
 $postdata = file_get_contents("php://input",'r'); 
@@ -14,7 +16,7 @@ if ($type == NULL){
 }
 
 //Open a new connection to the MySQL server
-$mysqli = new mysqli('localhost', 'root', '', 'school_games');
+$mysqli = new mysqli('localhost', 'root', '', 'school_games_2nd');
 //Output any connection error
 if ($mysqli->connect_error) {
     error_and_logout('SQL Not Respond!');
@@ -333,30 +335,21 @@ function dealing_map_oper_request($mysqli,$login_certification,$oper,$block_type
     if($num_row_check!=1 || $row_check['unused'.$block_type]<1){
         echo json_encode($respond);
         return;
-    }
-    
+    }    
 
     $unused = (int)$row_check['unused'.$block_type]-1;
     $userid = $row_check['userid'];
     $teamid = $row_check['teamid'];
     $used = (int)$row_check['used']+1;
 
-    $result_put_team = true;
     $respond['write_to_team'] = 'false';
-    if($teamid!='-1'){
-        //if pass check, get team's used amount
-        $query_check_team = "SELECT team.teamid,point FROM user, team WHERE user.validation='$login_certification' AND user.teamid=team.teamid";
-        $result_check_team = mysqli_query($mysqli, $query_check_team) or die(mysqli_error($mysqli));
-        $num_row_check_team = mysqli_num_rows($result_check_team);
-        $row_check_team = mysqli_fetch_array($result_check_team);
-        if($num_row_check_team==0){
+    if(!$teamid===NULL){
+        if(update_team_point($mysqli,$login_certification,$GLOBALS['USED_PUZZLE_POINT'])){
+            $respond['write_to_team'] = 'true';
+        }else{
             echo json_encode($respond);
             return;
         }
-        $team_used = (int)$row_check_team['point']+1;
-        $query_put_team = "UPDATE team SET point='$team_used' WHERE teamid='$teamid'";
-        $result_put_team = mysqli_query($mysqli, $query_put_team) or die(mysqli_error($mysqli));
-        $respond['write_to_team'] = 'true';
     }   
 
     if($oper == 'upgrade1'){
@@ -378,7 +371,7 @@ function dealing_map_oper_request($mysqli,$login_certification,$oper,$block_type
                     WHERE userid='$userid'";
     $result_put = mysqli_query($mysqli, $query_put) or die(mysqli_error($mysqli));
     
-    if($result_put && $result_put_team){
+    if($result_put){
         $respond['sucess'] = 'true';
     }
     echo json_encode($respond);
@@ -426,7 +419,7 @@ function dealing_create_team_request($mysqli,$login_certification,$team_name){
     $respond = array();
     $respond["type"] = "create_team";
     if($num_row >= 1){
-        if($row["teamid"] == -1){ //create team
+        if(!$row["teamid"]===NULL){ //create team
             do{
             $team_num = rand(111111,999999);
             $query_id_verify = "SELECT * FROM team WHERE teamid='$team_num'";
@@ -525,7 +518,7 @@ function dealing_team_member_request($mysqli,$team_id){
     $respond['sucess'] = 'true';
     for ($x = 0; $x < 10; $x++) {
         $u_id = $row_mem['mem'.($x+1)];
-        if($u_id != '-1'){
+        if(!$u_id===NULL){
             $query_user = "SELECT number,name,map.used FROM user,map WHERE map.userid='$u_id' AND user.userid='$u_id'";
             $result_user = mysqli_query($mysqli, $query_user) or die(mysqli_error($mysqli));
             $row_user = mysqli_fetch_array($result_user);
@@ -540,8 +533,7 @@ function dealing_team_member_request($mysqli,$team_id){
             $respond['mem'.($x+1).'number'] = '-1';
             $respond['mem'.($x+1).'name'] = '-1';
             $respond['mem'.($x+1).'used'] = '-1';
-        }
-        
+        }       
         
     } 
     echo json_encode($respond); 
@@ -551,20 +543,33 @@ function dealing_emergency_request($mysqli,$login_certification,$map_type,$map_a
     $event_id = (int)$event_id;
     if($command_type=='add_map'){
     $request_type = 'unused'.$map_type;
-    $query_amount = "SELECT $request_type FROM user, map WHERE user.validation='$login_certification' AND user.userid = map.userid";
+    $query_amount = "SELECT $request_type,teamid FROM user, map WHERE user.validation='$login_certification' AND user.userid = map.userid";
     $result_amount = mysqli_query($mysqli, $query_amount) or die(mysqli_error($mysqli));
     $num_row_amount = mysqli_num_rows($result_amount);
     $row_amount = mysqli_fetch_array($result_amount);
+    $teamid = $row_amount['teamid'];
 
     $respond = array();
     $respond['type'] = 'emergency';
     $respond['command_type'] = $command_type;
     $respond['get_type'] = $map_type;
     $respond['sucess'] = 'false';
+    $respond['write_to_team'] = 'false';
+
     if ($num_row_amount >= 1){
         $new_amount = $row_amount[$request_type] + $map_amount;
         $query_update = "UPDATE map,user SET $request_type='$new_amount' WHERE user.validation='$login_certification' AND user.userid = map.userid";
         $result_update = mysqli_query($mysqli, $query_update) or die(mysqli_error($mysqli));
+        
+        if(!$teamid===NULL){
+            if(update_team_point($mysqli,$login_certification,$GLOBALS['UNUSED_PUZZLE_POINT'])){
+                $respond['write_to_team'] = 'true';
+            }else{
+                echo json_encode($respond);
+                return;
+            }
+        }  
+
         if($result_update){
             $respond['sucess'] = 'true';
         }
@@ -759,5 +764,23 @@ function dealing_rank_request($mysqli,$rank_type){
     }
     
     echo json_encode($respond);
+}
+
+function update_team_point($mysqli,$login_certification,$point){
+    $query_check_team = "SELECT team.teamid,point FROM user, team WHERE user.validation='$login_certification' AND user.teamid=team.teamid";
+    $result_check_team = mysqli_query($mysqli, $query_check_team) or die(mysqli_error($mysqli));
+    $num_row_check_team = mysqli_num_rows($result_check_team);
+    $row_check_team = mysqli_fetch_array($result_check_team);
+    if($num_row_check_team==0){
+        return false;
+    }
+    $team_id = $row_check_team['teamid'];
+    $team_used = (int)$row_check_team['point']+$point;
+    $query_put_team = "UPDATE team SET point='$team_used' WHERE teamid='$team_id'";
+    $result_put_team = mysqli_query($mysqli, $query_put_team) or die(mysqli_error($mysqli));
+    if($result_put_team){
+        return true;
+    }
+    return false;
 }
 ?>
