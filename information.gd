@@ -16,7 +16,7 @@ func _ready():
 	_set_up()
 
 func _set_up():
-	$subject.text = Data.department_list[subject_user]
+	$subject.text = Data.department_list[int(subject_user)]
 	$number.text = number_user
 	$name.text = name_user
 	$nickname.text = nickname_user
