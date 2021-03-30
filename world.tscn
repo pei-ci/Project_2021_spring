@@ -75,7 +75,6 @@ scale = Vector2( 0.642834, 0.642834 )
 texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 

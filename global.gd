@@ -8,6 +8,9 @@ var DEBUG_MODE = 2
 var UNUSED_PUZZLE_POINT = 1
 var USED_PUZZLE_POINT = 2
 
+var EMERGENCY_AMOUNT = 30
+var TITLE_AMOUNT = 32
+
 func debug_msg(level,msg):
 	if DEBUG_MODE-level >= 0:
 		if level==0:
@@ -108,7 +111,16 @@ var emergency_correct_time=0 #突發事件答對次數
 
 func _set_up_puzzle_upgrade_info():
 	# add code to setup puzzle info by puzzle_list
-	pass
+	var upgrade_count = 0
+	var full_upgrade_count = 0
+	for value in status_user.values():
+		if value[1]=='2':
+			upgrade_count += 1
+		elif value[1]=='3':
+			upgrade_count += 2
+			full_upgrade_count += 1
+	up_grade_time = upgrade_count
+	full_level_puzzle_num = full_upgrade_count
 
 func _up_grade_time_add(val):
 	up_grade_time+=val
@@ -254,7 +266,8 @@ func emit_refresh(): #當數值改變時會使用此函式 來刷新頁面上的
 
 #以下為3/12-3/13新增內容 此行註解可以刪 以下程式碼可以移到適合的位置
 #隨機事件解題紀錄
-var event_status_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+var event_status_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 func _set_event_status_list(num,value):
 	event_status_list[num-1]+=value
