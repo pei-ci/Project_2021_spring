@@ -154,6 +154,11 @@ func send_map_request():
 	var map_body := {"type" : 'map',"validation": Data.login_certification}
 	send_server_request(map_body)
 	
+func send_place_click_request():
+	#sending place_click request
+	var place_click_body := {"type" : 'place_click',"validation": Data.login_certification}
+	send_server_request(place_click_body)
+	
 func send_add_title_request(number):
 	#sending map request
 	var add_title_body := {"type":'title_oper',"oper":"add","number":number,"validation":Data.login_certification}
@@ -260,7 +265,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				have_team = true 
 				send_team_request()
 		else:
-			print("Error fetch info data!!!")
+			Data.debug_msg(0,"Error fetch info data!!!")
 					
 	elif(data['type'] == 'team'):
 		if(data['sucess'] == 'true'):
@@ -269,7 +274,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			for i in range(10):
 				Data.team_member_list[i]['學號'] = data['mem'+str(i+1)]
 		else:
-			print("Error fetch team data!!!")
+			Data.debug_msg(0,"Error fetch team data!!!")
 		Data._check_title_status()
 		$team.send_team_member_request()		
 		
@@ -291,7 +296,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data._set_up_puzzle_upgrade_info()
 			
 		else:
-			print("Error fetch map data!!!")
+			Data.debug_msg(0,"Error fetch map data!!!")
 					
 	elif(data['type'] == 'activity'):
 		if(data['sucess']=='true'):
@@ -300,26 +305,26 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				,'代號':data['number'+str(i)],'獎勵':data['point'+str(i)]}
 				Data.activity_list.append(insert_act)
 		else:
-			print("Error fetch activity data!!!")
+			Data.debug_msg(0,"Error fetch activity data!!!")
 					
 	elif(data['type'] == 'create_team'):
 		if(data['sucess']=='true'):
 			send_team_request()
 		else:
-			print("Unaccept create team request!!!")
+			Data.debug_msg(0,"Unaccept create team request!!!")
 						
 	elif(data['type'] == 'map_oper'):
 		if(data['sucess']=='true'):
 			pass
 		else:
-			print("Unaccept map operation request!!!")
+			Data.debug_msg(0,"Unaccept map operation request!!!")
 			
 	elif(data['type'] == 'emergency'):
 		if(data['sucess']=='true'):
 			if(data['command_type']=='record'):
 				send_map_request()
 		else:
-			print("Unaccept emergency request!!!")
+			Data.debug_msg(0,"Unaccept emergency request!!!")
 	
 	elif(data['type'] == 'emergency_info'):
 		if(data['sucess']=='true'):
@@ -336,7 +341,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.emergency_solve_time = int(data['emergency_finish'])
 			Data.debug_msg(2,"Emergency Finish : "+str(Data.emergency_solve_time))
 		else:
-			print("Unable fatch emergency info data!!!")
+			Data.debug_msg(0,"Unable fatch emergency info data!!!")
 			
 	elif(data['type'] == 'emergency_time'):
 		if(data['sucess']=='true'):
@@ -352,7 +357,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			if(data['error']=='already_have'):
 				pass
 			else:
-				print("Unaccept title request!!!")
+				Data.debug_msg(0,"Unaccept title request!!!")
 	
 	elif(data['type'] == 'rank'):
 		if(data['sucess']=='true'):
@@ -376,11 +381,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 						pass
 			$leader_board_group/leader_board.refresh_rank_data()
 		else:
-			print("Fetch Rank Error!")
+			Data.debug_msg(0,"Fetch Rank Error!")
 		
 	elif(data['type'] == 'logout'):
 		if(data['sucess'] == 'false'):
-			print("Authentication Error : Timeout!")
+			Data.debug_msg(0,"Authentication Error : Timeout!")
 			get_tree().change_scene("res://Control.tscn")	
 
 	finish_request_queue(data['type'])

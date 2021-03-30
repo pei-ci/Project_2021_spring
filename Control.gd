@@ -54,6 +54,13 @@ func register_to_server(name,nickname,department):
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 
+func log_login_to_server():
+	#var query= "email="+ username + "&password="+ password
+	var body := {"type" : 'log',"validation": Data.login_certification,'log_type':'login','value':'1'}
+	var headers = ["Content-Type: application/json"]
+	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
+
+
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):	
 	var respond = body.get_string_from_utf8()
 	var data_parse = JSON.parse(respond)
@@ -71,8 +78,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		if(data['sucess'] == 'true'):
 			Data.login_certification = data["validation"]
 			#print(Data.login_certification)
-			print("Login Success!")
-			get_tree().change_scene("res://world.tscn")	
+			log_login_to_server()
 		else:
 			print("Login Error : Unknown!");
 	elif(data['type'] == 'register'):
@@ -80,9 +86,15 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			login_to_server()
 		else:
 			if(data['error'] == 'user_exist'):
-				print("Register Error : User Exist!")
+				Data.debug_msg(0,"Register Error : User Exist!")
 			else:
-				print("Register Error : Unknown!")	
+				Data.debug_msg(0,"Register Error : Unknown!")
+	elif(data['type'] == 'log'):
+		if(data['sucess']=='true'):
+			Data.debug_msg(1,"Login and Log Success!")
+			get_tree().change_scene("res://world.tscn")			
+		else:
+				Data.debug_msg(0,"Log Login Error : Unknown!")
 
 func check_input():
 	if ((len(username)>=8 && len(username)<=9) && password!=""):
