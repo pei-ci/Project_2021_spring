@@ -1,9 +1,13 @@
 <?php
 $GLOBALS['LOGIN_TIME_LIMIT'] = 10800; //3600*3 = 3hr
 $GLOBALS['EMERGENCY_EXIST_TIME'] = 43200; //3600*12 = 12hr
+
 $GLOBALS['BASIC_EMERGENCY_DOWN_TIME'] = 43200; //3600*12 = 12hr
 $GLOBALS['UNUSED_PUZZLE_POINT'] = 1;
 $GLOBALS['USED_PUZZLE_POINT'] = 2;
+
+$GLOBALS['TITLE_DEFAULT'] = '00000000000000000000000000000000';
+$GLOBALS['EMERGENCY_DEFAULT'] = '000000000000000000000000000000';
 
 session_start();
 $postdata = file_get_contents("php://input",'r'); 
@@ -189,8 +193,9 @@ function dealing_register_request($mysqli,$email,$password,$name,$department,$ni
     }
     //register to user table
     $password = password_hash($password,PASSWORD_DEFAULT);
-    $query_register_user = "INSERT INTO user (name, department, number, password ,nickname) 
-            VALUE ('$name','$department','$email','$password','$nickname')";
+    $user_title = $GLOBALS['TITLE_DEFAULT'];
+    $query_register_user = "INSERT INTO user (name, department, number, password ,nickname ,title) 
+            VALUE ('$name','$department','$email','$password','$nickname','$user_title')";
     $result_register_user = mysqli_query($mysqli, $query_register_user) or die(mysqli_error($mysqli));
     //get userid from user table
     $query_id = "SELECT userid FROM user WHERE number='$email' AND password='$password'";
@@ -198,7 +203,8 @@ function dealing_register_request($mysqli,$email,$password,$name,$department,$ni
     $row = mysqli_fetch_array($result_id);
     $id = $row['userid'];
     //register to map table
-    $query_register_map = "INSERT INTO map (userid) VALUE ('$id')";
+    $emergency_map = $GLOBALS['EMERGENCY_DEFAULT'];
+    $query_register_map = "INSERT INTO map (userid,emergency_list) VALUE ('$id','$emergency_map')";
     $result_register_map = mysqli_query($mysqli, $query_register_map) or die(mysqli_error($mysqli));
     
     $query_register_log = "INSERT INTO log (userid) VALUE ('$id')";
