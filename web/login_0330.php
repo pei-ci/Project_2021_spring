@@ -151,10 +151,14 @@ function error_and_logout($message){
 }
 
 function dealing_login_request($mysqli,$email,$password){    
-    $query = "SELECT user.userid, password, log.login_time FROM user,log WHERE user.number='$email' AND user.userid=log.userid";
+    $query = "SELECT user.userid, password, ban, log.login_time FROM user,log WHERE user.number='$email' AND user.userid=log.userid";
     $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
     $num_row = mysqli_num_rows($result);
     $row = mysqli_fetch_array($result);
+
+    if($row['ban']=='1'){
+        error_and_logout('User has been Banned!');
+    }
 
     $respond = array();
     $respond["type"] = "login";
