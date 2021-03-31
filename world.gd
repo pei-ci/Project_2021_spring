@@ -2,8 +2,6 @@ extends Node2D
 #遊戲的main
 onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
 
-var headers = ["Content-Type: application/json"]
-var request_queue = []
 
 var have_team = false
 
@@ -206,19 +204,23 @@ func send_rank_request(rank_type):
 
 #the following function 
 #              maintain request queue system
+#---------------------------------------------------------------------------
+var request_queue = []
+var headers = ["Content-Type: application/json"]
+
 func send_server_request(body):	
 	request_queue.append([body,0])
 	#requesst queue status 0:queue 1:waiting result
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
-		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
 		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func check_request_queue():
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
-		$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
 		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
@@ -230,7 +232,7 @@ func finish_request_queue(type):
 				request_queue.remove(i)
 				check_request_queue()
 				break;
-
+#----------------------------------------------------------------------------
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
 	if(Data.DEBUG_MODE == 2):

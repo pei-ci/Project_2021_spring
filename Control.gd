@@ -41,24 +41,50 @@ func _on_LineEdit2_text_entered(text):
 
 func login_to_server():
 	var body := {"type" : 'login',"number": username, "password": password}
-	#print(body)
-	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
+	send_server_request(body)
 
 func register_to_server(name,nickname,department):
 	var body := {"type" : 'register',"number": username, "password": password
 	,"department" : department ,"name": name,"nickname":nickname}
-	print(body)
-	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
+	send_server_request(body)
 
 func log_login_to_server():
 	# here need to turn unix time into date formate 
 	#	to check if last login is in last date, which will increase login_count
 	var body := {"type" : 'log',"validation": Data.login_certification,'log_type':'login','value':'1'}
-	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
+	send_server_request(body)
+	
+#the following function 
+#              maintain request queue system
+#---------------------------------------------------------------------------
+var request_queue = []
+var headers = ["Content-Type: application/json"]
 
+func send_server_request(body):	
+	request_queue.append([body,0])
+	#requesst queue status 0:queue 1:waiting result
+	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
+		#send requesst
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		Data.debug_msg(2,'sending : '+str(request_queue[0]))
+		request_queue[0][1] = 1
+
+func check_request_queue():
+	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
+		#send requesst
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		Data.debug_msg(2,'sending : '+str(request_queue[0]))
+		request_queue[0][1] = 1
+
+func finish_request_queue(type):
+	#print(request_queue)
+	if(len(request_queue)>0):
+		for i in range(len(request_queue)):
+			if(request_queue[i][0]['type'] == type && request_queue[i][1] == 1):
+				request_queue.remove(i)
+				check_request_queue()
+				break;
+#----------------------------------------------------------------------------
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):	
 	var respond = body.get_string_from_utf8()
@@ -79,7 +105,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			#print(Data.login_certification)
 			log_login_to_server()
 		else:
-			print("Login Error : Unknown!");
+			Data.debug_msg(0,"Login Error : Unknown!")
 	elif(data['type'] == 'register'):
 		if(data['sucess']=='true'):
 			login_to_server()
@@ -94,7 +120,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			get_tree().change_scene("res://world.tscn")			
 		else:
 			Data.debug_msg(0,"Log Login Error : Unknown!")
-
+	finish_request_queue(data['type'])
 func check_input():
 	if ((len(username)>=8 && len(username)<=9) && password!=""):
 		return true

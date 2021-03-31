@@ -3,7 +3,10 @@ extends Node
 
 # by editing the debug choice, system will print network or other debug data.
 # 0=No debug data,1=important debug data ,2=all receive debug data
-var DEBUG_MODE = 1
+var DEBUG_MODE = 2
+
+var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
+#var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
 
 var UNUSED_PUZZLE_POINT = 1
 var USED_PUZZLE_POINT = 2

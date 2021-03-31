@@ -32,7 +32,7 @@ func _set_team_up():
 func send_team_member_request():	
 	var member_body := {"type" : 'team_member',"teamid":Data.team_id}
 	#print(member_body)
-	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(member_body))
+	$HTTPRequest2.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(member_body))
 	
 
 func _on_close_pressed():
@@ -46,7 +46,7 @@ func _on_generate_Button_pressed():
 
 func send_generate_team_request(team_name):	
 	var map_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":team_name}
-	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+	$HTTPRequest2.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 	
 func _on_generate_team_finished(team_id):
 	$team_up/background/generate_label.text = str(team_id)
@@ -54,9 +54,8 @@ func _on_generate_team_finished(team_id):
 func _on_input_Button_pressed():
 	var team_id = $team_up/input.text
 	var map_body := {"type" : 'join_team',"validation": Data.login_certification,"teamid":team_id}
-	$HTTPRequest2.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(map_body))
+	$HTTPRequest2.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(map_body))
 	
-
 
 func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
