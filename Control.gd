@@ -40,14 +40,12 @@ func _on_LineEdit2_text_entered(text):
 
 
 func login_to_server():
-	#var query= "email="+ username + "&password="+ password
 	var body := {"type" : 'login',"number": username, "password": password}
 	#print(body)
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 
 func register_to_server(name,nickname,department):
-	#var query= "email="+ username + "&password="+ password
 	var body := {"type" : 'register',"number": username, "password": password
 	,"department" : department ,"name": name,"nickname":nickname}
 	print(body)
@@ -55,7 +53,8 @@ func register_to_server(name,nickname,department):
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
 
 func log_login_to_server():
-	#var query= "email="+ username + "&password="+ password
+	# here need to turn unix time into date formate 
+	#	to check if last login is in last date, which will increase login_count
 	var body := {"type" : 'log',"validation": Data.login_certification,'log_type':'login','value':'1'}
 	var headers = ["Content-Type: application/json"]
 	$HTTPRequest.request("http://localhost/cgu_games/login.php",headers,false,HTTPClient.METHOD_POST,to_json(body))
@@ -94,7 +93,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.debug_msg(1,"Login and Log Success!")
 			get_tree().change_scene("res://world.tscn")			
 		else:
-				Data.debug_msg(0,"Log Login Error : Unknown!")
+			Data.debug_msg(0,"Log Login Error : Unknown!")
 
 func check_input():
 	if ((len(username)>=8 && len(username)<=9) && password!=""):

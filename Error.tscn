@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://底圖/登入背景一版.png" type="Texture" id=2]
+
+[node name="Background" type="Sprite"]
+position = Vector2( 239.713, 133.415 )
+scale = Vector2( 0.469098, 0.349068 )
+texture = ExtResource( 2 )
+
+[node name="Crash" type="Label" parent="."]
+margin_left = -190.395
+margin_top = 28.2705
+margin_right = 119.605
+margin_bottom = 81.2705
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Game Crashed !"
+__meta__ = {
+"_edit_use_anchors_": false
+}

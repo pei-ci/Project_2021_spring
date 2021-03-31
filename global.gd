@@ -15,6 +15,8 @@ func debug_msg(level,msg):
 	if DEBUG_MODE-level >= 0:
 		if level==0:
 			print("ERROR : "+msg)
+			get_tree().change_scene("res://Error.tscn")	
+			get_tree().paused = true
 		elif level==1:
 			print("NORMAL : "+msg)
 		elif level==2:
