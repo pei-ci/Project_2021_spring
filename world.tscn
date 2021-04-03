@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://title_storehouse.tscn" type="PackedScene" id=1]
 [ext_resource path="res://puzzle.tscn" type="PackedScene" id=2]
@@ -21,6 +21,30 @@ load_path = "res://.import/進入稱號倉庫的按鈕一版.png-a8a8dfcac80f416
 
 [sub_resource type="StreamTexture" id=4]
 load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a32cc918971d0f9327af00c4.stex"
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/path-1.png-f266d9341729e74dce465e5d4dfbce6d.stex"
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/寶物bg.png-56ea1af653d1f964c2c51c4c46fb1eb7.stex"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/三角-dark.png-33ef4dd464c4a3910af5c434271cf91e.stex"
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/三角形light.png-4bed8777a47895847eae7bf1cd3674b1.stex"
+
+[sub_resource type="StreamTexture" id=9]
+load_path = "res://.import/方形dark.png-e2d7188dce9d63b56ab1682fe2f22e88.stex"
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/方形.png-3d5723f964139c39f1171755cf795229.stex"
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/圓形-dark.png-f4b9b125b717e7aff5cd7b7553832d1a.stex"
+
+[sub_resource type="StreamTexture" id=12]
+load_path = "res://.import/圓形-light-01.png-4065fd5b475447492af09f06f330774d.stex"
 
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
@@ -84,14 +108,16 @@ position = Vector2( -205.219, 146.321 )
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 383.89, 196.107 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 442.667, 60.8194 )
 
 [node name="title_storehouse" parent="." instance=ExtResource( 1 )]
 position = Vector2( 75.4016, 18.2551 )
-z_index = 50
+z_index = 70
 
 [node name="title_storehouse_button_picture" type="Sprite" parent="title_storehouse"]
 position = Vector2( 12.991, 1.78488 )
@@ -125,6 +151,121 @@ margin_left = 40.6588
 margin_top = 10.5031
 margin_right = 65.6588
 margin_bottom = 27.5031
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="path1" type="Sprite" parent="."]
+position = Vector2( 309.226, 152.141 )
+scale = Vector2( 0.0666967, 0.0666967 )
+texture = SubResource( 5 )
+
+[node name="TextureButton" type="TextureButton" parent="path1"]
+margin_left = -116.0
+margin_top = -125.0
+margin_right = 195.0
+margin_bottom = 162.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="destination1" type="Sprite" parent="."]
+position = Vector2( 317.775, 144.622 )
+scale = Vector2( 0.195525, 0.195525 )
+texture = SubResource( 6 )
+
+[node name="dark_gem" type="Sprite" parent="destination1"]
+position = Vector2( -0.248535, 2.55725 )
+scale = Vector2( 0.502764, 0.502764 )
+texture = SubResource( 7 )
+
+[node name="light_gem" type="Sprite" parent="destination1"]
+position = Vector2( 1.28955, 3.83582 )
+scale = Vector2( 0.509867, 0.509867 )
+texture = SubResource( 8 )
+
+[node name="TextureButton" type="TextureButton" parent="destination1"]
+margin_left = -114.786
+margin_top = -102.557
+margin_right = 109.214
+margin_bottom = 100.443
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="path2" type="Sprite" parent="."]
+position = Vector2( 156.45, 232.389 )
+scale = Vector2( 0.0666967, 0.0666967 )
+texture = SubResource( 5 )
+flip_h = true
+
+[node name="TextureButton" type="TextureButton" parent="path2"]
+margin_left = -143.0
+margin_top = -175.0
+margin_right = 104.0
+margin_bottom = 171.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="destination2" type="Sprite" parent="."]
+position = Vector2( 163.891, 211.636 )
+scale = Vector2( 0.195525, 0.195525 )
+texture = SubResource( 6 )
+
+[node name="dark_gem" type="Sprite" parent="destination2"]
+position = Vector2( -11.8828, -11.251 )
+scale = Vector2( 0.383705, 0.383705 )
+texture = SubResource( 9 )
+
+[node name="light_gem" type="Sprite" parent="destination2"]
+position = Vector2( -3.57642, -17.8828 )
+scale = Vector2( 0.42917, 0.42917 )
+texture = SubResource( 10 )
+
+[node name="TextureButton" type="TextureButton" parent="destination2"]
+margin_left = -95.0
+margin_top = -105.0
+margin_right = 94.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="path3" type="Sprite" parent="."]
+position = Vector2( 362.938, 230.965 )
+scale = Vector2( 0.0666967, 0.0666967 )
+texture = SubResource( 5 )
+
+[node name="TextureButton" type="TextureButton" parent="path3"]
+margin_left = -143.0
+margin_top = -147.0
+margin_right = 175.0
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="destination3" type="Sprite" parent="."]
+position = Vector2( 360.345, 227.969 )
+scale = Vector2( 0.192948, 0.192948 )
+texture = SubResource( 6 )
+
+[node name="dark_gem" type="Sprite" parent="destination3"]
+position = Vector2( -12.9568, -5.31616 )
+scale = Vector2( 0.493693, 0.493693 )
+texture = SubResource( 11 )
+
+[node name="light_gem" type="Sprite" parent="destination3"]
+position = Vector2( -9.07056, -8.4519 )
+scale = Vector2( 0.506625, 0.506625 )
+texture = SubResource( 12 )
+
+[node name="TextureButton" type="TextureButton" parent="destination3"]
+margin_left = -80.0
+margin_top = -114.0
+margin_right = 84.0
+margin_bottom = 105.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
