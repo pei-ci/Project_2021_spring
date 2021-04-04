@@ -69,7 +69,11 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	
 	#組隊頁面(組隊+團隊資訊)
 	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
-			
+	
+	#小徑
+	$destination1.visible=false
+	$destination2.visible=false
+	$destination3.visible=false
 
 func _refresh_information(): #使用此函式可以設定好所有狀態 可用Data.emit_refresh()發出訊號來呼叫
 	Data._refresh_data() #更新global內需要設定的資料
@@ -410,3 +414,29 @@ func check_emergency_time_valid():
 	var next_emergency_time = OS.get_unix_time()-time_excess
 	send_emergency_time_request(str(next_emergency_status)+str(next_emergency_time))
 		
+
+
+#小徑按鈕
+func _on_path1_pressed():
+	$destination1.visible=true
+
+
+func _on_path2_pressed():
+	$destination2.visible=true
+
+
+func _on_path3_pressed():
+	$destination3.visible=true
+
+
+
+func _on_path1_close_pressed():
+	$destination1.visible=false
+
+
+func _on_path2_close_pressed():
+	$destination2.visible=false
+
+
+func _on_path3_close_pressed():
+	$destination3.visible=false

@@ -4,6 +4,7 @@ onready var Data = get_node("/root/Global") #global.gd用來存放共用的變�
 var leader_board_status = true
 
 func _ready():
+	$team_text.visible=false
 	self.visible=false
 
 #關閉

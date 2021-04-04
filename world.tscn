@@ -99,6 +99,7 @@ scale = Vector2( 0.642834, 0.642834 )
 texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 
@@ -111,9 +112,11 @@ position = Vector2( -205.219, 146.321 )
 position = Vector2( 383.89, 196.107 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 349.964, 15.7923 )
 
 [node name="title_storehouse" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 75.4016, 18.2551 )
 z_index = 70
 
@@ -131,10 +134,12 @@ __meta__ = {
 }
 
 [node name="activity" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 69.8457, 19.0488 )
 z_index = 60
 
 [node name="team" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 81.8403, 28.3951 )
 z_index = 60
 
@@ -158,7 +163,7 @@ position = Vector2( 309.226, 152.141 )
 scale = Vector2( 0.0666967, 0.0666967 )
 texture = SubResource( 5 )
 
-[node name="TextureButton" type="TextureButton" parent="path1"]
+[node name="path1" type="TextureButton" parent="path1"]
 margin_left = -116.0
 margin_top = -125.0
 margin_right = 195.0
@@ -191,13 +196,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="close" type="TextureButton" parent="destination1"]
+margin_left = 160.343
+margin_top = -181.0
+margin_right = 219.343
+margin_bottom = -119.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="path2" type="Sprite" parent="."]
 position = Vector2( 156.45, 232.389 )
 scale = Vector2( 0.0666967, 0.0666967 )
 texture = SubResource( 5 )
 flip_h = true
 
-[node name="TextureButton" type="TextureButton" parent="path2"]
+[node name="path2" type="TextureButton" parent="path2"]
 margin_left = -143.0
 margin_top = -175.0
 margin_right = 104.0
@@ -230,12 +244,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="close" type="TextureButton" parent="destination2"]
+margin_left = 154.635
+margin_top = -170.843
+margin_right = 213.635
+margin_bottom = -108.843
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="path3" type="Sprite" parent="."]
 position = Vector2( 362.938, 230.965 )
 scale = Vector2( 0.0666967, 0.0666967 )
 texture = SubResource( 5 )
 
-[node name="TextureButton" type="TextureButton" parent="path3"]
+[node name="path3" type="TextureButton" parent="path3"]
 margin_left = -143.0
 margin_top = -147.0
 margin_right = 175.0
@@ -267,8 +290,23 @@ margin_bottom = 105.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="close" type="TextureButton" parent="destination3"]
+margin_left = 159.0
+margin_top = -174.0
+margin_right = 213.0
+margin_bottom = -117.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="title_storehouse/title_storehouse" to="title_storehouse" method="_on_title_storehouse_pressed"]
 [connection signal="request_completed" from="team/HTTPRequest2" to="team" method="_on_HTTPRequest2_request_completed"]
 [connection signal="pressed" from="team_button" to="." method="_on_team_button_pressed"]
+[connection signal="pressed" from="path1/path1" to="." method="_on_path1_pressed"]
+[connection signal="pressed" from="destination1/close" to="." method="_on_path1_close_pressed"]
+[connection signal="pressed" from="path2/path2" to="." method="_on_path2_pressed"]
+[connection signal="pressed" from="destination2/close" to="." method="_on_path2_close_pressed"]
+[connection signal="pressed" from="path3/path3" to="." method="_on_path3_pressed"]
+[connection signal="pressed" from="destination3/close" to="." method="_on_path3_close_pressed"]

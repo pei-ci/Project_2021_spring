@@ -7,7 +7,7 @@
 load_path = "res://.import/排行榜註解.png-f4eee36491e5d88592e178c8eb73bda9.stex"
 
 [sub_resource type="DynamicFont" id=2]
-size = 4
+size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="StreamTexture" id=3]
@@ -31,33 +31,36 @@ scale = Vector2( 0.123554, 0.0931127 )
 texture = SubResource( 1 )
 
 [node name="total_puzzle" type="Label" parent="person"]
-margin_left = -39.4968
-margin_top = -22.4921
-margin_right = 2.50317
-margin_bottom = -15.4921
+margin_left = -39.0
+margin_top = -27.0
+margin_right = 145.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nickname" type="Label" parent="person"]
-margin_left = -162.52
-margin_top = -122.179
-margin_right = -104.52
-margin_bottom = -115.179
+margin_left = -163.0
+margin_top = -109.0
+margin_right = 31.0
+margin_bottom = -36.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title" type="Label" parent="person"]
-margin_left = -160.189
-margin_top = 43.5869
-margin_right = -101.189
-margin_bottom = 50.5869
+margin_left = -160.0
+margin_top = 44.0
+margin_right = 148.0
+margin_bottom = 110.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,11 +72,12 @@ scale = Vector2( 0.0954769, 0.0954769 )
 texture = SubResource( 3 )
 
 [node name="total_puzzle" type="Label" parent="team"]
-margin_left = -27.0
-margin_top = 28.0
-margin_right = 272.0
-margin_bottom = 113.0
+margin_left = -6.0
+margin_top = 18.0
+margin_right = 293.0
+margin_bottom = 98.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -85,6 +89,7 @@ margin_top = -103.474
 margin_right = 203.382
 margin_bottom = -20.4738
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
