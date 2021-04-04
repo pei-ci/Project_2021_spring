@@ -21,7 +21,7 @@ func _set_information(team_name,team_id,team_total_puzzle,member_data_list):
 	$information/team_id.text=str(team_id)
 	$information/team_information.text=""
 	for member in member_data_list:
-		if member["姓名"]=="":
+		if member["學號"]==null:
 			continue
 		$information/team_information.text+= "學號: "+member["學號"]+"    姓名: "+member["姓名"]+"    拼圖數量:"+str(member["拼圖數量"])+"\n"
 

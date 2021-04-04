@@ -5,14 +5,17 @@ extends Node
 # 0=No debug data,1=important debug data ,2=all receive debug data
 var DEBUG_MODE = 2
 
-var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
-#var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
+#var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
+var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
 
 var UNUSED_PUZZLE_POINT = 1
 var USED_PUZZLE_POINT = 2
 
 var EMERGENCY_AMOUNT = 30
 var TITLE_AMOUNT = 32
+
+var EMERGENCY_UP_TIME = 43200 # 12hr * 3600
+var EMERGENCY_CD_TIME = 43200 # 12hr * 3600
 
 func debug_msg(level,msg):
 	if DEBUG_MODE-level >= 0:
@@ -59,6 +62,8 @@ var slect_button_opened=false #遊戲內紀錄此拼圖的選單是否已開啟 
 var set_title_button_opened=false #遊戲內紀錄此設定稱號的選單是否已開啟 用來讓它不會和其他片的按鈕衝突
 
 var login_certification = "0000000000000000000"
+var login_time = 0
+
 #puzzle拼圖(預設int)
 var finished_puzzle_user=0  #已使用拼圖
 func finished_puzzle_add(val):
@@ -315,8 +320,6 @@ func _get_event_list():#要獲得狀態非零的題目用
 	return event_list
 
 #紀錄時間
-var EMERGENCY_UP_TIME = 43200 # 12hr * 3600
-var EMERGENCY_CD_TIME = 43200 # 12hr * 3600
 
 var emergency_status = 0
 #1=up(waiting to answer) 2=solve(waiting to go to CD) 0=down(during CD)
@@ -352,8 +355,8 @@ func _check_emergency_change(status):
 			debug_msg(2,"EmergencyDisable!")
 			
 func _set_emergency_cd_time():
-	#add code to set up emergency CD
-	pass
+	EMERGENCY_CD_TIME = (12*60) - (finished_puzzle_user*10)
+	#each of the puzzle used reduce CD for 10 min
 
 var department_list = ['醫學系','中醫系','護理系','生醫系','呼治系','物治系',
 '職治系','醫放系','醫技系','電機系','電子系','機械系','資工系','化材系',

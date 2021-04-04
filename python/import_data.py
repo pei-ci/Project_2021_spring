@@ -6,7 +6,7 @@ def connect_to_sql():
 	"host": "127.0.0.1",
 	"port": 3306,
 	"user": "root",
-	"db": "school_games",
+	"db": "school_games_2nd",
 	"charset": "utf8"
 	}
 	#password
@@ -33,9 +33,15 @@ def update_to_server(conn,data):
 			number = activity[2]
 			point = activity[3]
 			time = activity[4]
+
 			fetch_data = get_map_data(conn,uid,point[0:1])
+			team_point = fetch_data[1]
+			fetch_data = fetch_data[0]
+
 			user_id = fetch_data[0]
-			unused = int(fetch_data[1])+int(point[1:])
+			team_id = fetch_data[1]
+			new_team_point = team_point+int(point[1:])
+			unused = int(fetch_data[2])+int(point[1:])
 
 			command_activity = "INSERT INTO activity (userid,title,number,point,time) VALUE ('" +str(user_id)+"','"+str(title)+"','"+str(number)+"','"+str(point)+"','"+str(time)+ "')";
 			cursor.execute(command_activity)   
@@ -45,16 +51,29 @@ def update_to_server(conn,data):
 			cursor.execute(command_map)   
 			conn.commit()
 
+			if team_id != None:
+				command_team = "UPDATE team SET point='"+ str(new_team_point) +"' WHERE teamid = '"+ str(team_id)+"'"
+				cursor.execute(command_team)   
+				conn.commit()
+
 def get_map_data(conn,uid,num):
 	with conn.cursor() as cursor:
-		command = "SELECT map.userid,map.unused"+str(num)+" FROM map,user WHERE map.userid=user.userid AND user.number='"+str(uid)+"'"
-		cursor.execute(command)
-		result = cursor.fetchall()
-		if(len(result)!=1):
+		command_map = "SELECT map.userid,user.teamid,map.unused"+str(num)+" FROM map,user WHERE map.userid=user.userid AND user.number='"+str(uid)+"'"
+		cursor.execute(command_map)
+		result_map = cursor.fetchall()
+
+		team_point = -1
+		if(result_map[0][1]!=None):
+			command_team = "SELECT team.point FROM team,user WHERE team.userid=user.userid AND user.number='"+str(uid)+"'"
+			cursor.execute(command_team)
+			result_team = cursor.fetchall()		
+			team_point = result_team[0][0]
+
+		if(len(result_map)!=1):
 			print('Error happened during serarch userid '+str(uid) + " !")
-			return (-1,0)
+			exit()
 		else:
-			return result[0]
+			return (result_map[0],team_point)
 
 if __name__ == '__main__':
 	print('connect to sql!')

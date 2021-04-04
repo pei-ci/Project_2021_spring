@@ -51,7 +51,10 @@ func register_to_server(name,nickname,department):
 func log_login_to_server():
 	# here need to turn unix time into date formate 
 	#	to check if last login is in last date, which will increase login_count
-	var body := {"type" : 'log',"validation": Data.login_certification,'log_type':'login','value':'1'}
+	var change_day = 0
+	if(OS.get_datetime_from_unix_time(Data.login_time)['day']!=OS.get_datetime_from_unix_time(OS.get_unix_time())['day']):
+		change_day = 1
+	var body := {"type" : 'log',"validation": Data.login_certification,'log_type':'login','value':change_day}
 	send_server_request(body)
 	
 #the following function 
@@ -102,6 +105,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if(data['type']=='login'):
 		if(data['sucess'] == 'true'):
 			Data.login_certification = data["validation"]
+			Data.login_time = int(data['login_time'])
 			#print(Data.login_certification)
 			log_login_to_server()
 		else:
