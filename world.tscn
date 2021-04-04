@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://title_storehouse.tscn" type="PackedScene" id=1]
 [ext_resource path="res://puzzle.tscn" type="PackedScene" id=2]
@@ -29,22 +29,25 @@ load_path = "res://.import/path-1.png-f266d9341729e74dce465e5d4dfbce6d.stex"
 load_path = "res://.import/寶物bg.png-56ea1af653d1f964c2c51c4c46fb1eb7.stex"
 
 [sub_resource type="StreamTexture" id=7]
-load_path = "res://.import/三角-dark.png-33ef4dd464c4a3910af5c434271cf91e.stex"
+load_path = "res://.import/特殊拼圖1-dark.png-fee520de7d78f397a8f09863d395fb72.stex"
 
 [sub_resource type="StreamTexture" id=8]
-load_path = "res://.import/三角形light.png-4bed8777a47895847eae7bf1cd3674b1.stex"
+load_path = "res://.import/特殊拼圖1.png-2924e5be4ef1d2d1862c6cad2f882cbf.stex"
 
 [sub_resource type="StreamTexture" id=9]
-load_path = "res://.import/方形dark.png-e2d7188dce9d63b56ab1682fe2f22e88.stex"
+load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [sub_resource type="StreamTexture" id=10]
-load_path = "res://.import/方形.png-3d5723f964139c39f1171755cf795229.stex"
+load_path = "res://.import/特殊拼圖2-dark.png-513ea83f99e25eb54cae6cf5d06cd854.stex"
 
 [sub_resource type="StreamTexture" id=11]
-load_path = "res://.import/圓形-dark.png-f4b9b125b717e7aff5cd7b7553832d1a.stex"
+load_path = "res://.import/特殊拼圖2.png-3248844de0e4dafab2a5375deea9df25.stex"
 
 [sub_resource type="StreamTexture" id=12]
-load_path = "res://.import/圓形-light-01.png-4065fd5b475447492af09f06f330774d.stex"
+load_path = "res://.import/特殊拼圖3-dark.png-cfb7d998504c17f8eb174a40ba4ec94f.stex"
+
+[sub_resource type="StreamTexture" id=13]
+load_path = "res://.import/特殊拼圖3.png-0db49d1fde8671f4a69faaebe14cd852.stex"
 
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
@@ -99,7 +102,6 @@ scale = Vector2( 0.642834, 0.642834 )
 texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 
@@ -112,11 +114,9 @@ position = Vector2( -205.219, 146.321 )
 position = Vector2( 383.89, 196.107 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 349.964, 15.7923 )
 
 [node name="title_storehouse" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 75.4016, 18.2551 )
 z_index = 70
 
@@ -134,12 +134,10 @@ __meta__ = {
 }
 
 [node name="activity" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 69.8457, 19.0488 )
 z_index = 60
 
 [node name="team" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 81.8403, 28.3951 )
 z_index = 60
 
@@ -178,13 +176,13 @@ scale = Vector2( 0.195525, 0.195525 )
 texture = SubResource( 6 )
 
 [node name="dark_gem" type="Sprite" parent="destination1"]
-position = Vector2( -0.248535, 2.55725 )
-scale = Vector2( 0.502764, 0.502764 )
+position = Vector2( 4.43164, -6.9248 )
+scale = Vector2( 0.107447, 0.107447 )
 texture = SubResource( 7 )
 
 [node name="light_gem" type="Sprite" parent="destination1"]
-position = Vector2( 1.28955, 3.83582 )
-scale = Vector2( 0.509867, 0.509867 )
+position = Vector2( -14.2124, -11.4612 )
+scale = Vector2( 0.289951, 0.296826 )
 texture = SubResource( 8 )
 
 [node name="TextureButton" type="TextureButton" parent="destination1"]
@@ -197,13 +195,17 @@ __meta__ = {
 }
 
 [node name="close" type="TextureButton" parent="destination1"]
-margin_left = 160.343
+margin_left = 184.0
 margin_top = -181.0
-margin_right = 219.343
-margin_bottom = -119.0
+margin_right = 219.0
+margin_bottom = -147.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="close_picture" type="Sprite" parent="destination1"]
+position = Vector2( 204.027, -163.797 )
+texture = SubResource( 9 )
 
 [node name="path2" type="Sprite" parent="."]
 position = Vector2( 156.45, 232.389 )
@@ -226,32 +228,37 @@ scale = Vector2( 0.195525, 0.195525 )
 texture = SubResource( 6 )
 
 [node name="dark_gem" type="Sprite" parent="destination2"]
-position = Vector2( -11.8828, -11.251 )
-scale = Vector2( 0.383705, 0.383705 )
-texture = SubResource( 9 )
-
-[node name="light_gem" type="Sprite" parent="destination2"]
-position = Vector2( -3.57642, -17.8828 )
-scale = Vector2( 0.42917, 0.42917 )
+position = Vector2( -1.65625, -7.23242 )
+scale = Vector2( 0.0705763, 0.0705763 )
 texture = SubResource( 10 )
 
+[node name="light_gem" type="Sprite" parent="destination2"]
+position = Vector2( -7.2967, -29.6229 )
+scale = Vector2( 0.280695, 0.280695 )
+texture = SubResource( 11 )
+
 [node name="TextureButton" type="TextureButton" parent="destination2"]
-margin_left = -95.0
-margin_top = -105.0
-margin_right = 94.0
-margin_bottom = 78.0
+margin_left = -100.114
+margin_top = -99.8856
+margin_right = 88.8856
+margin_bottom = 83.1144
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close" type="TextureButton" parent="destination2"]
-margin_left = 154.635
-margin_top = -170.843
-margin_right = 213.635
-margin_bottom = -108.843
+margin_left = 180.0
+margin_top = -175.0
+margin_right = 213.0
+margin_bottom = -141.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="close_picture2" type="Sprite" parent="destination2"]
+position = Vector2( 203.434, -163.868 )
+scale = Vector2( 1, 1 )
+texture = SubResource( 9 )
 
 [node name="path3" type="Sprite" parent="."]
 position = Vector2( 362.938, 230.965 )
@@ -273,32 +280,37 @@ scale = Vector2( 0.192948, 0.192948 )
 texture = SubResource( 6 )
 
 [node name="dark_gem" type="Sprite" parent="destination3"]
-position = Vector2( -12.9568, -5.31616 )
-scale = Vector2( 0.493693, 0.493693 )
-texture = SubResource( 11 )
-
-[node name="light_gem" type="Sprite" parent="destination3"]
-position = Vector2( -9.07056, -8.4519 )
-scale = Vector2( 0.506625, 0.506625 )
+position = Vector2( -0.974609, -17.4727 )
+scale = Vector2( 0.0670874, 0.0670874 )
 texture = SubResource( 12 )
 
+[node name="light_gem" type="Sprite" parent="destination3"]
+position = Vector2( -10.7856, -35.8042 )
+scale = Vector2( 0.274264, 0.274264 )
+texture = SubResource( 13 )
+
 [node name="TextureButton" type="TextureButton" parent="destination3"]
-margin_left = -80.0
-margin_top = -114.0
-margin_right = 84.0
-margin_bottom = 105.0
+margin_left = -114.0
+margin_top = -107.0
+margin_right = 102.0
+margin_bottom = 77.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close" type="TextureButton" parent="destination3"]
-margin_left = 159.0
+margin_left = 182.0
 margin_top = -174.0
 margin_right = 213.0
-margin_bottom = -117.0
+margin_bottom = -139.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="close_picture3" type="Sprite" parent="destination3"]
+position = Vector2( 203.798, -162.6 )
+scale = Vector2( 1.01336, 1.01336 )
+texture = SubResource( 9 )
 [connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="title_storehouse/title_storehouse" to="title_storehouse" method="_on_title_storehouse_pressed"]
