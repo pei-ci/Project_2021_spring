@@ -108,12 +108,10 @@ position = Vector2( -205.219, 146.321 )
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 383.89, 196.107 )
 
 [node name="leader_board_group" parent="." instance=ExtResource( 9 )]
-visible = false
-position = Vector2( 442.667, 60.8194 )
+position = Vector2( 349.964, 15.7923 )
 
 [node name="title_storehouse" parent="." instance=ExtResource( 1 )]
 position = Vector2( 75.4016, 18.2551 )

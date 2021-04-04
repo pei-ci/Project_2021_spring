@@ -13,11 +13,11 @@ z_index = 40
 script = ExtResource( 2 )
 
 [node name="leader_board" parent="." instance=ExtResource( 1 )]
-position = Vector2( -469.714, -51.1019 )
+position = Vector2( -381.593, 17.9084 )
 scale = Vector2( 1.33765, 1.33765 )
 
 [node name="leader_button_picture" type="Sprite" parent="."]
-position = Vector2( -92.5956, 166.452 )
+position = Vector2( 125.052, 188.748 )
 scale = Vector2( 2.1661, 1.89325 )
 texture = SubResource( 1 )
 
@@ -26,10 +26,10 @@ anchor_left = -467.677
 anchor_top = -9.0
 anchor_right = -467.677
 anchor_bottom = -9.0
-margin_left = 348.124
-margin_top = 166.382
-margin_right = 404.124
-margin_bottom = 190.382
+margin_left = 565.772
+margin_top = 188.678
+margin_right = 621.772
+margin_bottom = 212.678
 __meta__ = {
 "_edit_use_anchors_": false
 }
