@@ -79,19 +79,13 @@ func _refresh_information(): #使用此函式可以設定好所有狀態 可用D
 	Data._refresh_data() #更新global內需要設定的資料
 	_set_up()
 	_refresh_map()
+	
 
 
 func _refresh_map():
-	$AA01._status_set_up()
-	$AA02._status_set_up()
-	$AA03._status_set_up()
-	$AA04._status_set_up()
-	$AA05._status_set_up()
-	$AB01._status_set_up()
-	$AB02._status_set_up()
-	$AB03._status_set_up()
-	$AB04._status_set_up()
-	$AB05._status_set_up()
+	$puzzles_map._refresh_map()
+	$cgu_puzzles_map._refresh_map()
+	
 
 func _open_slect_window():
 	$activity.visible=true
@@ -440,3 +434,11 @@ func _on_path2_close_pressed():
 
 func _on_path3_close_pressed():
 	$destination3.visible=false
+
+
+func _on_puzzle_map_button_pressed():
+	$puzzles_map.visible=true
+
+
+func _on_cug_puzzles_map_button_pressed():
+	$cgu_puzzles_map.visible=true

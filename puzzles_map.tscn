@@ -1,0 +1,672 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://puzzles_map.gd" type="Script" id=1]
+[ext_resource path="res://puzzle.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/拼圖地圖.png-98d1a0ffbc6a6e9af1176a14e497928d.stex"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
+
+[node name="puzzles_map" type="Sprite"]
+position = Vector2( 240.58, 137.482 )
+scale = Vector2( 0.493212, 0.493212 )
+texture = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="close_picture" type="Sprite" parent="."]
+position = Vector2( 327.477, -163.739 )
+texture = SubResource( 2 )
+
+[node name="close" type="TextureButton" parent="."]
+margin_left = 313.0
+margin_top = -175.0
+margin_right = 339.0
+margin_bottom = -149.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="puzzles" type="Sprite" parent="."]
+
+[node name="AA01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, -144.771 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, -125.024 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.336, -143.252 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, -124.265 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, -142.492 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, -123.506 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, -142.492 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, -123.506 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, -142.492 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, -123.506 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, -142.492 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, -123.506 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, -142.492 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, -124.265 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, -142.492 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, -123.506 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, -141.733 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, -122.94 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ01" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, -141.199 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ02" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, -122.94 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, -107.585 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, -87.8384 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.336, -106.066 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, -87.079 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, -105.306 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, -86.3195 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, -105.306 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, -86.3195 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, -105.306 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, -86.3195 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, -105.306 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, -86.3195 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, -105.306 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, -87.079 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, -105.306 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, -86.3195 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, -104.547 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, -85.7541 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ03" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, -104.013 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ04" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, -85.7541 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, -69.0615 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, -49.3154 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.336, -67.5426 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, -48.556 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, -66.7831 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, -47.7966 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, -66.7831 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, -47.7966 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, -66.7831 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, -47.7966 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, -66.7831 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, -47.7965 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, -66.7831 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, -48.556 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, -66.7831 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, -47.7965 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, -66.0236 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, -47.2311 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ05" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, -65.4898 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ06" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, -47.2311 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, -30.5385 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, -10.7924 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.336, -29.0196 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, -10.033 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, -28.2601 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, -9.27356 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, -28.2601 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, -9.27356 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, -28.2601 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, -9.27356 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, -28.2601 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, -9.2735 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, -28.2601 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, -10.033 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, -28.2601 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, -9.2735 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, -27.5006 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, -8.70807 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ07" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, -26.9668 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ08" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, -8.70807 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, 7.98447 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, 27.7305 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.337, 9.50342 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, 28.49 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, 10.2629 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, 29.2495 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, 10.2629 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, 29.2495 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, 10.2629 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, 29.2495 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, 10.2629 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, 29.2495 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, 10.2629 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, 28.49 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, 10.2629 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, 29.2495 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, 11.0224 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, 29.8149 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ09" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, 11.5562 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ10" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, 29.8149 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, 46.5075 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, 66.2536 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.336, 48.0264 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, 67.013 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, 48.7859 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, 67.7725 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, 48.7859 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, 67.7725 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, 48.7859 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, 67.7725 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, 48.7859 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, 67.7725 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, 48.7859 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, 67.013 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, 48.7859 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, 67.7725 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, 49.5454 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, 68.3379 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ11" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, 50.0792 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ12" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, 68.3379 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, 85.0305 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, 104.777 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.337, 86.5494 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, 105.536 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, 87.3089 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, 106.295 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, 87.3089 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, 106.295 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, 87.3089 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, 106.295 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, 87.3089 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, 106.296 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, 87.3089 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, 105.536 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, 87.3089 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, 106.296 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, 88.0683 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, 106.861 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ13" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, 88.6021 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ14" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, 106.861 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -314.815, 123.553 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AA16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -285.956, 143.299 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -256.337, 125.072 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AB16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -227.477, 144.059 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -198.617, 125.832 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AC16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -169.757, 144.818 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -140.138, 125.832 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AD16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -111.279, 144.818 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -81.6596, 125.832 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AE16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -52.0404, 144.818 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( -22.4214, 125.832 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AF16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 6.43829, 144.819 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 35.2979, 125.832 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AG16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 64.9171, 144.059 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 94.5362, 125.832 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AH16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 124.155, 144.819 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 153.774, 126.591 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AI16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 183.393, 145.384 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ15" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 212.392, 127.125 )
+scale = Vector2( 1.51462, 1.51462 )
+
+[node name="AJ16" parent="puzzles" instance=ExtResource( 2 )]
+position = Vector2( 241.929, 145.384 )
+scale = Vector2( 1.51462, 1.51462 )
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

@@ -40,7 +40,7 @@ func _ready():
 	#選單視窗
 	$slect_window.visible=false
 	#設定拼圖選單位置
-	$slect_window/MenuButton/PopupMenu.rect_global_position = self.position+Vector2(60,-15)
+	$slect_window/MenuButton/PopupMenu.rect_global_position = self.position+Vector2(130,90)
 	
 
 func _status_set_up(): #狀態初始設定
