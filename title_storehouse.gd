@@ -1,30 +1,15 @@
 extends Sprite
 onready var Data = get_node("/root/Global")
 func _ready():
-	$background.visible=false
-	$close.visible=false
-	$close_picture.visible=false
-	$page_01.visible=false
+	self.visible=false
+	$page_01.visible=true
 	$page_02.visible=false
-	$next_page.visible=false
-	$last_page.visible=false
 
 func _on_close_pressed():
-	$background.visible=false
-	$close.visible=false
-	$close_picture.visible=false
-	$page_01.visible=false
-	$page_02.visible=false
-	$next_page.visible=false
-	$last_page.visible=false
+	self.visible=false
 
 func _on_title_storehouse_pressed():
-	$background.visible=true
-	$close.visible=true
-	$close_picture.visible=true
-	$page_01.visible=true
-	$next_page.visible=true
-	$last_page.visible=true
+	self.visible=true
 	Data.emit_refresh()
 
 

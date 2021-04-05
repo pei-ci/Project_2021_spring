@@ -321,7 +321,7 @@ func _on_slect_window_button_mouse_entered():
 
 
 func _on_activity_button_pressed():
-	Data.emit_slect_window_open()
+	Data.emit_activity_window_open()
 
 
 

@@ -263,9 +263,9 @@ func _get_num_of_type():
 
 #活動資訊
 var activity_list=[]
-signal slect_window_open
-func emit_slect_window_open():
-	emit_signal("slect_window_open")
+signal activity_window_open
+func emit_activity_window_open():
+	emit_signal("activity_window_open")
  
 var team_id="0000" #組隊序號
 var team_member_list=[{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."},{"姓名":"loading..","學號":"loading..","拼圖數量":"loading.."}]

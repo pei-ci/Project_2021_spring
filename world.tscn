@@ -1,27 +1,21 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://title_storehouse.tscn" type="PackedScene" id=1]
+[ext_resource path="res://leader_board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://activity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world.gd" type="Script" id=4]
 [ext_resource path="res://team.tscn" type="PackedScene" id=5]
 [ext_resource path="res://emgency.tscn" type="PackedScene" id=6]
 [ext_resource path="res://information.tscn" type="PackedScene" id=7]
 [ext_resource path="res://unfinished_puzzle.tscn" type="PackedScene" id=8]
-[ext_resource path="res://leader_board_group.tscn" type="PackedScene" id=9]
 [ext_resource path="res://puzzles_map.tscn" type="PackedScene" id=10]
 [ext_resource path="res://cgu_puzzles_map.tscn" type="PackedScene" id=11]
 
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/拼圖介面大底圖一版.png-57c4c4af1f3def6dfd9cf2864b7d1ef5.stex"
+[sub_resource type="StreamTexture" id=14]
+load_path = "res://.import/拼圖介面大底圖更.png-4f6ebb2422153e6fc9d27a645fb72431.stex"
 
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
-
-[sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/進入稱號倉庫的按鈕一版.png-a8a8dfcac80f416e807308306a2fa49b.stex"
-
-[sub_resource type="StreamTexture" id=4]
-load_path = "res://.import/個人團體排行榜切換按鈕一版.png-8ab5fe49a32cc918971d0f9327af00c4.stex"
 
 [sub_resource type="StreamTexture" id=5]
 load_path = "res://.import/path-1.png-f266d9341729e74dce465e5d4dfbce6d.stex"
@@ -54,37 +48,31 @@ load_path = "res://.import/特殊拼圖3.png-0db49d1fde8671f4a69faaebe14cd852.st
 script = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 241.113, 136.026 )
-scale = Vector2( 0.466711, 0.348254 )
-texture = SubResource( 1 )
+position = Vector2( 239.703, 135.897 )
+scale = Vector2( 0.520978, 0.518289 )
+texture = SubResource( 14 )
 
 [node name="puzzles_map" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( 233.838, 128.492 )
 z_index = 150
 
-[node name="puzzle_map_button" type="Button" parent="."]
-margin_left = 3.74579
-margin_top = 200.024
-margin_right = 64.7458
-margin_bottom = 220.024
-text = "puzzles"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="puzzle_map_button" type="TextureButton" parent="."]
+margin_left = 337.0
+margin_top = 194.0
+margin_right = 365.0
+margin_bottom = 244.0
 
 [node name="cgu_puzzles_map" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 234.379, 131.224 )
 z_index = 130
 
-[node name="cug_puzzles_map_button" type="Button" parent="."]
-margin_left = 5.24408
-margin_top = 174.553
-margin_right = 39.2441
-margin_bottom = 194.553
-text = "cgu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="cug_puzzles_map_button" type="TextureButton" parent="."]
+margin_left = 269.0
+margin_top = 189.0
+margin_right = 321.0
+margin_bottom = 217.0
 
 [node name="quit" type="TextureButton" parent="."]
 margin_left = 453.172
@@ -101,6 +89,7 @@ scale = Vector2( 0.642834, 0.642834 )
 texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 
@@ -110,53 +99,81 @@ position = Vector2( -205.219, 146.321 )
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 388.385, 166.89 )
+position = Vector2( 381.306, 190.959 )
 
-[node name="leader_board_group" parent="." instance=ExtResource( 9 )]
-position = Vector2( 349.964, 15.7923 )
+[node name="leader_board_group" type="Sprite" parent="."]
+visible = false
 
-[node name="title_storehouse" parent="." instance=ExtResource( 1 )]
-position = Vector2( 75.4016, 18.2551 )
-z_index = 70
+[node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
+position = Vector2( 99.3388, 47.1438 )
+scale = Vector2( 0.921059, 0.921059 )
+z_index = 10
 
-[node name="title_storehouse_button_picture" type="Sprite" parent="title_storehouse"]
-position = Vector2( 12.991, 1.78488 )
-texture = SubResource( 3 )
-
-[node name="title_storehouse" type="TextureButton" parent="title_storehouse"]
-margin_left = 4.93359
-margin_top = -7.96032
-margin_right = 21.9336
-margin_bottom = 12.0397
+[node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
+margin_left = 293.482
+margin_top = 162.664
+margin_right = 320.482
+margin_bottom = 211.664
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="activity" parent="." instance=ExtResource( 3 )]
+[node name="title_storehouse" type="Sprite" parent="."]
+
+[node name="title_storehouse" parent="title_storehouse" instance=ExtResource( 1 )]
+position = Vector2( 74.3002, 19.6509 )
+z_index = 70
+
+[node name="title_storehouse2" type="TextureButton" parent="title_storehouse"]
+margin_left = 272.0
+margin_top = 134.0
+margin_right = 287.0
+margin_bottom = 182.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_storehouse3" type="TextureButton" parent="title_storehouse"]
+margin_left = 260.0
+margin_top = 133.0
+margin_right = 275.0
+margin_bottom = 153.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="activity" type="Sprite" parent="."]
+
+[node name="activity" parent="activity" instance=ExtResource( 3 )]
 position = Vector2( 69.8457, 19.0488 )
-z_index = 60
+z_index = 160
+
+[node name="activity_button" type="TextureButton" parent="activity"]
+margin_left = 196.0
+margin_top = 158.0
+margin_right = 219.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="team" parent="." instance=ExtResource( 5 )]
-position = Vector2( 81.8403, 28.3951 )
+position = Vector2( 80.5853, 22.029 )
 z_index = 60
 
 [node name="HTTPRequest2" type="HTTPRequest" parent="team"]
 
-[node name="team_button_picture" type="Sprite" parent="."]
-position = Vector2( 53.032, 18.3961 )
-texture = SubResource( 4 )
-
 [node name="team_button" type="TextureButton" parent="."]
-margin_left = 40.6588
-margin_top = 10.5031
-margin_right = 65.6588
-margin_bottom = 27.5031
+margin_left = 221.0
+margin_top = 153.0
+margin_right = 274.0
+margin_bottom = 185.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="path1" type="Sprite" parent="."]
-position = Vector2( 309.226, 152.141 )
+position = Vector2( 315.726, 105.641 )
 scale = Vector2( 0.0666967, 0.0666967 )
 texture = SubResource( 5 )
 
@@ -170,6 +187,7 @@ __meta__ = {
 }
 
 [node name="destination1" type="Sprite" parent="."]
+visible = false
 position = Vector2( 317.775, 144.622 )
 scale = Vector2( 0.195525, 0.195525 )
 texture = SubResource( 6 )
@@ -207,7 +225,7 @@ position = Vector2( 204.027, -163.797 )
 texture = SubResource( 9 )
 
 [node name="path2" type="Sprite" parent="."]
-position = Vector2( 156.45, 232.389 )
+position = Vector2( 150.45, 226.389 )
 scale = Vector2( 0.0666967, 0.0666967 )
 texture = SubResource( 5 )
 flip_h = true
@@ -222,6 +240,7 @@ __meta__ = {
 }
 
 [node name="destination2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 163.891, 211.636 )
 scale = Vector2( 0.195525, 0.195525 )
 texture = SubResource( 6 )
@@ -259,7 +278,7 @@ position = Vector2( 203.434, -163.868 )
 texture = SubResource( 9 )
 
 [node name="path3" type="Sprite" parent="."]
-position = Vector2( 362.938, 230.965 )
+position = Vector2( 380.938, 179.465 )
 scale = Vector2( 0.0666967, 0.0666967 )
 texture = SubResource( 5 )
 
@@ -273,6 +292,7 @@ __meta__ = {
 }
 
 [node name="destination3" type="Sprite" parent="."]
+visible = false
 position = Vector2( 360.345, 227.969 )
 scale = Vector2( 0.192948, 0.192948 )
 texture = SubResource( 6 )
@@ -313,7 +333,10 @@ texture = SubResource( 9 )
 [connection signal="pressed" from="cug_puzzles_map_button" to="." method="_on_cug_puzzles_map_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="title_storehouse/title_storehouse" to="title_storehouse" method="_on_title_storehouse_pressed"]
+[connection signal="pressed" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_pressed"]
+[connection signal="pressed" from="title_storehouse/title_storehouse2" to="title_storehouse/title_storehouse" method="_on_title_storehouse_pressed"]
+[connection signal="pressed" from="title_storehouse/title_storehouse3" to="title_storehouse/title_storehouse" method="_on_title_storehouse_pressed"]
+[connection signal="pressed" from="activity/activity_button" to="activity/activity" method="_on_activity_button_pressed"]
 [connection signal="request_completed" from="team/HTTPRequest2" to="team" method="_on_HTTPRequest2_request_completed"]
 [connection signal="pressed" from="team_button" to="." method="_on_team_button_pressed"]
 [connection signal="pressed" from="path1/path1" to="." method="_on_path1_pressed"]

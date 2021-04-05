@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://leader_board.tscn" type="PackedScene" id=1]
 [ext_resource path="res://leader_board_group.gd" type="Script" id=2]
-
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/進入排行榜的按鈕二版.png-63f8d54be90f58ebffb755d372b28e19.stex"
 
 [node name="leader_board_group" type="Sprite"]
 position = Vector2( 349.01, 10.0226 )
@@ -15,22 +12,3 @@ script = ExtResource( 2 )
 [node name="leader_board" parent="." instance=ExtResource( 1 )]
 position = Vector2( -381.593, 17.9084 )
 scale = Vector2( 1.33765, 1.33765 )
-
-[node name="leader_button_picture" type="Sprite" parent="."]
-position = Vector2( 125.052, 188.748 )
-scale = Vector2( 2.1661, 1.89325 )
-texture = SubResource( 1 )
-
-[node name="leader_button" type="TextureButton" parent="."]
-anchor_left = -467.677
-anchor_top = -9.0
-anchor_right = -467.677
-anchor_bottom = -9.0
-margin_left = 565.772
-margin_top = 188.678
-margin_right = 621.772
-margin_bottom = 212.678
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="leader_button" to="." method="_on_leader_button_pressed"]

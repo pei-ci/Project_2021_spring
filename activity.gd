@@ -1,5 +1,5 @@
 extends Sprite
-
+onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
 #var act=[{"活動名稱":"突發事件","時間":"3/12"},{"活動名稱":"社團活動","時間":"5/10"},{"活動名稱":"","時間":""},{"活動名稱":"","時間":""},{"活動名稱":"","時間":""},{"活動名稱":"","時間":""},{"活動名稱":"","時間":""},{"活動名稱":"","時間":""},{"活動名稱":"","時間":""},{"活動名稱":"111","時間":"3/13"}]
 
 # Declare member variables here. Examples:
@@ -68,3 +68,7 @@ func _on_next_page_button_pressed():
 
 func _on_close_pressed():
 	self.visible=false
+
+
+func _on_activity_button_pressed():
+	Data.emit_activity_window_open()

@@ -9,7 +9,7 @@ var have_team = false
 func _ready():
 	_set_up()
 	Data.connect("refresh",self,"_refresh_information")
-	Data.connect("slect_window_open",self,"_open_slect_window")
+	Data.connect("activity_window_open",self,"_open_activity_window")
 	#製作初始化對列系統
 	send_info_request()
 	send_map_request()
@@ -65,7 +65,7 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$leader_board_group/leader_board/team_text/ten.text=Data.top_ten_team[9]["teamname"]
 	
 	#活動頁面
-	$activity._set_up(Data.activity_list)
+	$activity/activity._set_up(Data.activity_list)
 	
 	#組隊頁面(組隊+團隊資訊)
 	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
@@ -87,13 +87,13 @@ func _refresh_map():
 	$cgu_puzzles_map._refresh_map()
 	
 
-func _open_slect_window():
-	$activity.visible=true
-	$activity._set_up(Data.activity_list)#獲取目前global內的資料
-	$activity/page_01.visible=true
-	$activity/page_02.visible=false
-	$activity/page_03.visible=false
-	$activity/page_04.visible=false
+func _open_activity_window():
+	$activity/activity.visible=true
+	$activity/activity._set_up(Data.activity_list)#獲取目前global內的資料
+	$activity/activity/page_01.visible=true
+	$activity/activity/page_02.visible=false
+	$activity/activity/page_03.visible=false
+	$activity/activity/page_04.visible=false
 
 func have_team():
 	if have_team:#這邊要放入可判斷是否組隊的參數
@@ -442,3 +442,11 @@ func _on_puzzle_map_button_pressed():
 
 func _on_cug_puzzles_map_button_pressed():
 	$cgu_puzzles_map.visible=true
+
+
+
+
+
+func _on_leader_board_button_pressed():
+	$leader_board_group/leader_board.visible=true
+	pass # Replace with function body.
