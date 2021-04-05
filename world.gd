@@ -154,7 +154,12 @@ func send_place_click_request():
 	#sending place_click request
 	var place_click_body := {"type" : 'place_click',"validation": Data.login_certification}
 	send_server_request(place_click_body)
-	
+
+func send_special_request(value,set):
+	#sending place_click request
+	var special_body := {"type" : 'special',"validation": Data.login_certification,"value":value,"set":set}
+	send_server_request(special_body)
+
 func send_add_title_request(number):
 	#sending map request
 	var add_title_body := {"type":'title_oper',"oper":"add","number":number,"validation":Data.login_certification}
@@ -198,7 +203,7 @@ func send_rank_request(rank_type):
 	#sending rank request
 	var rank_body := {"type" : 'rank',"rank_type":rank_type}
 	send_server_request(rank_body)
-	
+
 
 #the following function 
 #              maintain request queue system
@@ -292,6 +297,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				#print(data['pos'].substr(i*4,4)+" "+data['val'].substr(i*2,2))
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 			Data.finished_puzzle_user = int(data['used'])
+			Data.special_puzzle_status = data['special']
+			Data.button_click_time = int(data['place_click'])
 			Data._set_up_puzzle_amount_info()			
 			Data._set_up_puzzle_upgrade_info()
 			
@@ -382,7 +389,19 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			$leader_board_group/leader_board.refresh_rank_data()
 		else:
 			Data.debug_msg(0,"Fetch Rank Error!")
-		
+	
+	elif(data['type'] == 'special'):
+		if(data['sucess'] == 'true'):
+			Data.special_puzzle_status = data['value']
+		else:
+			Data.debug_msg(0,"Unable set special puzzle!")
+
+	elif(data['type'] == 'place_click'):
+		if(data['sucess'] == 'true'):
+			Data.button_click_time += 1
+		else:
+			Data.debug_msg(0,"Unable set place click!")
+
 	elif(data['type'] == 'logout'):
 		if(data['sucess'] == 'false'):
 			Data.debug_msg(0,"Authentication Error : Timeout!")

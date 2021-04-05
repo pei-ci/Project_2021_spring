@@ -5,8 +5,8 @@ extends Node
 # 0=No debug data,1=important debug data ,2=all receive debug data
 var DEBUG_MODE = 2
 
-var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
-#var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
+#var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
+var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
 
 var UNUSED_PUZZLE_POINT = 1
 var USED_PUZZLE_POINT = 2
@@ -388,29 +388,34 @@ func is_cgu_puzzles_map_complete():
 
 var button_click_time=0
 func add_button_click_time(val):
-	button_click_time+=val
+	debug_msg(2,"Place Button Click!")
+	var world = get_node("/root/world")
+	world.send_place_click_request()
+	# data will add automaticly when server return sucess
+	
 
-var speicial_puzzle_position_map=["EA01","FA01","GA01"]
+var special_puzzle_status = "000000"
+
 func _check_receive_special_puzzle():
 	var puzzle1_status=_get_special_puzzle_status(1)
 	var puzzle2_status=_get_special_puzzle_status(2)
 	var puzzle3_status=_get_special_puzzle_status(3)
 	#特殊拼圖1條件
 	if login_time>=14 and puzzle1_status=="00":
-		_set_special_puzzle_in_status_user(1,"10")
+		_set_special_puzzle_in_status_user(1,"01",0)
 	#特殊拼圖2條件
 	if is_cgu_puzzles_map_complete() and puzzle2_status=="00":
-		_set_special_puzzle_in_status_user(2,"10")
+		_set_special_puzzle_in_status_user(2,"01",0)
 	#特殊拼圖3條件
 	#已獲的1、2拼圖且未獲得3的情況
 	if button_click_time>=50 and (puzzle1_status!="00" and puzzle2_status!="00" and puzzle3_status=="00"):
-		_set_special_puzzle_in_status_user(3,"10")
+		_set_special_puzzle_in_status_user(3,"01",0)
 	
-func _set_special_puzzle_in_status_user(puzzle_num,status_value): #status_value:00:未獲得特殊拼圖，01:已獲得特殊拼圖，02:已獲得且已拼上特殊拼圖
-	var position=speicial_puzzle_position_map[puzzle_num-1]
-	status_user[position]=status_value
-
+func _set_special_puzzle_in_status_user(puzzle_num,status_value,set): #status_value:00:未獲得特殊拼圖，01:已獲得特殊拼圖，10:已獲得且已拼上特殊拼圖
+	var world = get_node("/root/world")	
+	world.send_special_request(special_puzzle_status.substr(0,2*(puzzle_num-1))+status_value+special_puzzle_status.substr(puzzle_num*2),set)
+	# data will save automaticly when server return sucess
+	
 func _get_special_puzzle_status(puzzle_num):
-	var position=speicial_puzzle_position_map[puzzle_num-1]
-	return status_user[position]
+	return special_puzzle_status.substr((puzzle_num-1)*2,2)
 	
