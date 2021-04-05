@@ -28,7 +28,7 @@ func debug_msg(level,msg):
 		elif level==2:
 			print("DEBUG : "+msg)
 		
-var status_user={"AA01":"00","AA02":"00","AA03":"00","AA04":"00","AA05":"00","AA06":"00","AA07":"00","AA08":"00",
+var status_user={"AA01":"00","AA02":"00","AA03":"00","AA04":"00","AA05":"00","AA06":"00","AA07":"00","AA08":"00",#大拼圖
 				 "AA09":"00","AA10":"00","AA11":"00","AA12":"00","AA13":"00","AA14":"00","AA15":"00","AA16":"00",
 				 "AB01":"00","AB02":"00","AB03":"00","AB04":"00","AB05":"00","AB06":"00","AB07":"00","AB08":"00",
 				 "AB09":"00","AB10":"00","AB11":"00","AB12":"00","AB13":"00","AB14":"00","AB15":"00","AB16":"00",
@@ -48,12 +48,13 @@ var status_user={"AA01":"00","AA02":"00","AA03":"00","AA04":"00","AA05":"00","AA
 				 "AI09":"00","AI10":"00","AI11":"00","AI12":"00","AI13":"00","AI14":"00","AI15":"00","AI16":"00",
 				 "AJ01":"00","AJ02":"00","AJ03":"00","AJ04":"00","AJ05":"00","AJ06":"00","AJ07":"00","AJ08":"00",
 				 "AJ09":"00","AJ10":"00","AJ11":"00","AJ12":"00","AJ13":"00","AJ14":"00","AJ15":"00","AJ16":"00",
-				 "CA01":"00","CA02":"00","CA03":"00","CA04":"00","CA05":"00","CA06":"00",
+				 "CA01":"00","CA02":"00","CA03":"00","CA04":"00","CA05":"00","CA06":"00",#cgu拼圖
 				 "CA07":"00","CA08":"00","CA09":"00","CA10":"00","CA11":"00",
 				 "CB01":"00","CB02":"00","CB03":"00","CB04":"00","CB05":"00","CB06":"00","CB07":"00",
 				 "CB08":"00","CB09":"00","CB10":"00","CB11":"00","CB12":"00",
 				 "CC01":"00","CC02":"00","CC03":"00","CC04":"00","CC05":"00","CC06":"00",
-				 "CC07":"00","CC08":"00","CC09":"00","CC10":"00","CC11":"00"}
+				 "CC07":"00","CC08":"00","CC09":"00","CC10":"00","CC11":"00",
+				 "EA01":"00","FA01":"00","GA01":"00"}#三片特殊拼圖
 
 var block_type={"puddle":"1","wilderness":"2","desert":"3","sea":"4"
 				,"town":"5","volcano":"6"}
@@ -173,13 +174,13 @@ func _emergency_correct_time(val):
 var have_type={"puddle":0,"wilderness":0,"desert":0,"sea":0,"town":0,"volcano":0} #紀錄是否已獲得各類型拼圖 對應_get_num_of_type()
 
 var title_status={"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,
-					"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0}
+					"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}
 					
 var title_list={"0":"個人賽總冠軍","1":"個人賽總亞軍","2":"個人賽總季軍","3":"個人賽總排名前三十","4":"團體賽總冠軍","5":"團體賽總亞軍",
 				"6":"團體賽總季軍","7":"團體賽總排名前三十","8":"收藏界菜鳥","9":"收藏界老鳥",
 				"10":"收藏界專家","11":"初級地形已經不能滿足我了，我要升級","12":"只升級一次怎麼夠，我當然還要更多",
 				"13":"瘋狂升級中","14":"初級地主","15":"高級地主","16":"究級地主","17":"事件處理者…的學徒",
-				"18":"事件處理者","19":"事件收割者","20":"神奇腦迴路"}
+				"18":"事件處理者","19":"事件收割者","20":"神奇腦迴路","21":"好鄰居","22":"社交達人","23":"敦親睦鄰"}
 
 func _set_title_status(title_num):
 	if title_status[title_num]==0:
@@ -238,6 +239,12 @@ func _check_title_status():
 	
 	if emergency_correct_time>=5:
 		_set_title_status("20")
+	if _get_special_puzzle_status(1)=="20":
+		_set_title_status("21")
+	if _get_special_puzzle_status(2)=="20":
+		_set_title_status("22")
+	if _get_special_puzzle_status(3)=="20":
+		_set_title_status("23")
 
 func _set_title_information(title_num):#設定顯示在資訊欄上的稱號
 	var world = get_node("/root/world")		
@@ -286,6 +293,7 @@ func _set_up():
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	#這邊是稱號的設定
 	_check_title_status()
+	_check_receive_special_puzzle()
 		
 func _refresh_data():
 	_set_up()
@@ -364,3 +372,45 @@ var department_list = ['醫學系','中醫系','護理系','生醫系','呼治�
 
 var department_list_en = ['md','cm','nurse','is','rc','pt','dot','mirs','mip',
 'ee','elec','me','csie','ce','ai','ibm','id','im','hcm','him']
+
+var cgu_puzzles_position = ["CA01","CA02","CA03","CA04","CA05","CA06","CA07","CA08","CA09","CA10",
+							"CA11","CB01","CB02","CB03","CB04","CB05","CB06","CB07","CB08","CB09",
+							"CB10","CB11","CB12","CC01","CC02","CC03","CC04","CC05","CC06","CC07","CC08","CC09","CC10","CC11"]
+func is_cgu_puzzles_map_complete():
+	var empty_puzzle_num=0
+	for position in cgu_puzzles_position:
+		if status_user[position]=="00":
+			empty_puzzle_num+=1
+	if empty_puzzle_num==0:
+		return true
+	else:
+		return false
+
+var button_click_time=0
+func add_button_click_time(val):
+	button_click_time+=val
+
+var speicial_puzzle_position_map=["EA01","FA01","GA01"]
+func _check_receive_special_puzzle():
+	var puzzle1_status=_get_special_puzzle_status(1)
+	var puzzle2_status=_get_special_puzzle_status(2)
+	var puzzle3_status=_get_special_puzzle_status(3)
+	#特殊拼圖1條件
+	if login_time>=14 and puzzle1_status=="00":
+		_set_special_puzzle_in_status_user(1,"10")
+	#特殊拼圖2條件
+	if is_cgu_puzzles_map_complete() and puzzle2_status=="00":
+		_set_special_puzzle_in_status_user(2,"10")
+	#特殊拼圖3條件
+	#已獲的1、2拼圖且未獲得3的情況
+	if button_click_time>=50 and (puzzle1_status!="00" and puzzle2_status!="00" and puzzle3_status=="00"):
+		_set_special_puzzle_in_status_user(3,"10")
+	
+func _set_special_puzzle_in_status_user(puzzle_num,status_value): #status_value:00:未獲得特殊拼圖，01:已獲得特殊拼圖，02:已獲得且已拼上特殊拼圖
+	var position=speicial_puzzle_position_map[puzzle_num-1]
+	status_user[position]=status_value
+
+func _get_special_puzzle_status(puzzle_num):
+	var position=speicial_puzzle_position_map[puzzle_num-1]
+	return status_user[position]
+	

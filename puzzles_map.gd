@@ -1,5 +1,5 @@
 extends Sprite
-
+onready var Data = get_node("/root/Global")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -23,3 +23,4 @@ func _refresh_map():
 
 func _on_close_pressed():
 	self.visible=false
+	Data.add_button_click_time(1)

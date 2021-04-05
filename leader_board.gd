@@ -20,6 +20,7 @@ func _on_switch_to_team_pressed():
 	
 #切換到個人
 func _on_switch_to_person_pressed():
+	print(101012222222)
 	$team_text.visible=false
 	$person_text.visible=true
 	_set_block_status("person")

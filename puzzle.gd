@@ -302,7 +302,7 @@ func _on_slect_window_button_pressed():
 	Data.slect_button_opened=true
 	if $slect_window.visible==false:
 		$slect_window.visible=true
-		yield(get_tree().create_timer(7), "timeout")#選單視窗開啟5秒後關閉
+		yield(get_tree().create_timer(7), "timeout")#選單視窗開啟7秒後關閉
 		Data.slect_button_opened=false
 		$slect_window.visible=false
 		$slect_window/MenuButton/PopupMenu.visible=false
