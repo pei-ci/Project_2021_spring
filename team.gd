@@ -83,7 +83,7 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 		if(data['sucess']=='true'):			
 			$team_up/input.text = "Join sucessed!"
 			world.have_team = true
-			world.send_info_request()
+			world.send_team_request()
 		else:
 			$team_up/input.text = "Join failed!"
 			print("Unable join team!!!")
