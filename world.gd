@@ -80,8 +80,6 @@ func _refresh_information(): #使用此函式可以設定好所有狀態 可用D
 	Data._refresh_data() #更新global內需要設定的資料
 	_set_up()
 	_refresh_map()
-	
-
 
 func _refresh_map():
 	$puzzles_map._refresh_map()
@@ -298,11 +296,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				#print(data['pos'].substr(i*4,4)+" "+data['val'].substr(i*2,2))
 				Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
 			Data.finished_puzzle_user = int(data['used'])
+			Data.total_point = int(data['point'])
 			Data.special_puzzle_status = data['special']
 			Data.button_click_time = int(data['place_click'])
-			Data._set_up_puzzle_amount_info()			
-			Data._set_up_puzzle_upgrade_info()
 			
+			$special_puzzle1._set_up()
+			$special_puzzle2._set_up()
+			$special_puzzle3._set_up()			
 		else:
 			Data.debug_msg(0,"Error fetch map data!!!")
 					
@@ -377,7 +377,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 						Data.top_ten_person[i]['number'] = data['rank'+str(i+1)+'number']
 						Data.top_ten_person[i]['department'] = data['rank'+str(i+1)+'department']
 						Data.top_ten_person[i]['title'] = data['rank'+str(i+1)+'title_use']
-						Data.top_ten_person[i]['total_puzzle'] = data['rank'+str(i+1)+'used']
+						Data.top_ten_person[i]['total_puzzle'] = data['rank'+str(i+1)+'point']
 						#print('used'+Data.top_ten_person[i]['total_puzzle'] )
 					else: # no data for this rank
 						pass # default text is '尚無排名'
@@ -409,9 +409,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			get_tree().change_scene("res://Control.tscn")	
 
 	finish_request_queue(data['type'])
-	Data._check_title_status()
-	Data.emit_refresh()
-	#_refresh_information()
+	#Data._check_title_status()
+	_refresh_all_data()
 
 func check_emergency_time_valid():
 	var time_excess = OS.get_unix_time()-Data.emergency_time
@@ -428,7 +427,12 @@ func check_emergency_time_valid():
 	var next_emergency_time = OS.get_unix_time()-time_excess
 	send_emergency_time_request(str(next_emergency_status)+str(next_emergency_time))
 		
-
+func _refresh_all_data():
+	Data._set_up_puzzle_amount_info()
+	Data._set_up_puzzle_upgrade_info()
+	_refresh_information()
+	Data.emit_refresh()
+	
 
 func _on_puzzle_map_button_pressed():
 	$puzzles_map.visible=true

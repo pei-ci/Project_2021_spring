@@ -107,7 +107,7 @@ func volcano_minus(val):
 	volcano_user -= val
 	
 func _set_up_puzzle_amount_info():
-	total_point = USED_PUZZLE_POINT*finished_puzzle_user + UNUSED_PUZZLE_POINT*_get_unfinished_puzzle()
+	#total_point = USED_PUZZLE_POINT*finished_puzzle_user + UNUSED_PUZZLE_POINT*_get_unfinished_puzzle()
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	# here need to check if any show board need to update
 
@@ -287,9 +287,10 @@ func _set_team_total_puzzle():#使用在global的set_up裡面  在global的ready
 
 
 func _ready():
-	_set_up()
+	#_set_up()
+	pass
 	
-func _set_up():
+func _set_up_puzzle_and_title():
 	#取得拼圖總數
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	#這邊是稱號的設定
@@ -297,7 +298,7 @@ func _set_up():
 	_check_receive_special_puzzle()
 		
 func _refresh_data():
-	_set_up()
+	_set_up_puzzle_and_title()
 	
 func _get_unfinished_puzzle():
 	return (puddle_user+wilderness_user+desert_user+sea_user+town_user+volcano_user)
@@ -418,5 +419,6 @@ func _set_special_puzzle_in_status_user(puzzle_num,status_value,set): #status_va
 	# data will save automaticly when server return sucess
 	
 func _get_special_puzzle_status(puzzle_num):
+	debug_msg(2,"Special Puzzle"+str(special_puzzle_status))
 	return special_puzzle_status.substr((puzzle_num-1)*2,2)
 	
