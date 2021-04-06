@@ -54,7 +54,8 @@ var status_user={"AA01":"00","AA02":"00","AA03":"00","AA04":"00","AA05":"00","AA
 				 "CB08":"00","CB09":"00","CB10":"00","CB11":"00","CB12":"00",
 				 "CC01":"00","CC02":"00","CC03":"00","CC04":"00","CC05":"00","CC06":"00",
 				 "CC07":"00","CC08":"00","CC09":"00","CC10":"00","CC11":"00",
-				 "EA01":"00","FA01":"00","GA01":"00"}#三片特殊拼圖
+				 "EA01":"00","FA01":"00","GA01":"00"}
+
 
 var block_type={"puddle":"1","wilderness":"2","desert":"3","sea":"4"
 				,"town":"5","volcano":"6"}
@@ -239,11 +240,11 @@ func _check_title_status():
 	
 	if emergency_correct_time>=5:
 		_set_title_status("20")
-	if _get_special_puzzle_status(1)=="20":
+	if _get_special_puzzle_status(1)=="10" or _get_special_puzzle_status(2)=="10":
 		_set_title_status("21")
-	if _get_special_puzzle_status(2)=="20":
+	if _get_special_puzzle_status(1)=="10" and _get_special_puzzle_status(2)=="10" :
 		_set_title_status("22")
-	if _get_special_puzzle_status(3)=="20":
+	if _get_special_puzzle_status(3)=="10":
 		_set_title_status("23")
 
 func _set_title_information(title_num):#設定顯示在資訊欄上的稱號
@@ -412,7 +413,7 @@ func _check_receive_special_puzzle():
 		_set_special_puzzle_in_status_user(3,"01",0)
 	
 func _set_special_puzzle_in_status_user(puzzle_num,status_value,set): #status_value:00:未獲得特殊拼圖，01:已獲得特殊拼圖，10:已獲得且已拼上特殊拼圖
-	var world = get_node("/root/world")	
+	var world = get_node("/root/world")
 	world.send_special_request(special_puzzle_status.substr(0,2*(puzzle_num-1))+status_value+special_puzzle_status.substr(puzzle_num*2),set)
 	# data will save automaticly when server return sucess
 	
