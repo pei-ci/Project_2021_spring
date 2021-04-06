@@ -1,16 +1,16 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://information.gd" type="Script" id=2]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/資訊欄(展開)二改版.png-2f25e948fd3fdf9655db9184887ab22f.stex"
+load_path = "res://.import/資訊欄(展開)三版.png-45ab33dd0b36cc6e3265452bc6b23110.stex"
 
 [sub_resource type="StreamTexture" id=2]
 flags = 4
 load_path = "res://.import/資訊欄(未展開)一版.png-fbdb7f02f518e384c36dc76849e3593d.stex"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=21]
 size = 6
 font_data = ExtResource( 1 )
 
@@ -32,10 +32,15 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 6
-extra_spacing_bottom = -5
+extra_spacing_top = -2
+extra_spacing_bottom = -2
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=9]
+size = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=20]
 size = 6
 font_data = ExtResource( 1 )
 
@@ -57,6 +62,8 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 4
+extra_spacing_top = -2
+extra_spacing_bottom = -2
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=15]
@@ -81,74 +88,73 @@ load_path = "res://.import/資訊欄按鈕二一版.png-ec3429e32f43ae95147894c9
 script = ExtResource( 2 )
 
 [node name="background" type="Sprite" parent="."]
-visible = false
-position = Vector2( 255.995, 47.4193 )
-scale = Vector2( 0.904461, 0.964154 )
+position = Vector2( 115.708, 67.9348 )
+scale = Vector2( 1.2021, 1.43796 )
 texture = SubResource( 1 )
 
 [node name="top" type="Sprite" parent="."]
-position = Vector2( 255.595, 87.5378 )
+visible = false
+position = Vector2( 255.595, 106.587 )
 scale = Vector2( 0.913847, 1 )
 texture = SubResource( 2 )
 
 [node name="subject" type="Label" parent="."]
-visible = false
-margin_left = 233.746
-margin_top = 7.55455
-margin_right = 294.746
-margin_bottom = 16.5546
-custom_fonts/font = SubResource( 3 )
+margin_left = 86.0
+margin_top = 21.0
+margin_right = 167.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="number" type="Label" parent="."]
-visible = false
-margin_left = 233.746
-margin_top = 18.5546
-margin_right = 294.746
-margin_bottom = 29.5546
+margin_left = 86.0
+margin_top = 37.0
+margin_right = 167.0
+margin_bottom = 49.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="name" type="Label" parent="."]
-visible = false
-margin_left = 233.746
-margin_top = 30.5546
-margin_right = 259.746
-margin_bottom = 40.5546
+margin_left = 86.0
+margin_top = 51.0
+margin_right = 167.0
+margin_bottom = 65.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nickname" type="Label" parent="."]
-visible = false
-margin_left = 234.746
-margin_top = 42.5546
-margin_right = 293.746
-margin_bottom = 52.5546
+margin_left = 86.0
+margin_top = 67.0
+margin_right = 167.0
+margin_bottom = 81.0
 custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="total_puzzle" type="Label" parent="."]
-visible = false
-margin_left = 279.131
-margin_top = 30.8475
-margin_right = 296.131
-margin_bottom = 41.8475
+margin_left = 142.0
+margin_top = 115.0
+margin_right = 167.0
+margin_bottom = 133.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
@@ -158,11 +164,10 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="."]
-visible = false
-margin_left = 233.746
-margin_top = 66.6637
-margin_right = 294.746
-margin_bottom = 82.6637
+margin_left = 87.0
+margin_top = 100.0
+margin_right = 167.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
@@ -172,23 +177,36 @@ __meta__ = {
 }
 
 [node name="team" type="Label" parent="."]
-visible = false
-margin_left = 234.746
-margin_top = 54.5546
-margin_right = 294.746
-margin_bottom = 64.5546
+margin_left = 86.0
+margin_top = 83.0
+margin_right = 167.0
+margin_bottom = 97.0
 custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="total_point" type="Label" parent="."]
+margin_left = 86.0
+margin_top = 117.0
+margin_right = 121.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="heading" type="Label" parent="."]
-margin_left = 218.211
-margin_top = 83.7921
-margin_right = 258.211
-margin_bottom = 92.7921
+margin_left = 71.3764
+margin_top = 9.5811
+margin_right = 111.376
+margin_bottom = 18.5811
 custom_fonts/font = SubResource( 10 )
 text = "個人資訊"
 __meta__ = {
@@ -196,101 +214,124 @@ __meta__ = {
 }
 
 [node name="subject_heading" type="Label" parent="."]
-visible = false
-margin_left = 220.152
-margin_top = 8.19235
-margin_right = 232.152
-margin_bottom = 17.1924
+margin_left = 64.0
+margin_top = 21.0
+margin_right = 86.0
+margin_bottom = 35.0
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "學系"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="number_heading" type="Label" parent="."]
-visible = false
-margin_left = 220.152
-margin_top = 19.3535
-margin_right = 232.152
-margin_bottom = 28.3535
+margin_left = 65.0
+margin_top = 36.0
+margin_right = 86.0
+margin_bottom = 49.0
 custom_fonts/font = SubResource( 12 )
 text = "學號"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nickname_heading" type="Label" parent="."]
-visible = false
-margin_left = 219.445
-margin_top = 43.3449
-margin_right = 231.445
-margin_bottom = 52.3449
+margin_left = 65.0
+margin_top = 66.0
+margin_right = 85.0
+margin_bottom = 82.0
 custom_fonts/font = SubResource( 13 )
 text = "暱稱"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="total_puzzle_heading" type="Label" parent="."]
-visible = false
-margin_left = 261.746
-margin_top = 33.5546
-margin_right = 277.746
-margin_bottom = 40.5546
+margin_left = 122.0
+margin_top = 116.0
+margin_right = 142.0
+margin_bottom = 134.0
 custom_fonts/font = SubResource( 14 )
-text = "拼圖總數"
+text = "拼圖
+總數"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="total_point_heading" type="Label" parent="."]
+margin_left = 65.0
+margin_top = 117.0
+margin_right = 85.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 15 )
+text = "總分"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title_heading" type="Label" parent="."]
-visible = false
-margin_left = 220.152
-margin_top = 69.5582
-margin_right = 232.152
-margin_bottom = 78.5582
+margin_left = 65.0
+margin_top = 100.0
+margin_right = 85.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 15 )
 text = "稱號"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="name_heading" type="Label" parent="."]
-visible = false
-margin_left = 220.152
-margin_top = 31.728
-margin_right = 233.152
-margin_bottom = 40.728
+margin_left = 65.0
+margin_top = 51.0
+margin_right = 85.0
+margin_bottom = 65.0
 custom_fonts/font = SubResource( 16 )
 text = "姓名"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="team_heading" type="Label" parent="."]
-visible = false
-margin_left = 219.798
-margin_top = 55.7695
-margin_right = 231.798
-margin_bottom = 64.7695
+margin_left = 65.0
+margin_top = 84.0
+margin_right = 86.0
+margin_bottom = 97.0
 custom_fonts/font = SubResource( 17 )
 text = "隊名"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="button" type="TextureButton" parent="."]
-margin_left = 285.211
-margin_top = 84.7921
-margin_right = 293.211
-margin_bottom = 92.7921
+visible = false
+margin_left = 284.417
+margin_top = 104.649
+margin_right = 292.417
+margin_bottom = 112.649
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="unfold_picture" type="Sprite" parent="."]
-position = Vector2( 290.304, 88.2889 )
+visible = false
+position = Vector2( 290.304, 107.289 )
 scale = Vector2( 0.415966, 0.427182 )
 texture = SubResource( 18 )
 
@@ -299,4 +340,11 @@ visible = false
 position = Vector2( 290.728, 88.9944 )
 scale = Vector2( 0.448122, 0.42605 )
 texture = SubResource( 19 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="button" to="." method="_on_button_pressed"]

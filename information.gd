@@ -9,6 +9,7 @@ var nickname_user ="1"
 var total_puzzle_user ="1"
 var title_user ="1"
 var team_user ="1"
+var total_point_user = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +24,7 @@ func _set_up():
 	$total_puzzle.text = total_puzzle_user
 	$title.text = title_user
 	$team.text = team_user
+	$total_point.text =  str(total_point_user)
 	_set_title_line()#如果資訊欄稱號超過八個字要換行
 
 	
@@ -39,6 +41,8 @@ func _set_title_line(): #如果資訊欄稱號超過八個字要換行
 	
 
 func _on_button_pressed():
+	pass
+	"""
 	if $unfold_picture.visible==true:
 		$background.visible=true
 		$unfold_picture.visible=false
@@ -77,4 +81,5 @@ func _on_button_pressed():
 		$name_heading.visible=false
 		$title.visible=false
 		$title_heading.visible=false
+		"""
 

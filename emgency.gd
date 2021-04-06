@@ -119,12 +119,16 @@ func _on_C_pressed():
 
 func _answer_reply(option):
 	if event_data[option]!="":
-		$text_window_emergency/text_emergency.visible=false
 		$text_window_emergency/text_after_answer.text=event_data[option]
-		$text_window_emergency/text_after_answer.visible=true
-		return true
 	else:
-		return false
+		if option==event_data["answer"]:
+			$text_window_emergency/text_after_answer.text="恭喜答對！"
+		else:
+			$text_window_emergency/text_after_answer.text="再接再厲！"
+	
+	$text_window_emergency/text_emergency.visible=false
+	$text_window_emergency/text_after_answer.visible=true
+	return true
 
 func _give_reward(option):
 	Data._emergency_solve_time(1) #突發事件完成數+1

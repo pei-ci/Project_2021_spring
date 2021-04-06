@@ -56,8 +56,8 @@ load_path = "res://.import/特殊拼圖3.png-0db49d1fde8671f4a69faaebe14cd852.st
 script = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 239.703, 135.897 )
-scale = Vector2( 0.520978, 0.518289 )
+position = Vector2( 239.703, 135.302 )
+scale = Vector2( 0.520978, 0.520589 )
 texture = SubResource( 1 )
 
 [node name="puzzles_map" parent="." instance=ExtResource( 10 )]
@@ -104,7 +104,7 @@ position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
-position = Vector2( -205.219, 146.321 )
+position = Vector2( -64.2977, 73.1846 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 

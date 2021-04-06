@@ -27,6 +27,7 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$information.total_puzzle_user =  Data.total_puzzle_user
 	$information.title_user =  Data.title_user
 	$information.team_user =  Data.team_user
+	$information.total_point_user = Data.total_point
 	#未拼的拼圖
 	$unfinished_puzzle.puddle=Data.puddle_user
 	$unfinished_puzzle.wilderness=Data.wilderness_user
