@@ -7,18 +7,32 @@ var have_team = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_set_up()
+	_set_up()	
 	Data.connect("refresh",self,"_refresh_information")
 	Data.connect("activity_window_open",self,"_open_activity_window")
-	#製作初始化對列系統
+	
+	#初始化
 	send_info_request()
 	send_map_request()
 	send_activity_request()
 	send_emergency_info_request()
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
-	#Data._check_title_status()#檢查和設定稱號
-	
+	# Because following data have not request to server
+	#	the following command will set data to default value in Global
+	# All data will update when each request sucess
+	refresh_information_information()	
+	refresh_unused_puzzle_information()	
+	refresh_emergency_information()
+	refresh_leaderboard_information()		
+	refresh_activity_information()	
+	refresh_team_information()
+	#小徑
+	$special_puzzle1.visible=false
+	$special_puzzle2.visible=false
+	$special_puzzle3.visible=false
+
+func refresh_information_information():
 	#資訊欄
 	$information.subject_user = Data.subject_user
 	$information.number_user = Data.number_user
@@ -28,20 +42,23 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$information.title_user =  Data.title_user
 	$information.team_user =  Data.team_user
 	$information.total_point_user = Data.total_point
+	$information._set_up() #套入格式設定
+
+func refresh_unused_puzzle_information():
 	#未拼的拼圖
 	$unfinished_puzzle.puddle=Data.puddle_user
 	$unfinished_puzzle.wilderness=Data.wilderness_user
 	$unfinished_puzzle.desert=Data.desert_user
 	$unfinished_puzzle.sea=Data.sea_user
 	$unfinished_puzzle.town=Data.town_user
-	$unfinished_puzzle.volcano=Data.volcano_user
-	
-	
-	$information._set_up() #套入格式設定
+	$unfinished_puzzle.volcano=Data.volcano_user	
 	$unfinished_puzzle._set_up()
+
+func refresh_emergency_information():
 	#設定突發事件
-	$emergency.finished_puzzle=Data.finished_puzzle_user
-	
+	$emergency.finished_puzzle=Data.finished_puzzle_user	
+
+func refresh_leaderboard_information():
 	#設定排行榜
 	$leader_board_group/leader_board/person_text/first.text=Data.top_ten_person[0]["nickname"]
 	$leader_board_group/leader_board/person_text/second.text=Data.top_ten_person[1]["nickname"]
@@ -64,27 +81,15 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$leader_board_group/leader_board/team_text/eight.text=Data.top_ten_team[7]["teamname"]
 	$leader_board_group/leader_board/team_text/night.text=Data.top_ten_team[8]["teamname"]
 	$leader_board_group/leader_board/team_text/ten.text=Data.top_ten_team[9]["teamname"]
-	
+
+func refresh_activity_information():
 	#活動頁面
 	$activity/activity._set_up(Data.activity_list)
-	
+
+func refresh_team_information():
 	#組隊頁面(組隊+團隊資訊)
-	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)#隊名,組隊代碼,隊伍拼圖總數,成員資料list
-	
-	#小徑
-	$special_puzzle1.visible=false
-	$special_puzzle2.visible=false
-	$special_puzzle3.visible=false
-
-func _refresh_information(): #使用此函式可以設定好所有狀態 可用Data.emit_refresh()發出訊號來呼叫
-	Data._refresh_data() #更新global內需要設定的資料
-	_set_up()
-	_refresh_map()
-
-func _refresh_map():
-	$puzzles_map._refresh_map()
-	$cgu_puzzles_map._refresh_map()
-	
+	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)
+	#隊名,組隊代碼,隊伍拼圖總數,成員資料list
 
 func _open_activity_window():
 	$activity/activity.visible=true
@@ -268,6 +273,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				have_team = true 
 				send_team_request()
+				
 		else:
 			Data.debug_msg(0,"Error fetch info data!!!")
 					
@@ -280,7 +286,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			Data.debug_msg(0,"Error fetch team data!!!")
 		Data._check_title_status()
-		$team.send_team_member_request()		
+		refresh_information_information()
+		$team.send_team_member_request()	
 		
 	elif(data['type'] == 'map'):
 		if(data['sucess'] == 'true'):
@@ -299,10 +306,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.total_point = int(data['point'])
 			Data.special_puzzle_status = data['special']
 			Data.button_click_time = int(data['place_click'])
-			
-			$special_puzzle1._set_up()
-			$special_puzzle2._set_up()
-			$special_puzzle3._set_up()			
+			_refresh_map_information()
+			refresh_unused_puzzle_information()
+			refresh_emergency_information()
 		else:
 			Data.debug_msg(0,"Error fetch map data!!!")
 					
@@ -312,6 +318,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				var insert_act = {'活動名稱':data['title'+str(i)],'時間':data['time'+str(i)]
 				,'代號':data['number'+str(i)],'獎勵':data['point'+str(i)]}
 				Data.activity_list.append(insert_act)
+			refresh_activity_information()
 		else:
 			Data.debug_msg(0,"Error fetch activity data!!!")
 					
@@ -387,6 +394,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 						Data.top_ten_team[i]['total_puzzle'] = data['rank'+str(i+1)+'point']
 					else: # no data for this rank
 						pass
+			refresh_leaderboard_information()
 			$leader_board_group/leader_board.refresh_rank_data()
 		else:
 			Data.debug_msg(0,"Fetch Rank Error!")
@@ -394,6 +402,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	elif(data['type'] == 'special'):
 		if(data['sucess'] == 'true'):
 			Data.special_puzzle_status = data['value']
+			send_map_request()
 		else:
 			Data.debug_msg(0,"Unable set special puzzle!")
 
@@ -430,9 +439,17 @@ func check_emergency_time_valid():
 func _refresh_all_data():
 	Data._set_up_puzzle_amount_info()
 	Data._set_up_puzzle_upgrade_info()
-	_refresh_information()
+	#_refresh_information()
 	Data.emit_refresh()
 	
+func _refresh_map_information(): #使用此函式可以設定好所有狀態 可用Data.emit_refresh()發出訊號來呼叫
+	Data._refresh_data() #更新global內需要設定的資料
+	#_set_up()
+	$puzzles_map._refresh_map()
+	$cgu_puzzles_map._refresh_map()	
+	$special_puzzle1._set_up()
+	$special_puzzle2._set_up()
+	$special_puzzle3._set_up()
 
 func _on_puzzle_map_button_pressed():
 	$puzzles_map.visible=true
@@ -443,5 +460,7 @@ func _on_cug_puzzles_map_button_pressed():
 
 
 func _on_leader_board_button_pressed():
+	send_rank_request('person')
+	send_rank_request('team')
 	$leader_board_group/leader_board.visible=true
 	pass # Replace with function body.

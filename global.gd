@@ -5,11 +5,8 @@ extends Node
 # 0=No debug data,1=important debug data ,2=all receive debug data
 var DEBUG_MODE = 2
 
-var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
-#var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
-
-var UNUSED_PUZZLE_POINT = 1
-var USED_PUZZLE_POINT = 2
+#var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
+var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
 
 var EMERGENCY_AMOUNT = 30
 var TITLE_AMOUNT = 32
@@ -399,6 +396,7 @@ func add_button_click_time(val):
 var special_puzzle_status = "000000"
 
 func _check_receive_special_puzzle():
+	debug_msg(2,"Check Puzzle"+str(special_puzzle_status))
 	var puzzle1_status=_get_special_puzzle_status(1)
 	var puzzle2_status=_get_special_puzzle_status(2)
 	var puzzle3_status=_get_special_puzzle_status(3)
@@ -419,6 +417,5 @@ func _set_special_puzzle_in_status_user(puzzle_num,status_value,set): #status_va
 	# data will save automaticly when server return sucess
 	
 func _get_special_puzzle_status(puzzle_num):
-	debug_msg(2,"Special Puzzle"+str(special_puzzle_status))
 	return special_puzzle_status.substr((puzzle_num-1)*2,2)
 	

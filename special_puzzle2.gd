@@ -17,24 +17,16 @@ func _set_up():
 	else:
 		$special_puzzle.visible=false
 
-<<<<<<< Updated upstream
-func put_on_special_puzzle():
-	Data._set_special_puzzle_in_status_user(PUZZLE_NUM,"10",1)
-	Data.emit_refresh()
-=======
 #func put_on_special_puzzle():
 #	Data._set_special_puzzle_in_status_user(PUZZLE_NUM,"10",1)
 #	Data.emit_refresh()
->>>>>>> Stashed changes
+
 
 func _on_path1_pressed():
 	self.visible=true
 
-
 func _on_close_pressed():
-	self.visible=false
-	
-
+	self.visible=false	
 
 func _on_TextureButton_pressed():
 	if Data._get_special_puzzle_status(PUZZLE_NUM)=="01":

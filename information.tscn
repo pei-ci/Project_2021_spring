@@ -10,7 +10,7 @@ load_path = "res://.import/資訊欄(展開)三版.png-45ab33dd0b36cc6e3265452bc
 flags = 4
 load_path = "res://.import/資訊欄(未展開)一版.png-fbdb7f02f518e384c36dc76849e3593d.stex"
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=3]
 size = 6
 font_data = ExtResource( 1 )
 
@@ -40,10 +40,6 @@ font_data = ExtResource( 1 )
 size = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=20]
-size = 6
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=10]
 size = 6
 font_data = ExtResource( 1 )
@@ -61,13 +57,13 @@ size = 6
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 4
-extra_spacing_top = -2
-extra_spacing_bottom = -2
+size = 6
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=15]
-size = 6
+size = 4
+extra_spacing_top = -2
+extra_spacing_bottom = -2
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=16]
@@ -78,10 +74,14 @@ font_data = ExtResource( 1 )
 size = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="StreamTexture" id=18]
-load_path = "res://.import/資訊欄按鈕一一版.png-d83b397ef0a35b22d36657e194053cea.stex"
+[sub_resource type="DynamicFont" id=18]
+size = 6
+font_data = ExtResource( 1 )
 
 [sub_resource type="StreamTexture" id=19]
+load_path = "res://.import/資訊欄按鈕一一版.png-d83b397ef0a35b22d36657e194053cea.stex"
+
+[sub_resource type="StreamTexture" id=20]
 load_path = "res://.import/資訊欄按鈕二一版.png-ec3429e32f43ae95147894c99a561960.stex"
 
 [node name="information" type="Sprite"]
@@ -103,7 +103,7 @@ margin_left = 86.0
 margin_top = 21.0
 margin_right = 167.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -194,7 +194,7 @@ margin_left = 86.0
 margin_top = 117.0
 margin_right = 121.0
 margin_bottom = 133.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -207,7 +207,7 @@ margin_left = 71.3764
 margin_top = 9.5811
 margin_right = 111.376
 margin_bottom = 18.5811
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "個人資訊"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -218,7 +218,7 @@ margin_left = 64.0
 margin_top = 21.0
 margin_right = 86.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "學系"
 align = 1
@@ -232,7 +232,7 @@ margin_left = 65.0
 margin_top = 36.0
 margin_right = 86.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "學號"
 align = 1
 valign = 1
@@ -245,7 +245,7 @@ margin_left = 65.0
 margin_top = 66.0
 margin_right = 85.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "暱稱"
 align = 1
 valign = 1
@@ -258,7 +258,7 @@ margin_left = 122.0
 margin_top = 116.0
 margin_right = 142.0
 margin_bottom = 134.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 text = "拼圖
 總數"
 align = 1
@@ -272,7 +272,7 @@ margin_left = 65.0
 margin_top = 117.0
 margin_right = 85.0
 margin_bottom = 133.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "總分"
 align = 1
 valign = 1
@@ -285,7 +285,7 @@ margin_left = 65.0
 margin_top = 100.0
 margin_right = 85.0
 margin_bottom = 114.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "稱號"
 align = 1
 valign = 1
@@ -298,7 +298,7 @@ margin_left = 65.0
 margin_top = 51.0
 margin_right = 85.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 17 )
 text = "姓名"
 align = 1
 valign = 1
@@ -311,7 +311,7 @@ margin_left = 65.0
 margin_top = 84.0
 margin_right = 86.0
 margin_bottom = 97.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "隊名"
 align = 1
 valign = 1
@@ -333,13 +333,13 @@ __meta__ = {
 visible = false
 position = Vector2( 290.304, 107.289 )
 scale = Vector2( 0.415966, 0.427182 )
-texture = SubResource( 18 )
+texture = SubResource( 19 )
 
 [node name="fold_picture" type="Sprite" parent="."]
 visible = false
 position = Vector2( 290.728, 88.9944 )
 scale = Vector2( 0.448122, 0.42605 )
-texture = SubResource( 19 )
+texture = SubResource( 20 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0

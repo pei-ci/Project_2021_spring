@@ -46,7 +46,6 @@ func refresh_rank_data():
 	for i in range($person_text.get_child_count()-1):
 		var child_obj = $person_text.get_child(i)
 		child_obj.text = Data.top_ten_person[i]["name"]
-		child_obj.text = '666666666' #wtf is this no respond?
 			
 	for i in range($team_text.get_child_count()-1):
 		var child_obj = $team_text.get_child(i)
