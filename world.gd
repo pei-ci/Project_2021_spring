@@ -273,6 +273,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				have_team = true 
 				send_team_request()
+			refresh_information_information()
 				
 		else:
 			Data.debug_msg(0,"Error fetch info data!!!")

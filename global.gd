@@ -5,8 +5,8 @@ extends Node
 # 0=No debug data,1=important debug data ,2=all receive debug data
 var DEBUG_MODE = 2
 
-var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
-#var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
+#var BACKGROUND_WEB = 'http://herpg.cgu.edu.tw/cgu_games/login.php'
+var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
 
 var EMERGENCY_AMOUNT = 30
 var TITLE_AMOUNT = 32
