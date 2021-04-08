@@ -68,14 +68,14 @@ func send_server_request(body):
 	#requesst queue status 0:queue 1:waiting result
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
-		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,Data.SSL_USE,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
 		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func check_request_queue():
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
-		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,Data.SSL_USE,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
 		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
@@ -90,6 +90,7 @@ func finish_request_queue(type):
 #----------------------------------------------------------------------------
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):	
+	print(result)
 	var respond = body.get_string_from_utf8()
 	var data_parse = JSON.parse(respond)
 	if data_parse.error != OK:

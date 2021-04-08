@@ -220,14 +220,14 @@ func send_server_request(body):
 	#requesst queue status 0:queue 1:waiting result
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
-		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,Data.SSL_USE,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
 		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
 func check_request_queue():
 	if(len(request_queue)>0 && request_queue[0][1] == 0): #first element in queue status
 		#send requesst
-		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,false,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
+		$HTTPRequest.request(Data.BACKGROUND_WEB,headers,Data.SSL_USE,HTTPClient.METHOD_POST,to_json(request_queue[0][0]))
 		Data.debug_msg(2,'sending : '+str(request_queue[0]))
 		request_queue[0][1] = 1
 
