@@ -83,20 +83,23 @@ position = Vector2( 222.166, -5.47452 )
 scale = Vector2( 0.584248, 0.584248 )
 texture = SubResource( 3 )
 
-[node name="switch_to_team" type="TextureButton" parent="."]
-margin_left = 211.907
-margin_top = 176.449
-margin_right = 224.907
-margin_bottom = 187.449
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="switch_to_team" type="TextureButton" parent="CanvasLayer"]
+margin_left = 298.094
+margin_top = 212.838
+margin_right = 311.094
+margin_bottom = 223.838
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="switch_to_person" type="TextureButton" parent="."]
-margin_left = 211.907
-margin_top = 159.449
-margin_right = 224.907
-margin_bottom = 170.449
+[node name="switch_to_person" type="TextureButton" parent="CanvasLayer"]
+margin_left = 297.187
+margin_top = 197.389
+margin_right = 312.187
+margin_bottom = 208.389
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -400,5 +403,5 @@ z_index = 5
 position = Vector2( -9.00931, 127.136 )
 z_index = 5
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="switch_to_team" to="." method="_on_switch_to_team_pressed"]
-[connection signal="pressed" from="switch_to_person" to="." method="_on_switch_to_person_pressed"]
+[connection signal="pressed" from="CanvasLayer/switch_to_team" to="." method="_on_switch_to_team_pressed"]
+[connection signal="pressed" from="CanvasLayer/switch_to_person" to="." method="_on_switch_to_person_pressed"]

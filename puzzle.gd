@@ -2,7 +2,7 @@
 extends Sprite
 
 onready var Data = get_node("/root/Global") #global.gd用來存放共用的變數
-onready var MenuButton = get_node("slect_window/MenuButton/PopupMenu")
+onready var MenuButton = get_node("slect_window/MenuButton/CanvasLayer/PopupMenu")
 #puzzle拼圖
 #未拼上的拼圖(預設int)
 #遊戲中的狀態紀錄
@@ -40,7 +40,7 @@ func _ready():
 	#選單視窗
 	$slect_window.visible=false
 	#設定拼圖選單位置
-	$slect_window/MenuButton/PopupMenu.rect_global_position = Vector2(240,135)
+	MenuButton.rect_global_position = $slect_window/MenuButton.rect_global_position+Vector2(32,-10)
 	
 
 func _status_set_up(): #狀態初始設定
@@ -305,7 +305,7 @@ func _on_slect_window_button_pressed():
 		yield(get_tree().create_timer(7), "timeout")#選單視窗開啟7秒後關閉
 		Data.slect_button_opened=false
 		$slect_window.visible=false
-		$slect_window/MenuButton/PopupMenu.visible=false
+		MenuButton.visible=false
 	else:
 		$slect_window.visible=false
 
@@ -328,9 +328,9 @@ func _on_activity_button_pressed():
 
 
 func _on_MenuButton_pressed():
-	$slect_window/MenuButton/PopupMenu.visible=true
+	MenuButton.visible=true
 	yield(get_tree().create_timer(7), "timeout")
-	$slect_window/MenuButton/PopupMenu.visible=false
+	MenuButton.visible=false
 
 
 func _on_PopupMenu_id_pressed(id):

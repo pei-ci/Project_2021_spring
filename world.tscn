@@ -70,6 +70,9 @@ margin_left = 337.0
 margin_top = 194.0
 margin_right = 365.0
 margin_bottom = 244.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="cgu_puzzles_map" parent="." instance=ExtResource( 11 )]
 visible = false
@@ -112,11 +115,11 @@ position = Vector2( -64.2977, 73.1846 )
 position = Vector2( 381.306, 190.959 )
 
 [node name="leader_board_group" type="Sprite" parent="."]
+z_index = 40
 
 [node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
 position = Vector2( 99.3388, 47.1438 )
 scale = Vector2( 0.921059, 0.921059 )
-z_index = 10
 
 [node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
 margin_left = 293.482
@@ -128,10 +131,10 @@ __meta__ = {
 }
 
 [node name="title_storehouse" type="Sprite" parent="."]
+z_index = 50
 
 [node name="title_storehouse" parent="title_storehouse" instance=ExtResource( 1 )]
 position = Vector2( 74.3002, 19.6509 )
-z_index = 70
 
 [node name="title_storehouse2" type="TextureButton" parent="title_storehouse"]
 margin_left = 272.0
@@ -152,10 +155,10 @@ __meta__ = {
 }
 
 [node name="activity" type="Sprite" parent="."]
+z_index = 160
 
 [node name="activity" parent="activity" instance=ExtResource( 3 )]
 position = Vector2( 69.8457, 19.0488 )
-z_index = 160
 
 [node name="activity_button" type="TextureButton" parent="activity"]
 margin_left = 196.0
@@ -168,7 +171,7 @@ __meta__ = {
 
 [node name="team" parent="." instance=ExtResource( 5 )]
 position = Vector2( 80.5853, 22.029 )
-z_index = 60
+z_index = 100
 
 [node name="HTTPRequest2" type="HTTPRequest" parent="team"]
 
