@@ -22,7 +22,7 @@ func _set_up():
 #	Data.emit_refresh()
 
 
-func _on_path1_pressed():
+func _on_path3_pressed():
 	self.visible=true
 	
 func _on_close_pressed():

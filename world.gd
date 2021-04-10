@@ -4,6 +4,7 @@ onready var Data = get_node("/root/Global") #global.gd用來存放共用的變�
 
 
 var have_team = false
+var click_function_button_status=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +22,8 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	# Because following data have not request to server
 	#	the following command will set data to default value in Global
 	# All data will update when each request sucess
+	click_function_button_status=true
+	
 	refresh_information_information()	
 	refresh_unused_puzzle_information()	
 	refresh_emergency_information()
@@ -81,6 +84,8 @@ func refresh_leaderboard_information():
 	$leader_board_group/leader_board/team_text/eight.text=Data.top_ten_team[7]["teamname"]
 	$leader_board_group/leader_board/team_text/night.text=Data.top_ten_team[8]["teamname"]
 	$leader_board_group/leader_board/team_text/ten.text=Data.top_ten_team[9]["teamname"]
+	
+	
 
 func refresh_activity_information():
 	#活動頁面
@@ -106,6 +111,10 @@ func have_team():
 		return false
 
 func _on_team_button_pressed():
+	var world = get_node("/root/world")
+	if world.wheather_can_click_function_button()==false:
+		return
+	world.set_click_function_button_status(false)
 	$team.visible=true
 	refresh_team_scene_status()
 
@@ -453,15 +462,32 @@ func _refresh_map_information(): #使用此函式可以設定好所有狀態 可
 	$special_puzzle3._set_up()
 
 func _on_puzzle_map_button_pressed():
+	var world = get_node("/root/world")
+	if world.wheather_can_click_function_button()==false:
+		return
+	world.set_click_function_button_status(false)	
 	$puzzles_map.visible=true
 
 
 func _on_cug_puzzles_map_button_pressed():
+	var world = get_node("/root/world")
+	if world.wheather_can_click_function_button()==false:
+		return
+	world.set_click_function_button_status(false)	
 	$cgu_puzzles_map.visible=true
 
 
 func _on_leader_board_button_pressed():
+	var world = get_node("/root/world")
+	if world.wheather_can_click_function_button()==false:
+		return
+	world.set_click_function_button_status(false)
 	send_rank_request('person')
 	send_rank_request('team')
 	$leader_board_group/leader_board.visible=true
-	pass # Replace with function body.
+	
+
+func wheather_can_click_function_button():
+	return click_function_button_status
+func set_click_function_button_status(bool_value):
+	click_function_button_status=bool_value

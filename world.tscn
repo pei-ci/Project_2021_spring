@@ -61,7 +61,6 @@ scale = Vector2( 0.520978, 0.520589 )
 texture = SubResource( 1 )
 
 [node name="puzzles_map" parent="." instance=ExtResource( 10 )]
-visible = false
 position = Vector2( 233.838, 128.492 )
 z_index = 150
 
@@ -75,15 +74,23 @@ __meta__ = {
 }
 
 [node name="cgu_puzzles_map" parent="." instance=ExtResource( 11 )]
-visible = false
 position = Vector2( 234.379, 131.224 )
 z_index = 130
 
 [node name="cug_puzzles_map_button" type="TextureButton" parent="."]
 margin_left = 269.0
-margin_top = 189.0
+margin_top = 192.0
 margin_right = 321.0
-margin_bottom = 217.0
+margin_bottom = 221.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cug_puzzles_map_button2" type="TextureButton" parent="."]
+margin_left = 300.0
+margin_top = 210.0
+margin_right = 336.0
+margin_bottom = 249.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -118,14 +125,14 @@ position = Vector2( 381.306, 190.959 )
 z_index = 40
 
 [node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
-position = Vector2( 99.3388, 47.1438 )
+position = Vector2( 100.528, 41.7924 )
 scale = Vector2( 0.921059, 0.921059 )
 
 [node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
-margin_left = 293.482
-margin_top = 162.664
-margin_right = 320.482
-margin_bottom = 211.664
+margin_left = 300.0
+margin_top = 160.0
+margin_right = 321.0
+margin_bottom = 195.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,7 +162,7 @@ __meta__ = {
 }
 
 [node name="activity" type="Sprite" parent="."]
-z_index = 160
+z_index = 200
 
 [node name="activity" parent="activity" instance=ExtResource( 3 )]
 position = Vector2( 69.8457, 19.0488 )
@@ -199,6 +206,7 @@ __meta__ = {
 }
 
 [node name="special_puzzle1" type="Sprite" parent="."]
+visible = false
 position = Vector2( 317.775, 144.622 )
 scale = Vector2( 0.195525, 0.195525 )
 texture = SubResource( 4 )
@@ -264,6 +272,7 @@ __meta__ = {
 }
 
 [node name="special_puzzle2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 163.891, 211.636 )
 scale = Vector2( 0.195525, 0.195525 )
 texture = SubResource( 4 )
@@ -328,6 +337,7 @@ __meta__ = {
 }
 
 [node name="special_puzzle3" type="Sprite" parent="."]
+visible = false
 position = Vector2( 360.345, 227.969 )
 scale = Vector2( 0.192948, 0.192948 )
 texture = SubResource( 4 )
@@ -379,6 +389,7 @@ __meta__ = {
 }
 [connection signal="pressed" from="puzzle_map_button" to="." method="_on_puzzle_map_button_pressed"]
 [connection signal="pressed" from="cug_puzzles_map_button" to="." method="_on_cug_puzzles_map_button_pressed"]
+[connection signal="pressed" from="cug_puzzles_map_button2" to="." method="_on_cug_puzzles_map_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_pressed"]

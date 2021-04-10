@@ -9,9 +9,11 @@ func _ready():
 
 #關閉
 func _on_close_pressed():
+	var world = get_node("/root/world")
+	world.set_click_function_button_status(true)
 	self.visible=false
 	_set_block_status("person")#頁面預設狀態是個人 因此要設定回個人true
-	
+
 #切換到團體
 func _on_switch_to_team_pressed():
 	$person_text.visible=false

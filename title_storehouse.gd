@@ -1,5 +1,6 @@
 extends Sprite
 onready var Data = get_node("/root/Global")
+onready var world = get_node("/root/world")
 func _ready():
 	self.visible=false
 	$page_01.visible=true
@@ -7,9 +8,14 @@ func _ready():
 
 func _on_close_pressed():
 	self.visible=false
+	world.set_click_function_button_status(true)
 
 func _on_title_storehouse_pressed():
+	
+	if world.wheather_can_click_function_button()==false:
+		return
 	self.visible=true
+	world.set_click_function_button_status(false)
 	Data.emit_refresh()
 
 

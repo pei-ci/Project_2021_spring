@@ -11,6 +11,8 @@ func _ready():
 
 signal timer_continue #當視窗關閉會發出訊號 #此訊號會用在 emergency突發事件那邊
 func _on_close_pressed():
+	var world = get_node("/root/world")
+	world.set_click_function_button_status(true)	
 	$emergency_background.visible = false
 	$close.visible = false
 	$close_picture.visible = false

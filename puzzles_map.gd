@@ -22,5 +22,7 @@ func _refresh_map():
 
 
 func _on_close_pressed():
+	var world = get_node("/root/world")
+	world.set_click_function_button_status(true)
 	self.visible=false
 	Data.add_button_click_time(1)

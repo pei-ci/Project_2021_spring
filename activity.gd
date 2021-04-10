@@ -67,8 +67,14 @@ func _on_next_page_button_pressed():
 
 
 func _on_close_pressed():
+	var world = get_node("/root/world")
+	world.set_click_function_button_status(true)
 	self.visible=false
 
 
 func _on_activity_button_pressed():
+	var world = get_node("/root/world")
+	if world.wheather_can_click_function_button()==false:
+		return
+	world.set_click_function_button_status(false)
 	Data.emit_activity_window_open()

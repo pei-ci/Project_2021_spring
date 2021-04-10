@@ -43,6 +43,9 @@ func _on_Timer_timeout():#決定是否出現突發事件
 
 func _on_Button_emergency_pressed(): #點開隨機事件
 	world = get_node("/root/world")
+	if world.wheather_can_click_function_button()==false:
+		return
+	world.set_click_function_button_status(false)	
 	#計時暫停
 	#$Timer.paused=true
 	#跳出訊息畫面

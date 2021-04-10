@@ -36,6 +36,8 @@ func send_team_member_request():
 	
 
 func _on_close_pressed():
+	var world = get_node("/root/world")
+	world.set_click_function_button_status(true)
 	self.visible=false
 
 func _on_generate_Button_pressed():
