@@ -52,25 +52,25 @@ load_path = "res://.import/特殊拼圖3-dark.png-cfb7d998504c17f8eb174a40ba4ec9
 [sub_resource type="StreamTexture" id=12]
 load_path = "res://.import/特殊拼圖3.png-0db49d1fde8671f4a69faaebe14cd852.stex"
 
-[sub_resource type="StreamTexture" id=19]
+[sub_resource type="StreamTexture" id=13]
 load_path = "res://.import/蛋殼(零成長).png-c23030573fc5314e0ed6df8b966156f1.stex"
 
-[sub_resource type="StreamTexture" id=13]
+[sub_resource type="StreamTexture" id=14]
 load_path = "res://.import/關懷付出(成長).png-09501146e7b421941ba2f4d119aed0a9.stex"
 
-[sub_resource type="StreamTexture" id=14]
+[sub_resource type="StreamTexture" id=15]
 load_path = "res://.import/團隊合作(成長).png-670769907f93703e0fa2b25676a51362.stex"
 
-[sub_resource type="StreamTexture" id=15]
+[sub_resource type="StreamTexture" id=16]
 load_path = "res://.import/人文藝術(成長).png-95d9b9f9fab06ac4aaba66dc93984576.stex"
 
-[sub_resource type="StreamTexture" id=16]
+[sub_resource type="StreamTexture" id=17]
 load_path = "res://.import/自我省思(成長).png-1b18100ff8b92ce198c86b018123acf6.stex"
 
-[sub_resource type="StreamTexture" id=17]
+[sub_resource type="StreamTexture" id=18]
 load_path = "res://.import/守分自律(成長).png-5dc2264ec199eb191834c18a358f7e59.stex"
 
-[sub_resource type="StreamTexture" id=18]
+[sub_resource type="StreamTexture" id=19]
 load_path = "res://.import/創新進取(成長).png-f08fb9aa2dbeba3a7869e4655fb3b721.stex"
 
 [node name="world" type="Node2D"]
@@ -412,37 +412,37 @@ __meta__ = {
 [node name="icon0" type="Sprite" parent="."]
 position = Vector2( 33.9075, 37.9281 )
 scale = Vector2( 0.101274, 0.101635 )
-texture = SubResource( 19 )
+texture = SubResource( 13 )
 
 [node name="icon1" type="Sprite" parent="."]
 position = Vector2( 33.4845, 38.432 )
 scale = Vector2( 0.0952162, 0.0952162 )
-texture = SubResource( 13 )
+texture = SubResource( 14 )
 
 [node name="icon2" type="Sprite" parent="."]
 position = Vector2( 33.2036, 38.8711 )
 scale = Vector2( 0.0953494, 0.0953494 )
-texture = SubResource( 14 )
+texture = SubResource( 15 )
 
 [node name="icon3" type="Sprite" parent="."]
 position = Vector2( 33.6354, 38.7201 )
 scale = Vector2( 0.0963843, 0.0963843 )
-texture = SubResource( 15 )
+texture = SubResource( 16 )
 
 [node name="icon4" type="Sprite" parent="."]
 position = Vector2( 33.7926, 38.7499 )
 scale = Vector2( 0.0970528, 0.0970291 )
-texture = SubResource( 16 )
+texture = SubResource( 17 )
 
 [node name="icon5" type="Sprite" parent="."]
 position = Vector2( 33.5538, 38.4914 )
 scale = Vector2( 0.0969869, 0.0969869 )
-texture = SubResource( 17 )
+texture = SubResource( 18 )
 
 [node name="icon6" type="Sprite" parent="."]
 position = Vector2( 34.188, 38.2916 )
 scale = Vector2( 0.0956561, 0.095656 )
-texture = SubResource( 18 )
+texture = SubResource( 19 )
 [connection signal="pressed" from="puzzle_map_button" to="." method="_on_puzzle_map_button_pressed"]
 [connection signal="pressed" from="cug_puzzles_map_button" to="." method="_on_cug_puzzles_map_button_pressed"]
 [connection signal="pressed" from="cug_puzzles_map_button2" to="." method="_on_cug_puzzles_map_button_pressed"]

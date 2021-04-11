@@ -288,6 +288,7 @@ func _on_item_pressed(id):
 			Data._full_level_puzzle_num_add(1)
 	Data.status_user[position_user]=status_user
 	Data.emit_refresh()
+	
 func get_status():
 	return status_user
 func get_position():

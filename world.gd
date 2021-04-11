@@ -9,7 +9,7 @@ var click_function_button_status=true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_up()	
-	Data.connect("refresh",self,"_refresh_information")
+	Data.connect("refresh",self,"refresh_information")
 	Data.connect("activity_window_open",self,"_open_activity_window")
 	
 	#初始化
@@ -17,7 +17,6 @@ func _ready():
 	send_map_request()
 	send_activity_request()
 	send_emergency_info_request()
-	_set_icon()
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	# Because following data have not request to server
@@ -36,6 +35,15 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$special_puzzle2.visible=false
 	$special_puzzle3.visible=false
 
+func refresh_information():
+	refresh_information_information()
+	refresh_unused_puzzle_information()
+	refresh_emergency_information()
+	refresh_leaderboard_information()
+	refresh_activity_information()
+	refresh_team_information()
+	refresh_icon()
+	
 func refresh_information_information():
 	#資訊欄
 	$information.subject_user = Data.subject_user
@@ -457,7 +465,7 @@ func _refresh_map_information(): #使用此函式可以設定好所有狀態 可
 	Data._refresh_data() #更新global內需要設定的資料
 	#_set_up()
 	$puzzles_map._refresh_map()
-	$cgu_puzzles_map._refresh_map()	
+	$cgu_puzzles_map._refresh_map()
 	$special_puzzle1._set_up()
 	$special_puzzle2._set_up()
 	$special_puzzle3._set_up()
@@ -468,7 +476,6 @@ func _on_puzzle_map_button_pressed():
 		return
 	world.set_click_function_button_status(false)	
 	$puzzles_map.visible=true
-	_set_icon()
 
 
 func _on_cug_puzzles_map_button_pressed():
@@ -477,7 +484,6 @@ func _on_cug_puzzles_map_button_pressed():
 		return
 	world.set_click_function_button_status(false)	
 	$cgu_puzzles_map.visible=true
-	_set_icon()
 
 
 func _on_leader_board_button_pressed():
@@ -495,7 +501,7 @@ func wheather_can_click_function_button():
 func set_click_function_button_status(bool_value):
 	click_function_button_status=bool_value
 
-func _set_icon():
+func refresh_icon():
 	$icon0.visible=false
 	$icon1.visible=false
 	$icon2.visible=false
