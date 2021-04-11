@@ -134,11 +134,12 @@ func _answer_reply(option):
 	return true
 
 func _give_reward(option):
+	var world = get_node("/root/world")
 	Data._emergency_solve_time(1) #突發事件完成數+1
 	var puzzle_type
 	#選擇任何選項都匯給的基本獎勵
 	for piece in range(reward):  #reward是基本的拼圖獎勵片數 每次loop會random一次決定這一片是哪一種拼圖 並給予拼圖
-		puzzle_type=_random(1,6)
+		puzzle_type=_random(1,6)		
 		world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
 	
 	#以下是答對問題的特殊獎勵
