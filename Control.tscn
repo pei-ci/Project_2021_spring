@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
@@ -8,9 +8,24 @@
 [ext_resource path="res://介面/登入頁面.png" type="Texture" id=6]
 [ext_resource path="res://底圖/登入背景二版.png" type="Texture" id=7]
 [ext_resource path="res://底圖/登入背景一版.png" type="Texture" id=8]
+[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=9]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=3]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 2 )
+Label/styles/normal = null
 
 [node name="login" type="Control"]
 anchor_right = 1.0
@@ -84,6 +99,18 @@ position = Vector2( 296.642, 203.517 )
 scale = Vector2( 2.36605, 1 )
 texture = ExtResource( 4 )
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 279.094
+margin_top = 189.892
+margin_right = 335.094
+margin_bottom = 213.892
+rect_scale = Vector2( 1.051, 1 )
+theme = SubResource( 3 )
+text = "登入"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NewLoginButton" type="TextureButton" parent="."]
 margin_left = 269.82
 margin_top = 190.927
@@ -97,6 +124,18 @@ __meta__ = {
 position = Vector2( 188.824, 202.606 )
 scale = Vector2( 2.36605, 1 )
 texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 172.0
+margin_top = 189.0
+margin_right = 205.0
+margin_bottom = 213.0
+rect_scale = Vector2( 1.051, 1 )
+theme = SubResource( 3 )
+text = "註冊"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NewRegisterButton" type="TextureButton" parent="."]
 margin_left = 161.354
