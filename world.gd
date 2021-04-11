@@ -107,6 +107,30 @@ func refresh_team_information():
 func refresh_puzzle_store_information():
 	$puzzle_storehouse._refresh_info()
 
+func refresh_icon():
+	$icon0.visible=false
+	$icon1.visible=false
+	$icon2.visible=false
+	$icon3.visible=false
+	$icon4.visible=false
+	$icon5.visible=false
+	$icon6.visible=false
+	var icon_type=Data._get_puzzle_type_with_biggest_number()
+	if icon_type==0:
+		$icon0.visible=true
+	if icon_type==1:
+		$icon1.visible=true
+	if icon_type==2:
+		$icon2.visible=true
+	if icon_type==3:
+		$icon3.visible=true
+	if icon_type==4:
+		$icon4.visible=true
+	if icon_type==5:
+		$icon6.visible=true
+	if icon_type==6:
+		$icon6.visible=true
+
 func _open_activity_window():
 	$activity/activity.visible=true
 	$activity/activity._set_up(Data.activity_list)#獲取目前global內的資料
@@ -489,29 +513,7 @@ func _on_leader_board_button_pressed():
 	
 
 
-func refresh_icon():
-	$icon0.visible=false
-	$icon1.visible=false
-	$icon2.visible=false
-	$icon3.visible=false
-	$icon4.visible=false
-	$icon5.visible=false
-	$icon6.visible=false
-	var icon_type=Data._get_puzzle_type_with_biggest_number()
-	if icon_type==0:
-		$icon0.visible=true
-	if icon_type==1:
-		$icon1.visible=true
-	if icon_type==2:
-		$icon2.visible=true
-	if icon_type==3:
-		$icon3.visible=true
-	if icon_type==4:
-		$icon4.visible=true
-	if icon_type==5:
-		$icon6.visible=true
-	if icon_type==6:
-		$icon6.visible=true
+
 
 func set_buttons_visibility(bool_value):
 	$puzzle_map_button.visible=bool_value

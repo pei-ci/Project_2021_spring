@@ -10,7 +10,6 @@ onready var Data = get_node("/root/Global") #global.gd用來存放共用的變�
 func _ready():
 	$PopupMenu.visible=false
 	$PopupMenu/pressing_panel.visible=false
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

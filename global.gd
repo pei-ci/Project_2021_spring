@@ -176,13 +176,16 @@ func _emergency_correct_time(val):
 var have_type={"puddle":0,"wilderness":0,"desert":0,"sea":0,"town":0,"volcano":0} #紀錄是否已獲得各類型拼圖 對應_get_num_of_type()
 
 var title_status={"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,
-					"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0}
+					"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,
+					"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0}
 					
-var title_list={"0":"個人賽總冠軍","1":"個人賽總亞軍","2":"個人賽總季軍","3":"個人賽總排名前三十","4":"團體賽總冠軍","5":"團體賽總亞軍",
-				"6":"團體賽總季軍","7":"團體賽總排名前三十","8":"收藏界菜鳥","9":"收藏界老鳥",
+var title_list={"0":"個人賽週冠軍","1":"個人賽週亞軍","2":"個人賽週季軍","3":"個人賽週排名前五十","4":"團體賽週冠軍","5":"團體賽週亞軍",
+				"6":"團體賽週季軍","7":"團體賽週排名前十","8":"收藏界菜鳥","9":"收藏界老鳥",
 				"10":"收藏界專家","11":"初級地形已經不能滿足我了，我要升級","12":"只升級一次怎麼夠，我當然還要更多",
 				"13":"瘋狂升級中","14":"初級地主","15":"高級地主","16":"究級地主","17":"事件處理者…的學徒",
-				"18":"事件處理者","19":"事件收割者","20":"神奇腦迴路","21":"好鄰居","22":"社交達人","23":"敦親睦鄰"}
+				"18":"事件處理者","19":"事件收割者","20":"神奇腦迴路","21":"好鄰居","22":"社交達人","23":"敦親睦鄰",
+				"24":"個人賽總冠軍","25":"個人賽總亞軍","26":"個人賽總季軍","27":"個人賽總排名前五十","28":"團體賽總冠軍","29":"團體賽總亞軍",
+				"30":"團體賽總季軍","31":"團體賽總排名前十"}#稱號 24-31，在遊戲結束後，由外部設定
 
 func _set_title_status(title_num):
 	if title_status[title_num]==0:
@@ -192,25 +195,26 @@ func _set_title_status(title_num):
 		title_user=title_list[title_num]
 		title_status[title_num]=1
 
+var personal_rank = -1
+var team_rank = -1
 func _check_title_status():
-	"""
-	if is_first_person() == true:
+	
+	if personal_rank == 1:
 		_set_title_status("0")
-	if is_second_person() == true:
+	if personal_rank == 2:
 		_set_title_status("1")
-	if is_third_person() == true:
+	if personal_rank == 3:
 		_set_title_status("2")
-	if is_top_thirty_person() == true:
+	if personal_rank <= 50 and personal_rank > 0:
 		_set_title_status("3")
-	if is_first_team() == true:
+	if team_rank == 1:
 		_set_title_status("4")
-	if is_second_team() == true:
+	if team_rank == 2:
 		_set_title_status("5")
-	if is_third_team == true:
+	if team_rank == 3:
 		_set_title_status("6")
-	if is_top_thirty == true:
+	if team_rank <= 10 and team_rank > 0:
 		_set_title_status("7")
-	"""
 	if _get_num_of_type()>=1:
 		_set_title_status("8")
 	if _get_num_of_type()>=3:
