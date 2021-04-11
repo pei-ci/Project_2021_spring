@@ -11,11 +11,8 @@ func _on_close_pressed():
 	world.set_click_function_button_status(true)
 
 func _on_title_storehouse_pressed():
-	
-	if world.wheather_can_click_function_button()==false:
-		return
 	self.visible=true
-	world.set_click_function_button_status(false)
+	world.set_buttons_visibility(false)
 	Data.emit_refresh()
 
 

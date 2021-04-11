@@ -22,10 +22,14 @@ func _set_up():
 
 
 func _on_path1_pressed():
+	var world = get_node("/root/world")
+	world.set_buttons_visibility(false)
 	self.visible=true
 	
 
 func _on_close_pressed():
+	var world = get_node("/root/world")
+	world.set_buttons_visibility(true)
 	self.visible=false	
 
 func _on_TextureButton_pressed():

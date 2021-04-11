@@ -4,7 +4,6 @@ onready var Data = get_node("/root/Global") #global.gd用來存放共用的變�
 
 
 var have_team = false
-var click_function_button_status=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +21,6 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	# Because following data have not request to server
 	#	the following command will set data to default value in Global
 	# All data will update when each request sucess
-	click_function_button_status=true
 	
 	refresh_information_information()	
 	refresh_unused_puzzle_information()	
@@ -43,6 +41,7 @@ func refresh_information():
 	refresh_activity_information()
 	refresh_team_information()
 	refresh_icon()
+	refresh_puzzle_store_information()
 	
 func refresh_information_information():
 	#資訊欄
@@ -105,6 +104,9 @@ func refresh_team_information():
 	$team._set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)
 	#隊名,組隊代碼,隊伍拼圖總數,成員資料list
 
+func refresh_puzzle_store_information():
+	$puzzle_storehouse._refresh_info()
+
 func _open_activity_window():
 	$activity/activity.visible=true
 	$activity/activity._set_up(Data.activity_list)#獲取目前global內的資料
@@ -121,9 +123,7 @@ func have_team():
 
 func _on_team_button_pressed():
 	var world = get_node("/root/world")
-	if world.wheather_can_click_function_button()==false:
-		return
-	world.set_click_function_button_status(false)
+	world.set_buttons_visibility(true)
 	$team.visible=true
 	refresh_team_scene_status()
 
@@ -471,35 +471,23 @@ func _refresh_map_information(): #使用此函式可以設定好所有狀態 可
 	$special_puzzle3._set_up()
 
 func _on_puzzle_map_button_pressed():
-	var world = get_node("/root/world")
-	if world.wheather_can_click_function_button()==false:
-		return
-	world.set_click_function_button_status(false)	
+	set_buttons_visibility(false)
 	$puzzles_map.visible=true
 
 
 func _on_cug_puzzles_map_button_pressed():
-	var world = get_node("/root/world")
-	if world.wheather_can_click_function_button()==false:
-		return
-	world.set_click_function_button_status(false)	
+	set_buttons_visibility(false)
 	$cgu_puzzles_map.visible=true
+	Data.add_button_click_time(1)
 
 
 func _on_leader_board_button_pressed():
-	var world = get_node("/root/world")
-	if world.wheather_can_click_function_button()==false:
-		return
-	world.set_click_function_button_status(false)
+	set_buttons_visibility(false)
 	send_rank_request('person')
 	send_rank_request('team')
 	$leader_board_group/leader_board.visible=true
 	
 
-func wheather_can_click_function_button():
-	return click_function_button_status
-func set_click_function_button_status(bool_value):
-	click_function_button_status=bool_value
 
 func refresh_icon():
 	$icon0.visible=false
@@ -524,3 +512,19 @@ func refresh_icon():
 		$icon6.visible=true
 	if icon_type==6:
 		$icon6.visible=true
+
+func set_buttons_visibility(bool_value):
+	$puzzle_map_button.visible=bool_value
+	$cug_puzzles_map_button.visible=bool_value
+	$cug_puzzles_map_button2.visible=bool_value
+	$leader_board_group/leader_board_button.visible=bool_value
+	$title_storehouse/title_storehouse2.visible=bool_value
+	$title_storehouse/title_storehouse3.visible=bool_value
+	$activity/activity_button.visible=bool_value
+	$puzzle_storehouse_button.visible=bool_value
+	$team_button.visible=bool_value
+	$path1/path1.visible=bool_value
+	$path2/path2.visible=bool_value
+	$path3/path3.visible=bool_value
+	
+	
