@@ -55,8 +55,7 @@ var status_user={"AA01":"00","AA02":"00","AA03":"00","AA04":"00","AA05":"00","AA
 				 "CB01":"00","CB02":"00","CB03":"00","CB04":"00","CB05":"00","CB06":"00","CB07":"00",
 				 "CB08":"00","CB09":"00","CB10":"00","CB11":"00","CB12":"00",
 				 "CC01":"00","CC02":"00","CC03":"00","CC04":"00","CC05":"00","CC06":"00",
-				 "CC07":"00","CC08":"00","CC09":"00","CC10":"00","CC11":"00",
-				 "EA01":"00","FA01":"00","GA01":"00"}
+				 "CC07":"00","CC08":"00","CC09":"00","CC10":"00","CC11":"00"}
 
 
 var block_type={"puddle":"1","wilderness":"2","desert":"3","sea":"4"
@@ -423,4 +422,26 @@ func _set_special_puzzle_in_status_user(puzzle_num,status_value,set): #status_va
 	
 func _get_special_puzzle_status(puzzle_num):
 	return special_puzzle_status.substr((puzzle_num-1)*2,2)
+	
+func _get_puzzle_type_with_biggest_number():
+	var number_list=_get_number_list_of_finished_puzzle_each_type()
+	var max_type=get_max_index(number_list)
+	return max_type
+		
+func _get_number_list_of_finished_puzzle_each_type():
+	var type_number=[0,0,0,0,0,0,0]
+	var number
+	for value in status_user.values():
+		number=int(value[1])
+		type_number[int(value[0])]+=number
+	return type_number
+	
+func get_max_index(list):
+	var maximum=0
+	var index=0
+	for i in range(len(list)):
+		if list[i]>maximum:
+			maximum=list[i]
+			index=i
+	return index
 	

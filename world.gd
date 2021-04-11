@@ -17,6 +17,7 @@ func _ready():
 	send_map_request()
 	send_activity_request()
 	send_emergency_info_request()
+	_set_icon()
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	# Because following data have not request to server
@@ -467,6 +468,7 @@ func _on_puzzle_map_button_pressed():
 		return
 	world.set_click_function_button_status(false)	
 	$puzzles_map.visible=true
+	_set_icon()
 
 
 func _on_cug_puzzles_map_button_pressed():
@@ -475,6 +477,7 @@ func _on_cug_puzzles_map_button_pressed():
 		return
 	world.set_click_function_button_status(false)	
 	$cgu_puzzles_map.visible=true
+	_set_icon()
 
 
 func _on_leader_board_button_pressed():
@@ -491,3 +494,27 @@ func wheather_can_click_function_button():
 	return click_function_button_status
 func set_click_function_button_status(bool_value):
 	click_function_button_status=bool_value
+
+func _set_icon():
+	$icon0.visible=false
+	$icon1.visible=false
+	$icon2.visible=false
+	$icon3.visible=false
+	$icon4.visible=false
+	$icon5.visible=false
+	$icon6.visible=false
+	var icon_type=Data._get_puzzle_type_with_biggest_number()
+	if icon_type==0:
+		$icon0.visible=true
+	if icon_type==1:
+		$icon1.visible=true
+	if icon_type==2:
+		$icon2.visible=true
+	if icon_type==3:
+		$icon3.visible=true
+	if icon_type==4:
+		$icon4.visible=true
+	if icon_type==5:
+		$icon6.visible=true
+	if icon_type==6:
+		$icon6.visible=true
