@@ -308,6 +308,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else:
 				Data.title_user = '未設定'
 			Data.subject_user = data['department']
+			Data.personal_rank = int(data['rank'])
 			
 			#send_map_request() #send team request
 			if(data['teamid'] == null):
@@ -324,6 +325,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		if(data['sucess'] == 'true'):
 			Data.team_user = data['name']
 			Data.team_id = data['teamid']
+			Data.team_point = int(data['point'])
+			Data.team_rank = int(data['rank'])
+			
 			for i in range(10):
 				Data.team_member_list[i]['學號'] = data['mem'+str(i+1)]
 		else:

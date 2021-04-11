@@ -5,13 +5,13 @@ extends Node
 # 0=No debug data,1=important debug data ,2=all receive debug data
 var DEBUG_MODE = 2
 
-var BACKGROUND_WEB = 'https://herpg.cgu.edu.tw/cgu_games/login.php'
-#var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
+#var BACKGROUND_WEB = 'https://herpg.cgu.edu.tw/cgu_games/login.php'
+var BACKGROUND_WEB = 'http://localhost/cgu_games/login.php'
 
 # It's Strongly Recommand to Open SSL cause the connection will be secure
 # but if connect to localhost, it should be set to false
-var SSL_USE = true
-#var SSL_USE = false
+#var SSL_USE = true
+var SSL_USE = false
 
 var EMERGENCY_AMOUNT = 30
 var TITLE_AMOUNT = 32
@@ -197,6 +197,7 @@ func _set_title_status(title_num):
 
 var personal_rank = -1
 var team_rank = -1
+var team_point = -1
 func _check_title_status():
 	
 	if personal_rank == 1:
