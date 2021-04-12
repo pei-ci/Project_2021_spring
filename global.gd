@@ -456,7 +456,7 @@ func emit_activity_window_open():
 func get_activity_info_list():
 	var info_list=[]
 	for activity in activity_list:
-		info_list.append(get_activity_name(activity))
+		info_list.append(get_activity_name(activity["代號"]))
 	return info_list
 func get_activity_name(code_name):
 	return activity_name[code_name]
