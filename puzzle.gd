@@ -38,7 +38,7 @@ func _ready():
 	MenuButton.connect("id_pressed",self,"_on_item_pressed")
 	#MenuButton.get_popup().connect("id_pressed",self,"_on_item_pressed")
 	#選單視窗
-	$slect_window.visible=false
+	$slect_window.visible=true
 	#設定拼圖選單位置
 	MenuButton.rect_global_position = $slect_window/MenuButton.rect_global_position+Vector2(32,-10)
 	

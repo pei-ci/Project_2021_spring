@@ -72,12 +72,14 @@ script = ExtResource( 1 )
 z_index = 5
 
 [node name="background" type="Sprite" parent="slect_window"]
+visible = false
 position = Vector2( 34.1022, -0.629044 )
 scale = Vector2( 0.0684314, 0.0791007 )
 z_index = -1
 texture = SubResource( 1 )
 
 [node name="activity_button" type="TextureButton" parent="slect_window"]
+visible = false
 margin_left = 40.0
 margin_top = -9.0
 margin_right = 49.0
@@ -87,21 +89,23 @@ __meta__ = {
 }
 
 [node name="activity_button_picture" type="Sprite" parent="slect_window"]
+visible = false
 position = Vector2( 44.8055, -5.49054 )
 scale = Vector2( 0.22425, 0.244741 )
 texture = SubResource( 2 )
 
 [node name="MenuButton_picture" type="Sprite" parent="slect_window"]
+visible = false
 position = Vector2( 44.7081, 6.57249 )
 scale = Vector2( 0.225652, 0.241474 )
 z_index = 10
 texture = SubResource( 3 )
 
 [node name="MenuButton" type="TextureButton" parent="slect_window"]
-margin_left = 18.0
-margin_top = 2.0
-margin_right = 50.0
-margin_bottom = 13.0
+margin_left = -6.0
+margin_top = -12.0
+margin_right = 11.0
+margin_bottom = 12.0
 rect_pivot_offset = Vector2( 100, 100 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -120,6 +124,7 @@ __meta__ = {
 }
 
 [node name="slect_window_button" type="TextureButton" parent="."]
+visible = false
 margin_left = -5.0
 margin_top = -12.0
 margin_right = 9.0
