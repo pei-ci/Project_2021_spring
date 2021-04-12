@@ -11,9 +11,6 @@ var finished_puzzle #這裡需要做資料的獲取
 
 var event_data #隨機事件的資料
 
-var reward=3 #選項獎勵拼圖數
-var special_reward=1 #答對會額外給的拼圖數
-
 var world
 
 # Called when the node enters the scene tree for the first time.
@@ -137,20 +134,20 @@ func _give_reward(option):
 	var world = get_node("/root/world")
 	Data._emergency_solve_time(1) #突發事件完成數+1
 	var puzzle_type
-	#選擇任何選項都匯給的基本獎勵
+	var reward=event_data["reward"+option]/(Data._get_event_status(event_data["number"])+1)#在第一輪會/1 第二輪會/2
+	#給選項對應的獎勵拼圖
 	for piece in range(reward):  #reward是基本的拼圖獎勵片數 每次loop會random一次決定這一片是哪一種拼圖 並給予拼圖
-		puzzle_type=_random(1,6)		
+		puzzle_type=_random(1,6)
 		world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
 	
-	#以下是答對問題的特殊獎勵
-	#這邊是如果選項又選到對的答案 又會再額外給予拼圖
+	#答對問題
 	if event_data["answer"]==option: #選的答案和答案相符
 		Data._emergency_correct_time(1) #突發事件答對數+1
-		
-		for piece in range(special_reward):  #special_reward是答對的拼圖獎勵片數 每次loop會random決定這一片是哪一種拼圖 並給予拼圖
-			puzzle_type=_random(1,6)
-			world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
-			world.send_emergency_record_request(1,$text_window_emergency.get_event_id())
+		world.send_emergency_record_request(1,$text_window_emergency.get_event_id())
+		#for piece in range(special_reward):  #special_reward是答對的拼圖獎勵片數 每次loop會random決定這一片是哪一種拼圖 並給予拼圖
+		#	puzzle_type=_random(1,6)
+		#	world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
+		#	world.send_emergency_record_request(1,$text_window_emergency.get_event_id())
 	else:
 		world.send_emergency_request(puzzle_type,2,1,$text_window_emergency.get_event_id())
 		world.send_emergency_record_request(0,$text_window_emergency.get_event_id())
