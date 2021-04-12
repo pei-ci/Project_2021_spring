@@ -32,6 +32,7 @@ func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯�
 	$special_puzzle1.visible=false
 	$special_puzzle2.visible=false
 	$special_puzzle3.visible=false
+	$special_hint.visible=false
 
 func refresh_information():
 	refresh_information_information()
@@ -534,3 +535,8 @@ func set_buttons_visibility(bool_value):
 	$path3/path3.visible=bool_value
 	
 	
+func check_special_hint():
+	if Data._get_special_puzzle_status(1)=="10" and Data._get_special_puzzle_status(1)!="10":
+		$special_hint.visible=true
+	else:
+		$special_hint.visible=false

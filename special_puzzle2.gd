@@ -33,12 +33,15 @@ func _on_close_pressed():
 	self.visible=false	
 
 func _on_TextureButton_pressed():
+	var world = get_node("/root/world")
 	if Data._get_special_puzzle_status(PUZZLE_NUM)=="01":
 		Data._set_special_puzzle_in_status_user(PUZZLE_NUM,"10",1)
 		$special_puzzle.visible=true
 		$Label.text=""
+		world.check_special_hint()
 		yield(get_tree().create_timer(7), "timeout")
 		Data.emit_refresh()
+
 
 
 func _on_TextureButton_mouse_entered():
