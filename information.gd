@@ -37,7 +37,6 @@ func _set_title_line(): #如果資訊欄稱號超過八個字要換行
 			if index==8:
 				titleStr+="\n"
 		$title.text=titleStr
-		print($title.text)
 	
 
 func _on_button_pressed():

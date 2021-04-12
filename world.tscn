@@ -147,7 +147,7 @@ position = Vector2( 381.306, 190.959 )
 z_index = 40
 
 [node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
-position = Vector2( 100.528, 41.7924 )
+position = Vector2( 115.377, 47.6163 )
 scale = Vector2( 0.921059, 0.921059 )
 
 [node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
@@ -187,7 +187,7 @@ __meta__ = {
 z_index = 200
 
 [node name="activity" parent="activity" instance=ExtResource( 3 )]
-position = Vector2( 69.8457, 19.0488 )
+position = Vector2( 90.0305, 9.561 )
 
 [node name="activity_button" type="TextureButton" parent="activity"]
 margin_left = 196.0
@@ -199,6 +199,7 @@ __meta__ = {
 }
 
 [node name="team" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 80.5853, 22.029 )
 z_index = 100
 

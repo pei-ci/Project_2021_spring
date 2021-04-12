@@ -97,7 +97,7 @@ func refresh_leaderboard_information():
 
 func refresh_activity_information():
 	#活動頁面
-	$activity/activity._set_up(Data.activity_list)
+	$activity/activity._set_up(Data.get_activity_info_list())
 
 func refresh_team_information():
 	#組隊頁面(組隊+團隊資訊)
@@ -133,7 +133,7 @@ func refresh_icon():
 
 func _open_activity_window():
 	$activity/activity.visible=true
-	$activity/activity._set_up(Data.activity_list)#獲取目前global內的資料
+	$activity/activity._set_up(Data.get_activity_info_list())#獲取目前global內的資料
 	$activity/activity/page_01.visible=true
 	$activity/activity/page_02.visible=false
 	$activity/activity/page_03.visible=false

@@ -16,23 +16,22 @@ func _ready():
 	$page_04.visible=false
 	
 var page_map={"1":"page_01","2":"page_02","3":"page_03","4":"page_04"}
-func _set_up(activity_data):
-	$page_01.text="1"
-	$page_02.text="2"
-	$page_03.text="3"
-	$page_04.text="4"
+func _set_up(activity_info):
+	$page_01.text="此頁無活動紀錄(第一頁)"
+	$page_02.text="此頁無活動紀錄(第二頁)"
+	$page_03.text="此頁無活動紀錄(第三頁)"
+	$page_04.text="此頁無活動紀錄(第四頁)"
+	if activity_info!=[]:
+		$page_01.text=""
 	var current_page=1
-	activity_list=activity_data
-	for activity in activity_list:
+	for activity in activity_info:
 		if get_node(page_map[str(current_page)]).get_visible_line_count()>=7:
 			current_page= current_page +1
+			get_node(page_map[str(current_page)]).text=""
 			if current_page>4:
-				print("we need page 5")
 				break
 		#有需要跳過的內容的話 可以更改底下這個條件來使用
-		#if activity["活動名稱"]=="": 
-		#	continue
-		get_node(page_map[str(current_page)]).text+=activity["活動名稱"]+" ("+activity["時間"]+")\n"
+		get_node(page_map[str(current_page)]).text+=activity+"\n"
 		
 
 func _on_last_page_button_pressed():

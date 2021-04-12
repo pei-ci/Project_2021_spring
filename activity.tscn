@@ -29,9 +29,9 @@ texture = SubResource( 1 )
 
 [node name="page_01" type="Label" parent="."]
 margin_left = 88.0
-margin_top = 73.0
+margin_top = 72.0
 margin_right = 246.0
-margin_bottom = 180.0
+margin_bottom = 179.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,10 +39,10 @@ __meta__ = {
 
 [node name="page_02" type="Label" parent="."]
 visible = false
-margin_left = 86.0
-margin_top = 73.0
-margin_right = 249.0
-margin_bottom = 194.0
+margin_left = 87.5227
+margin_top = 72.0
+margin_right = 250.523
+margin_bottom = 193.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,10 +50,10 @@ __meta__ = {
 
 [node name="page_03" type="Label" parent="."]
 visible = false
-margin_left = 84.0
+margin_left = 88.0
 margin_top = 72.0
-margin_right = 246.0
-margin_bottom = 192.0
+margin_right = 250.0
+margin_bottom = 175.0
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,10 +61,10 @@ __meta__ = {
 
 [node name="page_04" type="Label" parent="."]
 visible = false
-margin_left = 83.7798
-margin_top = 71.0
-margin_right = 216.78
-margin_bottom = 195.0
+margin_left = 87.5638
+margin_top = 72.2614
+margin_right = 220.564
+margin_bottom = 196.261
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -109,10 +109,10 @@ texture = SubResource( 5 )
 flip_v = true
 
 [node name="next_page_button" type="TextureButton" parent="next_page"]
-margin_left = 226.418
-margin_top = 180.948
-margin_right = 236.418
-margin_bottom = 190.948
+margin_left = 222.42
+margin_top = 178.682
+margin_right = 241.42
+margin_bottom = 196.682
 __meta__ = {
 "_edit_use_anchors_": false
 }
