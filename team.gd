@@ -101,7 +101,7 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 					Data.team_member_list[i]['學號'] = '尚未組隊'
 					Data.team_member_list[i]['拼圖數量'] = 0
 			Data._set_team_total_puzzle()
-			_set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)
+			#_set_up(Data.team_user,Data.team_id,Data.team_tatal_puzzle,Data.team_member_list)
 			world.refresh_team_scene_status()
 		else:
 			print("Unable fetch team element!!!")

@@ -147,8 +147,8 @@ func have_team():
 		return false
 
 func _on_team_button_pressed():
-	var world = get_node("/root/world")
-	world.set_buttons_visibility(true)
+	send_team_request()
+	set_buttons_visibility(true)
 	$team.visible=true
 	refresh_team_scene_status()
 
@@ -329,8 +329,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.team_point = int(data['point'])
 			Data.team_rank = int(data['rank'])
 			
-			for i in range(10):
-				Data.team_member_list[i]['學號'] = data['mem'+str(i+1)]
+			#for i in range(10):
+			#	Data.team_member_list[i]['學號'] = data['mem'+str(i+1)]
 		else:
 			Data.debug_msg(0,"Error fetch team data!!!")
 		Data._check_title_status()
@@ -363,8 +363,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	elif(data['type'] == 'activity'):
 		if(data['sucess']=='true'):
 			for i in range(int(data['count'])):
-				var insert_act = {'活動名稱':data['title'+str(i)],'時間':data['time'+str(i)]
-				,'代號':data['number'+str(i)],'獎勵':data['point'+str(i)]}
+				var insert_act = {'代號':data['number'+str(i)],'獎勵':data['point'+str(i)]}
 				Data.activity_list.append(insert_act)
 			refresh_activity_information()
 		else:

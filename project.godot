@@ -35,3 +35,7 @@ window/stretch/aspect="keep"
 [locale]
 
 locale_filter=[ 0, [ "cmn_TW" ] ]
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
