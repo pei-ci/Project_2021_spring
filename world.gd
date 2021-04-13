@@ -16,6 +16,7 @@ func _ready():
 	send_map_request()
 	send_activity_request()
 	send_emergency_info_request()
+	send_news_request()
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	# Because following data have not request to server
@@ -251,6 +252,10 @@ func send_rank_request(rank_type):
 	var rank_body := {"type" : 'rank',"rank_type":rank_type}
 	send_server_request(rank_body)
 
+func send_news_request():
+	#sending rank request
+	var news_body := {"type" : 'news'}
+	send_server_request(news_body)
 
 #the following function 
 #              maintain request queue system
@@ -445,6 +450,14 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			$leader_board_group/leader_board.refresh_rank_data()
 		else:
 			Data.debug_msg(0,"Fetch Rank Error!")
+	
+	elif(data['type'] == 'news'):
+		if(data['sucess'] == 'true'):
+			var count = int(data['count'])
+			for i in range(count):
+				Data.news_list.append(data['news'+str(i)+'title'])
+		else:
+			Data.debug_msg(0,"Unable fetch news data!")			
 	
 	elif(data['type'] == 'special'):
 		if(data['sucess'] == 'true'):
