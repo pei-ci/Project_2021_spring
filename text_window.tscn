@@ -44,14 +44,24 @@ position = Vector2( 154.197, -115.638 )
 texture = SubResource( 2 )
 
 [node name="text_emergency" type="Label" parent="."]
-margin_left = -199.0
-margin_top = -77.0
+margin_left = -197.0
+margin_top = -126.0
 margin_right = 176.0
-margin_bottom = 7.0
+margin_bottom = -43.0
 custom_fonts/font = SubResource( 3 )
 align = 1
-valign = 1
+valign = 2
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="option" type="Label" parent="text_emergency"]
+margin_left = 132.0
+margin_top = 92.2802
+margin_right = 373.0
+margin_bottom = 163.28
+custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

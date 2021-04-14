@@ -44,7 +44,8 @@ func refresh_information():
 	refresh_team_information()
 	refresh_icon()
 	refresh_puzzle_store_information()
-	check_special_hint()
+	refresh_special_puzzle()
+	
 	
 func refresh_information_information():
 	#資訊欄
@@ -133,6 +134,10 @@ func refresh_icon():
 		$icon6.visible=true
 	if icon_type==6:
 		$icon6.visible=true
+
+func refresh_special_puzzle():
+	Data._check_receive_special_puzzle()
+	check_special_hint()
 
 func _open_activity_window():
 	$activity/activity.visible=true
