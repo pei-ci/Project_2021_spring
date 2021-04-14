@@ -44,6 +44,7 @@ func refresh_information():
 	refresh_team_information()
 	refresh_icon()
 	refresh_puzzle_store_information()
+	check_special_hint()
 	
 func refresh_information_information():
 	#資訊欄
@@ -548,7 +549,7 @@ func set_buttons_visibility(bool_value):
 	
 	
 func check_special_hint():
-	if Data._get_special_puzzle_status(1)=="10" and Data._get_special_puzzle_status(1)!="10":
+	if Data._get_special_puzzle_status(1)=="10" and Data._get_special_puzzle_status(2)=="10" and Data._get_special_puzzle_status(3)=="00":
 		$special_hint.visible=true
 	else:
 		$special_hint.visible=false

@@ -16,7 +16,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _refresh_map():
-	for i in range($puzzles.get_child_count()-1):
+	for i in range($puzzles.get_child_count()):#-1):
 		var child_obj = $puzzles.get_child(i)
 		child_obj._status_set_up()
 

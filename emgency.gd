@@ -149,5 +149,5 @@ func _give_reward(option):
 		#	world.send_emergency_request(puzzle_type,1,0,$text_window_emergency.get_event_id())
 		#	world.send_emergency_record_request(1,$text_window_emergency.get_event_id())
 	else:
-		world.send_emergency_request(puzzle_type,2,1,$text_window_emergency.get_event_id())
+		#world.send_emergency_request(puzzle_type,2,1,$text_window_emergency.get_event_id())
 		world.send_emergency_record_request(0,$text_window_emergency.get_event_id())

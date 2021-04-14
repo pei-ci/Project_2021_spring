@@ -6,10 +6,10 @@ var event_id #題號
 
 var FILE_NUM = 30 #突發事件的數量
 
-var event_01 = {"text":"如果今天約好要聚餐，卻剛好錯過到院區的接駁車，\n你會怎麼做?\nA.沒辦法，只好等下一班公車囉\nB.UBIKE騎起來!\nC.找乾爹乾媽蹭一下車~",
+var event_01 = {"text":"如果今天約好要聚餐，卻剛好錯過到\n院區的接駁車,你會怎麼做?\nA.沒辦法，只好等下一班公車囉\nB.UBIKE騎起來!\nC.找乾爹乾媽蹭一下車~",
 				"A":"","B":"真是勤勞樸實的人wwwww","C":"","answer":"C","number":1,
 				"rewardA":6,"rewardB":6,"rewardC":10}	
-var event_02 = {"text":"請從下列選項中選出在星期五傍晚6點時前往院區最\n快的方式\nA.接駁車或公車\nB.UBIKE騎起來!\nC.坐上乾爹乾媽的車車~",
+var event_02 = {"text":"請從下列選項中選出在星期五傍晚6點\n時前往院區最快的方式\nA.接駁車或公車\nB.UBIKE騎起來!\nC.坐上乾爹乾媽的車車~",
 				"A":"結果：塞車塞到崩潰","B":"","C":"結果：塞車塞到崩潰","answer":"B","number":2,
 				"rewardA":6,"rewardB":10,"rewardC":6}	
 var event_03 = {"text":"長庚是間______(請選填以下選項)\nA.高中\nB.大學\nC.哎呀！我不知道",
@@ -75,25 +75,25 @@ var event_22 = {"text":"以下哪間連鎖店曾進駐長庚大學？\nA. 路易
 var event_23 = {"text":"長庚大學「全人教育基本素養」總共有幾項指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.4種\nB.6種\nC.8種",
 				"A":"","B":"","C":"","answer":"B","number":23,
 				"rewardA":2,"rewardB":10,"rewardC":2}
-var event_24 = {"text":"全人素養APP各項指標都有一個代表的人物圖案，請問\n『人文藝術』指標的代表人物是誰呢？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.小說家\nB.陰陽家\nC.名家",
+var event_24 = {"text":"全人素養APP各項指標都有一個代表的人物圖案\n，請問『人文藝術』指標的代表人物是誰呢？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.小說家\nB.陰陽家\nC.名家",
 				"A":"","B":"","C":"","answer":"A","number":24,
 				"rewardA":10,"rewardB":2,"rewardC":2}
-var event_25 = {"text":"請問全人素養六個指標人物，神秘的圖案設計者vixiQ\n的真實身分是？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.生醫系學姊 (答案正確~會有部分拼圖)\nB.漫研社學姊 (答案正確~會有部分拼圖)\nC.以上皆是(1_最佳解答)",
+var event_25 = {"text":"請問全人素養六個指標人物，神秘的\n圖案設計者vixiQ的真實身分是？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.生醫系學姊 (答案正確~會有部分拼圖)\nB.漫研社學姊 (答案正確~會有部分拼圖)\nC.以上皆是(1_最佳解答)",
 				"A":"","B":"","C":"","answer":"C","number":25,
 				"rewardA":6,"rewardB":6,"rewardC":10}
-var event_26 = {"text":"4.參與各院『院月會』活動，可以納入全人素養軟實力的\n哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.創新進取",
+var event_26 = {"text":"參與各院『院月會』活動，可以\n納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.創新進取",
 				"A":"","B":"","C":"","answer":"C","number":26,
 				"rewardA":2,"rewardB":2,"rewardC":10}
-var event_27 = {"text":"參與『宿舍整潔比賽』活動成績及格者，可以納入全人素\n養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.自我省思\nC.守分自律",
+var event_27 = {"text":"參與『宿舍整潔比賽』活動成績及格者\n，可以納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.自我省思\nC.守分自律",
 				"A":"","B":"","C":"","answer":"C","number":27,
 				"rewardA":2,"rewardB":2,"rewardC":10}
-var event_28 = {"text":"參與深耕學園藝文活動，可以納入全人素養軟實力的哪一\n項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.關懷付出\nB.人文藝術\nC.創新進取",
+var event_28 = {"text":"參與深耕學園藝文活動，可以納入全人素養\n軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.關懷付出\nB.人文藝術\nC.創新進取",
 				"A":"","B":"","C":"","answer":"B","number":28,
 				"rewardA":2,"rewardB":10,"rewardC":2}
-var event_29 = {"text":"參與長庚大學的傳統活動『好漢坡競賽』，可以納入全人\n素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.自我省思",
+var event_29 = {"text":"參與長庚大學的傳統活動『好漢坡競賽』，\n可以納入全人素養軟實力的哪一項計分指標？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.團隊合作\nB.守分自律\nC.自我省思",
 				"A":"","B":"","C":"","answer":"A","number":29,
 				"rewardA":10,"rewardB":2,"rewardC":2}
-var event_30 = {"text":"你知道學校手機APP裡面的全人素養軟實力圖像，等級\nLv.49~60每升級一級需要獲得多少分數嗎？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.4分\nB.5分\nC.6分",
+var event_30 = {"text":"你知道學校手機APP裡面的全人素養軟實力圖像\n，等級Lv.49~60每升級一級需要獲得多少分數嗎？\n(答案就在網頁上，一起來尋找答案吧! https://reurl.cc/5oDjrz )\nA.4分\nB.5分\nC.6分",
 				"A":"","B":"","C":"","answer":"C","number":30,
 				"rewardA":2,"rewardB":2,"rewardC":10}
 

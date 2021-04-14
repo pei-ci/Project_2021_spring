@@ -11,7 +11,7 @@ load_path = "res://.import/突發事件背景圖四版.png-2a12bffc0f8a4f013ca97
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [sub_resource type="DynamicFont" id=3]
-size = 10
+size = 12
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -25,30 +25,32 @@ z_index = 10
 script = ExtResource( 1 )
 
 [node name="emergency_background" type="Sprite" parent="."]
-position = Vector2( -13.4866, -1.287 )
-scale = Vector2( 0.390664, 0.390664 )
+position = Vector2( -11.3908, -1.287 )
+scale = Vector2( 0.447915, 0.390664 )
 z_index = -1
 texture = SubResource( 1 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 119.531
-margin_top = -132.121
-margin_right = 140.531
-margin_bottom = -112.121
+margin_left = 141.538
+margin_top = -125.365
+margin_right = 162.538
+margin_bottom = -105.365
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 132.19, -122.394 )
+position = Vector2( 154.197, -115.638 )
 texture = SubResource( 2 )
 
 [node name="text_emergency" type="Label" parent="."]
-margin_left = -145.508
-margin_top = -83.2248
-margin_right = 99.4919
-margin_bottom = 50.7752
+margin_left = -199.0
+margin_top = -77.0
+margin_right = 176.0
+margin_bottom = 7.0
 custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

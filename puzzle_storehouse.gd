@@ -49,7 +49,7 @@ func _refresh_unfinished_puzzle_list():
 	
 func _refresh_total_puzzle_list():
 	for i in range(len(total_puzzle_list)):
-		total_puzzle_list[i]=unfinished_puzzle_list[i]+finished_puzzle_list[i]
+		total_puzzle_list[i]=unfinished_puzzle_list[i]+finished_puzzle_list[i+1]
 
 func _refresh_all_list():
 	_refresh_finished_puzzle_list()
