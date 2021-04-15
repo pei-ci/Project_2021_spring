@@ -1,5 +1,7 @@
 import pymysql
 
+REWARD_POINT = 450
+
 def connect_to_sql():
     db_settings = {
     "host": "127.0.0.1",
@@ -31,32 +33,28 @@ def get_reward_list(conn,data):
             reward_list.append(data[i][0])
     return reward_list
 
-def get_reward_point(conn,reward_id):
-    reward_point = []
+def get_reward_point(conn,uid):
     with conn.cursor() as cursor:
-        for uid in reward_id:
-            command = "SELECT map.point,user.teamid FROM map,user WHERE user.userid='"+str(uid)+"' AND user.userid=map.userid"
-            cursor.execute(command)
-            result = cursor.fetchall()
-            if(result[0][1]!=None):
-                command2 = "SELECT team.point FROM team,user WHERE user.userid='"+str(uid)+"' AND user.teamid=team.teamid"
-                cursor.execute(command2)
-                result2 = cursor.fetchall()
-                reward_point.append((result[0],result2[0]))
-            else:
-                reward_point.append((result[0],None))
-    return reward_point
+        command = "SELECT map.point,user.teamid FROM map,user WHERE user.userid='"+str(uid)+"' AND user.userid=map.userid"
+        cursor.execute(command)
+        result = cursor.fetchall()
+        if(result[0][1]!=None):
+            command2 = "SELECT team.point FROM team,user WHERE user.userid='"+str(uid)+"' AND user.teamid=team.teamid"
+            cursor.execute(command2)
+            result2 = cursor.fetchall()
+            return(result[0][0],result2[0])
+        else:
+            return(result[0][0],None)
     
-def send_order_to_server(conn,reward_id,reward_point):
-    print(reward_id)
+def send_order_to_server(conn,reward_id):
     with conn.cursor() as cursor:
-        for i in reward_id[0]:
-            command = "UPDATE map SET point = "+ str(reward_point[i][0]) +" WHERE userid = "+ str(reward_id[i])
-            print(command)
+        for i in range(len(reward_id)):
+            reward_point = get_reward_point(conn,reward_id[i])
+            command = "UPDATE map SET point = "+ str(reward_point[0]+REWARD_POINT) +" WHERE userid = "+ str(reward_id[i])
             cursor.execute(command)
             conn.commit()
-            if(reward_point[i][1]!=None):
-                command2 = "UPDATE team SET point = "+ str(reward_point[i][1]) +" WHERE user.userid = '"+ str(reward_id[i])+"' AND user.teamid=team.teamid"
+            if(reward_point[1]!=None):
+                command2 = "UPDATE user,team SET point = "+ str(reward_point[1][0]+REWARD_POINT) +" WHERE user.userid = '"+ str(reward_id[i])+"' AND user.teamid=team.teamid"
                 cursor.execute(command2)
                 conn.commit()
             
@@ -68,10 +66,8 @@ def send_reward():
     print('get personal data!')
     reward_id = get_reward_list(conn,data)
     print(reward_id)
-    print('get reward point!')
-    reward_point = get_reward_point(conn,reward_id)
     print('sending to sql!')
-    send_order_to_server(conn,reward_id,reward_point)
+    send_order_to_server(conn,reward_id)
     print('update finish!')
 
 
