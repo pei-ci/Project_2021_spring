@@ -6,7 +6,7 @@ def connect_to_sql():
 	"host": "127.0.0.1",
 	"port": 3306,
 	"user": "root",
-	"db": "school_games_2nd",
+	"db": "school_games_3nd",
 	"charset": "utf8"
 	}
 	#password
@@ -28,26 +28,26 @@ def update_to_server(conn,data):
 	data = data[1:] #remove text description in first row
 	with conn.cursor() as cursor:
 		for activity in data:
-			uid = activity[0]
-			title = activity[1]
-			number = activity[2]
-			point = activity[3]
-			time = activity[4]
+			student_id = activity[0]
+			number = activity[1]
+			point = activity[2]
+			get_point = 100
 
-			fetch_data = get_map_data(conn,uid,point[0:1])
+			fetch_data = get_map_data(conn,student_id,point[0:1])
 			team_point = fetch_data[1]
-			fetch_data = fetch_data[0]
+			fetch_data_0 = fetch_data[0]
 
-			user_id = fetch_data[0]
-			team_id = fetch_data[1]
-			new_team_point = team_point+int(point[1:])
-			unused = int(fetch_data[2])+int(point[1:])
+			user_id = fetch_data_0[0]
+			team_id = fetch_data_0[1]
+			new_user_point = fetch_data_0[2] + get_activity_point(number)
+			new_team_point = team_point + get_activity_point(number)
+			unused = int(fetch_data_0[2]) + int(point[1:])
 
-			command_activity = "INSERT INTO activity (userid,title,number,point,time) VALUE ('" +str(user_id)+"','"+str(title)+"','"+str(number)+"','"+str(point)+"','"+str(time)+ "')";
+			command_activity = "INSERT INTO activity (userid,number,point) VALUE ('" +str(user_id)+"','"+str(number)+"','"+str(point)+"')";
 			cursor.execute(command_activity)   
 			conn.commit()
 
-			command_map = "UPDATE map SET unused"+str(point[0:1])+"='"+ str(unused) +"' WHERE userid = '"+ str(user_id)+"'"
+			command_map = "UPDATE map SET unused"+str(point[0:1])+"='"+ str(unused) +"',point='"+str(new_user_point)+"' WHERE userid = '"+ str(user_id)+"'"
 			cursor.execute(command_map)   
 			conn.commit()
 
@@ -58,7 +58,7 @@ def update_to_server(conn,data):
 
 def get_map_data(conn,uid,num):
 	with conn.cursor() as cursor:
-		command_map = "SELECT map.userid,user.teamid,map.unused"+str(num)+" FROM map,user WHERE map.userid=user.userid AND user.number='"+str(uid)+"'"
+		command_map = "SELECT map.userid,user.teamid,map.unused"+str(num)+",map.point FROM map,user WHERE map.userid=user.userid AND user.number='"+str(uid)+"'"
 		cursor.execute(command_map)
 		result_map = cursor.fetchall()
 
@@ -74,6 +74,9 @@ def get_map_data(conn,uid,num):
 			exit()
 		else:
 			return (result_map[0],team_point)
+
+def get_activity_point(number):
+	return 100
 
 if __name__ == '__main__':
 	print('connect to sql!')

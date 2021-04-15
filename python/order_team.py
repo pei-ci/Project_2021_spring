@@ -5,7 +5,7 @@ def connect_to_sql():
 	"host": "127.0.0.1",
 	"port": 3306,
 	"user": "root",
-	"db": "school_games",
+	"db": "school_games_3nd",
 	"charset": "utf8"
 	}
 	#password

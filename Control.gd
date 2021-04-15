@@ -102,7 +102,12 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			#print(Data.login_certification)
 			log_login_to_server()
 		else:
-			Data.debug_msg(0,"Login Error : Unknown!")
+			if(data['error']=='error_user_or_password'):
+				Data.debug_msg(1,"Login Error : Error User or Password!")
+				#show login failed message
+				pass
+			else:
+				Data.debug_msg(0,"Login Error : Unknown!")
 	elif(data['type'] == 'register'):
 		if(data['sucess']=='true'):
 			login_to_server()

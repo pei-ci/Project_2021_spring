@@ -154,7 +154,8 @@ func have_team():
 		return false
 
 func _on_team_button_pressed():
-	send_team_request()
+	if have_team():
+		send_team_request()
 	set_buttons_visibility(true)
 	$team.visible=true
 	refresh_team_scene_status()
@@ -230,13 +231,13 @@ func send_activity_request():
 	var activity_body := {"type" : 'activity',"validation": Data.login_certification}
 	send_server_request(activity_body)
 	
-func send_emergency_request(map_type,amount,correct,event_id):
+func send_emergency_request(map_type,amount,correct,event_id,point):
 	#sending emergency request
-	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct,"event_id":event_id,"command_type":"add_map"}
+	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":map_type,"amount":amount,"correct":correct,"event_id":event_id,"command_type":"add_map",'point':point}
 	send_server_request(emergency_body)
 
-func send_emergency_record_request(correct,event_id): #use for sending record to server
-	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":-1,"amount":-1,"correct":correct,"event_id":event_id,"command_type":"record"}
+func send_emergency_record_request(correct,event_id,point): #use for sending record to server
+	var emergency_body := {"type" : 'emergency',"validation": Data.login_certification,"map_type":-1,"amount":-1,"correct":correct,"event_id":event_id,"command_type":"record",'point':point}
 	send_server_request(emergency_body)
 	var solve_event_time = str(2)+str(Data.emergency_time)
 	var emergency_time_body := {"type" : 'emergency_time','command_type':'set','time':solve_event_time,"validation": Data.login_certification}
@@ -388,7 +389,15 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 						
 	elif(data['type'] == 'map_oper'):
 		if(data['sucess']=='true'):
-			pass
+			#data['block_type']
+			#var count = data['pos'].length()/4
+			#for i in range(count):
+				#print(data['pos'].substr(i*4,4)+" "+data['val'].substr(i*2,2))
+			#	Data.status_user[data['pos'].substr(i*4,4)] = data['val'].substr(i*2,2)
+			#_refresh_map_information()
+			# if move puzzle amount funtion here , there stil need other function
+			# reference to 'map' request
+			send_map_request()
 		else:
 			Data.debug_msg(0,"Unaccept map operation request!!!")
 			

@@ -5,7 +5,7 @@ def connect_to_sql():
 	"host": "127.0.0.1",
 	"port": 3306,
 	"user": "root",
-	"db": "school_games",
+	"db": "school_games_3nd",
 	"charset": "utf8"
 	}
 	#password
@@ -19,7 +19,7 @@ def connect_to_sql():
 
 def fetch_data(conn):
 	with conn.cursor() as cursor:
-		command = "SELECT map.userid,2*map.used+map.unused1+map.unused2+map.unused3+map.unused4+map.unused5+map.unused6 as total_point FROM map ORDER BY total_point DESC"
+		command = "SELECT map.userid,map.point FROM map ORDER BY point DESC"
 		cursor.execute(command)
 		result = cursor.fetchall()
 		return result
