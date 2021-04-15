@@ -3,7 +3,7 @@
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
 [ext_resource path="res://Register.tscn" type="PackedScene" id=3]
-[ext_resource path="res://按鈕/組隊按鈕(兩個一樣).png" type="Texture" id=4]
+[ext_resource path="res://按鈕/登入按鈕2.0.png" type="Texture" id=4]
 [ext_resource path="res://Normal.tres" type="DynamicFont" id=5]
 [ext_resource path="res://介面/登入頁面.png" type="Texture" id=6]
 [ext_resource path="res://底圖/登入背景二版.png" type="Texture" id=7]
@@ -95,8 +95,8 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="LoginButtonBackground" type="Sprite" parent="."]
-position = Vector2( 296.642, 203.517 )
-scale = Vector2( 2.36605, 1 )
+position = Vector2( 294.642, 200.313 )
+scale = Vector2( 2.36605, 1.75681 )
 texture = ExtResource( 4 )
 
 [node name="Label2" type="Label" parent="."]
@@ -121,8 +121,8 @@ __meta__ = {
 }
 
 [node name="RegisterButtonBackground" type="Sprite" parent="."]
-position = Vector2( 188.824, 202.606 )
-scale = Vector2( 2.36605, 1 )
+position = Vector2( 188.824, 199.453 )
+scale = Vector2( 2.36605, 1.88294 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
