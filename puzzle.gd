@@ -289,7 +289,6 @@ func _on_item_pressed(id):
 	Data.status_user[position_user]=status_user
 	Data.emit_refresh()
 	$slect_window/MenuButton/CanvasLayer2/TextureButton.visible=false
-	$slect_window.visible=true
 
 func get_status():
 	return status_user
@@ -301,44 +300,10 @@ func _on_Timer_timeout():
 
 
 
-func _on_slect_window_button_pressed():
-	Data.slect_button_opened=true
-	if $slect_window.visible==false:
-		$slect_window.visible=true
-		yield(get_tree().create_timer(7), "timeout")#選單視窗開啟7秒後關閉
-		Data.slect_button_opened=false
-		$slect_window.visible=false
-		MenuButton.visible=false
-	else:
-		$slect_window.visible=false
-
-
-func _on_slect_window_button_mouse_entered():
-	$slect_window.visible=true
-	
-	if Data.slect_button_opened==true and $slect_window.visible==false:
-		$slect_window_button.visible=false
-		yield(get_tree().create_timer(5), "timeout")#選單視窗開啟5秒後關閉
-		
-	pass # Replace with function body.
-
-
-func _on_activity_button_pressed():
-	MenuButton.visible=true
-	Data.emit_activity_window_open()
-
-
-
-
-
 func _on_MenuButton_pressed():
 	MenuButton.visible=true
 	yield(get_tree().create_timer(7), "timeout")
 	MenuButton.visible=false
-
-
-func _on_PopupMenu_id_pressed(id):
-	$slect_window.visible=false
 
 
 
