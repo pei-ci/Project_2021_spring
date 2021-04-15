@@ -104,6 +104,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			if(data['error']=='error_user_or_password'):
 				Data.debug_msg(1,"Login Error : Error User or Password!")
+				$PasswordLabel.text = 'Error User or Password'
 				#show login failed message
 				pass
 			else:
