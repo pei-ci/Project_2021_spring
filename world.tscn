@@ -119,7 +119,7 @@ __meta__ = {
 }
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
-position = Vector2( 99.6918, 62.1882 )
+position = Vector2( 106.366, 60.1859 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
@@ -129,7 +129,7 @@ z_index = 1
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 388.484, 197.782 )
+position = Vector2( 387.817, 197.782 )
 
 [node name="leader_board_group" type="Sprite" parent="."]
 z_index = 40

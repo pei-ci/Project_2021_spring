@@ -15,6 +15,8 @@ var total_point_user = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_up()
+	_set_title_line()#如果資訊欄稱號超過八個字要換行
+	set_obj_visibility()
 
 func _set_up():
 	$subject.text = Data.department_list[int(subject_user)]
@@ -25,8 +27,7 @@ func _set_up():
 	$title.text = title_user
 	$team.text = team_user
 	$total_point.text =  str(total_point_user)
-	_set_title_line()#如果資訊欄稱號超過八個字要換行
-	set_obj_visibility()
+	
 
 	
 	

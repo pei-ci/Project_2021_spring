@@ -52,7 +52,6 @@ __meta__ = {
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-visible = false
 position = Vector2( 280.388, 36.3021 )
 scale = Vector2( 0.68502, 0.68502 )
 texture = SubResource( 2 )

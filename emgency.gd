@@ -130,12 +130,14 @@ func _answer_reply(option):
 	$text_window_emergency/text_after_answer.visible=true
 	return true
 
+var option_index={"A":0,"B":1,"C":2}
 func _give_reward(option):
 	var world = get_node("/root/world")
 	Data._emergency_solve_time(1) #突發事件完成數+1
 	var puzzle_type
-	var reward=event_data["reward"+option]/(Data._get_event_status(event_data["number"])+1)#在第一輪會/1 第二輪會/2	
-	var point_give = 100
+	var round_number = Data._get_event_status(event_data["number"])+1
+	var reward = event_data["reward"+option]/round_number#在第一輪會/1 第二輪會/2	
+	var point_give = event_data["point"][option_index[option]]/round_number
 	#給選項對應的獎勵拼圖
 	for piece in range(reward):  #reward是基本的拼圖獎勵片數 每次loop會random一次決定這一片是哪一種拼圖 並給予拼圖
 		puzzle_type=_random(1,6)
