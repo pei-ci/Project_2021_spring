@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://text_window.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
@@ -12,10 +12,17 @@ load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c7
 
 [sub_resource type="DynamicFont" id=3]
 size = 12
+use_mipmaps = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 10
+size = 12
+outline_color = Color( 1, 1, 0.94902, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+outline_color = Color( 1, 1, 0.94902, 1 )
 font_data = ExtResource( 2 )
 
 [node name="text_window" type="Sprite"]
@@ -49,6 +56,7 @@ margin_top = -126.0
 margin_right = 176.0
 margin_bottom = -43.0
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 0.94902, 1 )
 align = 1
 valign = 2
 script = ExtResource( 3 )
@@ -57,11 +65,11 @@ __meta__ = {
 }
 
 [node name="option" type="Label" parent="text_emergency"]
-margin_left = 132.0
+margin_left = 141.431
 margin_top = 92.2802
-margin_right = 373.0
+margin_right = 382.431
 margin_bottom = 163.28
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,7 +79,7 @@ margin_left = -177.0
 margin_top = -28.0
 margin_right = 151.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 valign = 1
 __meta__ = {

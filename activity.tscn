@@ -23,8 +23,8 @@ load_path = "res://.import/稱號倉庫下一頁按鈕一版.png-f424a2d5d3bdaa8
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 158.968, 116.677 )
-scale = Vector2( 0.3289, 0.3289 )
+position = Vector2( 169.815, 121.609 )
+scale = Vector2( 0.365339, 0.365339 )
 texture = SubResource( 1 )
 
 [node name="page_01" type="Label" parent="."]
@@ -71,15 +71,15 @@ __meta__ = {
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 245.311, 40.1166 )
-scale = Vector2( 0.710785, 0.75528 )
+position = Vector2( 267.56, 34.1569 )
+scale = Vector2( 0.569524, 0.605176 )
 texture = SubResource( 3 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 234.304
-margin_top = 33.4097
-margin_right = 253.304
-margin_bottom = 50.4097
+margin_left = 258.47
+margin_top = 28.4108
+margin_right = 272.47
+margin_bottom = 41.4108
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,15 +87,15 @@ __meta__ = {
 [node name="last_page" type="Sprite" parent="."]
 
 [node name="last_page_picture" type="Sprite" parent="last_page"]
-position = Vector2( 212.889, 186.799 )
+position = Vector2( 242.024, 206.929 )
 scale = Vector2( 0.480149, 0.465654 )
 texture = SubResource( 4 )
 
 [node name="last_page_button" type="TextureButton" parent="last_page"]
-margin_left = 208.124
-margin_top = 181.077
-margin_right = 219.124
-margin_bottom = 190.077
+margin_left = 237.259
+margin_top = 201.207
+margin_right = 248.259
+margin_bottom = 210.207
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -103,16 +103,16 @@ __meta__ = {
 [node name="next_page" type="Sprite" parent="."]
 
 [node name="next_page_picture" type="Sprite" parent="next_page"]
-position = Vector2( 232.353, 184.415 )
+position = Vector2( 261.488, 204.545 )
 scale = Vector2( 0.556417, 0.556417 )
 texture = SubResource( 5 )
 flip_v = true
 
 [node name="next_page_button" type="TextureButton" parent="next_page"]
-margin_left = 222.42
-margin_top = 178.682
-margin_right = 241.42
-margin_bottom = 196.682
+margin_left = 251.555
+margin_top = 198.812
+margin_right = 270.555
+margin_bottom = 216.812
 __meta__ = {
 "_edit_use_anchors_": false
 }

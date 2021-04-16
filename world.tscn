@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://title_storehouse.tscn" type="PackedScene" id=1]
 [ext_resource path="res://leader_board.tscn" type="PackedScene" id=2]
@@ -18,149 +18,133 @@
 [ext_resource path="res://小徑/往體大告示牌.png" type="Texture" id=16]
 [ext_resource path="res://小徑/往長庚科大指示牌.png" type="Texture" id=17]
 [ext_resource path="res://小徑/往明志科大指示牌.png" type="Texture" id=18]
+[ext_resource path="res://底圖/拼圖介面大底圖更.png" type="Texture" id=19]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/拼圖介面大底圖更.png-4f6ebb2422153e6fc9d27a645fb72431.stex"
-
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
-
-[sub_resource type="StreamTexture" id=3]
 load_path = "res://.import/寶物bg.png-56ea1af653d1f964c2c51c4c46fb1eb7.stex"
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/特殊拼圖1-dark.png-fee520de7d78f397a8f09863d395fb72.stex"
 
-[sub_resource type="StreamTexture" id=5]
+[sub_resource type="StreamTexture" id=3]
 load_path = "res://.import/特殊拼圖1.png-2924e5be4ef1d2d1862c6cad2f882cbf.stex"
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=4]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 12 )
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/特殊拼圖2-dark.png-513ea83f99e25eb54cae6cf5d06cd854.stex"
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=7]
 load_path = "res://.import/特殊拼圖2.png-3248844de0e4dafab2a5375deea9df25.stex"
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=8]
 load_path = "res://.import/特殊拼圖3-dark.png-cfb7d998504c17f8eb174a40ba4ec94f.stex"
 
-[sub_resource type="StreamTexture" id=11]
+[sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/特殊拼圖3.png-0db49d1fde8671f4a69faaebe14cd852.stex"
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=10]
 size = 8
 font_data = ExtResource( 12 )
 
-[sub_resource type="StreamTexture" id=13]
+[sub_resource type="StreamTexture" id=11]
 load_path = "res://.import/蛋殼(零成長).png-c23030573fc5314e0ed6df8b966156f1.stex"
 
-[sub_resource type="StreamTexture" id=14]
+[sub_resource type="StreamTexture" id=12]
 load_path = "res://.import/關懷付出(成長).png-09501146e7b421941ba2f4d119aed0a9.stex"
 
-[sub_resource type="StreamTexture" id=15]
+[sub_resource type="StreamTexture" id=13]
 load_path = "res://.import/團隊合作(成長).png-670769907f93703e0fa2b25676a51362.stex"
 
-[sub_resource type="StreamTexture" id=16]
+[sub_resource type="StreamTexture" id=14]
 load_path = "res://.import/人文藝術(成長).png-95d9b9f9fab06ac4aaba66dc93984576.stex"
 
-[sub_resource type="StreamTexture" id=17]
+[sub_resource type="StreamTexture" id=15]
 load_path = "res://.import/自我省思(成長).png-1b18100ff8b92ce198c86b018123acf6.stex"
 
-[sub_resource type="StreamTexture" id=18]
+[sub_resource type="StreamTexture" id=16]
 load_path = "res://.import/守分自律(成長).png-5dc2264ec199eb191834c18a358f7e59.stex"
 
-[sub_resource type="StreamTexture" id=19]
+[sub_resource type="StreamTexture" id=17]
 load_path = "res://.import/創新進取(成長).png-f08fb9aa2dbeba3a7869e4655fb3b721.stex"
 
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 239.703, 135.302 )
-scale = Vector2( 0.520978, 0.520589 )
-texture = SubResource( 1 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 236.193, 137.285 )
+scale = Vector2( 0.617458, 0.617458 )
+texture = ExtResource( 19 )
 
 [node name="puzzles_map" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( 233.838, 128.492 )
 z_index = 150
 
 [node name="puzzle_map_button" type="TextureButton" parent="."]
-margin_left = 337.0
-margin_top = 194.0
-margin_right = 365.0
-margin_bottom = 244.0
+margin_left = 361.027
+margin_top = 191.998
+margin_right = 389.027
+margin_bottom = 241.998
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="cgu_puzzles_map" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 234.379, 131.224 )
 z_index = 130
 
 [node name="cug_puzzles_map_button" type="TextureButton" parent="."]
-margin_left = 269.0
-margin_top = 192.0
-margin_right = 321.0
-margin_bottom = 221.0
+margin_left = 281.681
+margin_top = 176.649
+margin_right = 333.681
+margin_bottom = 205.649
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="cug_puzzles_map_button2" type="TextureButton" parent="."]
-margin_left = 300.0
-margin_top = 210.0
-margin_right = 336.0
-margin_bottom = 249.0
+margin_left = 321.357
+margin_top = 207.33
+margin_right = 357.357
+margin_bottom = 246.33
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="quit" type="TextureButton" parent="."]
-visible = false
-margin_left = 453.172
-margin_top = 12.3416
-margin_right = 465.172
-margin_bottom = 23.3416
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="quit_picture" type="Sprite" parent="."]
-visible = false
-position = Vector2( 461.517, 17.8581 )
-scale = Vector2( 0.642834, 0.642834 )
-texture = SubResource( 2 )
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 72.3277, 52.8443 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
-position = Vector2( -64.2977, 73.1846 )
+position = Vector2( -56.2886, 99.214 )
+z_index = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-position = Vector2( -18.6413, 205.791 )
+position = Vector2( 388.484, 197.782 )
 
 [node name="leader_board_group" type="Sprite" parent="."]
 z_index = 40
 
 [node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 115.377, 47.6163 )
 scale = Vector2( 0.921059, 0.921059 )
 
 [node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
-margin_left = 300.0
-margin_top = 160.0
-margin_right = 321.0
-margin_bottom = 195.0
+margin_left = 314.016
+margin_top = 147.319
+margin_right = 335.016
+margin_bottom = 182.319
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -169,22 +153,23 @@ __meta__ = {
 z_index = 50
 
 [node name="title_storehouse" parent="title_storehouse" instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 74.3002, 19.6509 )
 
 [node name="title_storehouse2" type="TextureButton" parent="title_storehouse"]
-margin_left = 272.0
-margin_top = 134.0
-margin_right = 287.0
-margin_bottom = 182.0
+margin_left = 284.681
+margin_top = 113.31
+margin_right = 299.681
+margin_bottom = 161.31
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title_storehouse3" type="TextureButton" parent="title_storehouse"]
-margin_left = 260.0
-margin_top = 133.0
-margin_right = 275.0
-margin_bottom = 153.0
+margin_left = 268.0
+margin_top = 112.0
+margin_right = 292.0
+margin_bottom = 136.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -193,47 +178,50 @@ __meta__ = {
 z_index = 200
 
 [node name="activity" parent="activity" instance=ExtResource( 3 )]
-position = Vector2( 90.0305, 9.561 )
+visible = false
+position = Vector2( 76.0305, 9.561 )
 
 [node name="activity_button" type="TextureButton" parent="activity"]
-margin_left = 196.0
-margin_top = 158.0
+margin_left = 192.0
+margin_top = 142.0
 margin_right = 219.0
-margin_bottom = 194.0
+margin_bottom = 178.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="team" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 80.5853, 22.029 )
 z_index = 100
 
 [node name="HTTPRequest2" type="HTTPRequest" parent="team"]
 
 [node name="team_button" type="TextureButton" parent="."]
-margin_left = 221.0
-margin_top = 153.0
-margin_right = 274.0
-margin_bottom = 185.0
+margin_left = 226.0
+margin_top = 133.0
+margin_right = 284.0
+margin_bottom = 168.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="puzzle_storehouse" parent="." instance=ExtResource( 15 )]
+visible = false
 position = Vector2( 247.269, 118.322 )
 z_index = 200
 
 [node name="puzzle_storehouse_button" type="TextureButton" parent="."]
-margin_left = 177.0
-margin_top = 125.0
-margin_right = 225.0
-margin_bottom = 150.0
+margin_left = 168.0
+margin_top = 103.0
+margin_right = 221.0
+margin_bottom = 131.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="path1" type="Sprite" parent="."]
-position = Vector2( 313.857, 107.074 )
+position = Vector2( 335.214, 83.7143 )
 scale = Vector2( 0.041161, 0.041161 )
 texture = ExtResource( 16 )
 
@@ -247,20 +235,21 @@ __meta__ = {
 }
 
 [node name="special_puzzle1" type="Sprite" parent="."]
-position = Vector2( 317.775, 144.622 )
+visible = false
+position = Vector2( 339.8, 71.2059 )
 scale = Vector2( 0.195525, 0.195525 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 script = ExtResource( 9 )
 
 [node name="default_puzzle" type="Sprite" parent="special_puzzle1"]
 position = Vector2( 4.43164, -6.9248 )
 scale = Vector2( 0.107447, 0.107447 )
-texture = SubResource( 4 )
+texture = SubResource( 2 )
 
 [node name="special_puzzle" type="Sprite" parent="special_puzzle1"]
 position = Vector2( -14.2124, -11.4612 )
 scale = Vector2( 0.289951, 0.296826 )
-texture = SubResource( 5 )
+texture = SubResource( 3 )
 
 [node name="TextureButton" type="TextureButton" parent="special_puzzle1"]
 margin_left = -114.786
@@ -282,14 +271,14 @@ __meta__ = {
 
 [node name="close_picture" type="Sprite" parent="special_puzzle1"]
 position = Vector2( 204.027, -163.797 )
-texture = SubResource( 6 )
+texture = SubResource( 4 )
 
 [node name="Label" type="Label" parent="special_puzzle1"]
 margin_left = -234.374
 margin_top = -15.2527
 margin_right = 234.626
 margin_bottom = 28.7473
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.976471, 0.945098, 0.945098, 0.882353 )
 align = 1
 __meta__ = {
@@ -297,7 +286,7 @@ __meta__ = {
 }
 
 [node name="path2" type="Sprite" parent="."]
-position = Vector2( 146.235, 205.342 )
+position = Vector2( 138.226, 197.333 )
 scale = Vector2( 0.0561173, 0.0561173 )
 texture = ExtResource( 18 )
 
@@ -311,20 +300,21 @@ __meta__ = {
 }
 
 [node name="special_puzzle2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 163.891, 211.636 )
 scale = Vector2( 0.195525, 0.195525 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 script = ExtResource( 14 )
 
 [node name="default_puzzle" type="Sprite" parent="special_puzzle2"]
 position = Vector2( -1.65625, -7.23242 )
 scale = Vector2( 0.0705763, 0.0705763 )
-texture = SubResource( 8 )
+texture = SubResource( 6 )
 
 [node name="special_puzzle" type="Sprite" parent="special_puzzle2"]
 position = Vector2( -7.2967, -29.6229 )
 scale = Vector2( 0.280695, 0.280695 )
-texture = SubResource( 9 )
+texture = SubResource( 7 )
 
 [node name="TextureButton" type="TextureButton" parent="special_puzzle2"]
 margin_left = -100.114
@@ -346,14 +336,14 @@ __meta__ = {
 
 [node name="close_picture2" type="Sprite" parent="special_puzzle2"]
 position = Vector2( 203.434, -163.868 )
-texture = SubResource( 6 )
+texture = SubResource( 4 )
 
 [node name="Label" type="Label" parent="special_puzzle2"]
 margin_left = -234.979
 margin_top = -23.4749
 margin_right = 234.021
 margin_bottom = 20.5251
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.976471, 0.945098, 0.945098, 0.882353 )
 align = 1
 __meta__ = {
@@ -361,7 +351,7 @@ __meta__ = {
 }
 
 [node name="path3" type="Sprite" parent="."]
-position = Vector2( 379.801, 180.325 )
+position = Vector2( 409.835, 175.653 )
 scale = Vector2( 0.0473721, 0.0473721 )
 texture = ExtResource( 17 )
 
@@ -375,21 +365,22 @@ __meta__ = {
 }
 
 [node name="special_puzzle3" type="Sprite" parent="."]
-position = Vector2( 360.345, 227.969 )
+visible = false
+position = Vector2( 409.067, 153.218 )
 scale = Vector2( 0.192948, 0.192948 )
 z_index = 1
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 script = ExtResource( 13 )
 
 [node name="default_puzzle" type="Sprite" parent="special_puzzle3"]
 position = Vector2( -0.974609, -17.4727 )
 scale = Vector2( 0.0670874, 0.0670874 )
-texture = SubResource( 10 )
+texture = SubResource( 8 )
 
 [node name="special_puzzle" type="Sprite" parent="special_puzzle3"]
 position = Vector2( -10.7856, -35.8042 )
 scale = Vector2( 0.274264, 0.274264 )
-texture = SubResource( 11 )
+texture = SubResource( 9 )
 
 [node name="TextureButton" type="TextureButton" parent="special_puzzle3"]
 margin_left = -114.0
@@ -412,14 +403,14 @@ __meta__ = {
 [node name="close_picture3" type="Sprite" parent="special_puzzle3"]
 position = Vector2( 203.798, -162.6 )
 scale = Vector2( 1.01336, 1.01336 )
-texture = SubResource( 6 )
+texture = SubResource( 4 )
 
 [node name="Label" type="Label" parent="special_puzzle3"]
 margin_left = -236.252
 margin_top = -9.82446
 margin_right = 232.748
 margin_bottom = 34.1755
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.976471, 0.945098, 0.945098, 0.882353 )
 align = 1
 __meta__ = {
@@ -431,7 +422,7 @@ margin_left = 379.62
 margin_top = 254.317
 margin_right = 469.62
 margin_bottom = 267.317
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.517647, 0.654902, 0.584314, 0.517647 )
 text = "點開活動中心50次看看吧"
 __meta__ = {
@@ -439,43 +430,42 @@ __meta__ = {
 }
 
 [node name="icon0" type="Sprite" parent="."]
-position = Vector2( 33.9075, 37.9281 )
+position = Vector2( 56.5998, 59.9529 )
 scale = Vector2( 0.101274, 0.101635 )
-texture = SubResource( 13 )
+texture = SubResource( 11 )
 
 [node name="icon1" type="Sprite" parent="."]
-position = Vector2( 33.4845, 38.432 )
+position = Vector2( 56.1768, 60.4568 )
 scale = Vector2( 0.0952162, 0.0952162 )
-texture = SubResource( 14 )
+texture = SubResource( 12 )
 
 [node name="icon2" type="Sprite" parent="."]
-position = Vector2( 33.2036, 38.8711 )
+position = Vector2( 55.8959, 60.8959 )
 scale = Vector2( 0.0953494, 0.0953494 )
-texture = SubResource( 15 )
+texture = SubResource( 13 )
 
 [node name="icon3" type="Sprite" parent="."]
-position = Vector2( 33.6354, 38.7201 )
+position = Vector2( 56.3277, 60.7449 )
 scale = Vector2( 0.0963843, 0.0963843 )
-texture = SubResource( 16 )
+texture = SubResource( 14 )
 
 [node name="icon4" type="Sprite" parent="."]
-position = Vector2( 33.7926, 38.7499 )
+position = Vector2( 56.4849, 60.7747 )
 scale = Vector2( 0.0970528, 0.0970291 )
-texture = SubResource( 17 )
+texture = SubResource( 15 )
 
 [node name="icon5" type="Sprite" parent="."]
-position = Vector2( 33.5538, 38.4914 )
+position = Vector2( 56.2461, 60.5162 )
 scale = Vector2( 0.0969869, 0.0969869 )
-texture = SubResource( 18 )
+texture = SubResource( 16 )
 
 [node name="icon6" type="Sprite" parent="."]
-position = Vector2( 34.188, 38.2916 )
+position = Vector2( 56.8803, 60.3164 )
 scale = Vector2( 0.0956561, 0.095656 )
-texture = SubResource( 19 )
+texture = SubResource( 17 )
 [connection signal="pressed" from="puzzle_map_button" to="." method="_on_puzzle_map_button_pressed"]
 [connection signal="pressed" from="cug_puzzles_map_button" to="." method="_on_cug_puzzles_map_button_pressed"]
 [connection signal="pressed" from="cug_puzzles_map_button2" to="." method="_on_cug_puzzles_map_button_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_Button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_pressed"]
 [connection signal="pressed" from="title_storehouse/title_storehouse2" to="title_storehouse/title_storehouse" method="_on_title_storehouse_pressed"]

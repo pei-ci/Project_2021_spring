@@ -23,16 +23,17 @@ func _set_up(activity_info):
 	$page_04.text="此頁無活動紀錄(第四頁)"
 	if activity_info!=[]:
 		$page_01.text=""
-	var current_page=1
+	var current_page
+	var index=0
+	var line_number=9
 	for activity in activity_info:
-		if get_node(page_map[str(current_page)]).get_visible_line_count()>=7:
-			current_page= current_page +1
+		current_page= int(index/line_number)+1
+		if(index%line_number==0): #change page
 			get_node(page_map[str(current_page)]).text=""
-			if current_page>4:
-				break
-		#有需要跳過的內容的話 可以更改底下這個條件來使用
+		if current_page>4:
+			break
 		get_node(page_map[str(current_page)]).text+=activity+"\n"
-		
+		index+=1
 
 func _on_last_page_button_pressed():
 	if $page_01.visible==true:

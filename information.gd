@@ -26,6 +26,7 @@ func _set_up():
 	$team.text = team_user
 	$total_point.text =  str(total_point_user)
 	_set_title_line()#如果資訊欄稱號超過八個字要換行
+	set_obj_visibility()
 
 	
 	
@@ -40,8 +41,6 @@ func _set_title_line(): #如果資訊欄稱號超過八個字要換行
 	
 
 func _on_button_pressed():
-	pass
-	"""
 	if $unfold_picture.visible==true:
 		$background.visible=true
 		$unfold_picture.visible=false
@@ -61,6 +60,8 @@ func _on_button_pressed():
 		$name_heading.visible=true
 		$title.visible=true
 		$title_heading.visible=true
+		$total_point.visible=true
+		$total_point_heading.visible=true
 	else:
 		$background.visible=false
 		$unfold_picture.visible=true
@@ -80,5 +81,28 @@ func _on_button_pressed():
 		$name_heading.visible=false
 		$title.visible=false
 		$title_heading.visible=false
-		"""
+		$total_point.visible=false
+		$total_point_heading.visible=false
 
+func set_obj_visibility():
+	$background.visible=false
+	$unfold_picture.visible=true
+	$fold_picture.visible=false
+	
+	$subject.visible=false
+	$subject_heading.visible=false
+	$number.visible=false
+	$number_heading.visible=false
+	$nickname.visible=false
+	$nickname_heading.visible=false
+	$total_puzzle.visible=false
+	$total_puzzle_heading.visible=false
+	$team.visible=false
+	$team_heading.visible=false
+	$name.visible=false
+	$name_heading.visible=false
+	$title.visible=false
+	$title_heading.visible=false
+	$total_point.visible=false
+	$total_point_heading.visible=false
+	
