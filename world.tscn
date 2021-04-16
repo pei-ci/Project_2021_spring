@@ -119,8 +119,7 @@ __meta__ = {
 }
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 72.3277, 52.8443 )
+position = Vector2( 99.6918, 62.1882 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]

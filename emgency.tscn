@@ -16,14 +16,14 @@ load_path = "res://.import/突發事件按鈕B一版.png-76851d9ec89ac6e23462d97
 load_path = "res://.import/突發事件按鈕C一版.png-1bb9df9dbe1507d0717cb9eee0d3266d.stex"
 
 [node name="emergency" type="Sprite"]
-position = Vector2( 0, 3 )
+position = Vector2( 17.6389, 16.2292 )
 script = ExtResource( 1 )
 
 [node name="Button_emergency" type="TextureButton" parent="."]
-margin_left = 287.728
-margin_top = 78.8066
-margin_right = 299.728
-margin_bottom = 98.8066
+margin_left = -86.4689
+margin_top = 173.931
+margin_right = -74.4689
+margin_bottom = 193.931
 size_flags_horizontal = 8
 size_flags_vertical = 8
 __meta__ = {
