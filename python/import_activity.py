@@ -2,6 +2,7 @@ import csv
 import pymysql
 
 activity_table = {}
+skip = 0
 
 def connect_to_sql():
 	db_settings = {
@@ -21,13 +22,13 @@ def connect_to_sql():
 		exit()
 
 def read_csv():
-	with open('import_data.csv', newline='') as csvfile:
+	with open('import_activity_data.csv', newline='',encoding="utf-8") as csvfile:
 		rows = csv.reader(csvfile)
 		data = list(rows)
 	return data
 
 def load_point_table():
-	with open('activity.csv', newline='') as csvfile:
+	with open('activity.csv', newline='',encoding="utf-8") as csvfile:
 		rows = csv.reader(csvfile)
 		data = list(rows)[1:]
 		for event in data:
@@ -38,13 +39,17 @@ def update_to_server(conn,data):
 	with conn.cursor() as cursor:
 		for activity in data:
 			student_id = activity[0]
-			number = activity[1]
+			number = activity[3]+activity[4]+activity[5]
 			get_point = 100
 
 			reward_puzzle_type,reward_puzzle_count,reward_point = get_activity_point(number)
 			reward_puzzle_record = str(reward_puzzle_type)+str(reward_puzzle_count)
 
 			fetch_data = get_map_data(conn,student_id,reward_puzzle_type)
+
+			if fetch_data == None:
+				continue
+
 			team_point = fetch_data[1]
 			fetch_data_0 = fetch_data[0]
 
@@ -74,6 +79,12 @@ def get_map_data(conn,uid,num):
 		cursor.execute(command_map)
 		result_map = cursor.fetchall()
 
+		if(len(result_map)!=1):
+			#print('Pass userid '+str(uid) + " !")
+			global skip
+			skip += 1
+			return None
+
 		team_point = -1
 		if(result_map[0][1]!=None):
 			command_team = "SELECT team.point FROM team,user WHERE team.teamid=user.teamid AND user.number='"+str(uid)+"'"
@@ -81,11 +92,7 @@ def get_map_data(conn,uid,num):
 			result_team = cursor.fetchall()		
 			team_point = result_team[0][0]
 
-		if(len(result_map)!=1):
-			print('Error happened during serarch userid '+str(uid) + " !")
-			exit()
-		else:
-			return (result_map[0],team_point)
+		return (result_map[0],team_point)
 
 def get_activity_point(number):
 	if number[0]=='A':
@@ -131,3 +138,7 @@ if __name__ == '__main__':
 	print('uploading to server!')
 	update_to_server(conn,data)
 	print('finish uploading to server!')
+
+	print('-----------------------------------')
+	print('Total user : '+str(len(data)-1))
+	print('Total upload : '+str(len(data)-skip-1))

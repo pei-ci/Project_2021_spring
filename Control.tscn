@@ -37,7 +37,7 @@ __meta__ = {
 }
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 241.014, 139.799 )
+position = Vector2( 241.014, 139.379 )
 scale = Vector2( 0.46927, 0.362539 )
 texture = ExtResource( 7 )
 
