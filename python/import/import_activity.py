@@ -1,5 +1,6 @@
 import csv
 import pymysql
+import random
 
 activity_table = {}
 skip = 0

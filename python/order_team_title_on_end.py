@@ -57,12 +57,43 @@ def get_order(conn,data):
 		i+=1
 	return order_list
 
+def get_title_data(conn,tid):
+	with conn.cursor() as cursor:
+		command = "SELECT user.userid,user.title FROM user WHERE teamid='"+tid+"'"
+		cursor.execute(command)
+		result = cursor.fetchall()
+		return result
+
+def set_title_data(conn,tid,order):
+	user_data = get_title_data(conn,tid)
+	with conn.cursor() as cursor:
+		for user in user_data:
+			user_id = user[0]
+			user_title = user[1]
+			new_user_title = user_title
+
+			if order==1:
+				new_user_title = user_title[0:28]+'1'+user_title[29:]
+				print(new_user_title)
+			elif order==2:
+				new_user_title = user_title[0:29]+'1'+user_title[30:]
+			elif order==3:
+				new_user_title = user_title[0:30]+'1'+user_title[31:]
+			elif order<=10:
+				new_user_title = user_title[0:31]+'1'+user_title[32:]
+
+			command = "UPDATE user SET title='"+str(new_user_title)+"' WHERE userid = "+ str(user_id)
+			cursor.execute(command)   
+			conn.commit()
+		return
+
 def send_order_to_server(conn,order_list):
-    with conn.cursor() as cursor:
-    	for key in order_list.keys():
-        	command = "UPDATE team SET rank = "+ str(order_list[key]) +" WHERE teamid = "+ str(key)
-        	cursor.execute(command)   
-        	conn.commit()
+	with conn.cursor() as cursor:
+		for key in order_list.keys():
+			set_title_data(conn,str(key),order_list[key])
+			command = "UPDATE team SET rank = "+ str(order_list[key]) +" WHERE teamid = "+ str(key)
+			cursor.execute(command)   
+			conn.commit()
 
 def order_team():
 	print('connect to sql!')
