@@ -19,8 +19,8 @@ func _on_LineEdit_text_entered(text):
 	pass
 	
 func _on_user_changed(text):
-	$UsernameLabel.text = text
-	username = text
+	$UsernameLabel.text = text.to_upper()
+	username = text.to_upper()
 
 func _on_password_changed(text):
 	$PasswordLabel.text = text

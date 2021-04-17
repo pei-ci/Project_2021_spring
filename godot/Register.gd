@@ -9,7 +9,7 @@ func _ready():
 func reset_text():
 	$DepartmentLabel.text = 'Press to choose department'
 	$NameLabel.text = ''
-	$NicknameLabel.text = ''	
+	$NicknameLabel.text = ''
 
 func _on_OK_pressed():
 	var control = get_node("/root/login")	
