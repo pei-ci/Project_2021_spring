@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://title_storehouse.tscn" type="PackedScene" id=1]
 [ext_resource path="res://leader_board.tscn" type="PackedScene" id=2]
@@ -73,6 +73,14 @@ load_path = "res://.import/守分自律(成長).png-5dc2264ec199eb191834c18a358f
 [sub_resource type="StreamTexture" id=17]
 load_path = "res://.import/創新進取(成長).png-f08fb9aa2dbeba3a7869e4655fb3b721.stex"
 
+[sub_resource type="DynamicFont" id=18]
+size = 10
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 6
+font_data = ExtResource( 12 )
+
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -83,21 +91,21 @@ texture = ExtResource( 19 )
 
 [node name="puzzles_map" parent="." instance=ExtResource( 10 )]
 visible = false
-position = Vector2( 233.838, 128.492 )
+position = Vector2( 249.394, 141.22 )
 z_index = 150
 
 [node name="puzzle_map_button" type="TextureButton" parent="."]
-margin_left = 361.027
-margin_top = 191.998
-margin_right = 389.027
-margin_bottom = 241.998
+margin_left = 361.0
+margin_top = 187.0
+margin_right = 389.0
+margin_bottom = 242.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="cgu_puzzles_map" parent="." instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 234.379, 131.224 )
+position = Vector2( 254.178, 125.567 )
 z_index = 130
 
 [node name="cug_puzzles_map_button" type="TextureButton" parent="."]
@@ -119,17 +127,18 @@ __meta__ = {
 }
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 106.366, 60.1859 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
-position = Vector2( -56.2886, 99.214 )
+position = Vector2( -55.5815, 70.9297 )
 z_index = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 387.817, 197.782 )
+position = Vector2( 8.80774, 205.146 )
 
 [node name="leader_board_group" type="Sprite" parent="."]
 z_index = 40
@@ -429,60 +438,117 @@ __meta__ = {
 }
 
 [node name="icon0" type="Sprite" parent="."]
-position = Vector2( 56.5998, 59.9529 )
+position = Vector2( 57.3069, 38.0326 )
 scale = Vector2( 0.101274, 0.101635 )
 texture = SubResource( 11 )
 
 [node name="icon1" type="Sprite" parent="."]
-position = Vector2( 56.1768, 60.4568 )
+position = Vector2( 56.8839, 38.5365 )
 scale = Vector2( 0.0952162, 0.0952162 )
 texture = SubResource( 12 )
 
 [node name="icon2" type="Sprite" parent="."]
-position = Vector2( 55.8959, 60.8959 )
+position = Vector2( 56.603, 38.9756 )
 scale = Vector2( 0.0953494, 0.0953494 )
 texture = SubResource( 13 )
 
 [node name="icon3" type="Sprite" parent="."]
-position = Vector2( 56.3277, 60.7449 )
+position = Vector2( 57.0348, 38.8246 )
 scale = Vector2( 0.0963843, 0.0963843 )
 texture = SubResource( 14 )
 
 [node name="icon4" type="Sprite" parent="."]
-position = Vector2( 56.4849, 60.7747 )
+position = Vector2( 57.192, 38.8544 )
 scale = Vector2( 0.0970528, 0.0970291 )
 texture = SubResource( 15 )
 
 [node name="icon5" type="Sprite" parent="."]
-position = Vector2( 56.2461, 60.5162 )
+position = Vector2( 56.9532, 38.5959 )
 scale = Vector2( 0.0969869, 0.0969869 )
 texture = SubResource( 16 )
 
 [node name="icon6" type="Sprite" parent="."]
-position = Vector2( 56.8803, 60.3164 )
+position = Vector2( 57.5874, 38.3961 )
 scale = Vector2( 0.0956561, 0.095656 )
 texture = SubResource( 17 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 394.15
+margin_top = 9.88988
+margin_right = 474.15
+margin_bottom = 32.8899
+color = Color( 1, 1, 0.94902, 0.266667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="signpost" type="Label" parent="."]
+margin_left = 394.0
+margin_top = 10.0
+margin_right = 474.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 18 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="news" type="Label" parent="."]
+margin_left = 397.0
+margin_top = 46.0
+margin_right = 474.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 19 )
+text = "即時訊息"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="puzzle_map_button" to="." method="_on_puzzle_map_button_mouse_entered"]
+[connection signal="mouse_exited" from="puzzle_map_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="puzzle_map_button" to="." method="_on_puzzle_map_button_pressed"]
+[connection signal="mouse_entered" from="cug_puzzles_map_button" to="." method="_on_cug_puzzles_map_button_mouse_entered"]
+[connection signal="mouse_exited" from="cug_puzzles_map_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="cug_puzzles_map_button" to="." method="_on_cug_puzzles_map_button_pressed"]
+[connection signal="mouse_entered" from="cug_puzzles_map_button2" to="." method="_on_cug_puzzles_map_button_mouse_entered"]
+[connection signal="mouse_exited" from="cug_puzzles_map_button2" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="cug_puzzles_map_button2" to="." method="_on_cug_puzzles_map_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="mouse_entered" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_mouse_entered"]
+[connection signal="mouse_exited" from="leader_board_group/leader_board_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_pressed"]
+[connection signal="mouse_entered" from="title_storehouse/title_storehouse2" to="." method="_on_title_storehouse2_mouse_entered"]
+[connection signal="mouse_exited" from="title_storehouse/title_storehouse2" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="title_storehouse/title_storehouse2" to="title_storehouse/title_storehouse" method="_on_title_storehouse_pressed"]
+[connection signal="mouse_entered" from="title_storehouse/title_storehouse3" to="." method="_on_title_storehouse2_mouse_entered"]
+[connection signal="mouse_exited" from="title_storehouse/title_storehouse3" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="title_storehouse/title_storehouse3" to="title_storehouse/title_storehouse" method="_on_title_storehouse_pressed"]
+[connection signal="mouse_entered" from="activity/activity_button" to="." method="_on_activity_button_mouse_entered"]
+[connection signal="mouse_exited" from="activity/activity_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="activity/activity_button" to="activity/activity" method="_on_activity_button_pressed"]
 [connection signal="request_completed" from="team/HTTPRequest2" to="team" method="_on_HTTPRequest2_request_completed"]
+[connection signal="mouse_entered" from="team_button" to="." method="_on_team_button_mouse_entered"]
+[connection signal="mouse_exited" from="team_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="team_button" to="." method="_on_team_button_pressed"]
+[connection signal="mouse_entered" from="puzzle_storehouse_button" to="." method="_on_puzzle_storehouse_button_mouse_entered"]
+[connection signal="mouse_exited" from="puzzle_storehouse_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="puzzle_storehouse_button" to="puzzle_storehouse" method="_on_puzzle_storehouse_button_pressed"]
+[connection signal="mouse_entered" from="path1/path1" to="." method="_on_path_mouse_entered"]
+[connection signal="mouse_exited" from="path1/path1" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="path1/path1" to="special_puzzle1" method="_on_path1_pressed"]
 [connection signal="mouse_entered" from="special_puzzle1/TextureButton" to="special_puzzle1" method="_on_TextureButton_mouse_entered"]
 [connection signal="mouse_exited" from="special_puzzle1/TextureButton" to="special_puzzle1" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="special_puzzle1/TextureButton" to="special_puzzle1" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="special_puzzle1/close" to="special_puzzle1" method="_on_close_pressed"]
+[connection signal="mouse_entered" from="path2/path2" to="." method="_on_path_mouse_entered"]
+[connection signal="mouse_exited" from="path2/path2" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="path2/path2" to="special_puzzle2" method="_on_path2_pressed"]
 [connection signal="mouse_entered" from="special_puzzle2/TextureButton" to="special_puzzle2" method="_on_TextureButton_mouse_entered"]
 [connection signal="mouse_exited" from="special_puzzle2/TextureButton" to="special_puzzle2" method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="special_puzzle2/TextureButton" to="special_puzzle2" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="special_puzzle2/close" to="special_puzzle2" method="_on_close_pressed"]
+[connection signal="mouse_entered" from="path3/path3" to="." method="_on_path_mouse_entered"]
+[connection signal="mouse_exited" from="path3/path3" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="path3/path3" to="special_puzzle3" method="_on_path3_pressed"]
 [connection signal="mouse_entered" from="special_puzzle3/TextureButton" to="special_puzzle3" method="_on_TextureButton_mouse_entered"]
 [connection signal="mouse_exited" from="special_puzzle3/TextureButton" to="special_puzzle3" method="_on_TextureButton_mouse_exited"]

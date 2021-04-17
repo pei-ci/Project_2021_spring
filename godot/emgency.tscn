@@ -20,10 +20,10 @@ position = Vector2( 17.6389, 16.2292 )
 script = ExtResource( 1 )
 
 [node name="Button_emergency" type="TextureButton" parent="."]
-margin_left = -86.4689
-margin_top = 173.931
-margin_right = -74.4689
-margin_bottom = 193.931
+margin_left = -4.4445
+margin_top = 172.517
+margin_right = 7.5555
+margin_bottom = 192.517
 size_flags_horizontal = 8
 size_flags_vertical = 8
 __meta__ = {

@@ -688,3 +688,6 @@ var activity_name={
 
 #顯示資訊
 var news_list=[]
+
+func get_news_list():
+	return news_list

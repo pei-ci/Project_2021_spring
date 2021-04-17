@@ -2,28 +2,30 @@
 
 [ext_resource path="res://puzzles_map.gd" type="Script" id=1]
 [ext_resource path="res://puzzle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://底圖/拼圖背景2.png" type="Texture" id=3]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/拼圖地圖.png-98d1a0ffbc6a6e9af1176a14e497928d.stex"
-
-[sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [node name="puzzles_map" type="Sprite"]
 position = Vector2( 240.58, 137.482 )
 scale = Vector2( 0.493212, 0.493212 )
-texture = SubResource( 1 )
 script = ExtResource( 1 )
 
+[node name="background" type="Sprite" parent="."]
+position = Vector2( -33.5531, -0.716832 )
+scale = Vector2( 0.658983, 0.51184 )
+texture = ExtResource( 3 )
+
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 327.477, -163.739 )
-texture = SubResource( 2 )
+position = Vector2( 274.431, -166.606 )
+texture = SubResource( 1 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 313.0
-margin_top = -175.0
-margin_right = 339.0
-margin_bottom = -149.0
+margin_left = 259.954
+margin_top = -177.867
+margin_right = 285.954
+margin_bottom = -151.867
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -45,6 +45,7 @@ func refresh_information():
 	refresh_icon()
 	refresh_puzzle_store_information()
 	refresh_special_puzzle()
+	refresh_news()
 	
 	
 func refresh_information_information():
@@ -567,3 +568,68 @@ func check_special_hint():
 		$special_hint.visible=true
 	else:
 		$special_hint.visible=false
+
+func set_signpost_text(text):
+	$signpost.text=text
+
+
+func _on_puzzle_storehouse_button_mouse_entered():
+	set_signpost_text("拼圖倉庫")
+
+
+func _on_activity_button_mouse_entered():
+	set_signpost_text("活動資訊")
+
+
+func _on_team_button_mouse_entered():
+	set_signpost_text("組隊/組隊資訊")
+
+
+func _on_title_storehouse2_mouse_entered():
+	set_signpost_text("稱號倉庫")
+
+
+func _on_leader_board_button_mouse_entered():
+	set_signpost_text("排行榜")
+
+
+func _on_puzzle_map_button_mouse_entered():
+	set_signpost_text("大拼圖")
+
+
+func _on_cug_puzzles_map_button_mouse_entered():
+	set_signpost_text("cgu拼圖")
+	
+func _on_path_mouse_entered():
+	set_signpost_text("小徑")
+
+	
+func clear_signpost_text():
+	set_signpost_text("")
+
+var lines_limit_num=5
+var line_char_num=5
+func refresh_news():
+	var news_list=Data.get_news_list()
+	var append_string=""
+	var text_line_num=0
+	$news.text=""
+	for news in news_list:
+		append_string=change_line(news,line_char_num)
+		text_line_num+=line_num
+		if text_line_num>lines_limit_num: 
+			break
+		$news.text+=append_string+"\n"
+		
+var line_num
+func change_line(string,num):
+	var result=""
+	line_num=1
+	for i in range(len(string)):
+		if i%num==0 and i!=0:
+			result+="\n"
+			line_num+=1
+		result+=string[i]
+	return result
+	
+		

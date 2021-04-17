@@ -2,28 +2,30 @@
 
 [ext_resource path="res://puzzle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://puzzles_map.gd" type="Script" id=2]
+[ext_resource path="res://底圖/拼圖背景2.png" type="Texture" id=3]
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/拼圖地圖.png-98d1a0ffbc6a6e9af1176a14e497928d.stex"
-
-[sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
 
 [node name="puzzles_map" type="Sprite"]
 position = Vector2( 214.094, 124.769 )
 scale = Vector2( 0.493212, 0.493212 )
-texture = SubResource( 1 )
 script = ExtResource( 2 )
 
+[node name="background" type="Sprite" parent="."]
+position = Vector2( -10.4587, -6.38962e-05 )
+scale = Vector2( 0.587552, 0.425035 )
+texture = ExtResource( 3 )
+
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 327.477, -163.739 )
-texture = SubResource( 2 )
+position = Vector2( 258.66, -133.632 )
+texture = SubResource( 1 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 313.0
-margin_top = -175.0
-margin_right = 339.0
-margin_bottom = -149.0
+margin_left = 244.183
+margin_top = -144.893
+margin_right = 270.183
+margin_bottom = -118.893
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,47 +34,47 @@ __meta__ = {
 position = Vector2( 186.723, 2.14807 )
 
 [node name="CA01" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -347.722, -38.2778 )
+position = Vector2( -320.482, -36.8441 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA02" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -377.415, -57.1656 )
+position = Vector2( -350.175, -55.7319 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA03" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -407.109, -76.1187 )
+position = Vector2( -379.869, -74.685 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA04" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -436.802, -57.1656 )
+position = Vector2( -409.562, -55.7319 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA05" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -466.247, -38.2776 )
+position = Vector2( -439.007, -36.8439 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA06" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -466.692, -0.436672 )
+position = Vector2( -439.452, 0.996998 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA07" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -467.202, 37.9144 )
+position = Vector2( -439.962, 39.3481 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA08" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -437.953, 56.8673 )
+position = Vector2( -410.713, 58.301 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA09" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -408.639, 76.1351 )
+position = Vector2( -381.399, 77.5688 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA10" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -378.881, 57.2471 )
+position = Vector2( -351.641, 58.6808 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CA11" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -349.186, 38.1637 )
+position = Vector2( -321.946, 39.5974 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CB01" parent="puzzles" instance=ExtResource( 1 )]
@@ -124,46 +126,46 @@ position = Vector2( -135.094, -0.686127 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC01" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -51.3434, -68.2581 )
+position = Vector2( -74.2822, -63.9571 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC02" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -51.6579, -29.5926 )
+position = Vector2( -74.5967, -25.2916 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC03" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -51.5928, 9.07314 )
+position = Vector2( -74.5316, 13.3742 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC04" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -51.5928, 47.8038 )
+position = Vector2( -74.5316, 52.1048 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC05" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( -22.214, 67.0063 )
+position = Vector2( -45.1528, 71.3073 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC06" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( 6.72028, 84.8853 )
+position = Vector2( -16.2186, 89.1863 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC07" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( 35.2745, 66.5614 )
+position = Vector2( 12.3357, 70.8624 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC08" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( 64.3389, 47.2286 )
+position = Vector2( 41.4001, 51.5296 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC09" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( 63.9592, 8.56303 )
+position = Vector2( 41.0204, 12.8641 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC10" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( 63.4506, -29.2779 )
+position = Vector2( 40.5117, -24.9769 )
 scale = Vector2( 1.51462, 1.51462 )
 
 [node name="CC11" parent="puzzles" instance=ExtResource( 1 )]
-position = Vector2( 62.8851, -67.6941 )
+position = Vector2( 39.9463, -63.3931 )
 scale = Vector2( 1.51462, 1.51462 )
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
