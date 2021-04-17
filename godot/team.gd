@@ -41,10 +41,15 @@ func _on_close_pressed():
 	self.visible=false
 
 func _on_generate_Button_pressed():
-	if _is_input_team_name() and $team_up/background/generate_label.text=="":#當已輸入名稱 且未產生組隊代碼
-		var team_name = $team_up/input_team_name.text
-		send_generate_team_request(team_name)
-		$team_up/background/generate_label.text = "waiting..."
+	if _is_input_team_name():
+		if $team_up/background/generate_label.text=="":#當已輸入名稱 且未產生組隊代碼
+			var team_name = $team_up/input_team_name.text
+			send_generate_team_request(team_name)
+			$team_up/background/generate_label.text = "waiting..."
+		else:
+			$team_up/background/description.text = '您已產生組隊代碼 請勿重複點擊!'
+	else:
+		$team_up/background/description.text = '請先輸入隊伍名稱!'
 
 func send_generate_team_request(team_name):	
 	var map_body := {"type" : 'create_team',"validation": Data.login_certification,"team_name":team_name}
@@ -55,9 +60,11 @@ func _on_generate_team_finished(team_id):
 
 func _on_input_Button_pressed():
 	var team_id = $team_up/input.text
-	var map_body := {"type" : 'join_team',"validation": Data.login_certification,"teamid":team_id}
-	$HTTPRequest2.request(Data.BACKGROUND_WEB,headers,Data.SSL_USE,HTTPClient.METHOD_POST,to_json(map_body))
-	
+	if len(team_id)==6:
+		var map_body := {"type" : 'join_team',"validation": Data.login_certification,"teamid":team_id}
+		$HTTPRequest2.request(Data.BACKGROUND_WEB,headers,Data.SSL_USE,HTTPClient.METHOD_POST,to_json(map_body))
+	else:
+		$team_up/background/description.text = '輸入有錯，組隊代碼格式為6位數字!'
 
 func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	var respond = body.get_string_from_utf8()
@@ -83,11 +90,15 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 			print("Unaccept emergency request!!!")
 	elif(data['type'] == 'join_team'):
 		if(data['sucess']=='true'):			
-			$team_up/input.text = "Join sucessed!"
+			$team_up/background/description.text = "加入成功!"
 			world.have_team = true
 			world.send_team_request()
+		elif data['error']=='team_not_exist':
+			$team_up/background/description.text = "隊伍不存在!"
+		elif data['error']=='team_full':
+			$team_up/background/description.text = "隊伍已滿，請與其他隊伍組隊!"
 		else:
-			$team_up/input.text = "Join failed!"
+			$team_up/background/description.text = "無法加入，請稍後在試!"
 			print("Unable join team!!!")
 	elif(data['type'] == 'team_member'):
 		if(data['sucess']=='true'):			
