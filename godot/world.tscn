@@ -127,7 +127,7 @@ __meta__ = {
 }
 
 [node name="emergency" parent="." instance=ExtResource( 6 )]
-position = Vector2( 106.366, 60.1859 )
+position = Vector2( 103.988, 60.1859 )
 z_index = 40
 
 [node name="information" parent="." instance=ExtResource( 7 )]
@@ -152,9 +152,8 @@ __meta__ = {
 z_index = 40
 
 [node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 196.243, 31.8593 )
-scale = Vector2( 1.07317, 1.07317 )
+position = Vector2( 202.784, 31.2647 )
+scale = Vector2( 0.93489, 0.93489 )
 
 [node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
 margin_left = 314.016
