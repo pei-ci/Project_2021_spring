@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="20210117"
+config/name="login cgu"
 run/main_scene="res://Control.tscn"
 config/icon="res://icon.png"
 
