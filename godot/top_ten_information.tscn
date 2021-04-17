@@ -2,16 +2,12 @@
 
 [ext_resource path="res://top_ten_information.gd" type="Script" id=1]
 [ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://介面/團體排行榜註解.png" type="Texture" id=3]
+[ext_resource path="res://介面/個人排行榜註解.png" type="Texture" id=4]
 
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/排行榜註解.png-f4eee36491e5d88592e178c8eb73bda9.stex"
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
-
-[sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/排行榜註解團體版.png-b816541f246668b38d4a7bf8d8673d7f.stex"
 
 [node name="top_ten_information" type="Sprite"]
 script = ExtResource( 1 )
@@ -28,14 +24,14 @@ __meta__ = {
 [node name="person" type="Sprite" parent="."]
 position = Vector2( 168.525, 96.4855 )
 scale = Vector2( 0.123554, 0.0931127 )
-texture = SubResource( 1 )
+texture = ExtResource( 4 )
 
 [node name="total_puzzle" type="Label" parent="person"]
-margin_left = -39.0
+margin_left = -136.124
 margin_top = -27.0
-margin_right = 145.0
-margin_bottom = 41.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 47.8765
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
@@ -43,11 +39,11 @@ __meta__ = {
 }
 
 [node name="nickname" type="Label" parent="person"]
-margin_left = -163.0
-margin_top = -109.0
-margin_right = 31.0
-margin_bottom = -36.0
-custom_fonts/font = SubResource( 2 )
+margin_left = -138.719
+margin_top = -119.74
+margin_right = 55.2809
+margin_bottom = -46.7395
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
@@ -55,11 +51,11 @@ __meta__ = {
 }
 
 [node name="title" type="Label" parent="person"]
-margin_left = -160.0
-margin_top = 44.0
-margin_right = 148.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = -135.719
+margin_top = 65.4792
+margin_right = 172.281
+margin_bottom = 135.479
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
@@ -69,14 +65,14 @@ __meta__ = {
 [node name="team" type="Sprite" parent="."]
 position = Vector2( 158.227, 97.1099 )
 scale = Vector2( 0.0954769, 0.0954769 )
-texture = SubResource( 3 )
+texture = ExtResource( 3 )
 
 [node name="total_puzzle" type="Label" parent="team"]
-margin_left = -6.0
+margin_left = -142.159
 margin_top = 18.0
-margin_right = 293.0
+margin_right = 156.841
 margin_bottom = 98.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
@@ -84,11 +80,11 @@ __meta__ = {
 }
 
 [node name="nickname" type="Label" parent="team"]
-margin_left = -173.618
-margin_top = -103.474
-margin_right = 203.382
-margin_bottom = -20.4738
-custom_fonts/font = SubResource( 2 )
+margin_left = -142.197
+margin_top = -82.5264
+margin_right = 234.803
+margin_bottom = 0.47377
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.305882, 0.380392, 0.431373, 1 )
 valign = 1
 __meta__ = {
