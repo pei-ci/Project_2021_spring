@@ -51,8 +51,9 @@ def get_order(conn,data):
 		else:
 			order_list[data[i][0]] = current_order
 			current_order += 1
-			if(i==len(data)-2):
-				order_list[data[i+1][0]] = current_order
+			
+		if(i==len(data)-2):
+			order_list[data[i+1][0]] = current_order
 		i+=1
 	return order_list
 

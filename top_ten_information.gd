@@ -39,8 +39,12 @@ func _get_information_text(num):
 	var info={"nickname":"","total_puzzle":"","title":"","teamname":""}
 	if leader_board_status: #personal
 		info["nickname"]=Data.top_ten_person[num-1]["nickname"]
-		info["total_puzzle:"]=Data.top_ten_person[num-1]["total_puzzle"]
-		info["title"]=Data.top_ten_person[num-1]["title"]
+		info["total_puzzle"]=Data.top_ten_person[num-1]["total_puzzle"]
+		if(Data.top_ten_person[num-1]["title"]!='-1'&&Data.top_ten_person[num-1]["title"]!='尚無排名'):
+			info["title"]=Data.title_list[Data.top_ten_person[num-1]["title"]]
+		else:
+			info["title"]='尚無稱號'
+		Data.debug_msg(2,"Puzzle"+str(Data.top_ten_person[num-1]["total_puzzle"]))
 	else: #team
 		info["teamname"]=Data.top_ten_team[num-1]["teamname"]
 		info["total_puzzle"]=Data.top_ten_team[num-1]["total_puzzle"]

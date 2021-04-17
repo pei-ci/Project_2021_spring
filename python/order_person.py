@@ -22,6 +22,7 @@ def fetch_data(conn):
 		command = "SELECT map.userid,map.point FROM map ORDER BY point DESC"
 		cursor.execute(command)
 		result = cursor.fetchall()
+		print(result)
 		return result
 
 def get_order(conn,data):
@@ -51,8 +52,9 @@ def get_order(conn,data):
 		else:
 			order_list[data[i][0]] = current_order
 			current_order += 1
-			if(i==len(data)-2):
-				order_list[data[i+1][0]] = current_order
+			
+		if(i==len(data)-2):
+			order_list[data[i+1][0]] = current_order
 		i+=1
 	return order_list
 
