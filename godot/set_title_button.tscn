@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://set_title_button.gd" type="Script" id=1]
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/稱號倉庫_灰-測試.png-45878adc131a766ba0d8c83ff346abd9.stex"

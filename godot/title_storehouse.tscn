@@ -2,7 +2,7 @@
 
 [ext_resource path="res://title_name_storehouse.gd" type="Script" id=1]
 [ext_resource path="res://title_storehouse.gd" type="Script" id=2]
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://set_title_button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StreamTexture" id=1]

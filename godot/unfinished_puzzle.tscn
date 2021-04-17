@@ -1,58 +1,58 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://unfinished_puzzle.gd" type="Script" id=2]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/未拼上拼圖介面一版.png-b01109046fdcf4605e5d200fbdb66e1f.stex"
 
 [sub_resource type="DynamicFont" id=2]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [node name="unfinished_puzzle" type="Sprite"]
 script = ExtResource( 2 )

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://activity.gd" type="Script" id=1]
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/活動資訊2.0.png-df88f3c7f5f223040704eaed757917d0.stex"

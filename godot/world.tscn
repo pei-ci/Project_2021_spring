@@ -11,7 +11,7 @@
 [ext_resource path="res://special_puzzle1.gd" type="Script" id=9]
 [ext_resource path="res://puzzles_map.tscn" type="PackedScene" id=10]
 [ext_resource path="res://cgu_puzzles_map.tscn" type="PackedScene" id=11]
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=12]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=12]
 [ext_resource path="res://special_puzzle3.gd" type="Script" id=13]
 [ext_resource path="res://special_puzzle2.gd" type="Script" id=14]
 [ext_resource path="res://puzzle_storehouse.tscn" type="PackedScene" id=15]
@@ -91,7 +91,7 @@ texture = ExtResource( 19 )
 
 [node name="puzzles_map" parent="." instance=ExtResource( 10 )]
 visible = false
-position = Vector2( 249.394, 141.22 )
+position = Vector2( 249.989, 128.733 )
 z_index = 150
 
 [node name="puzzle_map_button" type="TextureButton" parent="."]
@@ -139,13 +139,22 @@ z_index = 1
 [node name="unfinished_puzzle" parent="." instance=ExtResource( 8 )]
 position = Vector2( 8.80774, 205.146 )
 
+[node name="TextureButton" type="TextureButton" parent="unfinished_puzzle"]
+margin_left = 28.0
+margin_top = 9.0
+margin_right = 77.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="leader_board_group" type="Sprite" parent="."]
 z_index = 40
 
 [node name="leader_board" parent="leader_board_group" instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 115.377, 47.6163 )
-scale = Vector2( 0.921059, 0.921059 )
+position = Vector2( 196.243, 31.8593 )
+scale = Vector2( 1.07317, 1.07317 )
 
 [node name="leader_board_button" type="TextureButton" parent="leader_board_group"]
 margin_left = 314.016
@@ -513,6 +522,8 @@ __meta__ = {
 [connection signal="mouse_exited" from="cug_puzzles_map_button2" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="cug_puzzles_map_button2" to="." method="_on_cug_puzzles_map_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="mouse_entered" from="unfinished_puzzle/TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="unfinished_puzzle/TextureButton" to="." method="clear_signpost_text"]
 [connection signal="mouse_entered" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_mouse_entered"]
 [connection signal="mouse_exited" from="leader_board_group/leader_board_button" to="." method="clear_signpost_text"]
 [connection signal="pressed" from="leader_board_group/leader_board_button" to="." method="_on_leader_board_button_pressed"]

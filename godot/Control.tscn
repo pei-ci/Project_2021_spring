@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
@@ -8,15 +8,23 @@
 [ext_resource path="res://介面/登入頁面.png" type="Texture" id=6]
 [ext_resource path="res://底圖/登入背景二版.png" type="Texture" id=7]
 [ext_resource path="res://底圖/登入背景一版.png" type="Texture" id=8]
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=9]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 13
 font_data = ExtResource( 9 )
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="DynamicFont" id=3]
+size = 13
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=5]
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
@@ -24,7 +32,7 @@ Label/constants/line_spacing = 3
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
-Label/fonts/font = SubResource( 2 )
+Label/fonts/font = SubResource( 4 )
 Label/styles/normal = null
 
 [node name="login" type="Control"]
@@ -77,7 +85,7 @@ margin_left = 208.093
 margin_top = 112.018
 margin_right = 362.093
 margin_bottom = 131.018
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +95,7 @@ margin_left = 208.093
 margin_top = 147.018
 margin_right = 362.093
 margin_bottom = 166.018
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,7 +113,7 @@ margin_top = 189.892
 margin_right = 335.094
 margin_bottom = 213.892
 rect_scale = Vector2( 1.051, 1 )
-theme = SubResource( 3 )
+theme = SubResource( 5 )
 text = "登入"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -131,7 +139,7 @@ margin_top = 189.0
 margin_right = 205.0
 margin_bottom = 213.0
 rect_scale = Vector2( 1.051, 1 )
-theme = SubResource( 3 )
+theme = SubResource( 5 )
 text = "註冊"
 __meta__ = {
 "_edit_use_anchors_": false

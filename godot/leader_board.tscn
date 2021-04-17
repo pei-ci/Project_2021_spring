@@ -1,10 +1,11 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://leader_board.gd" type="Script" id=2]
 [ext_resource path="res://top_ten_information.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/排行榜測適用.png-e668f3c43631c1788e77da1a985f2584.stex"
 
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/排行榜底圖三版.png-cc106ac44054f77970308497e560c5dc.stex"
@@ -60,39 +61,39 @@ size = 5
 font_data = ExtResource( 1 )
 
 [node name="leader_board" type="Sprite"]
-position = Vector2( 86.1874, 36.3893 )
+position = Vector2( 99.8633, 32.8217 )
 texture = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 145.307, 97.9046 )
+position = Vector2( 30.5483, 90.7693 )
 scale = Vector2( 0.213212, 0.213212 )
 texture = SubResource( 2 )
 
 [node name="close" type="TextureButton" parent="."]
-margin_left = 215.196
-margin_top = -10.0743
-margin_right = 226.196
-margin_bottom = -0.0743217
+margin_left = 100.437
+margin_top = -17.2096
+margin_right = 111.437
+margin_bottom = -7.20957
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="close_picture" type="Sprite" parent="."]
-position = Vector2( 222.166, -5.47452 )
+position = Vector2( 107.407, -12.6098 )
 scale = Vector2( 0.584248, 0.584248 )
 texture = SubResource( 3 )
 
 [node name="switch_picture" type="Sprite" parent="."]
-position = Vector2( 217.44, 180.618 )
+position = Vector2( 102.681, 173.483 )
 scale = Vector2( 0.687852, 0.687852 )
 texture = SubResource( 4 )
 
 [node name="team_mark" type="Label" parent="."]
-margin_left = 213.0
-margin_top = 177.0
-margin_right = 231.0
-margin_bottom = 191.0
+margin_left = 98.2413
+margin_top = 169.865
+margin_right = 116.241
+margin_bottom = 183.865
 custom_fonts/font = SubResource( 5 )
 text = "團隊"
 __meta__ = {
@@ -100,15 +101,15 @@ __meta__ = {
 }
 
 [node name="switch_picture2" type="Sprite" parent="."]
-position = Vector2( 217.107, 164.583 )
+position = Vector2( 102.348, 157.448 )
 scale = Vector2( 0.687852, 0.687852 )
 texture = SubResource( 4 )
 
 [node name="person_mark" type="Label" parent="."]
-margin_left = 212.418
-margin_top = 160.541
-margin_right = 222.418
-margin_bottom = 168.541
+margin_left = 97.6593
+margin_top = 153.406
+margin_right = 107.659
+margin_bottom = 161.406
 custom_fonts/font = SubResource( 5 )
 text = "個人"
 __meta__ = {
@@ -116,24 +117,25 @@ __meta__ = {
 }
 
 [node name="switch_to_team" type="TextureButton" parent="."]
-margin_left = 211.907
-margin_top = 176.449
-margin_right = 224.907
-margin_bottom = 187.449
+margin_left = 97.1483
+margin_top = 169.314
+margin_right = 110.148
+margin_bottom = 180.314
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="switch_to_person" type="TextureButton" parent="."]
-margin_left = 210.0
-margin_top = 161.0
-margin_right = 225.0
-margin_bottom = 172.0
+margin_left = 95.2413
+margin_top = 153.865
+margin_right = 110.241
+margin_bottom = 164.865
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="person_text" type="Sprite" parent="."]
+position = Vector2( -114.759, -7.13525 )
 
 [node name="first" type="Label" parent="person_text"]
 margin_left = 136.099
@@ -246,6 +248,7 @@ __meta__ = {
 }
 
 [node name="team_text" type="Sprite" parent="."]
+position = Vector2( -114.759, -7.13525 )
 
 [node name="first" type="Label" parent="team_text"]
 margin_left = 134.72
@@ -358,6 +361,7 @@ __meta__ = {
 }
 
 [node name="block" type="Sprite" parent="."]
+position = Vector2( -114.759, -7.13525 )
 z_index = 5
 
 [node name="first_block" parent="block" instance=ExtResource( 3 )]

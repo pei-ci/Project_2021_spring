@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://top_ten_information.gd" type="Script" id=1]
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://介面/團體排行榜註解.png" type="Texture" id=3]
 [ext_resource path="res://介面/個人排行榜註解.png" type="Texture" id=4]
 

@@ -1,78 +1,78 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://information.gd" type="Script" id=2]
 [ext_resource path="res://介面/資訊欄最新版.png" type="Texture" id=3]
 [ext_resource path="res://介面/資訊欄最新版標題欄.png" type="Texture" id=4]
 [ext_resource path="res://按鈕/資訊欄收合.png" type="Texture" id=5]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 6
 extra_spacing_top = -2
 extra_spacing_bottom = -2
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 5
 extra_spacing_top = -2
 extra_spacing_bottom = -2
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=16]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [node name="information" type="Sprite"]
 script = ExtResource( 2 )

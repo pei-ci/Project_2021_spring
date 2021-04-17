@@ -302,6 +302,7 @@ func _on_Timer_timeout():
 
 func _on_MenuButton_pressed():
 	MenuButton.visible=true
+	$slect_window/MenuButton/CanvasLayer2/TextureButton.visible=true
 	yield(get_tree().create_timer(7), "timeout")
 	MenuButton.visible=false
 

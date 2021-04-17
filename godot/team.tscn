@@ -1,36 +1,35 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://NotoSerifCJKtc-Black.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://team.gd" type="Script" id=2]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/組隊介面.png-3ae28d446900ad3bafec6cb5de8c408f.stex"
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 12
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StreamTexture" id=4]
 load_path = "res://.import/組隊按鈕(兩個一樣).png-3adc44871eced423128f5ee26c124699.stex"
 
 [sub_resource type="DynamicFont" id=5]
 size = 10
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/組隊資訊.png-e165173c5e0003c170c4dc023ef961a5.stex"
 
 [sub_resource type="DynamicFont" id=7]
 size = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 10
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
@@ -75,13 +74,14 @@ __meta__ = {
 }
 
 [node name="description" type="Label" parent="team_up/background"]
-margin_left = -105.458
-margin_top = -115.781
-margin_right = 22.5421
-margin_bottom = -83.7813
+margin_left = -122.247
+margin_top = -124.273
+margin_right = 181.753
+margin_bottom = -46.2726
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "..."
+text = "輸入隊名並按下產生組隊代碼即可創建隊伍
+若要加入隊伍請輸入組隊代碼
+(以上兩者二擇一,每隊限2-10人)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
