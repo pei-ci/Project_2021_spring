@@ -2,7 +2,7 @@ import order_person as op
 import order_team as ot
 import time
 
-WAIT_SEC = 600 # update each 10 min
+WAIT_SEC = 60*60*24 # update each 1 day
 
 if __name__ == "__main__":
     while(True):

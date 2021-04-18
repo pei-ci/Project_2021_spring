@@ -3,7 +3,6 @@ import pymysql
 import random
 
 activity_table = {}
-skip = 0
 
 def connect_to_sql():
 	db_settings = {
@@ -34,36 +33,44 @@ def update_to_server(conn,data):
 		for activity in data:
 			student_id = activity[0]
 
+			number = 'AB01'
 			reward_puzzle_type = random_puzzle()
 			reward_puzzle_count = int(activity[1])
 			
 			reward_point = int(activity[2])
 			
-			#reward_puzzle_record = str(reward_puzzle_type)+str(reward_puzzle_count)
+			reward_puzzle_record = str(reward_puzzle_type)+str(reward_puzzle_count)
 
 			fetch_data = get_map_data(conn,student_id,reward_puzzle_type)
 
-			if fetch_data == None:
-				continue
+			if fetch_data != None:
+				team_point = fetch_data[1]
+				fetch_data_0 = fetch_data[0]
 
-			team_point = fetch_data[1]
-			fetch_data_0 = fetch_data[0]
+				user_id = fetch_data_0[0]
+				team_id = fetch_data_0[1]
 
-			user_id = fetch_data_0[0]
-			team_id = fetch_data_0[1]
-
-			new_user_point = fetch_data_0[3] + reward_point
-			new_team_point = team_point + reward_point
+				new_user_point = fetch_data_0[3] + reward_point
+				new_team_point = team_point + reward_point
 			
-			new_unused = int(fetch_data_0[2]) + int(reward_puzzle_count)
+				new_unused = int(fetch_data_0[2]) + int(reward_puzzle_count)
 
-			command_map = "UPDATE map SET unused"+str(reward_puzzle_type)+"='"+ str(new_unused) +"',point='"+str(new_user_point)+"' WHERE userid = '"+ str(user_id)+"'"
-			cursor.execute(command_map)   
-			conn.commit()
+				command_map = "UPDATE map SET unused"+str(reward_puzzle_type)+"='"+ str(new_unused) +"',point='"+str(new_user_point)+"' WHERE userid = '"+ str(user_id)+"'"
+				cursor.execute(command_map)   
+				conn.commit()
 
-			if team_id != None:
-				command_team = "UPDATE team SET point='"+ str(new_team_point) +"' WHERE teamid = '"+ str(team_id)+"'"
-				cursor.execute(command_team)   
+				if team_id != None:
+					command_team = "UPDATE team SET point='"+ str(new_team_point) +"' WHERE teamid = '"+ str(team_id)+"'"
+					cursor.execute(command_team)   
+					conn.commit()
+				
+				command_activity = "INSERT INTO activity (userid,stu_id,number,point,add_point) VALUE ('" +str(user_id)+"','"+str(student_id)+"','"+str(number)+"','"+str(reward_puzzle_record)+"','"+str(reward_point)+"')"
+				cursor.execute(command_activity)   
+				conn.commit()
+
+			else:
+				command_activity = "INSERT INTO activity (userid,stu_id,number,point,add_point) VALUE (" +"NULL"+",'"+str(student_id)+"','"+str(number)+"','"+str(reward_puzzle_record)+"','"+str(reward_point)+"')"
+				cursor.execute(command_activity)   
 				conn.commit()
 
 def get_map_data(conn,uid,num):
@@ -74,8 +81,6 @@ def get_map_data(conn,uid,num):
 
 		if(len(result_map)!=1):
 			#print('Pass userid '+str(uid) + " !")
-			global skip
-			skip += 1
 			return None
 
 		team_point = -1
@@ -113,4 +118,3 @@ if __name__ == '__main__':
 
 	print('-----------------------------------')
 	print('Total user : '+str(len(data)-1))
-	print('Total upload : '+str(len(data)-skip-1))
