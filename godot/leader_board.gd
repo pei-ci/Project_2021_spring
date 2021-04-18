@@ -13,6 +13,8 @@ func _on_close_pressed():
 	world.set_buttons_visibility(true)
 	self.visible=false
 	_set_block_status("person")#頁面預設狀態是個人 因此要設定回個人true
+	$team_text.visible=false
+	$person_text.visible=true
 
 #切換到團體
 func _on_switch_to_team_pressed():
