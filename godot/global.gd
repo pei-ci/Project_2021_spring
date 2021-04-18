@@ -259,6 +259,7 @@ func _set_title_information(title_num):#設定顯示在資訊欄上的稱號
 	if title_status[title_num]>0:#已獲得此稱號 才可以設定顯示在資訊欄上的稱號
 		world.send_set_title_request(title_num)
 		title_user=title_list[title_num]
+		
 
 func _get_num_of_type():
 	if puddle_user>0:

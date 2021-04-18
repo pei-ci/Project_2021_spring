@@ -26,7 +26,8 @@ func _set_up():
 	$total_puzzle.text = total_puzzle_user
 	$title.text = title_user
 	$team.text = team_user
-	$total_point.text =  str(total_point_user)
+	$total_point.text = str(total_point_user)
+	_set_title_line()
 	
 
 	
