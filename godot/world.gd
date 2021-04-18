@@ -611,19 +611,19 @@ func _on_TextureButton_mouse_entered():
 func clear_signpost_text():
 	set_signpost_text("")
 
-var lines_limit_num=5
-var line_char_num=5
+var lines_limit_num=9
+var line_char_num=10
 func refresh_news():
 	var news_list=Data.get_news_list()
 	var append_string=""
 	var text_line_num=0
-	$news.text=""
+	$news/news.text=""
 	for news in news_list:
 		append_string=change_line(news,line_char_num)
 		text_line_num+=line_num
 		if text_line_num>lines_limit_num: 
 			break
-		$news.text+=append_string+"\n"
+		$news/news.text+=append_string+"\n"
 		
 var line_num
 func change_line(string,num):
