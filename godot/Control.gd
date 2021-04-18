@@ -104,7 +104,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		else:
 			if(data['error']=='error_user_or_password'):
 				Data.debug_msg(1,"Login Error : Error User or Password!")
-				$PasswordLabel.text = 'Error User or Password'
+				$PasswordLabel.text = '帳號或密碼錯誤'
 				#show login failed message
 				pass
 			else:
@@ -114,7 +114,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			login_to_server()
 		else:
 			if(data['error'] == 'user_exist'):
-				Data.debug_msg(0,"Register Error : User Exist!")
+				$Register.visible = false
+				$PasswordLabel.text = '此帳號已註冊'
+				Data.debug_msg(1,"Register Error : User Exist!")
 			else:
 				Data.debug_msg(0,"Register Error : Unknown!")
 	elif(data['type'] == 'log'):
