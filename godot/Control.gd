@@ -127,8 +127,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			Data.debug_msg(0,"Log Login Error : Unknown!")
 	finish_request_queue(data['type'])
 func check_input():
-	if ((len(username)>=8 && len(username)<=9) && password!=""):
-		return true
+	if len(username)>=8 and len(username)<=10:
+		if password!="":
+			return true
+		else:
+			$PasswordLabel.text = '請輸入密碼'
+	else:
+		$UsernameLabel.text = '請輸入學號'
 	return false
 
 
