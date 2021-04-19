@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://title_storehouse.tscn" type="PackedScene" id=1]
 [ext_resource path="res://leader_board.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://小徑/往長庚科大指示牌.png" type="Texture" id=17]
 [ext_resource path="res://小徑/往明志科大指示牌.png" type="Texture" id=18]
 [ext_resource path="res://底圖/拼圖介面大底圖更.png" type="Texture" id=19]
+[ext_resource path="res://介面/即時資訊介面.png" type="Texture" id=20]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/寶物bg.png-56ea1af653d1f964c2c51c4c46fb1eb7.stex"
@@ -42,43 +43,43 @@ load_path = "res://.import/特殊拼圖2-dark.png-513ea83f99e25eb54cae6cf5d06cd8
 [sub_resource type="StreamTexture" id=7]
 load_path = "res://.import/特殊拼圖2.png-3248844de0e4dafab2a5375deea9df25.stex"
 
-[sub_resource type="DynamicFont" id=19]
-size = 6
+[sub_resource type="DynamicFont" id=8]
+size = 4
 extra_spacing_bottom = -1
 font_data = ExtResource( 12 )
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/特殊拼圖3-dark.png-cfb7d998504c17f8eb174a40ba4ec94f.stex"
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=10]
 load_path = "res://.import/特殊拼圖3.png-0db49d1fde8671f4a69faaebe14cd852.stex"
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 8
 font_data = ExtResource( 12 )
 
-[sub_resource type="StreamTexture" id=11]
+[sub_resource type="StreamTexture" id=12]
 load_path = "res://.import/蛋殼(零成長).png-c23030573fc5314e0ed6df8b966156f1.stex"
 
-[sub_resource type="StreamTexture" id=12]
+[sub_resource type="StreamTexture" id=13]
 load_path = "res://.import/關懷付出(成長).png-09501146e7b421941ba2f4d119aed0a9.stex"
 
-[sub_resource type="StreamTexture" id=13]
+[sub_resource type="StreamTexture" id=14]
 load_path = "res://.import/團隊合作(成長).png-670769907f93703e0fa2b25676a51362.stex"
 
-[sub_resource type="StreamTexture" id=14]
+[sub_resource type="StreamTexture" id=15]
 load_path = "res://.import/人文藝術(成長).png-95d9b9f9fab06ac4aaba66dc93984576.stex"
 
-[sub_resource type="StreamTexture" id=15]
+[sub_resource type="StreamTexture" id=16]
 load_path = "res://.import/自我省思(成長).png-1b18100ff8b92ce198c86b018123acf6.stex"
 
-[sub_resource type="StreamTexture" id=16]
+[sub_resource type="StreamTexture" id=17]
 load_path = "res://.import/守分自律(成長).png-5dc2264ec199eb191834c18a358f7e59.stex"
 
-[sub_resource type="StreamTexture" id=17]
+[sub_resource type="StreamTexture" id=18]
 load_path = "res://.import/創新進取(成長).png-f08fb9aa2dbeba3a7869e4655fb3b721.stex"
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=19]
 size = 10
 font_data = ExtResource( 12 )
 
@@ -369,45 +370,19 @@ __meta__ = {
 
 [node name="news" type="Sprite" parent="."]
 
-[node name="news_backage1" type="ColorRect" parent="news"]
-margin_left = 405.786
-margin_top = 45.7081
-margin_right = 479.786
-margin_bottom = 164.708
-color = Color( 0.423529, 0.415686, 0.321569, 0.207843 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="news_backage2" type="ColorRect" parent="news"]
-margin_left = 411.859
-margin_top = 58.5071
-margin_right = 473.859
-margin_bottom = 59.5071
-color = Color( 0.545098, 0.337255, 0.458824, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="news_heading" type="Label" parent="news"]
-margin_left = 411.859
-margin_top = 49.3132
-margin_right = 435.859
-margin_bottom = 58.3132
-custom_fonts/font = SubResource( 19 )
-text = "即時訊息"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="news_background" type="Sprite" parent="news"]
+position = Vector2( 439.719, 87.78 )
+scale = Vector2( 0.120102, 0.120102 )
+texture = ExtResource( 20 )
 
 [node name="news" type="Label" parent="news"]
-margin_left = 412.859
-margin_top = 62.5071
-margin_right = 474.859
-margin_bottom = 169.507
-custom_fonts/font = SubResource( 19 )
-text = "
-"
+margin_left = 408.0
+margin_top = 72.0
+margin_right = 470.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.290196, 0.266667, 0.235294, 1 )
+text = "近日登入"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -437,12 +412,12 @@ script = ExtResource( 13 )
 [node name="default_puzzle" type="Sprite" parent="special_puzzle3"]
 position = Vector2( -0.974609, -17.4727 )
 scale = Vector2( 0.0670874, 0.0670874 )
-texture = SubResource( 8 )
+texture = SubResource( 9 )
 
 [node name="special_puzzle" type="Sprite" parent="special_puzzle3"]
 position = Vector2( -10.7856, -35.8042 )
 scale = Vector2( 0.274264, 0.274264 )
-texture = SubResource( 9 )
+texture = SubResource( 10 )
 
 [node name="TextureButton" type="TextureButton" parent="special_puzzle3"]
 margin_left = -114.0
@@ -484,7 +459,7 @@ margin_left = 379.62
 margin_top = 254.317
 margin_right = 469.62
 margin_bottom = 267.317
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.517647, 0.654902, 0.584314, 0.517647 )
 text = "點開活動中心50次看看吧"
 __meta__ = {
@@ -494,37 +469,37 @@ __meta__ = {
 [node name="icon0" type="Sprite" parent="."]
 position = Vector2( 57.3069, 38.0326 )
 scale = Vector2( 0.101274, 0.101635 )
-texture = SubResource( 11 )
+texture = SubResource( 12 )
 
 [node name="icon1" type="Sprite" parent="."]
 position = Vector2( 56.8839, 38.5365 )
 scale = Vector2( 0.0952162, 0.0952162 )
-texture = SubResource( 12 )
+texture = SubResource( 13 )
 
 [node name="icon2" type="Sprite" parent="."]
 position = Vector2( 56.603, 38.9756 )
 scale = Vector2( 0.0953494, 0.0953494 )
-texture = SubResource( 13 )
+texture = SubResource( 14 )
 
 [node name="icon3" type="Sprite" parent="."]
 position = Vector2( 57.0348, 38.8246 )
 scale = Vector2( 0.0963843, 0.0963843 )
-texture = SubResource( 14 )
+texture = SubResource( 15 )
 
 [node name="icon4" type="Sprite" parent="."]
 position = Vector2( 57.192, 38.8544 )
 scale = Vector2( 0.0970528, 0.0970291 )
-texture = SubResource( 15 )
+texture = SubResource( 16 )
 
 [node name="icon5" type="Sprite" parent="."]
 position = Vector2( 56.9532, 38.5959 )
 scale = Vector2( 0.0969869, 0.0969869 )
-texture = SubResource( 16 )
+texture = SubResource( 17 )
 
 [node name="icon6" type="Sprite" parent="."]
 position = Vector2( 57.5874, 38.3961 )
 scale = Vector2( 0.0956561, 0.095656 )
-texture = SubResource( 17 )
+texture = SubResource( 18 )
 
 [node name="signpost_background" type="ColorRect" parent="."]
 margin_left = 390.732
@@ -541,7 +516,7 @@ margin_left = 390.732
 margin_top = 10.0518
 margin_right = 479.732
 margin_bottom = 33.0518
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
 align = 1
 valign = 1
 __meta__ = {

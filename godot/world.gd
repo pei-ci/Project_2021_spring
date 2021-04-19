@@ -598,7 +598,7 @@ func _on_puzzle_map_button_mouse_entered():
 
 
 func _on_cug_puzzles_map_button_mouse_entered():
-	set_signpost_text("cgu拼圖")
+	set_signpost_text("CGU拼圖")
 	
 func _on_path_mouse_entered():
 	set_signpost_text("小徑")
@@ -611,8 +611,8 @@ func _on_TextureButton_mouse_entered():
 func clear_signpost_text():
 	set_signpost_text("")
 
-var lines_limit_num=9
-var line_char_num=10
+var lines_limit_num=6
+var line_char_num=15
 func refresh_news():
 	var news_list=Data.get_news_list()
 	var append_string=""

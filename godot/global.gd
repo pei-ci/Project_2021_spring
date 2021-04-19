@@ -297,8 +297,10 @@ func _set_up_puzzle_and_title():
 	#取得拼圖總數
 	total_puzzle_user=str(finished_puzzle_user+_get_unfinished_puzzle())
 	#這邊是稱號的設定
+	_set_up_puzzle_upgrade_info()
 	_check_title_status()
 	_check_receive_special_puzzle()
+	
 		
 func _refresh_data():
 	_set_up_puzzle_and_title()
