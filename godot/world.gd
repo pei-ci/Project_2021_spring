@@ -7,7 +7,6 @@ var have_team = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_set_up()	
 	Data.connect("refresh",self,"refresh_information")
 	Data.connect("activity_window_open",self,"_open_activity_window")
 	
@@ -17,6 +16,15 @@ func _ready():
 	send_activity_request()
 	send_emergency_info_request()
 	send_news_request()
+	lock_cgu_puzzle_button()
+	_set_up()
+	
+func lock_cgu_puzzle_button():
+	$cug_puzzles_map_button.visible=false
+	$cug_puzzles_map_button2.visible=false
+	yield(get_tree().create_timer(2), "timeout")
+	$cug_puzzles_map_button.visible=true
+	$cug_puzzles_map_button2.visible=true
 		
 func _set_up():#使用_set_up會把目前global的資料設定到 所有的顯示和需要的資料的地方 並檢查稱號
 	# Because following data have not request to server
@@ -44,9 +52,8 @@ func refresh_information():
 	refresh_team_information()
 	refresh_icon()
 	refresh_puzzle_store_information()
-	refresh_special_puzzle()
 	refresh_news()
-	
+	check_special_hint()
 	
 func refresh_information_information():
 	#資訊欄
@@ -136,9 +143,6 @@ func refresh_icon():
 	if icon_type==6:
 		$icon6.visible=true
 
-func refresh_special_puzzle():
-	Data._check_receive_special_puzzle()
-	check_special_hint()
 
 func _open_activity_window():
 	$activity/activity.visible=true
@@ -147,6 +151,7 @@ func _open_activity_window():
 	$activity/activity/page_02.visible=false
 	$activity/activity/page_03.visible=false
 	$activity/activity/page_04.visible=false
+
 
 func have_team():
 	if have_team:#這邊要放入可判斷是否組隊的參數
@@ -611,7 +616,7 @@ func _on_TextureButton_mouse_entered():
 func clear_signpost_text():
 	set_signpost_text("")
 
-var lines_limit_num=6
+var lines_limit_num=9
 var line_char_num=15
 func refresh_news():
 	var news_list=Data.get_news_list()

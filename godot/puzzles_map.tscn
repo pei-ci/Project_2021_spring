@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://puzzles_map.gd" type="Script" id=1]
 [ext_resource path="res://puzzle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://底圖/拼圖背景2.png" type="Texture" id=3]
+[ext_resource path="res://font/SourceHanSerifTW-Medium.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/關閉按鈕一版.png-0877cc0f427a3e02d4fee65289d0c79e.stex"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
 
 [node name="puzzles_map" type="Sprite"]
 position = Vector2( 240.58, 137.482 )
@@ -671,4 +675,16 @@ scale = Vector2( 1.51462, 1.51462 )
 [node name="AJ16" parent="puzzles" instance=ExtResource( 2 )]
 position = Vector2( 241.929, 145.384 )
 scale = Vector2( 1.51462, 1.51462 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.1668
+margin_top = 167.271
+margin_right = 291.167
+margin_bottom = 191.271
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.329412, 0.352941, 0.337255, 1 )
+text = "Tips:每種拼圖最高可升級至Lv.3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]

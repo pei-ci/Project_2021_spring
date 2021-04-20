@@ -223,28 +223,28 @@ func _check_title_status():
 	if _get_num_of_type()>=6:
 		_set_title_status("10")
 	
-	if up_grade_time>=1:
-		_set_title_status("11")
-	if up_grade_time>=5:
-		_set_title_status("12")
 	if up_grade_time>=10:
+		_set_title_status("11")
+	if up_grade_time>=50:
+		_set_title_status("12")
+	if up_grade_time>=100:
 		_set_title_status("13")
 	
-	if full_level_puzzle_num>=1:
-		_set_title_status("14")
-	if full_level_puzzle_num>=3:
-		_set_title_status("15")
 	if full_level_puzzle_num>=10:
+		_set_title_status("14")
+	if full_level_puzzle_num>=30:
+		_set_title_status("15")
+	if full_level_puzzle_num>=100:
 		_set_title_status("16")
 	
 	if emergency_solve_time>=1:
 		_set_title_status("17")		
 	if emergency_solve_time>=5:
 		_set_title_status("18")
-	if emergency_solve_time>=10:
+	if emergency_solve_time>=15:
 		_set_title_status("19")	
 	
-	if emergency_correct_time>=5:
+	if emergency_correct_time>=10:
 		_set_title_status("20")
 	if _get_special_puzzle_status(1)=="10" or _get_special_puzzle_status(2)=="10":
 		_set_title_status("21")

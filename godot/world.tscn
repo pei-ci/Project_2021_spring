@@ -371,18 +371,21 @@ __meta__ = {
 [node name="news" type="Sprite" parent="."]
 
 [node name="news_background" type="Sprite" parent="news"]
-position = Vector2( 439.719, 87.78 )
-scale = Vector2( 0.120102, 0.120102 )
+position = Vector2( 437.655, 94.9395 )
+scale = Vector2( 0.112709, 0.112709 )
 texture = ExtResource( 20 )
 
 [node name="news" type="Label" parent="news"]
 margin_left = 408.0
-margin_top = 72.0
+margin_top = 57.0
 margin_right = 470.0
-margin_bottom = 117.0
+margin_bottom = 142.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.290196, 0.266667, 0.235294, 1 )
-text = "近日登入"
+text = "近日登入
+
+
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
