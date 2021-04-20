@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Control.gd" type="Script" id=2]
@@ -34,6 +34,9 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 4 )
 Label/styles/normal = null
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 9 )
 
 [node name="login" type="Control"]
 anchor_right = 1.0
@@ -157,6 +160,18 @@ __meta__ = {
 [node name="Register" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 70.3951, 23.3702 )
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 123.368
+margin_top = 232.201
+margin_right = 364.368
+margin_bottom = 256.201
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.27451, 0.27451, 0.27451, 1 )
+text = "Tips : 請先註冊後再登入開始遊戲"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_changed" from="Username" to="." method="_on_user_changed"]
 [connection signal="text_entered" from="Username" to="." method="_on_LineEdit_text_entered"]
 [connection signal="text_changed" from="Password" to="." method="_on_password_changed"]

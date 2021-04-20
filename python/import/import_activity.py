@@ -38,11 +38,11 @@ def update_to_server(conn,data):
 	data = data[1:] #remove text description in first row
 	with conn.cursor() as cursor:
 		for activity in data:
-			student_id = activity[0]
-			if len(activity[5])==1:
-				number = activity[3]+activity[4]+'0'+activity[5]
+			student_id = activity[3]
+			if len(activity[2])==1:
+				number = activity[0]+activity[1]+'0'+activity[2]
 			else:
-				number = activity[3]+activity[4]+activity[5]
+				number = activity[0]+activity[1]+activity[2]
 			get_point = 100
 
 			reward_puzzle_type,reward_puzzle_count,reward_point = get_activity_point(number)
