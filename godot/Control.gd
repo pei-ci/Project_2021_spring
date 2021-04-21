@@ -99,7 +99,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		if(data['sucess'] == 'true'):
 			Data.login_certification = data["validation"]
 			Data.login_time = int(data['login_time'])
-			#print(Data.login_certification)
+			#print(Data.login_time)
 			log_login_to_server()
 		else:
 			if(data['error']=='error_user_or_password'):
