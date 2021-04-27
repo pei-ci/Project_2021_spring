@@ -83,6 +83,7 @@ func _close_button():
 #ABC選項
 #2選項規則設定
 func _on_A_pressed():
+	$option.visible = false
 	#Data._get_event_status(event_data["number"]) 回答次數判斷
 	var is_reply = _answer_reply("A")#某些題目選到特定選項會出現
 	if is_reply:                     #暫停畫面
@@ -95,6 +96,7 @@ func _on_A_pressed():
 	
 
 func _on_B_pressed():
+	$option.visible = false
 	var is_reply = _answer_reply("B")#某些題目選到特定選項會出現
 	if is_reply:
 		yield(get_tree().create_timer(2.5), "timeout")
@@ -107,6 +109,7 @@ func _on_B_pressed():
 
 
 func _on_C_pressed():
+	$option.visible = false
 	var is_reply = _answer_reply("C")#某些題目選到特定選項會出現
 	if is_reply:
 		yield(get_tree().create_timer(2.5), "timeout")
