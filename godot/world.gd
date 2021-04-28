@@ -616,7 +616,7 @@ func _on_TextureButton_mouse_entered():
 func clear_signpost_text():
 	set_signpost_text("")
 
-var lines_limit_num=9
+var lines_limit_num=13
 var line_char_num=15
 func refresh_news():
 	var news_list=Data.get_news_list()
